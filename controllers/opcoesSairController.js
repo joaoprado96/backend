@@ -24,3 +24,13 @@ exports.adicionarOpcoesSair = async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 };
+
+// Nova função para buscar opções
+exports.buscarOpcoesSair = async (req, res) => {
+    try {
+        const opcoes = await OpcoesSair.find();
+        res.status(200).json(opcoes);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
