@@ -1,0 +1,30 @@
+1. Baixar os Arquivos de Instalação do Rust
+Primeiro, você precisa baixar os arquivos necessários para a instalação do Rust. Como você não pode baixar da rede durante a construção do Docker, você deve fazer isso antecipadamente e incluir os arquivos no seu projeto:
+
+Acesse o site oficial do Rust. https://www.rust-lang.org/tools/install
+
+Baixe o instalador apropriado para o seu sistema operacional (normalmente, um arquivo com extensão .tar.gz para sistemas baseados em Linux).
+
+2. Preparar o Projeto
+Inclua o arquivo baixado do Rust no diretório do seu projeto. Por exemplo, você pode criar uma pasta chamada rust_installer no seu projeto e colocar o arquivo lá.
+
+3. Escrever o Dockerfile
+No seu Dockerfile, você vai precisar copiar o instalador para o container e executá-lo. Aqui está um exemplo de como seu Dockerfile pode parecer:
+
+# Use uma imagem base do Linux
+FROM ubuntu:latest
+
+# Copiar o instalador do Rust para o container
+COPY ./rust_installer/rust_installer.tar.gz /tmp/rust_installer.tar.gz
+
+# Configurar um ambiente de trabalho
+WORKDIR /usr/src/myapp
+
+# Instalar dependências necessárias (ajuste conforme necessário)
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl
+
+# Extrair e instalar o Rust
+RUN tar -xzf /tmp/rust_installer.tar.gz -C /tmp && \
+    sh /tmp/rust_installer/install.sh

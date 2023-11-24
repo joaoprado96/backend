@@ -6,8 +6,8 @@ url = "http://localhost:3000/api/opcoes-sair"
 
 # Dados a serem enviados
 dados = {
-    "opcoes_cidades": ["São Paulo"],
-    "opcoes_bairros": ["Moóca", "Tatuapé", "Penha", "Itaquera"],
+    "opcoes_cidade": ["São Paulo"],
+    "opcoes_bairro": ["Moóca", "Tatuapé", "Penha", "Itaquera"],
     "opcoes_regiao": ["Centro", "Zona Leste", "Zona Oeste", "Zona Norte", "Zona Sul"],
     "opcoes_entrada": ["Gratuita", "10", "20", "Variável"],
     "opcoes_estacao": ["Linha 1", "Linha 2"],
@@ -18,10 +18,11 @@ dados = {
     "opcoes_estacionamento": ["Sim", "Não"],
     "opcoes_cover": ["Sim", "Não"],
     "opcoes_kids": ["Sim", "Não"],
-    "opcoes_musical": ["Axé", "Black Music", "Blues", "Bossa Nova", "Clássica", "Dance", "Disco", "Eletrônica", "Emocore", "Funk", "Funk Carioca", "Folk", "Forró", "Gospel/Religioso", "Gótico", "Hard Rock", "Hip-Hop", "Heavy Metal", "House", "Infantil", "Indie", "Instrumental", "J-Pop/J-Rock", "Jazz", "K-pop/K-rock", "Latina", "Lo-Fi", "MPB", "Metal", "Pop", "Pagode", "Psicodelia", "Pop/Rock", "Punk Rock", "Rock", "Rock Alternativo", "Reggae", "Rap", "Reggaeton", "Sertanejo", "Samba", "Samba Enredo", "Soul", "Trap"],
+    "opcoes_estilo_musical": ["Axé", "Black Music", "Blues", "Bossa Nova", "Clássica", "Dance", "Disco", "Eletrônica", "Emocore", "Funk", "Funk Carioca", "Folk", "Forró", "Gospel/Religioso", "Gótico", "Hard Rock", "Hip-Hop", "Heavy Metal", "House", "Infantil", "Indie", "Instrumental", "J-Pop/J-Rock", "Jazz", "K-pop/K-rock", "Latina", "Lo-Fi", "MPB", "Metal", "Pop", "Pagode", "Psicodelia", "Pop/Rock", "Punk Rock", "Rock", "Rock Alternativo", "Reggae", "Rap", "Reggaeton", "Sertanejo", "Samba", "Samba Enredo", "Soul", "Trap"],
     "opcoes_cozinha": ["Africana", "Alemã", "Árabe", "Armênia", "Brasileira", "Brunch", "Bares/Pubs", "Cafeterias", "Coreana", "Chinesa", "Churrasco", "Espanhola", "Francesa", "Frutos do mar", "Grega", "Hamburgueria", "Ibérica", "Italiana", "Indiana", "Japonesa", "Lanches", "Libanesa", "Mediterrânea", "Mexicana", "Peruana", "Pizza", "Poke", "Portuguesa", "Russa", "Saudável", "Sobremesas", "Tailandesa", "Vietnamita", "Vegetariana", "Vegana"],
     "opcoes_local": ["padaria", "restaurante", "lanchonete", "hamburgueria", "bar", "pub", "cafeterias", "Casa de Show", "Clube de comédia", "Parques e áreas ao ar livre", "Cervejaria", "doceria", "Bolaria", "confeitaria"],
     "opcoes_preco": [1, 2, 3, 4, 5],
+    "opcoes_hobby":["Jogos de tabuleiro","Fliperama","Video Game","leitura","Praticar esportes","Cantar"],
     "opcoes_tipo_evento": ["Primeiro encontro", "Beber e dançar", "Conversar", "Lugares romântico", "Reunião de amigos", "Encontro familiar", "Festa de aniversário", "Happy Hour", "Assistir jogos esportivos", "Sair sozinho", "Clube de comédia", "Balada", "Experiência gastronômica", "Cabaré/Boates", "Música ao vivo", "Diferentão", "Próprio para crianças", "Show de Comédia", "Karaokê", "Rodízio", "Open bar/food", "LGBTQIA+", "Comer e Jogar"],
     "opcoes_ambiente": ["Jardim", "Jantar ao ar livre", "Rooftop", "Fumódromo", "Terraço", "Melhores vistas", "Intimista", "Temático", "Vista para o mar", "Térreo", "Despojado"],
     "opcoes_cartao": ["American Express", "Banricompras – Crédito", "Banricompras", "Ben Refeição", "Cooper Card", "Cheque", "Dinheiro", "Diners", "Elo – Crédito", "Elo", "Hipercard", "Goodcard", "Mastercard – Crédito", "Mastercard", "Refeisul", "Ticket", "Card", "Vale Alelo Refeição", "Verocard", "Visa – Crédito", "Visa", "VR Refeição"],

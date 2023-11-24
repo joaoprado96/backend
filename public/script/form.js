@@ -1,11 +1,51 @@
+const todosOsCampos = new Set([
+    'id', 'descricao', 'rua', 'cep', 'cidade', 'bairro', 'regiao', 'entrada', 'estacao', 'estrelas', 
+    'avaliacao_clientes', 'avaliacao_pagina', 'descricao_pagina', 'link_pagina', 'midia_pagina', 
+    'acessibilidade', 'musica', 'estacionamento', 'cover', 'kids', 'website', 'premio', 'estilo_musical', 
+    'cozinha', 'local', 'preco', 'tipo_evento', 'hobby', 'ambiente', 'cartao', 'dias', 'hora', 'pet', 
+    'estilo_servico', 'glutenfree', 'lactosefree'
+]);
+
+document.addEventListener('DOMContentLoaded', function() { 
+    fetch('/api/opcoes-sair')
+        .then(response => response.json())
+        .then(data => {
+            const form = document.getElementById('lugarForm');
+            todosOsCampos.forEach(campo => {
+                const opcoes = data[0]['opcoes_' + campo];
+                if (opcoes && opcoes.length > 0) {
+                    const { label, select } = createSelectField(campo, opcoes);
+                    form.appendChild(label);
+                    form.appendChild(select);
+                } else {
+                    const { label, input } = createTextField(campo);
+                    form.appendChild(label);
+                    form.appendChild(input);
+                }
+            });
+
+            // Botão de enviar
+            const submitButton = document.createElement('button');
+            submitButton.type = 'submit';
+            submitButton.className = 'btn btn-primary';
+            submitButton.textContent = 'Enviar';
+            form.appendChild(submitButton);
+
+            // Inicializar os campos Select2
+            $('.form-select').select2();
+        });
+});
+
 function createSelectField(fieldName, options) {
     const label = document.createElement('label');
-    label.textContent = fieldName.charAt(0).toUpperCase() + fieldName.slice(1).replace(/_/g, ' ') + ':';
+    label.textContent = formatLabel(fieldName);
     label.htmlFor = fieldName;
+    label.className = 'form-label';
 
     const select = document.createElement('select');
     select.name = fieldName;
     select.id = fieldName;
+    select.className = 'form-select';
 
     options.forEach(option => {
         const optionElement = document.createElement('option');
@@ -17,69 +57,19 @@ function createSelectField(fieldName, options) {
     return { label, select };
 }
 
-function createNumberField(fieldName) {
+function createTextField(fieldName) {
     const label = document.createElement('label');
-    label.textContent = fieldName.charAt(0).toUpperCase() + fieldName.slice(1).replace(/_/g, ' ') + ':';
+    label.textContent = formatLabel(fieldName);
     label.htmlFor = fieldName;
 
     const input = document.createElement('input');
-    input.type = 'number';
+    input.type = 'text';
     input.name = fieldName;
     input.id = fieldName;
 
     return { label, input };
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('/api/opcoes-sair')
-        .then(response => response.json())
-        .then(data => {
-            const form = document.getElementById('lugarForm');
-
-            data.forEach(opcao => {
-                for (const key in opcao) {
-                    if (Array.isArray(opcao[key]) && opcao[key].length > 0) {
-                        const { label, select } = createSelectField(key, opcao[key]);
-                        form.appendChild(label);
-                        form.appendChild(select);
-                    } else if (typeof opcao[key] === 'number') {
-                        const { label, input } = createNumberField(key);
-                        form.appendChild(label);
-                        form.appendChild(input);
-                    }
-                }
-            });
-
-            const submitButton = document.createElement('button');
-            submitButton.type = 'submit';
-            submitButton.textContent = 'Enviar';
-            form.appendChild(submitButton);
-        });
-
-    document.getElementById('lugarForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const formData = new FormData(this);
-        const data = {};
-        formData.forEach((value, key) => {
-            data[key] = value;
-        });
-
-        fetch('/api/lugares', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            alert('Lugar adicionado com sucesso!');
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('Erro ao adicionar lugar.');
-        });
-    });
-});
+function formatLabel(fieldName) {
+    return fieldName.charAt(0).toUpperCase() + fieldName.slice(1).replace(/_/g, ' ') + ':';
+}

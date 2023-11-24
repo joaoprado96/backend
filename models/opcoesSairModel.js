@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const opcoesSchema = new mongoose.Schema({
-    opcoes_cidades: [String],
+    opcoes_cidade: [String],
     opcoes_bairro: [String],
     opcoes_regiao: [String],
     opcoes_entrada: [String],
@@ -13,7 +13,7 @@ const opcoesSchema = new mongoose.Schema({
     opcoes_estacionamento: [String],
     opcoes_cover: [String],
     opcoes_kids: [String],
-    opcoes_musical: [String],
+    opcoes_estilo_musical: [String],
     opcoes_cozinha: [String],
     opcoes_local: [String],
     opcoes_preco: [Number],
