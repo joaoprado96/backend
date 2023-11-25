@@ -43,29 +43,93 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+function criarAvaliacao(avaliacao) {
+    const maxEstrelas = 5;
+    const estrelasPreenchidas = Math.round(avaliacao);
+
+    let estrelasHtml = '';
+    for (let i = 1; i <= maxEstrelas; i++) {
+        if (i <= estrelasPreenchidas) {
+            estrelasHtml += '<span class="star">&#9733;</span>'; // Estrela preenchida
+        } else {
+            estrelasHtml += '<span class="unfilled-star">&#9733;</span>'; // Estrela vazia
+        }
+    }
+
+    return `<div class="rating">${estrelasHtml}</div>`;
+}
+
+
+
 function criarCardDetalhe(estabelecimento) {
+    console.log(estabelecimento);
     return `
     <div class="container">
         <h1>${estabelecimento.nome}</h1>
         <p>${estabelecimento.descricao}</p>
         <h2>avalicação</h2>
         <div class="row">
-            <div class="col-6">
-                <p><strong>estrelas:</strong> ${estabelecimento.estrelas}</p>
+            <div class="col-2">
+                <h5>estrelas</h5>
+                <div class="rating">
+                    ${criarAvaliacao(estabelecimento.estrelas)}
+                </div>
             </div>
-            <div class="col-6">
-                <p><strong>clientes:</strong> ${estabelecimento.avaliacao_clientes}</p>
+            <div class="col-2">
+                <h5>avalição clientes</h5>
+                <div class="rating">
+                    ${criarAvaliacao(estabelecimento.avaliacao_clientes)}
+                </div>
+            </div>
+            <div class="col-2">
+                <h5>preço</h5>
+                <div class="rating">
+                    ${criarAvaliacao(estabelecimento.preco)}
+                </div>
             </div>
         </div>
 
-        <h2>localização</h2>
+        <br><h2>comodidades</h2>
+        <div class="row">
+            <div class="col-3">
+                <h6>musica</h6>
+                <p>${estabelecimento.musica === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
+            </div>
+            <div class="col-3">
+                <h6>estacionamento</h6>
+                <p>${estabelecimento.estacionamento === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
+            </div>
+            <div class="col-3">
+                <h6>área kids</h6>
+                <p>${estabelecimento.kids === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
+            </div>
+            <div class="col-3">
+                <h6>taxa de cover</h6>
+                <p>${estabelecimento.cover === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
+            </div>
+            <div class="col-3">
+                <h6>pet</h6>
+                <p>${estabelecimento.pet === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
+            </div>
+            <div class="col-3">
+                <h6>gluten free</h6>
+                <p>${estabelecimento.glutenfree === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
+            </div>
+            <div class="col-3">
+                <h6>lactose free</h6>
+                <p>${estabelecimento.lactosefree === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
+            </div>
+        </div>
+        
+        <br><h2>localização</h2>
         <p><strong>endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep} </p>
         <p><strong>bairro:</strong> ${estabelecimento.bairro} </p>
         <p><strong>cidade:</strong> ${estabelecimento.cidade} </p>
         
-        <h2>contato</h2>
+        <br><h2>contato</h2>
 
-        <h2>fotos</h2>
+        <br><h2>fotos</h2>
+        <br>
     </div>
     `;
 }

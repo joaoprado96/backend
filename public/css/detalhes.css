@@ -17,3 +17,15 @@
     text-align: center;
     margin-bottom: 5px;
 }
+
+.rating {
+    font-size: 24px;
+}
+
+.star {
+    color: #ffc107; /* Cor das estrelas preenchidas */
+}
+
+.unfilled-star {
+    color: #ccc; /* Cor das estrelas vazias */
+}
