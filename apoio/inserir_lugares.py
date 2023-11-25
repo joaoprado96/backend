@@ -35,7 +35,7 @@ url = 'http://localhost:3000/api/lugares'  # Substitua pela URL correta da sua A
 # Função para gerar um lugar aleatório
 def gerar_lugar_aleatorio():
     return {
-        "id": faker.uuid4(),
+        "nome": faker.name(),
         "descricao": faker.text(),
         "rua": faker.street_address(),
         "cep": faker.postcode(),
@@ -59,7 +59,7 @@ def gerar_lugar_aleatorio():
         "premio": [faker.word()],
         "estilo_musical": random.choices(opcoes_musical, k=random.randint(1, 5)),
         "cozinha": random.choices(opcoes_cozinha, k=random.randint(1, 5)),
-        "local": random.choice(opcoes_local),
+        "local": random.choices(opcoes_local,k=random.randint(1, 5)),
         "preco": random.choice(opcoes_preco),
         "tipo_evento": random.choices(opcoes_tipo_evento, k=random.randint(1, 5)),
         "hobby": [faker.word()],
@@ -78,6 +78,6 @@ for _ in range(50):
     lugar = gerar_lugar_aleatorio()
     response = requests.post(url, json=lugar)
     if response.status_code == 201:
-        print(f"Lugar {lugar['id']} adicionado com sucesso.")
+        print(f"Lugar {lugar['nome']} adicionado com sucesso.")
     else:
-        print(f"Erro ao adicionar lugar {lugar['id']}: {response.status_code}")
+        print(f"Erro ao adicionar lugar {lugar['nome']}: {response.status_code}")

@@ -3,7 +3,7 @@ const OpcoesSair = require('../models/opcoesSairModel');
 exports.adicionarOpcoesSair = async (req, res) => {
     const {
         opcoes_cidade, opcoes_bairro, opcoes_regiao, opcoes_entrada, opcoes_estacao,
-        opcoes_estrelas, opcoes_avaliacao, opcoes_acessibilidade, opcoes_musica, opcoes_estacionamento,
+        opcoes_estrelas, opcoes_avaliacao_clientes, opcoes_avaliacao_pagina, opcoes_acessibilidade, opcoes_musica, opcoes_estacionamento,
         opcoes_cover, opcoes_kids, opcoes_estilo_musical, opcoes_cozinha, opcoes_local, opcoes_preco,
         opcoes_tipo_evento, opcoes_hobby, opcoes_ambiente, opcoes_cartao, opcoes_dias,
         opcoes_hora, opcoes_pet, opcoes_estilo_servico, opcoes_glutenfree, opcoes_lactosefree
@@ -12,7 +12,7 @@ exports.adicionarOpcoesSair = async (req, res) => {
     try {
         const novasOpcoes = new OpcoesSair({
             opcoes_cidade, opcoes_bairro, opcoes_regiao, opcoes_entrada, opcoes_estacao,
-            opcoes_estrelas, opcoes_avaliacao, opcoes_acessibilidade, opcoes_musica, opcoes_estacionamento,
+            opcoes_estrelas, opcoes_avaliacao_clientes, opcoes_avaliacao_pagina, opcoes_acessibilidade, opcoes_musica, opcoes_estacionamento,
             opcoes_cover, opcoes_kids, opcoes_estilo_musical, opcoes_cozinha, opcoes_local, opcoes_preco,
             opcoes_tipo_evento, opcoes_hobby, opcoes_ambiente, opcoes_cartao, opcoes_dias,
             opcoes_hora, opcoes_pet, opcoes_estilo_servico, opcoes_glutenfree, opcoes_lactosefree

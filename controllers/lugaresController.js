@@ -2,7 +2,7 @@ const Lugar = require('../models/lugarModel');
 
 exports.adicionarLugar = async (req, res) => {
     const {
-        id, descricao, rua, cep, cidade, bairro, regiao, entrada, estacao, estrelas,
+        nome, descricao, rua, cep, cidade, bairro, regiao, entrada, estacao, estrelas,
         avaliacao_clientes, avaliacao_pagina, descricao_pagina, link_pagina, midia_pagina,
         acessibilidade, musica, estacionamento, cover, kids, website, premio, estilo_musical,
         cozinha, local, preco, tipo_evento, hobby, ambiente, cartao, dias, hora, pet, estilo_servico,
@@ -11,14 +11,14 @@ exports.adicionarLugar = async (req, res) => {
 
     try {
         // Verifica se o id já existe na base de dados
-        const lugarExistente = await Lugar.findOne({ id });
+        const lugarExistente = await Lugar.findOne({ nome });
         if (lugarExistente) {
-            return res.status(400).json({ message: 'Erro: um lugar com esse id já existe.' });
+            return res.status(400).json({ message: 'Erro: um lugar com esse nome já existe.' });
         }
 
         // Cria um novo lugar se o id não existir
         const novoLugar = new Lugar({
-            id, descricao, rua, cep, cidade, bairro, regiao, entrada, estacao, estrelas,
+            nome, descricao, rua, cep, cidade, bairro, regiao, entrada, estacao, estrelas,
             avaliacao_clientes, avaliacao_pagina, descricao_pagina, link_pagina, midia_pagina,
             acessibilidade, musica, estacionamento, cover, kids, website, premio, estilo_musical,
             cozinha, local, preco, tipo_evento, hobby, ambiente, cartao, dias, hora, pet, estilo_servico,
@@ -28,6 +28,7 @@ exports.adicionarLugar = async (req, res) => {
         await novoLugar.save();
         res.status(201).json(novoLugar);
     } catch (err) {
+        console.log(err.message);
         res.status(500).json({ message: err.message });
     }
 };

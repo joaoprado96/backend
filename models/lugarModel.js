@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const lugarSchema = new mongoose.Schema({
-    id: String,
+    nome: String,
     descricao: String,
     rua: String,
     cep: String,
@@ -25,7 +25,7 @@ const lugarSchema = new mongoose.Schema({
     premio: [String],
     estilo_musical: [String],
     cozinha: [String],
-    local: String,
+    local: [String],
     preco: [Number],
     tipo_evento: [String],
     hobby: [String],

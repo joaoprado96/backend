@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boas Vindas ao Backend</title>
+    <title>home</title>
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <div id="navbar-placeholder"></div>
 </head>
 <body>
-    <div class="container">
-        <h1>Bem-Vindo ao Backend!</h1>
-        <p>Explore as funcionalidades da nossa API.</p>
-        <div class="links">
-            <a href="/api/lugares" class="link">Lugares</a>
-            <a href="/api/opcoes-sair" class="link">Opções de Saída</a>
-            <a href="/form" class="link">Formulario</a>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">bem-vindo ao backend!</h1>
+            <p class="lead">explore as funcionalidades através chamadas REST API, ou use os botões para testar</p>
+            <hr class="my-4">
+            <div class="links">
+                <a href="/api/lugares" class="btn btn-primary btn-lg" role="button">lugares</a>
+                <a href="/api/opcoes-sair" class="btn btn-primary btn-lg" role="button">opcoes para lugares</a>
+            </div>
         </div>
     </div>
+    <div id="footer-placeholder"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="script/home.js"></script>
 </body>
 </html>
