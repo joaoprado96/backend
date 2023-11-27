@@ -10,6 +10,9 @@ router.post('/fotos-lugares', upload.array('fotos', 10), fotosLugaresController.
 // Rota para verificar se um lugar já possui fotos
 router.get('/fotos-lugares/verificar/:lugarId', fotosLugaresController.verificarFotos);
 
+// Rota para obter todas as fotos de um determinado lugar
+router.get('/fotos-lugares/:lugarId', fotosLugaresController.obterFotosPorLugar);
+
 // Rota para deletar um LugarId e suas fotos
 router.delete('/fotos-lugares/:lugarId', fotosLugaresController.deletarLugarEFotos);
 

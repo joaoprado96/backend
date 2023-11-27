@@ -39,6 +39,21 @@ exports.verificarFotos = async (req, res) => {
     }
 };
 
+exports.obterFotosPorLugar = async (req, res) => {
+    try {
+        const lugarId = req.params.lugarId;
+        const fotos = await FotoLugar.find({ lugarId: lugarId });
+
+        if (fotos) {
+            res.status(200).json(fotos);
+        } else {
+            res.status(404).json({ message: "Nenhuma foto encontrada para este lugar" });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
 exports.deletarLugarEFotos = async (req, res) => {
     try {
         const lugarId = req.params.lugarId;
