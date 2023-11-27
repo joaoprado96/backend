@@ -19,14 +19,16 @@
     <div class="container mt-5">
         <form id="uploadForm">
             <div class="form-group">
-                <label for="lugarId">id do estabelecimento</label>
-                <input type="text" class="form-control" id="lugarId" required>
+                <label for="lugarSelect">estabelecimento</label>
+                <select class="form-control" id="lugarSelect" required></select>
             </div>
             <div class="form-group">
                 <label for="fotos">escolha as fotos</label>
                 <input type="file" class="form-control-file" id="fotos" multiple required>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="button" class="btn btn-danger" id="deleteButton">Apagar Lugar e Fotos</button>
+
         </form>
     </div>
     <div id="footer-placeholder"></div>
