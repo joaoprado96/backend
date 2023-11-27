@@ -4,7 +4,7 @@ const router = express.Router();
 const upload = require('../config/multerConfig');
 const fotosLugaresController = require('../controllers/fotosLugaresController');
 
-// Rota para adicionar uma nova foto
-router.post('/fotos-lugares', upload.single('imagem'), fotosLugaresController.adicionarFotoLugar);
+// Rota para adicionar várias novas fotos
+router.post('/fotos-lugares', upload.array('fotos', 10), fotosLugaresController.adicionarFotoLugar);
 
 module.exports = router;

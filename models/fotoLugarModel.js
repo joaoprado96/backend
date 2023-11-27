@@ -5,10 +5,10 @@ const fotoSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Lugar'
     },
-    foto: {
+    fotos: [{
         data: Buffer,
         contentType: String
-    }
+    }]
 });
 
 module.exports = mongoose.model('FotoLugar', fotoSchema);
