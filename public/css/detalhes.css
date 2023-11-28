@@ -29,3 +29,46 @@
 .unfilled-star {
     color: #ccc; /* Cor das estrelas vazias */
 }
+
+/* Estilos para as setas do carrossel */
+.carousel-control-prev, .carousel-control-next {
+    color: #333; /* Cor cinza claro */
+    width: 15%; /* Largura das áreas clicáveis */
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-image: none;
+}
+
+.carousel-control-prev-icon:after, .carousel-control-next-icon:after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: solid 2px #333; /* Cor cinza claro */
+    border-width: 0 2px 2px 0;
+}
+
+.carousel-control-prev-icon:after {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.carousel-control-next-icon:after {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+/* Estilo para posicionar as setas fora do carrossel */
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+}
+
+.carousel-control-prev {
+    margin-left: -100px;
+}
+
+.carousel-control-next {
+    margin-left: 100px;
+}
