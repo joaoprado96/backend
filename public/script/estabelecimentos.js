@@ -82,18 +82,29 @@ function criarCard(estabelecimento) {
 
     return `
         <div class="col-md-3 mb-3">
-            <div class="card h-100">
-                <img src="./image/restaurante.jpg" class="card-img-top" alt="Imagem do Estabelecimento">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">${estabelecimento.nome}<br>${gerarIcones(estabelecimento.avaliacao_clientes, '⭐')}</h5>
-                    <p class="card-text">${truncateText(estabelecimento.descricao, 100)}</p>
-                    <p><i class="fas fa-map-marker-alt"></i> ${estabelecimento.bairro}</p>
-                    <p> ${gerarIcones(estabelecimento.preco, '💰')} </p>
-                    <p><i class="fas fa-clock"></i> ${horarioAbertura} - ${horarioFechamento}</p>
-                    <a href="detalhes.html?id=${estabelecimento._id}" class="btn btn-primary mt-auto" target="_blank">+ detalhes</a>
+            <div class="card imagem-hover">
+            <a href="detalhes.html?id=${estabelecimento._id}" class="">
+                <img src="./image/restaurante.jpg" class="img-principal" alt="Imagem do Estabelecimento"></a>
+            <div class="card-body d-flex flex-column">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="let-card">${estabelecimento.nome}</div>
+                </div>
+                <div class="col-md-3">
+                    <div class="icone">⭐${estabelecimento.avaliacao_clientes}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><i class="fas fa-map-marker-alt let-card-min"></i> ${estabelecimento.bairro}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><i class="fas fa-clock let-card-min"></i> ${horarioAbertura} - ${horarioFechamento}</p>
                 </div>
             </div>
         </div>
+        </div>
+    </div>
     `;
 }
 

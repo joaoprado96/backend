@@ -26,3 +26,48 @@
 .pagination button:hover {
     background-color: #e0e0e0;
 }
+
+.let-card {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #1e1e1e;
+}
+
+.let-card-min {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 8px;
+    font-weight: bold;
+    color: #494949;
+}
+
+.btn-custom {
+    display: inline-block;
+    padding: 5px 20px; /* Ajuste o padding conforme necessário */
+    border-radius: 15px; /* Borda redonda */
+    background-color: purple; /* Cor de fundo roxa */
+    color: #ffffff; /* Cor do texto branco */
+    border: none; /* Sem borda */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transição suave de cor de fundo */
+    margin-top: 10px;
+  }
+
+  .imagem-hover {
+    width: 280px; /* Largura inicial da imagem */
+    height: auto; /* Altura automática para manter a proporção */
+    transition: transform 0.3s ease; /* Adiciona uma transição suave à mudança de tamanho */
+    z-index: 3; /* Coloca a imagem sobre as outras */
+  }
+  
+  .imagem-hover:hover {
+    transform: scale(1.2); /* Aumenta o tamanho em 20% ao passar o mouse */
+  }
+
+  .icone {
+    text-align: right;
+  }
+
+  .card-principal {
+
+  }
