@@ -81,11 +81,12 @@ function criarCard(estabelecimento) {
     const horarioFechamento = horarios[horarios.length - 1];
 
     return `
-        <div class="col-md-3 mb-3">
-            <div class="card imagem-hover">
+    <div class="col-md-3 mb-4">
+    <div class="card-body-est imagem-hover">
             <a href="detalhes.html?id=${estabelecimento._id}" class="">
                 <img src="./image/restaurante.jpg" class="img-principal" alt="Imagem do Estabelecimento"></a>
-            <div class="card-body d-flex flex-column">
+
+        <div class="card-body d-flex flex-column">
             <div class="row">
                 <div class="col-md-9">
                     <div class="let-card">${estabelecimento.nome}</div>
@@ -94,16 +95,17 @@ function criarCard(estabelecimento) {
                     <div class="icone">⭐${estabelecimento.avaliacao_clientes}</div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-6">
-                    <p><i class="fas fa-map-marker-alt let-card-min"></i> ${estabelecimento.bairro}</p>
+                    <p class="let-card-min"><i class="fas fa-map-marker-alt"></i> ${estabelecimento.bairro}</p>
                 </div>
                 <div class="col-md-6">
-                    <p><i class="fas fa-clock let-card-min"></i> ${horarioAbertura} - ${horarioFechamento}</p>
+                    <p class="let-card-min"><i class="fas fa-clock"></i> ${horarioAbertura} - ${horarioFechamento}</p>
                 </div>
             </div>
         </div>
-        </div>
+
     </div>
     `;
 }
