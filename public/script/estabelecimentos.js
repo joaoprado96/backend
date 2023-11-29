@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadEstabelecimentos(pagina) {
-    fetch('http://localhost:3000/api/lugares')
+    fetch('/api/lugares')
         .then(response => response.json())
         .then(dados => {
             const estabelecimentosPorPagina = 28;

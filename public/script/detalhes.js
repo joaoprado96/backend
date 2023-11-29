@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     carregarFotos(estabelecimentoId);
     
     if (estabelecimentoId) {
-        fetch(`http://localhost:3000/api/lugares?_id=${estabelecimentoId}`)
+        fetch(`/api/lugares?_id=${estabelecimentoId}`)
             .then(response => response.json())
             .then(dados => {
                 const detalhesContainer = document.getElementById('detalhe-estabelecimento');
@@ -74,7 +74,7 @@ function carregarFotos(lugarId) {
     const carouselContainer = document.getElementById('carouselContainer');
     carouselContainer.innerHTML = '';
 
-    fetch(`http://localhost:3000/api/fotos-lugares/${lugarId}`)
+    fetch(`/api/fotos-lugares/${lugarId}`)
         .then(response => response.json())
         .then(data => {
             if (data && data.length > 0) {
@@ -127,7 +127,7 @@ function carregarFotos(lugarId) {
         });
 }
 
-function criarCarrosselIndividual(idCarrossel,tamanho , maximo,titulo, itens) {
+function criarCarrosselIndividual(idCarrossel,tamanho , maximo, titulo, itens) {
     if (!itens || itens.length === 0) {
         return '<p>Nenhuma informação disponível</p>';
     }
@@ -223,17 +223,9 @@ function criarInformacaoHtmlLista(titulo, icone, valor) {
 
 
 function criarCardDetalhe(estabelecimento) {
-    const carrosselCozinha          = criarCarrosselIndividual('carrosselCozinha',          '12', 4,  'culinária', estabelecimento.cozinha);
-    const carrosselEstiloMusical    = criarCarrosselIndividual('carrosselEstiloMusical',    '12', 4,  'estilo musical', estabelecimento.estilo_musical);
-    const carrosselTipoEvento       = criarCarrosselIndividual('carrosselTipoEvento',       '12', 4,  'tipo de evento', estabelecimento.tipo_evento);
-    const carrosselLocal            = criarCarrosselIndividual('carrosselLocal',            '12', 4,  'locais', estabelecimento.local);
-    const carrosselAmbiente         = criarCarrosselIndividual('carrosselAmbiente',         '12', 4,  'ambientes', estabelecimento.ambiente);
-    const carrosselHobby            = criarCarrosselIndividual('carrosselHobby',            '12', 4,  'hobby', estabelecimento.hobby);
-    const carrosselCartao           = criarCarrosselIndividual('carroselCartao',            '10', 6,  'cartao', estabelecimento.cartao);
     const carrosselDias             = criarCarrosselIndividual('carrosselDias',             '9', 8,  'dias', estabelecimento.dias);
     const carrosselHora             = criarCarrosselIndividual('carrosselHora',             '6', 8,  'hora', estabelecimento.hora);
-    const carrosselEstiloServico    = criarCarrosselIndividual('carrosselEstiloServico',    '12', 4,  'estilo serviço', estabelecimento.estilo_servico);
-
+    //  Elementos que são "Sim" ou "Não"
     const infoMusica                =criarInformacaoHtml('musica','./icons/icon1.png',estabelecimento.musica)
     const infoEstacionamento        =criarInformacaoHtml('estacionamento','./icons/icon1.png',estabelecimento.estacionamento)
     const infoKids                  =criarInformacaoHtml('espaço criança','./icons/icon1.png',estabelecimento.kids)
@@ -241,6 +233,7 @@ function criarCardDetalhe(estabelecimento) {
     const infoGluten                =criarInformacaoHtml('gluten free','./icons/icon1.png',estabelecimento.glutenfree)
     const infoLactose               =criarInformacaoHtml('lactose free','./icons/icon1.png',estabelecimento.lactosefree)
 
+    // Elementos que são listas
     const infoCozinha               =criarInformacaoHtmlLista('culinária','./icons/icon1.png',estabelecimento.cozinha)
     const infoEstiloMusical         =criarInformacaoHtmlLista('estilo musical','./icons/icon1.png',estabelecimento.estilo_musical)
     const infoTipoEvento            =criarInformacaoHtmlLista('evento','./icons/icon1.png',estabelecimento.tipo_evento)

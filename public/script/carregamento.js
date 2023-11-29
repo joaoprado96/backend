@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function fetchLugares() {
-    fetch('http://localhost:3000/api/lugares')
+    fetch('/api/lugares')
         .then(response => response.json())
         .then(data => {
             const select = document.getElementById('lugarSelect');
@@ -51,7 +51,7 @@ document.getElementById('deleteButton').addEventListener('click', function() {
     }
 
     if (confirm(`Tem certeza que deseja apagar o lugar e suas fotos? Esta ação é irreversível.`)) {
-        fetch(`http://localhost:3000/api/fotos-lugares/${lugarId}`, {
+        fetch(`/api/fotos-lugares/${lugarId}`, {
             method: 'DELETE'
         })
         .then(response => {
@@ -82,7 +82,7 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
 });
 
 function verificarFotosExistem(lugarId, callback) {
-    fetch(`http://localhost:3000/api/fotos-lugares/verificar/${lugarId}`)
+    fetch(`/api/fotos-lugares/verificar/${lugarId}`)
         .then(response => response.json())
         .then(data => {
             if (data.fotos && data.fotos.length > 0) {
@@ -107,7 +107,7 @@ function enviarFotos(lugarId) {
     }
 
     console.log(formData);
-    fetch('http://localhost:3000/api/fotos-lugares', {
+    fetch('/api/fotos-lugares', {
         method: 'POST',
         body: formData
     })

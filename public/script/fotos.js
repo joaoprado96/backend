@@ -26,7 +26,7 @@ function loadFooter() {
 }
 
 function fetchLugares() {
-    fetch('http://localhost:3000/api/lugares')
+    fetch('/api/lugares')
         .then(response => response.json())
         .then(data => {
             const select = document.getElementById('lugarSelect');
@@ -55,7 +55,7 @@ function carregarFotos() {
     const carouselContainer = document.getElementById('carouselContainer');
     carouselContainer.innerHTML = '';
 
-    fetch(`http://localhost:3000/api/fotos-lugares/${lugarId}`)
+    fetch(`/api/fotos-lugares/${lugarId}`)
         .then(response => response.json())
         .then(data => {
             if (data && data.length > 0) {
