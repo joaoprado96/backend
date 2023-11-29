@@ -172,6 +172,54 @@ function criarCarrosselIndividual(idCarrossel,tamanho , maximo,titulo, itens) {
         </div>`;
 }
 
+function criarInformacaoHtml(titulo, icone, valor) {
+    // Verifica se o valor é uma lista
+    if (Array.isArray(valor)) {
+        // Usa apenas o primeiro elemento da lista
+        valor = valor.length > 0 ? valor[0] : '';
+    }
+
+    // Se o valor for 'Nao' ou uma lista vazia, retorna string vazia
+    if (valor !== 'Sim') {
+        return '';
+    } else {
+        // Retorna o HTML formatado com o valor (que pode ser string ou primeiro elemento da lista)
+        return `
+            <div class="col-3">
+                <h6><img src="${icone}" alt="${titulo}" width="50" height="50"> ${titulo} </h6>
+            </div>
+        `;
+    }
+}
+
+function criarInformacaoHtmlLista(titulo, icone, valor) {
+    let conteudoHtml = '';
+
+    // Verifica se o valor é uma lista
+    if (Array.isArray(valor)) {
+        // Itera sobre todos os elementos da lista e os adiciona ao conteudoHtml
+        valor.forEach(item => {
+            conteudoHtml += `<p>${item}</p>`;
+        });
+    } else {
+        // Se o valor não for uma lista, trata como uma string
+        conteudoHtml = `<p>${valor}</p>`;
+    }
+
+    // Se o valor for 'Nao' ou uma lista vazia, retorna string vazia
+    if (conteudoHtml === '') {
+        return '';
+    } else {
+        // Retorna o HTML formatado com o valor (que pode ser string ou elementos da lista)
+        return `
+            <div class="col-3">
+                <h6><img src="${icone}" alt="${titulo}" width="50" height="50"> ${titulo} </h6>
+                ${conteudoHtml}
+            </div>
+        `;
+    }
+}
+
 
 
 function criarCardDetalhe(estabelecimento) {
@@ -186,97 +234,113 @@ function criarCardDetalhe(estabelecimento) {
     const carrosselHora             = criarCarrosselIndividual('carrosselHora',             '6', 8,  'hora', estabelecimento.hora);
     const carrosselEstiloServico    = criarCarrosselIndividual('carrosselEstiloServico',    '12', 4,  'estilo serviço', estabelecimento.estilo_servico);
 
+    const infoMusica                =criarInformacaoHtml('musica','./icons/icon1.png',estabelecimento.musica)
+    const infoEstacionamento        =criarInformacaoHtml('estacionamento','./icons/icon1.png',estabelecimento.estacionamento)
+    const infoKids                  =criarInformacaoHtml('espaço criança','./icons/icon1.png',estabelecimento.kids)
+    const infoPet                   =criarInformacaoHtml('pet friendly','./icons/icon1.png',estabelecimento.pet)
+    const infoGluten                =criarInformacaoHtml('gluten free','./icons/icon1.png',estabelecimento.glutenfree)
+    const infoLactose               =criarInformacaoHtml('lactose free','./icons/icon1.png',estabelecimento.lactosefree)
+
+    const infoCozinha               =criarInformacaoHtmlLista('culinária','./icons/icon1.png',estabelecimento.cozinha)
+    const infoEstiloMusical         =criarInformacaoHtmlLista('estilo musical','./icons/icon1.png',estabelecimento.estilo_musical)
+    const infoTipoEvento            =criarInformacaoHtmlLista('evento','./icons/icon1.png',estabelecimento.tipo_evento)
+    const infoLocal                 =criarInformacaoHtmlLista('tipo de local','./icons/icon1.png',estabelecimento.local)
+    const infoAmbiente              =criarInformacaoHtmlLista('ambiente','./icons/icon1.png',estabelecimento.ambiente)
+    const infoHobby                 =criarInformacaoHtmlLista('hobby','./icons/icon1.png',estabelecimento.hobby)
+    const infoCartao                =criarInformacaoHtmlLista('cartões','./icons/icon1.png',estabelecimento.cartao)
+
     return `
     <div class="container">
         <h1>${estabelecimento.nome}</h1>
-        <p>${estabelecimento.descricao}</p>
-        <h2>avalicação</h2>
-        <div class="row">
-            <div class="col-2">
-                <h5>estrelas</h5>
-                <div class="rating">
-                    ${criarAvaliacao(estabelecimento.estrelas)}
-                </div>
-            </div>
-            <div class="col-2">
-                <h5>avalição clientes</h5>
-                <div class="rating">
-                    ${criarAvaliacao(estabelecimento.avaliacao_clientes)}
-                </div>
-            </div>
-            <div class="col-2">
-                <h5>preço</h5>
-                <div class="rating">
-                    ${criarAvaliacao(estabelecimento.preco)}
+
+        <div class="container">
+            <div class="card">
+                <!-- Abas de Navegação -->
+                <ul class="nav nav-tabs" id="estabelecimentoTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="descricao-tab" data-toggle="tab" href="#descricao" role="tab" aria-controls="descricao" aria-selected="true">descrição</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="localizacao-tab" data-toggle="tab" href="#localizacao" role="tab" aria-controls="localizacao" aria-selected="false">localização</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="informacoes-tab" data-toggle="tab" href="#informacoes" role="tab" aria-controls="informacoes" aria-selected="false">informações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="horario-tab" data-toggle="tab" href="#horario" role="tab" aria-controls="horario" aria-selected="false">horário</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="menu-tab" data-toggle="tab" href="#menu" role="tab" aria-controls="menu" aria-selected="false">menu</a>
+                    </li>
+                </ul>
+
+                <!-- Conteúdo das Abas -->
+                <div class="tab-content" id="estabelecimentoTabContent">
+                    <div class="tab-pane fade show active" id="descricao" role="tabpanel" aria-labelledby="descricao-tab">
+                        <!-- Conteúdo da aba Descrição -->
+                        <p>${estabelecimento.descricao}</p>
+                        <div class="row">
+                        <div class="col-2">
+                            <h5>estrelas</h5>
+                            <div class="rating">
+                                ${criarAvaliacao(estabelecimento.estrelas)}
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <h5>avalição clientes</h5>
+                            <div class="rating">
+                                ${criarAvaliacao(estabelecimento.avaliacao_clientes)}
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <h5>preço</h5>
+                            <div class="rating">
+                                ${criarAvaliacao(estabelecimento.preco)}
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="tab-pane fade" id="localizacao" role="tabpanel" aria-labelledby="localizacao-tab">
+                        <!-- Conteúdo da aba Localização -->
+                        <p><strong>endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep} </p>
+                        <p><strong>bairro:</strong> ${estabelecimento.bairro} </p>
+                        <p><strong>região:</strong> ${estabelecimento.regiao} </p>
+                        <p><strong>cidade:</strong> ${estabelecimento.cidade} </p>
+                        <p><strong>estacao mais próxima:</strong> ${estabelecimento.estacao} </p>
+                    </div>
+                    <div class="tab-pane fade" id="informacoes" role="tabpanel" aria-labelledby="informacoes-tab">
+                        <!-- Conteúdo da aba Informações -->
+                        <div class="row">
+                            <p>${infoMusica}</p>
+                            <p>${infoEstacionamento}</p>
+                            <p>${infoKids}</p>
+                            <p>${infoPet}</p>
+                            <p>${infoGluten}</p>
+                            <p>${infoLactose}</p>
+                            <p>${infoMusica}</p>
+                            <p>${infoCozinha}</p>
+                            <p>${infoEstiloMusical}</p>
+                            <p>${infoTipoEvento}</p>
+                            <p>${infoLocal}</p>
+                            <p>${infoAmbiente}</p>
+                            <p>${infoHobby}</p>
+                            <p>${infoCartao}</p>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="horario" role="tabpanel" aria-labelledby="horario-tab">
+                        <!-- Conteúdo da aba Horário -->
+                        <h5>dias</h5>
+                        <p>${carrosselDias} </p>
+                        <h5>horário</h5>
+                        <p>${carrosselHora} </p>
+                    </div>
+                    <div class="tab-pane fade" id="menu" role="tabpanel" aria-labelledby="menu-tab">
+                        <!-- Conteúdo da aba Menu -->
+                    </div>
                 </div>
             </div>
         </div>
-
-        <br><h2>comodidades</h2>
-        <div class="row">
-            <div class="col-3">
-                <h6>musica</h6>
-                <p>${estabelecimento.musica === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
-            </div>
-            <div class="col-3">
-                <h6>estacionamento</h6>
-                <p>${estabelecimento.estacionamento === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
-            </div>
-            <div class="col-3">
-                <h6>área kids</h6>
-                <p>${estabelecimento.kids === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
-            </div>
-            <div class="col-3">
-                <h6>taxa de cover</h6>
-                <p>${estabelecimento.cover === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
-            </div>
-            <div class="col-3">
-                <h6>pet</h6>
-                <p>${estabelecimento.pet === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
-            </div>
-            <div class="col-3">
-                <h6>gluten free</h6>
-                <p>${estabelecimento.glutenfree === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
-            </div>
-            <div class="col-3">
-                <h6>lactose free</h6>
-                <p>${estabelecimento.lactosefree === 'Sim' ? '<i class="fas fa-check"></i> Sim' : '<i class="fas fa-times"></i> Não'}</p>
-            </div>
-        </div>
-
-        <br><h2>funcionamento</h2>
-        <h5>dias</h5>
-        <p>${carrosselDias} </p>
-        <h5>horário</h5>
-        <p>${carrosselHora} </p>
-
-        <br><h2>detalhes gerais</h2>
-        <h5>culinária</h5>
-        <p>${carrosselCozinha} </p>
-        <h5>estilo serviço</h5>
-        <p>${carrosselEstiloServico} </p>
-        <h5>tipo de evento</h5>
-        <p>${carrosselTipoEvento} </p>
-        <h5>estilo musical</h5>
-        <p>${carrosselEstiloMusical} </p>
-        <h5>caracteristicas locais</h5>
-        <p>${carrosselLocal} </p>
-        <h5>ambiente</h5>
-        <p>${carrosselAmbiente} </p>
-        <h5>hobby</h5>
-        <p>${carrosselHobby} </p>
-
-        <br><h2>formas de pagamento</h2>
-        <h5>cartões aceitos</h5>
-        <p>${carrosselCartao} </p>
-
-        <br><h2>localização</h2>
-        <p><strong>endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep} </p>
-        <p><strong>bairro:</strong> ${estabelecimento.bairro} </p>
-        <p><strong>cidade:</strong> ${estabelecimento.cidade} </p>
-        
-        <br><h2>contato</h2>
-
+      
         <br><h2>fotos</h2>
     </div>
     `;
