@@ -5,7 +5,7 @@ exports.adicionarLugar = async (req, res) => {
         nome, descricao, rua, cep, cidade, bairro, regiao, entrada, estacao, estrelas,
         avaliacao_clientes, avaliacao_pagina, descricao_pagina, link_pagina, midia_pagina,
         acessibilidade, musica, estacionamento, cover, kids, website, premio, estilo_musical,
-        cozinha, local, preco, tipo_evento, hobby, ambiente, cartao, dias, hora, pet, estilo_servico,
+        cozinha, local, preco, tipo_evento, hobby, ambiente, cartao, dias, nivel, link_cardapio, horarios_funcionamento, pet, estilo_servico,
         glutenfree, lactosefree
     } = req.body;
 
@@ -21,7 +21,7 @@ exports.adicionarLugar = async (req, res) => {
             nome, descricao, rua, cep, cidade, bairro, regiao, entrada, estacao, estrelas,
             avaliacao_clientes, avaliacao_pagina, descricao_pagina, link_pagina, midia_pagina,
             acessibilidade, musica, estacionamento, cover, kids, website, premio, estilo_musical,
-            cozinha, local, preco, tipo_evento, hobby, ambiente, cartao, dias, hora, pet, estilo_servico,
+            cozinha, local, preco, tipo_evento, hobby, ambiente, cartao, dias, nivel, link_cardapio, horarios_funcionamento, pet, estilo_servico,
             glutenfree, lactosefree
         });
 
