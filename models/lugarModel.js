@@ -26,17 +26,19 @@ const lugarSchema = new mongoose.Schema({
     estilo_musical: [String],
     cozinha: [String],
     local: [String],
-    preco: [Number],
+    preco: Number,
     tipo_evento: [String],
     hobby: [String],
     ambiente: [String],
     cartao: [String],
     dias: [String],
-    hora: [String],
-    pet: [String],
+    nivel: Number,
+    link_cardapio: String,
+    horarios_funcionamento: {},
+    pet: String,
     estilo_servico: [String],
-    glutenfree: [String],
-    lactosefree: [String]
+    glutenfree: String,
+    lactosefree: String
 });
 
 module.exports = mongoose.model('Lugar', lugarSchema);

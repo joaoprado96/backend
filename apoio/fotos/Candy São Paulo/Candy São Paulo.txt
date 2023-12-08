@@ -1,0 +1,110 @@
+lugar = {
+  "nome": "Candy São Paulo",
+  "descricao": "A Candy é um Sushi Bar, com gastronomia japonesa alto padrão e DJ deixando o ambiente do restaurante sempre bem animado! Tem diversos pontos instagramaveis,drinks premiados e claro,uma balada secreta com uma pista de dança que vai até o amanhecer!",
+  "rua": "Alameda Lorena,2119",
+  "cep": "01424-007",
+  "cidade": "São Paulo",
+  "bairro": "Jardim Paulista",
+  "regiao": "Zona Oeste",
+  "entrada": "R$70 à R$150",
+  "estacao": "Linha 4",
+  "estrelas": 4,
+  "avaliacao_clientes": 4,
+  "avaliacao_pagina": 2,
+  "descricao_pagina": "None.",
+  "link_pagina": "https://www.instagram.com/candysaopaulo/",
+  "midia_pagina": "https://lh3.googleusercontent.com/p/AF1QipNiPibbFqbVB_gBLGOv66GuVKrpiCGVnNv9Y7Hv=s1360-w1360-h1020;https://lh3.googleusercontent.com/p/AF1QipMIBGVffqRfwP-J3qJvrU78BRZFSqSbcV1waC7B=s1360-w1360-h1020;https://lh3.googleusercontent.com/p/AF1QipPu6YzgRL2-Mo0_oIz75eBwenT28KBMb_IwCyGF=s1360-w1360-h1020"
+  "acessibilidade": [
+    "Banheiro acessível",
+    "Rampas de acesso"
+  ],
+  "musica": "Sim",
+  "estacionamento": "Sim",
+  "cover": "Não",
+  "kids": "Não",
+  "website": "https://candysp.com.br/",
+  "premio": [
+    "não possui"
+  ],
+  "estilo_musical": [
+    "House",
+    "Hip-Hop"
+  ],
+  "cozinha": [
+    "Japonesa"
+  ],
+  "local": [
+    "Bar",
+    "Balada",
+    "Restaurante"
+  ],
+  "preco": 4,
+  "tipo_evento": [
+    "Beber e dançar"
+  ],
+  "hobby": [
+    "None"
+  ],
+  "ambiente": [
+    "Temático",
+    "Fumódromo"
+  ],
+  "cartao": [
+    "American Express",
+    "Crédito",
+    "Débito",
+    "Dinheiro",
+    "Elo",
+    "Mastercard",
+    "Visa"
+  ],
+  "dias": [
+    "domingo",
+    "quinta-feira",
+    "sexta-feira",
+    "sábado",
+    "feriados"
+  ],
+  "nivel":1,
+  "link_cardapio":"https://acuolina.com/en/candy-sushi-bar-and-club",
+  "horarios_funcionamento": {
+    "segunda-feira": {
+      "abertura": "fechado",
+      "fechamento": "fechado"
+    },
+    "terca-feira": {
+      "abertura": "fechado",
+      "fechamento": "fechado"
+    },
+    "quarta-feira": {
+      "abertura": "fechado",
+      "fechamento": "fechado"
+    },
+    "quinta-feira": {
+      "abertura": "18:00",
+      "fechamento": "05:00"
+    },
+    "sexta-feira": {
+      "abertura": "18:00",
+      "fechamento": "05:00"
+    },
+    "sabado": {
+      "abertura": "18:00",
+      "fechamento": "05:00"
+    },
+    "domingo": {
+      "abertura": "18:00",
+      "fechamento": "05:00"
+    },
+    "feriados": {
+     "abertura": "18:00",
+     "fechamento":"05:00"
+    }
+  },
+  "pet": "Sim",
+  "estilo_servico": [
+    "À la carte"
+  ],
+  "glutenfree": "Sim",
+  "lactosefree": "Sim",
+}

@@ -1,3 +1,13 @@
+// Variável global
+let diaDaSemanaGlobal;
+atualizarDiaDaSemana();
+
+function atualizarDiaDaSemana() {
+    let hoje = new Date();
+    let diasDaSemana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
+    diaDaSemanaGlobal = diasDaSemana[hoje.getDay()];
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     loadNavbar();
     loadFooter();
@@ -75,10 +85,10 @@ function criarCard(estabelecimento) {
     // Função para gerar ícones de preço e avaliação
     const gerarIcones = (quantidade, icone) => Array.from({ length: quantidade }, () => icone).join('');
 
-    // Calcular horário de abertura e fechamento
-    const horarios = estabelecimento.hora.sort();
-    const horarioAbertura = horarios[0];
-    const horarioFechamento = horarios[horarios.length - 1];
+    // // Calcular horário de abertura e fechamento
+    const horarioAbertura = estabelecimento.horarios_funcionamento[diaDaSemanaGlobal].abertura;
+    const horarioFechamento = estabelecimento.horarios_funcionamento[diaDaSemanaGlobal].fechamento;
+    
 
     return `
 <<<<<<< Updated upstream
