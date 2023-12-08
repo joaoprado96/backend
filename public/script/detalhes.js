@@ -227,11 +227,25 @@ function criarInformacaoHtmlLista(titulo, icone, valor) {
     }
 }
 
+function exibirHorariosFuncionamento(horarios) {
+    let htmlHorarios = '';
+    for (const [dia, horario] of Object.entries(horarios)) {
+        htmlHorarios += `
+            <div class="dia">
+                ${capitalizeFirstLetter(dia)}: 
+                <span class="horario">${horario.abertura} - ${horario.fechamento}</span>
+            </div>`;
+    }
+    return htmlHorarios;
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 
 function criarCardDetalhe(estabelecimento) {
-    const carrosselDias             = criarCarrosselIndividual('carrosselDias',             '9', 8,  'dias', estabelecimento.dias);
-    const carrosselHora             = criarCarrosselIndividual('carrosselHora',             '6', 8,  'hora', estabelecimento.hora);
+    const htmlHorarios              =exibirHorariosFuncionamento(estabelecimento.horarios_funcionamento)
     //  Elementos que são "Sim" ou "Não"
     const infoMusica                =criarInformacaoHtml('musica','./icons/icon1.png',estabelecimento.musica)
     const infoEstacionamento        =criarInformacaoHtml('estacionamento','./icons/icon1.png',estabelecimento.estacionamento)
@@ -327,10 +341,7 @@ function criarCardDetalhe(estabelecimento) {
                     </div>
                     <div class="tab-pane fade" id="horario" role="tabpanel" aria-labelledby="horario-tab">
                         <!-- Conteúdo da aba Horário -->
-                        <h5>dias</h5>
-                        <p>${carrosselDias} </p>
-                        <h5>horário</h5>
-                        <p>${carrosselHora} </p>
+                        ${htmlHorarios}
                     </div>
                     <div class="tab-pane fade" id="menu" role="tabpanel" aria-labelledby="menu-tab">
                         <!-- Conteúdo da aba Menu -->

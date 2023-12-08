@@ -61,6 +61,28 @@ body {
     /* Cor das estrelas vazias */
 }
 
+.horario-container {
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 50%;
+}
+.dia {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+.horario {
+    font-size: 1.1em;
+    color: #333;
+}
+.icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
 /* Estilos para as setas do carrossel */
 .carousel-control-prev,
 .carousel-control-next {
