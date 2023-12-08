@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .box {
     display: inline-block;
     font-size: 14px;
@@ -32,19 +33,36 @@
     font-size: 15px;
     font-weight: bold;
     color: #1e1e1e;
+=======
+.let-card {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+>>>>>>> Stashed changes
 }
 
 .let-card-min {
     font-family: 'Helvetica', sans-serif;
+<<<<<<< Updated upstream
     font-size: 12px;
     font-weight: bold;
     color: #494949;
+=======
+    font-size: 13px;
+    font-weight: bold;
+    color: #303030;
+>>>>>>> Stashed changes
 }
 
 .btn-custom {
     display: inline-block;
     padding: 5px 20px; /* Ajuste o padding conforme necessário */
+<<<<<<< Updated upstream
     border-radius: 25px; /* Borda redonda */
+=======
+    border-radius: 15px; /* Borda redonda */
+>>>>>>> Stashed changes
     background-color: purple; /* Cor de fundo roxa */
     color: #ffffff; /* Cor do texto branco */
     border: none; /* Sem borda */
@@ -53,6 +71,7 @@
     margin-top: 10px;
   }
 
+<<<<<<< Updated upstream
   .card-body-est {
     width: 250px; /* Largura inicial da imagem */
     height: auto; /* Altura automática para manter a proporção */
@@ -83,3 +102,14 @@
     width: 250px;
     height: auto;
   }
+=======
+  .imagem-hover {
+    width: 300px; /* Largura inicial da imagem */
+    height: auto; /* Altura automática para manter a proporção */
+    transition: transform 0.3s ease; /* Adiciona uma transição suave à mudança de tamanho */
+  }
+  
+  .imagem-hover:hover {
+    transform: scale(1.2); /* Aumenta o tamanho em 20% ao passar o mouse */
+  }
+>>>>>>> Stashed changes
