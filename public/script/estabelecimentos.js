@@ -91,8 +91,7 @@ function criarCard(estabelecimento) {
     
 
     return `
-<<<<<<< Updated upstream
-    <div class="col-md-3 mb-4">
+<div class="col-md-3 mb-4">
     <div class="card-body-est imagem-hover">
             <a href="detalhes.html?id=${estabelecimento._id}" class="">
                 <img src="./image/restaurante.jpg" class="img-principal" alt="Imagem do Estabelecimento"></a>
@@ -113,22 +112,14 @@ function criarCard(estabelecimento) {
                 </div>
                 <div class="col-md-6">
                     <p class="let-card-min"><i class="fas fa-clock"></i> ${horarioAbertura} - ${horarioFechamento}</p>
-=======
-        <div class="col-md-3 mb-3">
-            <div class="card h-50">
-                <img src="./image/restaurante.jpg" class="card imagem-hover" alt="Imagem do Estabelecimento">
-                <div class="card-body d-flex flex-column">
-                    <div class="let-card">${estabelecimento.nome}</div>
-                    <div class="let-card-min">${truncateText(estabelecimento.rua, 100)}</div>
-                    <button href="detalhes.html?id=${estabelecimento._id}" class="btn-custom">detalhes</button>
->>>>>>> Stashed changes
                 </div>
             </div>
         </div>
-
     </div>
+</div>
     `;
 }
+
 
 
 function criarBoxes(lista) {
