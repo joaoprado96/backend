@@ -1,3 +1,10 @@
+//testando uma coisa
+
+
+
+//testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+
 document.addEventListener('DOMContentLoaded', function() {
     loadNavbar();
     loadFooter();
@@ -230,7 +237,7 @@ function criarCardDetalhe(estabelecimento) {
     const infoEstacionamento        =criarInformacaoHtml('estacionamento','./icons/icon1.png',estabelecimento.estacionamento)
     const infoKids                  =criarInformacaoHtml('espaço criança','./icons/icon1.png',estabelecimento.kids)
     const infoPet                   =criarInformacaoHtml('pet friendly','./icons/icon1.png',estabelecimento.pet)
-    const infoGluten                =criarInformacaoHtml('gluten free','./icons/icon1.png',estabelecimento.glutenfree)
+    const infoGluten                =criarInformacaoHtml('gluten free','./icons/icon-gluten.png',estabelecimento.glutenfree)
     const infoLactose               =criarInformacaoHtml('lactose free','./icons/icon1.png',estabelecimento.lactosefree)
 
     // Elementos que são listas
@@ -244,48 +251,46 @@ function criarCardDetalhe(estabelecimento) {
 
     return `
     <div class="container">
-        <h1>${estabelecimento.nome}</h1>
-
         <div class="container">
-            <div class="card">
+            <div class="row link-background">
                 <!-- Abas de Navegação -->
-                <ul class="nav nav-tabs" id="estabelecimentoTab" role="tablist">
+                <ul class="nav nav-tabs nav-details" id="estabelecimentoTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="descricao-tab" data-toggle="tab" href="#descricao" role="tab" aria-controls="descricao" aria-selected="true">descrição</a>
+                        <a class="nav-link letra-nav" id="descricao-tab" data-toggle="tab" href="#descricao" role="tab" aria-controls="descricao" aria-selected="true">descrição</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="localizacao-tab" data-toggle="tab" href="#localizacao" role="tab" aria-controls="localizacao" aria-selected="false">localização</a>
+                        <a class="nav-link letra-nav" id="localizacao-tab" data-toggle="tab" href="#localizacao" role="tab" aria-controls="localizacao" aria-selected="false">localização</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="informacoes-tab" data-toggle="tab" href="#informacoes" role="tab" aria-controls="informacoes" aria-selected="false">informações</a>
+                        <a class="nav-link letra-nav" id="informacoes-tab" data-toggle="tab" href="#informacoes" role="tab" aria-controls="informacoes" aria-selected="false">informações</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="horario-tab" data-toggle="tab" href="#horario" role="tab" aria-controls="horario" aria-selected="false">horário</a>
+                        <a class="nav-link letra-nav" id="horario-tab" data-toggle="tab" href="#horario" role="tab" aria-controls="horario" aria-selected="false">horário</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="menu-tab" data-toggle="tab" href="#menu" role="tab" aria-controls="menu" aria-selected="false">menu</a>
+                        <a class="nav-link letra-nav" id="menu-tab" data-toggle="tab" href="#menu" role="tab" aria-controls="menu" aria-selected="false">menu</a>
                     </li>
                 </ul>
-
+                <h1 class="mt-4 mb-4">${estabelecimento.nome}</h1>
                 <!-- Conteúdo das Abas -->
                 <div class="tab-content" id="estabelecimentoTabContent">
                     <div class="tab-pane fade show active" id="descricao" role="tabpanel" aria-labelledby="descricao-tab">
                         <!-- Conteúdo da aba Descrição -->
                         <p>${estabelecimento.descricao}</p>
-                        <div class="row">
-                        <div class="col-2">
+                        <div class="row descricao-star">
+                        <div class="col-4">
                             <h5>estrelas</h5>
                             <div class="rating">
                                 ${criarAvaliacao(estabelecimento.estrelas)}
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div class="col-4">
                             <h5>avalição clientes</h5>
                             <div class="rating">
                                 ${criarAvaliacao(estabelecimento.avaliacao_clientes)}
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div class="col-4">
                             <h5>preço</h5>
                             <div class="rating">
                                 ${criarAvaliacao(estabelecimento.preco)}
@@ -309,14 +314,14 @@ function criarCardDetalhe(estabelecimento) {
                             <p>${infoKids}</p>
                             <p>${infoPet}</p>
                             <p>${infoGluten}</p>
+                            <p>${infoAmbiente}</p>
+                            <p>${infoHobby}</p>
                             <p>${infoLactose}</p>
                             <p>${infoMusica}</p>
                             <p>${infoCozinha}</p>
                             <p>${infoEstiloMusical}</p>
                             <p>${infoTipoEvento}</p>
                             <p>${infoLocal}</p>
-                            <p>${infoAmbiente}</p>
-                            <p>${infoHobby}</p>
                             <p>${infoCartao}</p>
                         </div>
                     </div>
@@ -333,8 +338,6 @@ function criarCardDetalhe(estabelecimento) {
                 </div>
             </div>
         </div>
-      
-        <br><h2>fotos</h2>
     </div>
     `;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +9,41 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <div id="navbar-placeholder"></div>
-    
+
 </head>
-<body>
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-4">detalhe de estabelecimento</h1>
-            <p class="lead">aqui estão todas as informações do restaurante que você pediu </p>
-            <hr class="my-4">
-        </div>
+
+<body class="corpo">
+    <div class="card-rest-menor">
+        
     </div>
-    <div class="container mt-4">
-        <div id="detalhe-estabelecimento">
-            <!-- O card com detalhes será inserido aqui pelo JavaScript -->
+    
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="">
+              <div class="card-body card-rest" id="detalhe-estabelecimento">
+                <!-- O card com detalhes será inserido aqui pelo JavaScript -->
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="">
+              <div class="card-body card-rest">
+                <div id="carouselContainer">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id="carouselContainer" class="mt-4"></div>
-    </div>
+      </div>
+
+
     <div id="footer-placeholder"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="script/detalhes.js"></script> <!-- Referência para o seu script JavaScript -->
 </body>
+
 </html>

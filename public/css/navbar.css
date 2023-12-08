@@ -1,0 +1,14 @@
+.navbar {
+    background-color: #e00606; /* Cor de fundo da barra de navegação */
+    padding: 20px; /* Espaçamento interno */
+  }
+
+.img-logo img {
+    width: 50px; /* Largura desejada da imagem */
+    height: auto; /* Altura automática para manter a proporção */
+    border-radius: 50%; /* Bordas arredondadas (opcional) */
+}
+
+.nav-bg {
+  background-color: blueviolet;
+}
