@@ -1,0 +1,134 @@
+/** 
+* Paste one or more documents here
+*/
+{
+  "nome": "Casa do Raimundo",
+  "descricao": "Bar e restaurante com uma mistura de culinária brasileira e portuguesa,situado no famoso edifício Copan e comandando pelo chef Raimundo Oliveira,que já comandou restaurantes conceituados e agora comanda a cozinha da Casa do Raimundo",
+  "rua": "Rua Araújo,331",
+  "cep": "05416-011",
+  "cidade": "São Paulo",
+  "bairro": "República",
+  "regiao": "Centro",
+  "entrada": "Gratuita",
+  "estacao": "Linha 3",
+  "estrelas": 5,
+  "avaliacao_clientes": 5,
+  "avaliacao_pagina": 2,
+  "descricao_pagina": "None.",
+  "link_pagina": "https://www.instagram.com/casadoraimundo/",
+  "midia_pagina":"https://lh3.googleusercontent.com/p/AF1QipMuAPE3w656bEubEW9ieQzksfbWts8S_jC74nw=s1360-w1360-h1020;https://lh3.googleusercontent.com/p/AF1QipNVLiTXwYz5u_torOetPZQyer_MJigXPEyy_ZpZ=s1360-w1360-h1020;
+  "acessibilidade": [
+    "Banheiro acessível"
+    "Rampas de acesso"
+  ],
+  "musica": "Sim",
+  "estacionamento": "Não",
+  "cover": "Não",
+  "kids": "Não",
+  "website": "none",
+  "premio": [
+    "Os Melhores da Gastronomia 2023"
+  ],
+  "estilo_musical": [
+    "MPB"
+  ],
+  "cozinha": [
+    "Brasileira",
+    "Portuguesa"
+  ],
+  "local": [
+    "Restaurante",
+    "Bar"
+
+  ],
+  "preco": [
+    3
+  ],
+  "tipo_evento": [
+    "Experiência gastrônomica",
+    "Happy Hour"
+  ],
+  "hobby": [
+  ],
+  "ambiente": [
+    "Térreo"
+  ],
+  "cartao": [
+    "Alelo"
+    "American Express"
+    "Crédito",
+    "Débito",
+    "Dinners",
+    "Dinheiro",
+    "Elo",
+    "Goodcard",
+    "Hipercard",
+    "Mastercard",
+    "Ticket Card",
+    "Sodexo",
+    "Verocard",
+    "Visa",
+    "VR"
+
+  ],
+  "dias": [
+    "segunda-feira",
+    "terça-feira",
+    "quarta-feira",
+    "quinta-feira",
+    "sexta-feira",
+    "sábado",
+    "feriados"
+  ],
+  {
+  "horarios_funcionamento": {
+    "segunda-feira": {
+      "abertura": "11:00",
+      "fechamento": "23:00"
+    },
+    "terca-feira": {
+      "abertura": "11:00",
+      "fechamento": "23:00"
+    },
+    "quarta-feira": {
+      "abertura": "11:00",
+      "fechamento": "23:00"
+    },
+    "quinta-feira": {
+      "abertura": "11:00",
+      "fechamento": "23:00"
+    },
+    "sexta-feira": {
+      "abertura": "11:00",
+      "fechamento": "23:00"
+    },
+    "sabado": {
+      "abertura": "11:00",
+      "fechamento": "23:00"
+    },
+    "domingo": {
+      "abertura": "Fechado",
+      "fechamento": "Fechado"
+    },
+    "feriados": {
+     "abertura": "11:00",
+     "fechamento":"23:00"
+    }
+  }
+}
+
+  ],
+  "pet": [
+    "Sim"
+  ],
+  "estilo_servico": [
+    "À la carte"
+  ],
+  "glutenfree": [
+    "Não"
+  ],
+  "lactosefree": [
+    "Sim"
+  ],
+  "__v": 0
+}

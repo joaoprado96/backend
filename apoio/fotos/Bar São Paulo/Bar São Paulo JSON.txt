@@ -1,0 +1,127 @@
+/** 
+* Paste one or more documents here
+*/
+{
+  "nome": "Bar São Paulo",
+  "descricao": "Bar com clima de praia situado às margens da represa do Guarapiranga com porções generosas e drinks autorais.A casa oferece open bar e rodizio de churrasco em dias específicos da semana então fique atento às informações de funcionamento.",
+  "rua": " Av. Atlântica ,4002 - Interlagos ",
+  "cep": "04772-001",
+  "cidade": "São Paulo",
+  "bairro": "Interlagos",
+  "regiao": "Zona Sul",
+  "entrada": "Entre R$10 a R$30",
+  "estacao": "Linha 9",
+  "estrelas": 1,
+  "avaliacao_clientes": 4,
+  "avaliacao_pagina": 2,
+  "descricao_pagina": "None.",
+  "link_pagina": "https://www.instagram.com/barsaopauloo/",
+  "midia_pagina": "https://lh3.googleusercontent.com/p/AF1QipM5EjmSow_F-P3kspI9hWSVbr8ssuVBs2z2HAm_=s1360-w1360-h1020;https://lh3.googleusercontent.com/p/AF1QipNyCNoceljAgWdm8XYm6vTqhZrfd2XAtLqeD3Z3=s1360-w1360-h1020;https://lh3.googleusercontent.com/p/AF1QipMTFscWFIlgQnSeM06OWf7npME__iOZ1lCuxYok=s1360-w1360-h1020",
+  "acessibilidade": [
+    "none"
+  ],
+  "musica": "Sim",
+  "estacionamento": "Sim",
+  "cover": "Não",
+  "kids": "Sim",
+  "website": "none",
+  "premio": [
+    "none"
+  ],
+  "estilo_musical": [
+    "Sertanejo",
+    "Funk",
+    "Pagode"
+  ],
+  "cozinha": [
+    "Brasileira"
+  ],
+  "local": [
+    "Bar",
+    "Balada",
+
+  ],
+  "preco": [
+    3
+  ],
+  "tipo_evento": [
+    "Beber e dançar",
+    "Assistir jogos esportivos",
+    "Open bar",
+    "Open food"
+  ],
+  "hobby": [
+    "none"
+  ],
+  "ambiente": [
+    "Melhores vistas"
+  ],
+  "cartao": [
+    "Crédito",
+    "Débito",
+    "Dinheiro",
+    "Elo",
+    "Mastercard",
+    "Sodexo",
+    "Visa"
+
+  ],
+  "dias": [
+    "domingo",
+    "segunda-feira",
+    "terça-feira",
+    "quarta-feira",
+    "quinta-feira",
+    "sexta-feira",
+    "sábado"
+  ],
+  {
+  "horarios_funcionamento": {
+    "segunda-feira": {
+      "abertura": "12:00",
+      "fechamento": "02:00"
+    },
+    "terca-feira": {
+      "abertura": "12:00",
+      "fechamento": "18:00"
+    },
+    "quarta-feira": {
+      "abertura": "12:00",
+      "fechamento": "18:00"
+    },
+    "quinta-feira": {
+      "abertura": "12:00",
+      "fechamento": "01:00"
+    },
+    "sexta-feira": {
+      "abertura": "12:00",
+      "fechamento": "04:00"
+    },
+    "sabado": {
+      "abertura": "12:00",
+      "fechamento": "04:00"
+    },
+    "domingo": {
+      "abertura": "12:00",
+      "fechamento": "00:00"
+    }
+  }
+}
+
+  ],
+  "pet": [
+    "Não"
+  ],
+  "estilo_servico": [
+    "Buffet",
+    "À la carte",
+    "Rodízio"
+  ],
+  "glutenfree": [
+    "Não"
+  ],
+  "lactosefree": [
+    "Não"
+  ],
+  "__v": 0
+}

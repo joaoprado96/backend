@@ -79,7 +79,7 @@ lugar = {
     "feriados"
   ],
   "nivel":1,
-  "link_cardapio":"www.qrcode.com",
+  "link_cardapio":"https://linktree.casadoraimundo.com.br/cardapio",
   "horarios_funcionamento": {
     "segunda-feira": {
       "abertura": "11:00",
@@ -199,7 +199,7 @@ lugar = {
     "sábado"
   ],
   "nivel":1,
-  "link_cardapio":"www.qrcode.com",
+  "link_cardapio":"https://qrco.de/bcLxI1?trackSharing=1",
   "horarios_funcionamento": {
     "segunda-feira": {
       "abertura": "12:00",
@@ -313,7 +313,7 @@ lugar = {
     "feriados"
   ],
   "nivel":1,
-  "link_cardapio":"www.qrcode.com",
+  "link_cardapio":"https://cardapio.meep.cloud/96f35786-182c-16f6-04e1-3ae1810c7dbf",
   "horarios_funcionamento": {
     "segunda-feira": {
       "abertura": "Fechado",
@@ -356,6 +356,242 @@ lugar = {
   "lactosefree": "Não",
 }
 
+response = requests.post(url, json=lugar)
+if response.status_code == 201:
+    print(f"Lugar {lugar['nome']} adicionado com sucesso.")
+else:
+    print(f"Erro ao adicionar lugar {lugar['nome']}: {response.status_code}")
+
+lugar = {
+  "nome": "Candy São Paulo",
+  "descricao": "A Candy é um Sushi Bar, com gastronomia japonesa alto padrão e DJ deixando o ambiente do restaurante sempre bem animado! Tem diversos pontos instagramaveis,drinks premiados e claro,uma balada secreta com uma pista de dança que vai até o amanhecer!",
+  "rua": "Alameda Lorena,2119",
+  "cep": "01424-007",
+  "cidade": "São Paulo",
+  "bairro": "Jardim Paulista",
+  "regiao": "Zona Oeste",
+  "entrada": "R$70 à R$150",
+  "estacao": "Linha 4",
+  "estrelas": 4,
+  "avaliacao_clientes": 4,
+  "avaliacao_pagina": 2,
+  "descricao_pagina": "None.",
+  "link_pagina": "https://www.instagram.com/candysaopaulo/",
+  "midia_pagina": "",
+  "acessibilidade": [
+    "Banheiro acessível",
+    "Rampas de acesso"
+  ],
+  "musica": "Sim",
+  "estacionamento": "Sim",
+  "cover": "Não",
+  "kids": "Não",
+  "website": "https://candysp.com.br/",
+  "premio": [
+    "não possui"
+  ],
+  "estilo_musical": [
+    "House",
+    "Hip-Hop"
+  ],
+  "cozinha": [
+    "Japonesa"
+  ],
+  "local": [
+    "Bar",
+    "Balada",
+    "Restaurante"
+  ],
+  "preco": 4,
+  "tipo_evento": [
+    "Beber e dançar"
+  ],
+  "hobby": [
+    "None"
+  ],
+  "ambiente": [
+    "Temático",
+    "Fumódromo"
+  ],
+  "cartao": [
+    "American Express",
+    "Crédito",
+    "Débito",
+    "Dinheiro",
+    "Elo",
+    "Mastercard",
+    "Visa"
+  ],
+  "dias": [
+    "domingo",
+    "quinta-feira",
+    "sexta-feira",
+    "sábado",
+    "feriados"
+  ],
+  "nivel":1,
+  "link_cardapio":"https://acuolina.com/en/candy-sushi-bar-and-club",
+  "horarios_funcionamento": {
+    "segunda-feira": {
+      "abertura": "fechado",
+      "fechamento": "fechado"
+    },
+    "terca-feira": {
+      "abertura": "fechado",
+      "fechamento": "fechado"
+    },
+    "quarta-feira": {
+      "abertura": "fechado",
+      "fechamento": "fechado"
+    },
+    "quinta-feira": {
+      "abertura": "18:00",
+      "fechamento": "05:00"
+    },
+    "sexta-feira": {
+      "abertura": "18:00",
+      "fechamento": "05:00"
+    },
+    "sabado": {
+      "abertura": "18:00",
+      "fechamento": "05:00"
+    },
+    "domingo": {
+      "abertura": "18:00",
+      "fechamento": "05:00"
+    },
+    "feriados": {
+     "abertura": "18:00",
+     "fechamento":"05:00"
+    }
+  },
+  "pet": "Sim",
+  "estilo_servico": [
+    "À la carte"
+  ],
+  "glutenfree": "Sim",
+  "lactosefree": "Sim",
+}
+
+response = requests.post(url, json=lugar)
+if response.status_code == 201:
+    print(f"Lugar {lugar['nome']} adicionado com sucesso.")
+else:
+    print(f"Erro ao adicionar lugar {lugar['nome']}: {response.status_code}")
+
+lugar = {
+  "nome": "Butiquim da Cidade",
+  "descricao": "O Butiquim da Cidade é um bar no coração da Vila Madalena, muito alegre e contagiante com drinks incríveis e música ao vivo para a galera aproveitar. De quarta e sexta temos o nosso rodízio de petisco por apenas R$29,90 que viralizou nas redes sociais.",
+  "rua": "R. Fradique Coutinho,1127",
+  "cep": "05416-011",
+  "cidade": "São Paulo",
+  "bairro": "Pinheiros",
+  "regiao": "Zona Oeste",
+  "entrada": "Gratuito",
+  "estacao": "Linha 4",
+  "estrelas": 4,
+  "avaliacao_clientes": 4,
+  "avaliacao_pagina": 2,
+  "descricao_pagina": "None.",
+  "link_pagina": "https://www.instagram.com/butiquimdacidade/",
+  "midia_pagina": "",
+  "acessibilidade": [
+    "Banheiro acessível",
+  ],
+  "musica": "Sim",
+  "estacionamento": "Não",
+  "cover": "Não",
+  "kids": "Não",
+  "website": "None",
+  "premio": [
+    "não possui"
+  ],
+  "estilo_musical": [
+    "Samba",
+    "MPB",
+    "Pagode",
+    "Sertaneja"
+  ],
+  "cozinha": [
+    "Brasileira"
+  ],
+  "local": [
+    "Bar"
+  ],
+  "preco": 2,
+  "tipo_evento": [
+    "Beber e dançar",
+    "Happy Hour",
+    "Rodízio"
+  ],
+  "hobby": [
+    "None"
+  ],
+  "ambiente": [
+    "Despojado"
+  ],
+  "cartao": [
+    "American Express",
+    "Crédito",
+    "Débito",
+    "Dinheiro",
+    "Elo",
+    "Hipercard"
+    "Mastercard",
+    "Visa"
+  ],
+  "dias": [
+    "domingo",
+    "quarta-feira",
+    "quinta-feira",
+    "sexta-feira",
+    "sábado",
+    "feriados"
+  ],
+  "nivel":1,
+  "link_cardapio":"https://drive.google.com/file/d/1hcA79TnOftSICY-Whgp39N98fAMF1pw8/view?usp=drive_link",
+  "horarios_funcionamento": {
+    "segunda-feira": {
+      "abertura": "fechado",
+      "fechamento": "fechado"
+    },
+    "terca-feira": {
+      "abertura": "fechado",
+      "fechamento": "fechado"
+    },
+    "quarta-feira": {
+      "abertura": "16:00",
+      "fechamento": "01:00"
+    },
+    "quinta-feira": {
+      "abertura": "16:00",
+      "fechamento": "01:00"
+    },
+    "sexta-feira": {
+      "abertura": "16:00",
+      "fechamento": "01:00"
+    },
+    "sabado": {
+      "abertura": "12:00",
+      "fechamento": "02:00"
+    },
+    "domingo": {
+      "abertura": "12:00",
+      "fechamento": "01:00"
+    },
+    "feriados": {
+     "abertura": "Consultar",
+     "fechamento":"Consultar"
+    }
+  },
+  "pet": "Sim",
+  "estilo_servico": [
+    "À la carte",
+    "Rodízio"
+  ],
+  "glutenfree": "Não",
+  "lactosefree": "Não",
+}
 response = requests.post(url, json=lugar)
 if response.status_code == 201:
     print(f"Lugar {lugar['nome']} adicionado com sucesso.")

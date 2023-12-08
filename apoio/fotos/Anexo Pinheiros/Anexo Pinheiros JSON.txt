@@ -1,0 +1,125 @@
+/** 
+* Paste one or more documents here
+*/
+{
+  "nome": "Anexo Pinheiros",
+  "descricao": "Localizado em uma das 10 ruas mais visitadas de São Paulo,o Anexo Pinheiros oferece uma atmosfera única.Composta por dois ambientes, a casa possui uma decoração baseada na arte urbana e de rua. Do nosso Rooftop, é possível apreciar um por do sol de brilhar os olhos.Além disso, a energia da balada sempre fica por conta dos diferentes DJs que comandam a pista.Venha desfrutar de um lugar aconchegante e animado, localizado no CORAÇÃO de Pinheiros.",
+  "rua": "Rua Guaicuí,82",
+  "cep": "05416-011",
+  "cidade": "São Paulo",
+  "bairro": "Pinheiros",
+  "regiao": "Zona Oeste",
+  "entrada": "R$20",
+  "estacao": "Linha 4",
+  "estrelas": 4,
+  "avaliacao_clientes": 4,
+  "avaliacao_pagina": 2,
+  "descricao_pagina": "None.",
+  "link_pagina": "https://www.instagram.com/anexopinheiros/",
+  "midia_pagina": "https://lh3.googleusercontent.com/p/AF1QipPiaXxOkZViRKTrcv5zxt_m3tNCEgNvCRcH4n7v=s1360-w1360-h1020";https://lh3.googleusercontent.com/p/AF1QipOhyf-YiX6kLM4nw_o8n5L8no8AzsF1jUsmA5ht=s1360-w1360-h1020;https://lh3.googleusercontent.com/p/AF1QipOpIL38lV3FUHRYSkxPEMmnT5KCtrsVnTy5X875=s1360-w1360-h1020
+  "acessibilidade": [
+    "none"
+  ],
+  "musica": "Sim",
+  "estacionamento": "Não",
+  "cover": "Não",
+  "kids": "Não",
+  "website": "none",
+  "premio": [
+    "none"
+  ],
+  "estilo_musical": [
+    "Funk",
+    "Trap"
+  ],
+  "cozinha": [
+    "Brasileira"
+  ],
+  "local": [
+    "Bar",
+    "Balada"
+
+  ],
+  "preco": [
+    3
+  ],
+  "tipo_evento": [
+    "Beber e dançar"
+  ],
+  "hobby": [
+    "Cantar"
+  ],
+  "ambiente": [
+    "Despojado",
+    "Fumódromo"
+  ],
+  "cartao": [
+    "American Express
+    "Crédito",
+    "Débito",
+    "Dinners",
+    "Dinheiro",
+    "Elo",
+    "Hipercard
+    "Mastercard",
+    "Visa"
+
+  ],
+  "dias": [
+    "quinta-feira",
+    "sexta-feira",
+    "sábado",
+    "feriados"
+  ],
+  {
+  "horarios_funcionamento": {
+    "segunda-feira": {
+      "abertura": "Fechado",
+      "fechamento": "Fechado"
+    },
+    "terca-feira": {
+      "abertura": "Fechado",
+      "fechamento": "Fechado"
+    },
+    "quarta-feira": {
+      "abertura": "Fechado",
+      "fechamento": "Fechado"
+    },
+    "quinta-feira": {
+      "abertura": "18:00",
+      "fechamento": "05:00"
+    },
+    "sexta-feira": {
+      "abertura": "18:00",
+      "fechamento": "05:00"
+    },
+    "sabado": {
+      "abertura": "16:00",
+      "fechamento": "05:00"
+    },
+    "domingo": {
+      "abertura": "Fechado",
+      "fechamento": "Fechado"
+    },
+    "feriados": {
+     "abertura": "Consultar",
+     "fechamento":"Consultar"
+    }
+  }
+}
+
+  ],
+  "pet": [
+    "Sim"
+  ],
+  "estilo_servico": [
+    "À la carte"
+  ],
+  "glutenfree": [
+    "Não"
+  ],
+  "lactosefree": [
+    "Não"
+  ],
+  "__v": 0
+}
