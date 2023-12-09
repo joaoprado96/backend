@@ -2,6 +2,7 @@
 let estabelecimentos = [];
 let estabelecimentosFiltrados = [];
 let diaDaSemanaGlobal;
+let filtroTipoEventoAtual = null; // Variável global para armazenar o tipo de evento selecionado
 atualizarDiaDaSemana();
 
 function atualizarDiaDaSemana() {
@@ -213,9 +214,19 @@ function aplicarFiltros() {
                matchPet && matchGlutenfree && matchLactosefree;
     });
 
+    // Adicionar filtragem adicional para tipo de evento, se necessário
+    if (filtroTipoEventoAtual) {
+        estabelecimentosFiltrados = estabelecimentosFiltrados.filter(estabelecimento => 
+            estabelecimento.tipo_evento.includes(filtroTipoEventoAtual));
+    }
+
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
 }
 
+function aplicarFiltroTipoEvento(tipoSelecionado) {
+    filtroTipoEventoAtual = tipoSelecionado; // Atualiza a variável global
+    aplicarFiltros(); // Reaplica os filtros com o novo critério
+}
 
 function ordenarEstabelecimentos(criterio, ascending = true) {
     estabelecimentosFiltrados.sort((a, b) => {
@@ -237,13 +248,21 @@ function atualizarEstabelecimentos(pagina) {
     criaPaginacao(estabelecimentosFiltrados.length, estabelecimentosPorPagina, pagina);
 }
 
-function renderizaEstabelecimentos(dados) {
+async function renderizaEstabelecimentos(dados) {
     const container = document.getElementById('estabelecimentos');
     container.innerHTML = '';
-    dados.forEach(estabelecimento => {
-        container.innerHTML += criarCard(estabelecimento);
-    });
+
+    // Cria um array de Promises usando 'criarCard'
+    const promises = dados.map(estabelecimento => criarCard(estabelecimento));
+
+    // Aguarda todas as Promises serem resolvidas
+    const cards = await Promise.all(promises);
+
+    // Adiciona cada card resolvido ao HTML
+    cards.forEach(card => container.innerHTML += card);
 }
+
+
 
 function criaPaginacao(totalEstabelecimentos, estabelecimentosPorPagina, paginaAtual) {
     const totalPaginas = Math.ceil(totalEstabelecimentos / estabelecimentosPorPagina);
@@ -350,18 +369,44 @@ function aplicarFiltroTipoEvento(tipoSelecionado) {
 
 // Chame construirCarrosselTipoEvento após os dados serem carregados
 
+function bufferToBase64(buf) {
+    let binary = '';
+    const bytes = new Uint8Array(buf);
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+        binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
+}
 
-function criarCard(estabelecimento) {
-    // Verificar se o horário de funcionamento para o dia da semana atual existe
+function buscarPrimeiraFoto(lugarId) {
+    return fetch(`/api/fotos-lugares/${lugarId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.length > 0 && data[0].fotos.length > 0) {
+                const foto = data[0].fotos[0];
+                return `data:${foto.contentType};base64,${bufferToBase64(foto.data.data)}`;
+            }
+            return './image/restaurante.jpg'; // Imagem padrão se não houver fotos
+        })
+        .catch(error => {
+            console.error('Erro ao carregar fotos:', error);
+            return './image/restaurante.jpg'; // Imagem padrão em caso de erro
+        });
+}
+
+
+async function criarCard(estabelecimento) {
     const horarioHoje = estabelecimento.horarios_funcionamento[diaDaSemanaGlobal];
     const horarioAbertura = horarioHoje ? horarioHoje.abertura : 'Indisponível';
     const horarioFechamento = horarioHoje ? horarioHoje.fechamento : 'Indisponível';
+    const imageUrl = await buscarPrimeiraFoto(estabelecimento._id);
 
     return `
     <div class="col-md-3 mb-4">
         <div class="card-body-est imagem-hover">
             <a href="detalhes.html?id=${estabelecimento._id}" class="">
-                <img src="./image/restaurante.jpg" class="img-principal" alt="Imagem do Estabelecimento"></a>
+                <img src="${imageUrl}" class="img-principal" alt="Imagem do Estabelecimento"></a>
 
             <div class="card-body d-flex flex-column">
                 <div class="row">
