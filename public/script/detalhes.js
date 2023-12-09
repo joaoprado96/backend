@@ -318,6 +318,7 @@ function criarCardDetalhe(estabelecimento) {
                         <p><strong>bairro:</strong> ${estabelecimento.bairro} </p>
                         <p><strong>região:</strong> ${estabelecimento.regiao} </p>
                         <p><strong>cidade:</strong> ${estabelecimento.cidade} </p>
+                        <p><strong>linha metro:</strong> ${estabelecimento.linha_metro} </p>
                         <p><strong>estacao mais próxima:</strong> ${estabelecimento.estacao} </p>
                     </div>
                     <div class="tab-pane fade" id="informacoes" role="tabpanel" aria-labelledby="informacoes-tab">
@@ -345,6 +346,8 @@ function criarCardDetalhe(estabelecimento) {
                     </div>
                     <div class="tab-pane fade" id="menu" role="tabpanel" aria-labelledby="menu-tab">
                         <!-- Conteúdo da aba Menu -->
+                        <p><strong>região:</strong> ${estabelecimento.link_pagina} </p>
+                        <p><strong>Cardápio:</strong> ${estabelecimento.link_cardapio} </p>
                     </div>
                 </div>
             </div>
