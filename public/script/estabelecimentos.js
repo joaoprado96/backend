@@ -43,9 +43,21 @@ function inicializarCarrossel() {
     adicionarEventListenersParaFiltros();
 }
 
-
 function loadEstabelecimentos(pagina) {
-    fetch('/api/lugares')
+    const queryParams = getQueryParams();
+    let queryString = Object.entries(queryParams).reduce((query, [key, value]) => {
+        if (value) {
+            query.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
+        }
+        return query;
+    }, []).join('&');
+    
+    let url = '/api/lugares';
+    if (queryString) {
+        url += `?${queryString}`;
+    }
+
+    fetch(url)
         .then(response => response.json())
         .then(dados => {
             estabelecimentos = dados;
@@ -57,6 +69,20 @@ function loadEstabelecimentos(pagina) {
         })
         .catch(erro => console.error('Erro ao carregar estabelecimentos:', erro));
 }
+
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        bairro: params.get('bairro'),
+        dia: params.get('dia'),
+        horario: params.get('horario'),
+        cartao: params.get('cartao'),
+        preco: params.get('preco'),
+        local: params.get('local'),
+        cozinha: params.get('cozinha')
+    };
+}
+
 
 function construirFiltros() {
     // Esta função preencherá os elementos de filtro com opções baseadas nos estabelecimentos carregados

@@ -9,16 +9,21 @@
     <div id="navbar-placeholder"></div>
 </head>
 <body>
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-4">bem-vindo ao backend!</h1>
-            <p class="lead">explore as funcionalidades através chamadas REST API, ou use os botões para testar</p>
-            <hr class="my-4">
-            <div class="links">
-                <a href="/api/lugares" class="btn btn-primary btn-lg" role="button">lugares</a>
-                <a href="/api/opcoes-sair" class="btn btn-primary btn-lg" role="button">opcoes para lugares</a>
-            </div>
-        </div>
+    <div class="home-container">
+        <h1>O que você quer fazer hoje?</h1>
+        <p>Preencha somente o que você quiser!</p>
+        <form id="search-form">
+            <input type="text" id="bairro" placeholder="Bairro">
+            <input type="text" id="dia" placeholder="Dia">
+            <input type="text" id="horario" placeholder="Horário">
+            <input type="text" id="cartao" placeholder="Cartão">
+            <input type="text" id="preco" placeholder="Preço">
+            <input type="text" id="local" placeholder="Tipo de local">
+            <input type="text" id="cozinha" placeholder="Tipo de cozinha">
+            <button type="submit">Encontrar</button>
+        </form>
+        <a href="filtros-avancados.html">Filtros avançados</a>
+        <!-- Adicione ícones de redes sociais aqui -->
     </div>
     <div id="footer-placeholder"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
