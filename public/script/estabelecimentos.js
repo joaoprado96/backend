@@ -5,44 +5,38 @@ let diaDaSemanaGlobal;
 let filtroTipoEventoAtual = null; // Variável global para armazenar o tipo de evento selecionado
 atualizarDiaDaSemana();
 
-function atualizarDiaDaSemana() {
-    let hoje = new Date();
-    let diasDaSemana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sabado"];
-    diaDaSemanaGlobal = diasDaSemana[hoje.getDay()];
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     loadNavbar();
     loadFooter();
     loadEstabelecimentos(1); // Carregar a primeira página
 });
 
-function inicializarCarrossel() {
-    $('#filtros-carrossel').slick({
-        infinite: false,
-        slidesToShow: 5,
-        slidesToScroll: 5,
-        dots: true,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    });
-    adicionarEventListenersParaFiltros();
+function atualizarDiaDaSemana() {
+    let hoje = new Date();
+    let diasDaSemana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sabado"];
+    diaDaSemanaGlobal = diasDaSemana[hoje.getDay()];
 }
 
+function loadNavbar() {
+    const navbarPlaceholder = document.getElementById('navbar-placeholder');
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(html => {
+            navbarPlaceholder.innerHTML = html;
+        }).catch(error => {
+            console.error('Falha ao carregar o navbar:', error);
+        });
+}
+function loadFooter() {
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(html => {
+            footerPlaceholder.innerHTML = html;
+        }).catch(error => {
+            console.error('Falha ao carregar o footer:', error);
+        });
+}
 function loadEstabelecimentos(pagina) {
     const queryParams = getQueryParams();
     let queryString = Object.entries(queryParams).reduce((query, [key, value]) => {
@@ -63,9 +57,9 @@ function loadEstabelecimentos(pagina) {
             estabelecimentos = dados;
             estabelecimentosFiltrados = [...estabelecimentos];
             construirFiltros();
-            atualizarEstabelecimentos(pagina);
-            construirCarrosselTipoEvento()
-            inicializarCarrossel(); // Chame esta função depois que os estabelecimentos forem carregados
+            atualizarEstabelecimentos(pagina); 
+            // construirCarrosselTipoEvento();
+            inicializarCarrosselFiltros(); // Chame esta função depois que os estabelecimentos forem carregados
         })
         .catch(erro => console.error('Erro ao carregar estabelecimentos:', erro));
 }
@@ -82,7 +76,6 @@ function getQueryParams() {
         cozinha: params.get('cozinha')
     };
 }
-
 
 function construirFiltros() {
     // Esta função preencherá os elementos de filtro com opções baseadas nos estabelecimentos carregados
@@ -249,9 +242,81 @@ function aplicarFiltros() {
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
 }
 
-function aplicarFiltroTipoEvento(tipoSelecionado) {
-    filtroTipoEventoAtual = tipoSelecionado;
-    aplicarFiltros(); // Reaplica todos os filtros
+// function construirCarrosselTipoEvento() {
+//     const tiposEvento = new Set();
+//     estabelecimentos.forEach(estabelecimento => {
+//         estabelecimento.tipo_evento.forEach(te => tiposEvento.add(te));
+//     });
+
+//     const carrossel = document.getElementById('carrosselTipoEvento');
+//     tiposEvento.forEach(tipo => {
+//         const imageUrl = buscarImagemParaTipoEvento(tipo);
+//         carrossel.innerHTML += `
+//             <div class="item-carrossel">
+//                 <img src="${imageUrl}" alt="${tipo}" style="height: 50px; width: auto;">
+//                 <h3>${tipo}</h3>
+//             </div>
+//         `;
+//     });
+
+//     // Inicializar o carrossel usando Slick
+//     $(carrossel).slick({
+//         dots: true,
+//         infinite: true,
+//         speed: 300,
+//         slidesToShow: 4,
+//         slidesToScroll: 4,
+//         // outras opções conforme necessário
+//     });
+
+//     // Adicionar event listener para seleção de tipo de evento
+//     $('.item-carrossel').on('click', function() {
+//         const tipoSelecionado = $(this).find('h3').text();
+//         aplicarFiltroTipoEvento(tipoSelecionado);
+//     });
+// }
+
+// function buscarImagemParaTipoEvento(tipo) {
+//     const imagensTipoEvento = {
+//         "Coloque os tipos de encontro": "icons/icon-gluten.png",
+//         // Adicionar mais correspondências de tipos de evento e imagens
+//     };
+
+//     return imagensTipoEvento[tipo] || "icons/icon-gluten.png";
+// }
+
+// function aplicarFiltroTipoEvento(tipoSelecionado) {
+//     estabelecimentosFiltrados = estabelecimentos.filter(estabelecimento =>
+//         estabelecimento.tipo_evento.includes(tipoSelecionado)
+//     );
+//     atualizarEstabelecimentos(1); // Atualizar para mostrar apenas os estabelecimentos filtrados
+// }
+
+// Carroseel dos filtros
+function inicializarCarrosselFiltros() {
+    $('#filtros-carrossel').slick({
+        infinite: false,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        dots: true,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+    adicionarEventListenersParaFiltros();
 }
 
 function ordenarEstabelecimentos(criterio, ascending = true) {
@@ -264,136 +329,6 @@ function ordenarEstabelecimentos(criterio, ascending = true) {
 
     atualizarEstabelecimentos(1); // Reset para a primeira página após ordenar
 }
-
-function atualizarEstabelecimentos(pagina) {
-    const estabelecimentosPorPagina = 28;
-    const inicio = (pagina - 1) * estabelecimentosPorPagina;
-    const fim = inicio + estabelecimentosPorPagina;
-    const dadosPagina = estabelecimentosFiltrados.slice(inicio, fim);
-    renderizaEstabelecimentos(dadosPagina);
-    criaPaginacao(estabelecimentosFiltrados.length, estabelecimentosPorPagina, pagina);
-}
-
-async function renderizaEstabelecimentos(dados) {
-    const container = document.getElementById('estabelecimentos');
-    container.innerHTML = '';
-
-    // Cria um array de Promises usando 'criarCard'
-    const promises = dados.map(estabelecimento => criarCard(estabelecimento));
-
-    // Aguarda todas as Promises serem resolvidas
-    const cards = await Promise.all(promises);
-
-    // Adiciona cada card resolvido ao HTML
-    cards.forEach(card => container.innerHTML += card);
-}
-
-
-
-function criaPaginacao(totalEstabelecimentos, estabelecimentosPorPagina, paginaAtual) {
-    const totalPaginas = Math.ceil(totalEstabelecimentos / estabelecimentosPorPagina);
-    const paginacaoContainer = document.getElementById('paginacao');
-    paginacaoContainer.innerHTML = '';
-
-    if (paginaAtual > 1) {
-        paginacaoContainer.innerHTML += `<button onclick="loadEstabelecimentos(${paginaAtual - 1})">Anterior</button>`;
-    }
-
-    for (let i = 1; i <= totalPaginas; i++) {
-        paginacaoContainer.innerHTML += `<button onclick="loadEstabelecimentos(${i})">${i}</button>`;
-    }
-
-    if (paginaAtual < totalPaginas) {
-        paginacaoContainer.innerHTML += `<button onclick="loadEstabelecimentos(${paginaAtual + 1})">Próxima</button>`;
-    }
-}
-
-function loadNavbar() {
-    const navbarPlaceholder = document.getElementById('navbar-placeholder');
-    fetch('navbar.html')
-        .then(response => response.text())
-        .then(html => {
-            navbarPlaceholder.innerHTML = html;
-        }).catch(error => {
-            console.error('Falha ao carregar o navbar:', error);
-        });
-}
-function loadFooter() {
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(html => {
-            footerPlaceholder.innerHTML = html;
-        }).catch(error => {
-            console.error('Falha ao carregar o footer:', error);
-        });
-}
-
-
-function criarBoxes(lista) {
-    return lista.map(item => `<span class="box">${item}</span>`).join('');
-}
-
-function truncateText(text, maxLength) {
-    if (text.length > maxLength) {
-        return text.substring(0, maxLength) + '...';
-    }
-    return text;
-}
-
-// Dentro do seu script de carregamento de estabelecimentos, após os dados serem carregados
-function construirCarrosselTipoEvento() {
-    const tiposEvento = new Set();
-    estabelecimentos.forEach(estabelecimento => {
-        estabelecimento.tipo_evento.forEach(te => tiposEvento.add(te));
-    });
-
-    const carrossel = document.getElementById('carrosselTipoEvento');
-    tiposEvento.forEach(tipo => {
-        const imageUrl = buscarImagemParaTipoEvento(tipo);
-        carrossel.innerHTML += `
-            <div class="item-carrossel">
-                <img src="${imageUrl}" alt="${tipo}" style="height: 50px; width: auto;">
-                <h3>${tipo}</h3>
-            </div>
-        `;
-    });
-
-    // Inicializar o carrossel usando Slick
-    $(carrossel).slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        // outras opções conforme necessário
-    });
-
-    // Adicionar event listener para seleção de tipo de evento
-    $('.item-carrossel').on('click', function() {
-        const tipoSelecionado = $(this).find('h3').text();
-        aplicarFiltroTipoEvento(tipoSelecionado);
-    });
-}
-
-function buscarImagemParaTipoEvento(tipo) {
-
-    const imagensTipoEvento = {
-        "Coloque os tipos de encontro": "icons/icon-gluten.png",
-        // Adicionar mais correspondências de tipos de evento e imagens
-    };
-
-    return imagensTipoEvento[tipo] || "icons/icon-gluten.png";
-}
-
-function aplicarFiltroTipoEvento(tipoSelecionado) {
-    estabelecimentosFiltrados = estabelecimentos.filter(estabelecimento =>
-        estabelecimento.tipo_evento.includes(tipoSelecionado)
-    );
-    atualizarEstabelecimentos(1); // Atualizar para mostrar apenas os estabelecimentos filtrados
-}
-
-// Chame construirCarrosselTipoEvento após os dados serem carregados
 
 function bufferToBase64(buf) {
     let binary = '';
@@ -421,6 +356,23 @@ function buscarPrimeiraFoto(lugarId) {
         });
 }
 
+function criaPaginacao(totalEstabelecimentos, estabelecimentosPorPagina, paginaAtual) {
+    const totalPaginas = Math.ceil(totalEstabelecimentos / estabelecimentosPorPagina);
+    const paginacaoContainer = document.getElementById('paginacao');
+    paginacaoContainer.innerHTML = '';
+
+    if (paginaAtual > 1) {
+        paginacaoContainer.innerHTML += `<button onclick="loadEstabelecimentos(${paginaAtual - 1})">Anterior</button>`;
+    }
+
+    for (let i = 1; i <= totalPaginas; i++) {
+        paginacaoContainer.innerHTML += `<button onclick="loadEstabelecimentos(${i})">${i}</button>`;
+    }
+
+    if (paginaAtual < totalPaginas) {
+        paginacaoContainer.innerHTML += `<button onclick="loadEstabelecimentos(${paginaAtual + 1})">Próxima</button>`;
+    }
+}
 
 async function criarCard(estabelecimento) {
     const horarioHoje = estabelecimento.horarios_funcionamento[diaDaSemanaGlobal];
@@ -458,3 +410,25 @@ async function criarCard(estabelecimento) {
     `;
 }
 
+async function renderizaEstabelecimentos(dados) {
+    const container = document.getElementById('estabelecimentos');
+    container.innerHTML = '';
+
+    // Cria um array de Promises usando 'criarCard'
+    const promises = dados.map(estabelecimento => criarCard(estabelecimento));
+
+    // Aguarda todas as Promises serem resolvidas
+    const cards = await Promise.all(promises);
+
+    // Adiciona cada card resolvido ao HTML
+    cards.forEach(card => container.innerHTML += card);
+}
+
+async function atualizarEstabelecimentos(pagina) {
+    const estabelecimentosPorPagina = 28;
+    const inicio = (pagina - 1) * estabelecimentosPorPagina;
+    const fim = inicio + estabelecimentosPorPagina;
+    const dadosPagina = estabelecimentosFiltrados.slice(inicio, fim);
+    await renderizaEstabelecimentos(dadosPagina);
+    criaPaginacao(estabelecimentosFiltrados.length, estabelecimentosPorPagina, pagina);
+}
