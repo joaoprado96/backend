@@ -16,6 +16,33 @@
             <hr class="my-4">
         </div>
     </div>
+        <!-- Filtros e Ordenação -->
+        <div class="container">
+            <!-- Filtros -->
+            <div id="filtros">
+                <select id="filtro-cozinha">
+                    <option value="">Todas as cozinhas</option>
+                </select>
+                <select id="filtro-regiao">
+                    <option value="">Todas as regiões</option>
+                </select>
+                <select id="filtro-bairro">
+                    <option value="">Todos os bairros</option>
+                </select>
+                <select id="filtro-cartao">
+                    <option value="">Todos os cartões</option>
+                </select>
+                <select id="filtro-local">
+                    <option value="">Todos os locais</option>
+                </select>
+            </div>
+    
+            <!-- Ordenação -->
+            <div id="ordenacao">
+                <button onclick="ordenarEstabelecimentos('estrelas', true)">Ordenar por Estrelas</button>
+                <button onclick="ordenarEstabelecimentos('preco', true)">Ordenar por Preço</button>
+            </div>
+        </div>
     <div class="container mt-8">
         <div id="estabelecimentos" class="row">
             <!-- Os cards serão inseridos aqui pelo JavaScript -->

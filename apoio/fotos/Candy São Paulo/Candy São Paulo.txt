@@ -1,22 +1,44 @@
-1) Ordenar por estrela ou preço (estrelas e preco)
-2) Filtrar por cozinha (cozinha) - Tenho que trazer todas as opções de cozinha para a pessoa.
-3) Filtrar por região regiao
-4) Filtrar por bairro bairro
-5) Filtrar por cartao
-6) Filtrar por horarios_funcionamento ( filtro de dia e hora )
+<select id="filtro-cozinha">
+    <!-- Opções de cozinha preenchidas dinamicamente -->
+</select>
+<select id="filtro-regiao">
+    <!-- Opções de região preenchidas dinamicamente -->
+</select>
+<!-- Outros filtros... -->
+<button onclick="ordenarEstabelecimentos('estrelas')">Ordenar por Estrela</button>
+<button onclick="ordenarEstabelecimentos('preco')">Ordenar por Preço</button>
 
-Resto
-local
-entrada
-linha_metro
-estacao
-avaliacao_clientes
-acessibilidade
 
-musica
-estacionamento
-cover
-kids
-estilo_musical
-hobby
-ambiente
+
+
+function construirFiltros() {
+    // Analisar os estabelecimentos e construir os filtros dinâmicos.
+}
+
+function aplicarFiltros() {
+    // Filtrar os estabelecimentos com base nos critérios selecionados.
+}
+
+function ordenarEstabelecimentos(criterio, ascending = true) {
+    estabelecimentos.sort((a, b) => {
+        // Convertendo valores para números para garantir uma comparação numérica correta
+        let valorA = (criterio === 'estrelas') ? Number(a[criterio]) : Number(a.preco);
+        let valorB = (criterio === 'estrelas') ? Number(b[criterio]) : Number(b.preco);
+
+        // Comparação para ordenação ascendente ou descendente
+        if (ascending) {
+            return valorA - valorB;
+        } else {
+            return valorB - valorA;
+        }
+    });
+	
+}
+
+// UI handlers
+document.getElementById('filtro-cozinha').addEventListener('change', aplicarFiltros);
+document.getElementById('filtro-regiao').addEventListener('change', aplicarFiltros);
+// Adicione listeners para outros filtros e botões de ordenação conforme necessário.
+
+// Inicialização
+construirFiltros();
