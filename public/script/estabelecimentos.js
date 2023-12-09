@@ -77,26 +77,32 @@ function getQueryParams() {
     };
 }
 
+
+function sortSetAlphabetically(set) {
+    return Array.from(set).sort();
+  }
 function construirFiltros() {
     // Esta função preencherá os elementos de filtro com opções baseadas nos estabelecimentos carregados
-    const cozinhas = new Set();
-    const regioes = new Set();
-    const bairros = new Set();
-    const cartoes = new Set();
-    const locais = new Set();
+    var cozinhas = new Set();
+    var regioes = new Set();
+    var bairros = new Set();
+    var cartoes = new Set();
+    var locais = new Set();
     const entradas = new Set();
-    const linhas_metro = new Set();
-    const estacoes = new Set();
-    const acessibilidades = new Set();
-    const estilos_musicais = new Set();
-    const estilos_servicos = new Set();
-    const hobbys = new Set();
-    const ambientes = new Set();
+    var linhas_metro = new Set();
+    var estacoes = new Set();
+    var acessibilidades = new Set();
+    var estilos_musicais = new Set();
+    var estilos_servicos = new Set();
+    var hobbys = new Set();
+    var ambientes = new Set();
+    const dias = new Set();
 
     estabelecimentos.forEach(estabelecimento => {
         estabelecimento.cozinha.forEach(c => cozinhas.add(c));
         regioes.add(estabelecimento.regiao);
         bairros.add(estabelecimento.bairro);
+        estabelecimento.dias.forEach(ct => dias.add(ct));
         estabelecimento.cartao.forEach(ct => cartoes.add(ct));
         estabelecimento.local.forEach(l => locais.add(l));
         entradas.add(estabelecimento.entrada);
@@ -109,6 +115,19 @@ function construirFiltros() {
         estabelecimento.ambiente.forEach(amb => ambientes.add(amb));
         
     });
+    
+    cozinhas = sortSetAlphabetically(cozinhas);
+    regioes = sortSetAlphabetically(regioes);
+    bairros = sortSetAlphabetically(bairros);
+    cartoes = sortSetAlphabetically(cartoes);
+    locais = sortSetAlphabetically(locais);
+    linhas_metro = sortSetAlphabetically(linhas_metro);
+    estacoes = sortSetAlphabetically(estacoes);
+    acessibilidades = sortSetAlphabetically(acessibilidades);
+    estilos_musicais = sortSetAlphabetically(estilos_musicais);
+    estilos_servicos = sortSetAlphabetically(estilos_servicos);
+    hobbys = sortSetAlphabetically(hobbys);
+    ambientes = sortSetAlphabetically(ambientes);
 
     const filtroCozinha = document.getElementById('filtro-cozinha');
     cozinhas.forEach(c => filtroCozinha.add(new Option(c, c)));

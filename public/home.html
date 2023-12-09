@@ -12,18 +12,51 @@
     <div class="home-container">
         <h1>O que você quer fazer hoje?</h1>
         <p>Preencha somente o que você quiser!</p>
-        <form id="search-form">
-            <input type="text" id="bairro" placeholder="Bairro">
-            <input type="text" id="dia" placeholder="Dia">
-            <input type="text" id="horario" placeholder="Horário">
-            <input type="text" id="cartao" placeholder="Cartão">
-            <input type="text" id="preco" placeholder="Preço">
-            <input type="text" id="local" placeholder="Tipo de local">
-            <input type="text" id="cozinha" placeholder="Tipo de cozinha">
-            <button type="submit">Encontrar</button>
-        </form>
+        <div class="container">
+            <form id="search-form">
+                <label for="bairro">Bairro:</label>
+                <select id="bairro" name="bairro">
+                    <option value="">Selecione o Bairro</option>
+                    <!-- Opções preenchidas pelo JavaScript -->
+                </select>
+    
+                <label for="dia">Dia:</label>
+                <select id="dia" name="dia">
+                    <option value="">Selecione o Dia</option>
+                    <!-- Opções preenchidas pelo JavaScript -->
+                </select>
+    
+                <label for="horario_abertura">Horário de Abertura:</label>
+                <input type="time" id="horario_abertura" name="horario_abertura">
+                
+                <label for="horario_fechamento">Horário de Fechamento:</label>
+                <input type="time" id="horario_fechamento" name="horario_fechamento">
+
+                <label for="cartao">Cartão:</label>
+                <select id="cartao" name="cartao">
+                    <option value="">Selecione o Cartão</option>
+                    <!-- Opções preenchidas pelo JavaScript -->
+                </select>
+    
+                <label for="preco">Preço:</label>
+                <input type="number" id="preco" name="preco" placeholder="Insira o preço máximo">
+    
+                <label for="local">Local:</label>
+                <select id="local" name="local">
+                    <option value="">Selecione o Local</option>
+                    <!-- Opções preenchidas pelo JavaScript -->
+                </select>
+    
+                <label for="cozinha">Cozinha:</label>
+                <select id="cozinha" name="cozinha">
+                    <option value="">Selecione o Tipo de Cozinha</option>
+                    <!-- Opções preenchidas pelo JavaScript -->
+                </select>
+    
+                <button type="submit">Encontrar</button>
+            </form>
+        </div>
         <a href="filtros-avancados.html">Filtros avançados</a>
-        <!-- Adicione ícones de redes sociais aqui -->
     </div>
     <div id="footer-placeholder"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
