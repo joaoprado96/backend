@@ -6,7 +6,7 @@ atualizarDiaDaSemana();
 
 function atualizarDiaDaSemana() {
     let hoje = new Date();
-    let diasDaSemana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
+    let diasDaSemana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sabado"];
     diaDaSemanaGlobal = diasDaSemana[hoje.getDay()];
 }
 
@@ -15,6 +15,33 @@ document.addEventListener('DOMContentLoaded', function() {
     loadFooter();
     loadEstabelecimentos(1); // Carregar a primeira página
 });
+
+function inicializarCarrossel() {
+    $('#filtros-carrossel').slick({
+        infinite: false,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        dots: true,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+    adicionarEventListenersParaFiltros();
+}
+
 
 function loadEstabelecimentos(pagina) {
     fetch('/api/lugares')
@@ -25,6 +52,8 @@ function loadEstabelecimentos(pagina) {
             construirFiltros();
             aplicarFiltros();
             atualizarEstabelecimentos(pagina);
+            construirCarrosselTipoEvento()
+            inicializarCarrossel(); // Chame esta função depois que os estabelecimentos forem carregados
         })
         .catch(erro => console.error('Erro ao carregar estabelecimentos:', erro));
 }
@@ -36,13 +65,30 @@ function construirFiltros() {
     const bairros = new Set();
     const cartoes = new Set();
     const locais = new Set();
+    const entradas = new Set();
+    const linhas_metro = new Set();
+    const estacoes = new Set();
+    const acessibilidades = new Set();
+    const estilos_musicais = new Set();
+    const estilos_servicos = new Set();
+    const hobbys = new Set();
+    const ambientes = new Set();
 
     estabelecimentos.forEach(estabelecimento => {
         estabelecimento.cozinha.forEach(c => cozinhas.add(c));
         regioes.add(estabelecimento.regiao);
         bairros.add(estabelecimento.bairro);
-        cartoes.add(estabelecimento.cartao);
-        locais.add(estabelecimento.local);
+        estabelecimento.cartao.forEach(ct => cartoes.add(ct));
+        estabelecimento.local.forEach(l => locais.add(l));
+        entradas.add(estabelecimento.entrada);
+        estabelecimento.linha_metro.forEach(lm => linhas_metro.add(lm));
+        estabelecimento.estacao.forEach(est => estacoes.add(est));
+        estabelecimento.acessibilidade.forEach(acess => acessibilidades.add(acess));
+        estabelecimento.estilo_musical.forEach(em => estilos_musicais.add(em));
+        estabelecimento.estilo_servico.forEach(es => estilos_servicos.add(es));
+        estabelecimento.hobby.forEach(hb => hobbys.add(hb));
+        estabelecimento.ambiente.forEach(amb => ambientes.add(amb));
+        
     });
 
     const filtroCozinha = document.getElementById('filtro-cozinha');
@@ -55,10 +101,34 @@ function construirFiltros() {
     bairros.forEach(b => filtroBairro.add(new Option(b, b)));
 
     const filtroCartao = document.getElementById('filtro-cartao');
-    bairros.forEach(ct => filtroCartao.add(new Option(ct, ct)));
+    cartoes.forEach(ct => filtroCartao.add(new Option(ct, ct)));
     
     const filtroLocal = document.getElementById('filtro-local');
     locais.forEach(l => filtroLocal.add(new Option(l, l)));
+    
+    const filtroEntrada = document.getElementById('filtro-entrada');
+    entradas.forEach(ent => filtroEntrada.add(new Option(ent, ent)));
+
+    const filtroMetro = document.getElementById('filtro-metro');
+    linhas_metro.forEach(metro => filtroMetro.add(new Option(metro, metro)));
+
+    const filtroEstacao = document.getElementById('filtro-estacao');
+    estacoes.forEach(esta => filtroEstacao.add(new Option(esta, esta)));
+
+    const filtroAcessibilidade = document.getElementById('filtro-acessibilidade');
+    acessibilidades.forEach(acess => filtroAcessibilidade.add(new Option(acess, acess)));
+
+    const filtroEstiloMusical = document.getElementById('filtro-musical');
+    estilos_musicais.forEach(mus => filtroEstiloMusical.add(new Option(mus, mus)));
+
+    const filtroEstiloServico = document.getElementById('filtro-servico');
+    estilos_servicos.forEach(serv => filtroEstiloServico.add(new Option(serv, serv)));
+
+    const filtroHobby = document.getElementById('filtro-hobby');
+    hobbys.forEach(hoby => filtroHobby.add(new Option(hoby, hoby)));
+
+    const filtroAmbiente = document.getElementById('filtro-ambiente');
+    ambientes.forEach(amb => filtroAmbiente.add(new Option(amb, amb)));
 
     adicionarEventListenersParaFiltros();
 }
@@ -69,28 +139,83 @@ function adicionarEventListenersParaFiltros() {
     document.getElementById('filtro-bairro').addEventListener('change', () => aplicarFiltros());
     document.getElementById('filtro-cartao').addEventListener('change', () => aplicarFiltros());
     document.getElementById('filtro-local').addEventListener('change', () => aplicarFiltros());
-    // Adicione event listeners para outros elementos de filtro conforme necessário
+    document.getElementById('filtro-entrada').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-metro').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-estacao').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-acessibilidade').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-musical').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-servico').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-hobby').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-ambiente').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-musica').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-estacionamento').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-cover').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-kids').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-pet').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-glutenfree').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-lactosefree').addEventListener('change', () => aplicarFiltros());
 }
 
 function aplicarFiltros() {
+    // Filtros de seleção (dropdowns)
     const filtroCozinha = document.getElementById('filtro-cozinha').value;
     const filtroRegiao = document.getElementById('filtro-regiao').value;
     const filtroBairro = document.getElementById('filtro-bairro').value;
     const filtroCartao = document.getElementById('filtro-cartao').value;
     const filtroLocal = document.getElementById('filtro-local').value;
+    const filtroEntrada = document.getElementById('filtro-entrada').value;
+    const filtroMetro = document.getElementById('filtro-metro').value;
+    const filtroEstacao = document.getElementById('filtro-estacao').value;
+    const filtroAcessibilidade = document.getElementById('filtro-acessibilidade').value;
+    const filtroEstiloMusical = document.getElementById('filtro-musical').value;
+    const filtroEstiloServico = document.getElementById('filtro-servico').value;
+    const filtroHobby = document.getElementById('filtro-hobby').value;
+    const filtroAmbiente = document.getElementById('filtro-ambiente').value;
+
+    // Filtros de checkbox
+    const filtroMusica = document.getElementById('filtro-musica').checked;
+    const filtroEstacionamento = document.getElementById('filtro-estacionamento').checked;
+    const filtroCover = document.getElementById('filtro-cover').checked;
+    const filtroKids = document.getElementById('filtro-kids').checked;
+    const filtroPet = document.getElementById('filtro-pet').checked;
+    const filtroGlutenfree = document.getElementById('filtro-glutenfree').checked;
+    const filtroLactosefree = document.getElementById('filtro-lactosefree').checked;
 
     estabelecimentosFiltrados = estabelecimentos.filter(estabelecimento => {
+        // Verificações para os filtros de seleção
         const matchCozinha = filtroCozinha ? estabelecimento.cozinha.includes(filtroCozinha) : true;
         const matchRegiao = filtroRegiao ? estabelecimento.regiao === filtroRegiao : true;
         const matchBairro = filtroBairro ? estabelecimento.bairro === filtroBairro : true;
-        const matchCartao = filtroCartao ? estabelecimento.cartao === filtroCartao : true;
-        const matchLocal = filtroLocal ? estabelecimento.local === filtroLocal : true;
+        const matchCartao = filtroCartao ? estabelecimento.cartao.includes(filtroCartao) : true; // Supondo que cartao é um array
+        const matchLocal = filtroLocal ? estabelecimento.local.includes(filtroLocal) : true; // Supondo que local é um array
+        const matchEntrada = filtroEntrada ? estabelecimento.entrada === filtroEntrada : true;
+        const matchMetro = filtroMetro ? estabelecimento.linha_metro.includes(filtroMetro) : true; // Supondo que linha_metro é um array
+        const matchEstacao = filtroEstacao ? estabelecimento.estacao.includes(filtroEstacao) : true; // Supondo que estacao é um array
+        const matchAcessibilidade = filtroAcessibilidade ? estabelecimento.acessibilidade.includes(filtroAcessibilidade) : true; // Supondo que acessibilidade é um array
+        const matchEstiloMusical = filtroEstiloMusical ? estabelecimento.estilo_musical.includes(filtroEstiloMusical) : true; // Supondo que estilo_musical é um array
+        const matchEstiloServico = filtroEstiloServico ? estabelecimento.estilo_servico.includes(filtroEstiloServico) : true; // Supondo que estilo_servico é um array
+        const matchHobby = filtroHobby ? estabelecimento.hobby.includes(filtroHobby) : true; // Supondo que hobby é um array
+        const matchAmbiente = filtroAmbiente ? estabelecimento.ambiente.includes(filtroAmbiente) : true; // Supondo que ambiente é um array
 
-        return matchCozinha && matchRegiao && matchBairro && matchCartao && matchLocal;
+        // Verificações para os filtros de checkbox
+        const matchMusica = !filtroMusica || estabelecimento.musica === (filtroMusica ? 'Sim' : 'Não');
+        const matchEstacionamento = !filtroEstacionamento || estabelecimento.estacionamento === (filtroEstacionamento ? 'Sim' : 'Não');
+        const matchCover = !filtroCover || estabelecimento.cover === (filtroCover ? 'Sim' : 'Não');
+        const matchKids = !filtroKids || estabelecimento.kids === (filtroKids ? 'Sim' : 'Não');
+        const matchPet = !filtroPet || estabelecimento.pet === (filtroPet ? 'Sim' : 'Não');
+        const matchGlutenfree = !filtroGlutenfree || estabelecimento.glutenfree === (filtroGlutenfree ? 'Sim' : 'Não');
+        const matchLactosefree = !filtroLactosefree || estabelecimento.lactosefree === (filtroLactosefree ? 'Sim' : 'Não');
+
+        return matchCozinha && matchRegiao && matchBairro && matchCartao && matchLocal &&
+               matchEntrada && matchMetro && matchEstacao && matchAcessibilidade &&
+               matchEstiloMusical && matchEstiloServico && matchHobby && matchAmbiente &&
+               matchMusica && matchEstacionamento && matchCover && matchKids &&
+               matchPet && matchGlutenfree && matchLactosefree;
     });
 
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
 }
+
 
 function ordenarEstabelecimentos(criterio, ascending = true) {
     estabelecimentosFiltrados.sort((a, b) => {
@@ -159,46 +284,6 @@ function loadFooter() {
         });
 }
 
-function criarCard(estabelecimento) {
-    // Função para gerar ícones de preço e avaliação
-    const gerarIcones = (quantidade, icone) => Array.from({ length: quantidade }, () => icone).join('');
-
-    // // Calcular horário de abertura e fechamento
-    const horarioAbertura = estabelecimento.horarios_funcionamento[diaDaSemanaGlobal].abertura;
-    const horarioFechamento = estabelecimento.horarios_funcionamento[diaDaSemanaGlobal].fechamento;
-    
-
-    return `
-<div class="col-md-3 mb-4">
-    <div class="card-body-est imagem-hover">
-            <a href="detalhes.html?id=${estabelecimento._id}" class="">
-                <img src="./image/restaurante.jpg" class="img-principal" alt="Imagem do Estabelecimento"></a>
-
-        <div class="card-body d-flex flex-column">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="let-card">${estabelecimento.nome}</div>
-                </div>
-                <div class="col-md-3">
-                    <div class="icone">⭐${estabelecimento.avaliacao_clientes}</div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="let-card-min"><i class="fas fa-map-marker-alt"></i> ${estabelecimento.bairro}</p>
-                </div>
-                <div class="col-md-6">
-                    <p class="let-card-min"><i class="fas fa-clock"></i> ${horarioAbertura} - ${horarioFechamento}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    `;
-}
-
-
 
 function criarBoxes(lista) {
     return lista.map(item => `<span class="box">${item}</span>`).join('');
@@ -209,5 +294,96 @@ function truncateText(text, maxLength) {
         return text.substring(0, maxLength) + '...';
     }
     return text;
+}
+
+// Dentro do seu script de carregamento de estabelecimentos, após os dados serem carregados
+function construirCarrosselTipoEvento() {
+    const tiposEvento = new Set();
+    estabelecimentos.forEach(estabelecimento => {
+        estabelecimento.tipo_evento.forEach(te => tiposEvento.add(te));
+    });
+
+    const carrossel = document.getElementById('carrosselTipoEvento');
+    tiposEvento.forEach(tipo => {
+        const imageUrl = buscarImagemParaTipoEvento(tipo);
+        carrossel.innerHTML += `
+            <div class="item-carrossel">
+                <img src="${imageUrl}" alt="${tipo}" style="height: 50px; width: auto;">
+                <h3>${tipo}</h3>
+            </div>
+        `;
+    });
+
+    // Inicializar o carrossel usando Slick
+    $(carrossel).slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        // outras opções conforme necessário
+    });
+
+    // Adicionar event listener para seleção de tipo de evento
+    $('.item-carrossel').on('click', function() {
+        const tipoSelecionado = $(this).find('h3').text();
+        aplicarFiltroTipoEvento(tipoSelecionado);
+    });
+}
+
+function buscarImagemParaTipoEvento(tipo) {
+
+    const imagensTipoEvento = {
+        "Coloque os tipos de encontro": "icons/icon-gluten.png",
+        // Adicionar mais correspondências de tipos de evento e imagens
+    };
+
+    return imagensTipoEvento[tipo] || "icons/icon-gluten.png";
+}
+
+function aplicarFiltroTipoEvento(tipoSelecionado) {
+    estabelecimentosFiltrados = estabelecimentos.filter(estabelecimento =>
+        estabelecimento.tipo_evento.includes(tipoSelecionado)
+    );
+    atualizarEstabelecimentos(1); // Atualizar para mostrar apenas os estabelecimentos filtrados
+}
+
+// Chame construirCarrosselTipoEvento após os dados serem carregados
+
+
+function criarCard(estabelecimento) {
+    // Verificar se o horário de funcionamento para o dia da semana atual existe
+    const horarioHoje = estabelecimento.horarios_funcionamento[diaDaSemanaGlobal];
+    const horarioAbertura = horarioHoje ? horarioHoje.abertura : 'Indisponível';
+    const horarioFechamento = horarioHoje ? horarioHoje.fechamento : 'Indisponível';
+
+    return `
+    <div class="col-md-3 mb-4">
+        <div class="card-body-est imagem-hover">
+            <a href="detalhes.html?id=${estabelecimento._id}" class="">
+                <img src="./image/restaurante.jpg" class="img-principal" alt="Imagem do Estabelecimento"></a>
+
+            <div class="card-body d-flex flex-column">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="let-card">${estabelecimento.nome}</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="icone">⭐${estabelecimento.avaliacao_clientes}</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="let-card-min"><i class="fas fa-map-marker-alt"></i> ${estabelecimento.bairro}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="let-card-min"><i class="fas fa-clock"></i> ${horarioAbertura} - ${horarioFechamento}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
 }
 
