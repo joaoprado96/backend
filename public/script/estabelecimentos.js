@@ -51,7 +51,6 @@ function loadEstabelecimentos(pagina) {
             estabelecimentos = dados;
             estabelecimentosFiltrados = [...estabelecimentos];
             construirFiltros();
-            aplicarFiltros();
             atualizarEstabelecimentos(pagina);
             construirCarrosselTipoEvento()
             inicializarCarrossel(); // Chame esta função depois que os estabelecimentos forem carregados
@@ -158,6 +157,7 @@ function adicionarEventListenersParaFiltros() {
 }
 
 function aplicarFiltros() {
+    let resultadosFiltro = estabelecimentos;
     // Filtros de seleção (dropdowns)
     const filtroCozinha = document.getElementById('filtro-cozinha').value;
     const filtroRegiao = document.getElementById('filtro-regiao').value;
@@ -224,8 +224,8 @@ function aplicarFiltros() {
 }
 
 function aplicarFiltroTipoEvento(tipoSelecionado) {
-    filtroTipoEventoAtual = tipoSelecionado; // Atualiza a variável global
-    aplicarFiltros(); // Reaplica os filtros com o novo critério
+    filtroTipoEventoAtual = tipoSelecionado;
+    aplicarFiltros(); // Reaplica todos os filtros
 }
 
 function ordenarEstabelecimentos(criterio, ascending = true) {
