@@ -58,7 +58,7 @@ function loadEstabelecimentos(pagina) {
             estabelecimentosFiltrados = [...estabelecimentos];
             construirFiltros();
             atualizarEstabelecimentos(pagina); 
-            // construirCarrosselTipoEvento();
+            construirCarrosselTipoEvento();
             inicializarCarrosselFiltros(); // Chame esta função depois que os estabelecimentos forem carregados
         })
         .catch(erro => console.error('Erro ao carregar estabelecimentos:', erro));
