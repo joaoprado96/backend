@@ -242,55 +242,55 @@ function aplicarFiltros() {
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
 }
 
-// function construirCarrosselTipoEvento() {
-//     const tiposEvento = new Set();
-//     estabelecimentos.forEach(estabelecimento => {
-//         estabelecimento.tipo_evento.forEach(te => tiposEvento.add(te));
-//     });
+function construirCarrosselTipoEvento() {
+    const tiposEvento = new Set();
+    estabelecimentos.forEach(estabelecimento => {
+        estabelecimento.tipo_evento.forEach(te => tiposEvento.add(te));
+    });
 
-//     const carrossel = document.getElementById('carrosselTipoEvento');
-//     tiposEvento.forEach(tipo => {
-//         const imageUrl = buscarImagemParaTipoEvento(tipo);
-//         carrossel.innerHTML += `
-//             <div class="item-carrossel">
-//                 <img src="${imageUrl}" alt="${tipo}" style="height: 50px; width: auto;">
-//                 <h3>${tipo}</h3>
-//             </div>
-//         `;
-//     });
+    const carrossel = document.getElementById('carrosselTipoEvento');
+    tiposEvento.forEach(tipo => {
+        const imageUrl = buscarImagemParaTipoEvento(tipo);
+        carrossel.innerHTML += `
+            <div class="item-carrossel">
+                <img src="${imageUrl}" alt="${tipo}" style="height: 50px; width: auto;">
+                <h3>${tipo}</h3>
+            </div>
+        `;
+    });
 
-//     // Inicializar o carrossel usando Slick
-//     $(carrossel).slick({
-//         dots: true,
-//         infinite: true,
-//         speed: 300,
-//         slidesToShow: 4,
-//         slidesToScroll: 4,
-//         // outras opções conforme necessário
-//     });
+    // Inicializar o carrossel usando Slick
+    $(carrossel).slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        // outras opções conforme necessário
+    });
 
-//     // Adicionar event listener para seleção de tipo de evento
-//     $('.item-carrossel').on('click', function() {
-//         const tipoSelecionado = $(this).find('h3').text();
-//         aplicarFiltroTipoEvento(tipoSelecionado);
-//     });
-// }
+    // Adicionar event listener para seleção de tipo de evento
+    $('.item-carrossel').on('click', function() {
+        const tipoSelecionado = $(this).find('h3').text();
+        aplicarFiltroTipoEvento(tipoSelecionado);
+    });
+}
 
-// function buscarImagemParaTipoEvento(tipo) {
-//     const imagensTipoEvento = {
-//         "Coloque os tipos de encontro": "icons/icon-gluten.png",
-//         // Adicionar mais correspondências de tipos de evento e imagens
-//     };
+function buscarImagemParaTipoEvento(tipo) {
+    const imagensTipoEvento = {
+        "Coloque os tipos de encontro": "icons/icon-gluten.png",
+        // Adicionar mais correspondências de tipos de evento e imagens
+    };
 
-//     return imagensTipoEvento[tipo] || "icons/icon-gluten.png";
-// }
+    return imagensTipoEvento[tipo] || "icons/icon-gluten.png";
+}
 
-// function aplicarFiltroTipoEvento(tipoSelecionado) {
-//     estabelecimentosFiltrados = estabelecimentos.filter(estabelecimento =>
-//         estabelecimento.tipo_evento.includes(tipoSelecionado)
-//     );
-//     atualizarEstabelecimentos(1); // Atualizar para mostrar apenas os estabelecimentos filtrados
-// }
+function aplicarFiltroTipoEvento(tipoSelecionado) {
+    estabelecimentosFiltrados = estabelecimentos.filter(estabelecimento =>
+        estabelecimento.tipo_evento.includes(tipoSelecionado)
+    );
+    atualizarEstabelecimentos(1); // Atualizar para mostrar apenas os estabelecimentos filtrados
+}
 
 // Carroseel dos filtros
 function inicializarCarrosselFiltros() {
@@ -316,7 +316,6 @@ function inicializarCarrosselFiltros() {
             }
         ]
     });
-    adicionarEventListenersParaFiltros();
 }
 
 function ordenarEstabelecimentos(criterio, ascending = true) {
