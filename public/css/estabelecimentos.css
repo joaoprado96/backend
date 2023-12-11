@@ -1,85 +1,239 @@
-.box {
-    display: inline-block;
-    font-size: 14px;
-    margin: 1px;
-    padding: 1px 2px;
-    border: 1px solid #ddd;
-    border-radius: 10px; /* Bordas arredondadas */
-    background-color: #f8f8f8;
+/* Estilos Base */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f6f8;
+  color: #333333;
+  margin: 0;
+  padding: 0;
 }
 
-.pagination {
-    justify-content: center;
-    text-align: center;
-    margin-top: 20px;
+/* Navbar */
+.navbar {
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 10px 20px;
 }
 
-.pagination button {
-    padding: 5px 10px;
-    margin: 2px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: inline-block;
 }
 
-.pagination button:hover {
-    background-color: #e0e0e0;
+/* Footer */
+.footer {
+  background-color: #2c3e50;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
 }
 
+/* Estilos para Cards */
+.card-body-est {
+  width: 250px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-body-est:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body-est img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+/* Estilos para Textos dos Cards */
 .let-card {
-    font-family: 'Helvetica', sans-serif;
-    font-size: 15px;
-    font-weight: bold;
-    color: #1e1e1e;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #1e1e1e;
 }
 
 .let-card-min {
-    font-family: 'Helvetica', sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    color: #494949;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #494949;
 }
 
+/* Botões */
 .btn-custom {
-    display: inline-block;
-    padding: 5px 20px; /* Ajuste o padding conforme necessário */
-    border-radius: 25px; /* Borda redonda */
-    background-color: purple; /* Cor de fundo roxa */
-    color: #ffffff; /* Cor do texto branco */
-    border: none; /* Sem borda */
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Transição suave de cor de fundo */
-    margin-top: 10px;
-  }
+  padding: 5px 20px;
+  border-radius: 25px;
+  background-color: purple;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
 
+.btn-custom:hover {
+  background-color: #6c3483;
+}
+
+/* Paginação */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  margin: 2px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Estilização dos Carrosséis */
+.carrossel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 15px;
+}
+
+.item-carrossel {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.item-carrossel:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item-carrossel img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.item-carrossel h3 {
+  text-align: center;
+  font-size: 1em;
+  margin: 5px 0;
+  padding: 0 10px;
+}
+
+/* Estilização dos Filtros */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+.filtros select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+}
+
+.filtros select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Botões para Aplicar Filtros */
+.btn-filtro {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-filtro:hover {
+  background-color: #0056b3;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
   .card-body-est {
-    width: 250px; /* Largura inicial da imagem */
-    height: auto; /* Altura automática para manter a proporção */
-    transition: transform 0.3s ease; /* Adiciona uma transição suave à mudança de tamanho */
-    z-index: 3; /* Coloca a imagem sobre as outras */
-    background-color: #ffffff;
-    overflow: hidden;
-    border-radius: 15px;
-  }
-  
-  .card-body-est:hover {
-    transform: scale(1.05); /* Aumenta o tamanho em 20% ao passar o mouse */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
+      width: 100%;
   }
 
-  .card-body-est img {
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
+  .navbar, .footer {
+      text-align: center;
   }
 
-  .icone {
-    text-align: right;
+  .btn-custom {
+      padding: 10px;
+      font-size: 0.9em;
   }
 
-  .img-principal {
-    width: 250px;
-    height: auto;
+  .let-card, .let-card-min {
+      font-size: 0.8em;
   }
+
+  .pagination {
+      flex-direction: column;
+  }
+  .carrossel {
+    flex-direction: column;
+  }
+
+  .filtros {
+      flex-direction: column;
+  }
+
+  .btn-filtro {
+      width: 100%;
+  }
+}
+
+/* Estilos para Imagens Responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ajustes para dispositivos muito pequenos */
+@media (max-width: 480px) {
+  .navbar a {
+      padding: 5px 10px;
+  }
+
+  .btn-custom {
+      width: 100%;
+      text-align: center;
+  }
+}
+
+/* Estilos para Checkbox e Radio Buttons (Opção) */
+.checkbox-custom, .radio-custom {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.checkbox-custom input, .radio-custom input {
+  margin-right: 5px;
+}
