@@ -267,6 +267,7 @@ function construirCarrosselTipoEvento() {
         estabelecimento.tipo_evento.forEach(te => tiposEvento.add(te));
     });
 
+
     const carrossel = document.getElementById('carrosselTipoEvento');
     tiposEvento.forEach(tipo => {
         const imageUrl = buscarImagemParaTipoEvento(tipo);
@@ -297,7 +298,8 @@ function construirCarrosselTipoEvento() {
 
 function buscarImagemParaTipoEvento(tipo) {
     const imagensTipoEvento = {
-        "Coloque os tipos de encontro": "icons/icon-gluten.png",
+        "Date": "icons/icon1.png",
+        "Open food": "icons/openfood.png",
         // Adicionar mais correspondências de tipos de evento e imagens
     };
 
