@@ -1,85 +1,237 @@
+@import url(https://fonts.googleapis.com/css?family=Economica:400,700);
+
+.corpo {
+  margin: 0;
+  justify-content: space-around;
+  display: block;
+  align-items: center;
+}
+
 .box {
-    display: inline-block;
-    font-size: 14px;
-    margin: 1px;
-    padding: 1px 2px;
-    border: 1px solid #ddd;
-    border-radius: 10px; /* Bordas arredondadas */
-    background-color: #f8f8f8;
+  display: inline-block;
+  font-size: 14px;
+  margin: 1px;
+  padding: 1px 2px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  /* Bordas arredondadas */
+  background-color: #f8f8f8;
 }
 
 .pagination {
-    justify-content: center;
-    text-align: center;
-    margin-top: 20px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .pagination button {
-    padding: 5px 10px;
-    margin: 2px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 5px 10px;
+  margin: 2px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .pagination button:hover {
-    background-color: #e0e0e0;
+  background-color: #e0e0e0;
 }
 
 .let-card {
-    font-family: 'Helvetica', sans-serif;
-    font-size: 15px;
-    font-weight: bold;
-    color: #1e1e1e;
+  font-family: 'Economica', sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  color: #1e1e1e;
 }
 
 .let-card-min {
-    font-family: 'Helvetica', sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    color: #494949;
+  font-family: 'Economica', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #494949;
 }
 
 .btn-custom {
-    display: inline-block;
-    padding: 5px 20px; /* Ajuste o padding conforme necessário */
-    border-radius: 25px; /* Borda redonda */
-    background-color: purple; /* Cor de fundo roxa */
-    color: #ffffff; /* Cor do texto branco */
-    border: none; /* Sem borda */
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Transição suave de cor de fundo */
-    margin-top: 10px;
-  }
+  display: inline-block;
+  padding: 5px 20px;
+  /* Ajuste o padding conforme necessário */
+  border-radius: 25px;
+  /* Borda redonda */
+  background-color: purple;
+  /* Cor de fundo roxa */
+  color: #ffffff;
+  /* Cor do texto branco */
+  border: none;
+  /* Sem borda */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* Transição suave de cor de fundo */
+  margin-top: 10px;
+}
 
-  .card-body-est {
-    width: 250px; /* Largura inicial da imagem */
-    height: auto; /* Altura automática para manter a proporção */
-    transition: transform 0.3s ease; /* Adiciona uma transição suave à mudança de tamanho */
-    z-index: 3; /* Coloca a imagem sobre as outras */
-    background-color: #ffffff;
-    overflow: hidden;
-    border-radius: 15px;
-  }
-  
-  .card-body-est:hover {
+.btn-check {
+  border-radius: 5px;
+  /* Borda redonda */
+  background-color: rgb(221, 221, 221);
+  /* Cor de fundo roxa */
+  color: #121212;
+  /* Cor do texto branco */
+  border: none;
+  /* Sem borda */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* Transição suave de cor de fundo */
+  margin-top: 10px;
+  justify-content: center;
+  display: block;
+  align-items: center;
+}
+
+
+
+/*.card:hover {
     transform: scale(1.05); /* Aumenta o tamanho em 20% ao passar o mouse */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-  }
-
-  .card-body-est img {
-    width: 100%;
-    height: 100%;
+/* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
   }
 
   .icone {
     text-align: right;
-  }
+  }*/
 
-  .img-principal {
-    width: 250px;
-    height: auto;
+  /*width: 300px;
+  /* Largura desejada do card */
+  /*height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #7fe868;*/
+
+.card {
+  width: 350px; /* Largura desejada dos cards */
+  overflow: hidden;
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
   }
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #ff93f1;
+}
+
+h2 {
+  margin: 0;
+}
+
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  /* Espaçamento opcional */
+  color: white;
+  /* Cor do título para contrastar com a imagem */
+  background: rgba(0, 0, 0, 0.5);
+  /* Fundo semi-transparente para melhor legibilidade */
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.filtro-checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.btn-filtros {
+  justify-content: space-around;
+  display: block;
+  align-items: center;
+}
+
+.carrosel-icon {
+  height: 30px;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrosel-run {
+  justify-content: center;
+  display: block;
+  align-items: center;
+  background-color: #ffdbdb;
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 50px;
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .carrosel-run {
+    padding-left: 10%;
+    /* Reduz a largura do container para telas menores */
+    padding-right: 10%;
+    /* Reduz a largura do container para telas menores */
+    padding-top: 10%;
+  }
+}
+
+.container {
+  margin: 5vw;
+  /* Margem responsiva em relação à largura da viewport */
+  padding: 20px;
+  background: #ff9393;
+}
+
+.box {
+  background: rgb(181, 181, 181);
+  color: #fff;
+}
+
+.teste {
+  background-color: #fbffb7;
+}
+
+.teste-1 {
+  background-color: #f7ff5a;
+}
+
+.carrosel-nome {
+  font-family: 'Economica', sans-serif;
+  font-size: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .carrosel-nome {
+    font-size: 95%;
+    /* Reduz a largura do container para telas menores */
+  }
+}

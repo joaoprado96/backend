@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,120 +8,122 @@
     <link rel="stylesheet" href="css/estabelecimentos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Incluir Slick Carousel via CDN -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
     <div id="navbar-placeholder"></div>
 </head>
-<body>
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-4">estabelecimentos</h1>
-            <p class="lead">monte seu rolê em 5 minutos e aproveite ao máximo seu tempo</p>
-            <hr class="my-4">
-        </div>
+
+<body class="teste">
+    <div class="">
+        <p class="lead mt-3 ml-5">Monte seu rolê em 3 minutos!</p>
     </div>
-    <div class="container">
-        <div id="carrosselTipoEvento" class="carrossel-tipo-evento">
-            <!-- Os itens do carrossel serão inseridos aqui pelo JavaScript -->
-        </div>
-    </div>
-    
-    <!-- Filtros e Ordenação -->
-    <div class="container">
-        <!-- Carrossel de Filtros -->
-        <div id="filtros-carrossel">
-            <!-- Filtro de Cozinha -->
-            <div>
-                <select id="filtro-cozinha">
-                    <option value="">Todas as cozinhas</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Região -->
-            <div>
-                <select id="filtro-regiao">
-                    <option value="">Todas as regiões</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Bairro -->
-            <div>
-                <select id="filtro-bairro">
-                    <option value="">Todos os bairros</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Cartão -->
-            <div>
-                <select id="filtro-cartao">
-                    <option value="">Todos os cartões</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Local -->
-            <div>
-                <select id="filtro-local">
-                    <option value="">Todos os locais</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Entrada -->
-            <div>
-                <select id="filtro-entrada">
-                    <option value="">Todas as entradas</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Linha de Metrô -->
-            <div>
-                <select id="filtro-metro">
-                    <option value="">Todas as linhas de metrô</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Estação -->
-            <div>
-                <select id="filtro-estacao">
-                    <option value="">Todas as estações</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Acessibilidade -->
-            <div>
-                <select id="filtro-acessibilidade">
-                    <option value="">Todas as opções de acessibilidade</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Estilo Musical -->
-            <div>
-                <select id="filtro-musical">
-                    <option value="">Todos os estilos musicais</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Estilo de Serviço -->
-            <div>
-                <select id="filtro-servico">
-                    <option value="">Todos os estilos de serviço</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Hobby -->
-            <div>
-                <select id="filtro-hobby">
-                    <option value="">Todos os hobbies</option>
-                </select>
-            </div>
-    
-            <!-- Filtro de Ambiente -->
-            <div>
-                <select id="filtro-ambiente">
-                    <option value="">Todos os ambientes</option>
-                </select>
+    <div class="carrosel-run">
+        <div class="">
+            <div id="carrosselTipoEvento" class="carrossel-tipo-evento">
+                <!-- Os itens do carrossel serão inseridos aqui pelo JavaScript -->
             </div>
         </div>
+
+        <!-- Filtros e Ordenação -->
+        <div class="btn-filtros">
+            <!-- Carrossel de Filtros -->
+            <div id="filtros-carrossel">
+                <!-- Filtro de Cozinha -->
+                <div>
+                    <select id="filtro-cozinha" class="btn-check">
+                        <option value="">Cozinha</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Região -->
+                <div>
+                    <select id="filtro-regiao" class="btn-check">
+                        <option value="">Região</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Bairro -->
+                <div>
+                    <select id="filtro-bairro" class="btn-check">
+                        <option value="">Bairro</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Cartão -->
+                <div>
+                    <select id="filtro-cartao" class="btn-check">
+                        <option value="">Cartão</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Local -->
+                <div>
+                    <select id="filtro-local" class="btn-check">
+                        <option value="">Tipo de local</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Entrada -->
+                <div>
+                    <select id="filtro-entrada" class="btn-check">
+                        <option value="">Entrada</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Linha de Metrô -->
+                <div>
+                    <select id="filtro-metro" class="btn-check">
+                        <option value="">Linha-Metrô</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Estação -->
+                <div>
+                    <select id="filtro-estacao" class="btn-check">
+                        <option value="">Estação</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Acessibilidade -->
+                <div>
+                    <select id="filtro-acessibilidade" class="btn-check">
+                        <option value="">Acessibilidade</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Estilo Musical -->
+                <div>
+                    <select id="filtro-musical" class="btn-check">
+                        <option value="">Estilos musical</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Estilo de Serviço -->
+                <div>
+                    <select id="filtro-servico" class="btn-check">
+                        <option value="">Tipo serviço</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Hobby -->
+                <div>
+                    <select id="filtro-hobby" class="btn-check">
+                        <option value="">Hobbies</option>
+                    </select>
+                </div>
+
+                <!-- Filtro de Ambiente -->
+                <div>
+                    <select id="filtro-ambiente" class="btn-check">
+                        <option value="">Ambiente</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
     </div>
     <div class="filtro-checkbox">
         <label><input type="checkbox" id="filtro-musica" value="Sim"> Música</label>
@@ -131,16 +134,19 @@
         <label><input type="checkbox" id="filtro-glutenfree" value="Sim"> Gluten Free</label>
         <label><input type="checkbox" id="filtro-lactosefree" value="Sim"> Lactose Free</label>
     </div>
-        <!-- Ordenação -->
-        <div id="ordenacao">
-            <button onclick="ordenarEstabelecimentos('estrelas', true)">Ordenar por Estrelas</button>
-            <button onclick="ordenarEstabelecimentos('preco', true)">Ordenar por Preço</button>
-        </div>
+    <!-- Ordenação -->
+    <div id="ordenacao">
+        <button onclick="ordenarEstabelecimentos('estrelas', true)">Ordenar por Estrelas</button>
+        <button onclick="ordenarEstabelecimentos('preco', true)">Ordenar por Preço</button>
     </div>
-    <div class="container mt-8">
+    </div>
+    <!------------------------------------- CADS ABAIXO ----------------------------------------->
+    <div class="card-content">
         <div id="estabelecimentos" class="row">
             <!-- Os cards serão inseridos aqui pelo JavaScript -->
         </div>
+    </div>
+    <!------------------------------------- CADS ACIMA ----------------------------------------->
     </div>
     <div id="paginacao" class="pagination"></div>
     <div id="footer-placeholder"></div>
@@ -149,4 +155,5 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="script/estabelecimentos.js"></script> <!-- Seu script JavaScript -->
 </body>
+
 </html>

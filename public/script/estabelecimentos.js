@@ -272,8 +272,8 @@ function construirCarrosselTipoEvento() {
         const imageUrl = buscarImagemParaTipoEvento(tipo);
         carrossel.innerHTML += `
             <div class="item-carrossel">
-                <img src="${imageUrl}" alt="${tipo}" style="height: 50px; width: auto;">
-                <h3>${tipo}</h3>
+                <img src="${imageUrl}" alt="${tipo}" class="carrosel-icon">
+                <p class="carrosel-nome">${tipo}</p>
             </div>
         `;
     });
@@ -290,7 +290,7 @@ function construirCarrosselTipoEvento() {
 
     // Adicionar event listener para seleção de tipo de evento
     $('.item-carrossel').on('click', function() {
-        const tipoSelecionado = $(this).find('h3').text();
+        const tipoSelecionado = $(this).find('h2').text();
         aplicarFiltroTipoEvento(tipoSelecionado);
     });
 }
@@ -399,32 +399,15 @@ async function criarCard(estabelecimento) {
     const imageUrl = await buscarPrimeiraFoto(estabelecimento._id);
 
     return `
-    <div class="col-md-3 mb-4">
-        <div class="card-body-est imagem-hover">
+    <body>
+    <div class="card-content">
+        <div class="card">
             <a href="detalhes.html?id=${estabelecimento._id}" class="">
-                <img src="${imageUrl}" class="img-principal" alt="Imagem do Estabelecimento"></a>
-
-            <div class="card-body d-flex flex-column">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="let-card">${estabelecimento.nome}</div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="icone">⭐${estabelecimento.avaliacao_clientes}</div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <p class="let-card-min"><i class="fas fa-map-marker-alt"></i> ${estabelecimento.bairro}</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p class="let-card-min"><i class="fas fa-clock"></i> ${horarioAbertura} - ${horarioFechamento}</p>
-                    </div>
-                </div>
-            </div>
+            <img src="${imageUrl}" alt="Imagem do Estabelecimento"></a>
+                <div class="overlay">${estabelecimento.nome}</div>
         </div>
     </div>
+    </body>
     `;
 }
 
