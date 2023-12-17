@@ -18,7 +18,7 @@
   "link_pagina": "https://www.instagram.com/casadoraimundo/",
   "midia_pagina":"https://lh3.googleusercontent.com/p/AF1QipMuAPE3w656bEubEW9ieQzksfbWts8S_jC74nw=s1360-w1360-h1020;https://lh3.googleusercontent.com/p/AF1QipNVLiTXwYz5u_torOetPZQyer_MJigXPEyy_ZpZ=s1360-w1360-h1020;
   "acessibilidade": [
-    "Banheiro acessível"
+    "Banheiro acessível",
     "Rampas de acesso"
   ],
   "musica": "Sim",
@@ -54,8 +54,8 @@
     "Térreo"
   ],
   "cartao": [
-    "Alelo"
-    "American Express"
+    "Alelo",
+    "American Express",
     "Crédito",
     "Débito",
     "Dinners",

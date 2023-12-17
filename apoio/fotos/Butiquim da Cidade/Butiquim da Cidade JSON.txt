@@ -57,7 +57,7 @@ De quarta e sexta temos o nosso rodízio de petisco por apenas R$29,90 que viral
     "Débito",
     "Dinheiro",
     "Elo",
-    "Hipercard"
+    "Hipercard",
     "Mastercard",
     "Visa"
   ],

@@ -190,6 +190,7 @@ h2 {
   padding-right: 200px;
   padding-top: 50px;
   margin-top: 0;
+  padding-bottom: 50px;
 }
 
 @media (max-width: 768px) {
@@ -234,4 +235,12 @@ h2 {
     font-size: 95%;
     /* Reduz a largura do container para telas menores */
   }
+}
+
+.teste-2 {
+  background-color: #1794a7;
+  padding-bottom: 15px;
+  justify-content: space-around;
+  display: block;
+  align-items: center;
 }

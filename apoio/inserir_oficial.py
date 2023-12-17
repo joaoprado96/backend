@@ -21,7 +21,7 @@ lugar = {
   "link_pagina": "https://www.instagram.com/casadoraimundo/",
   "midia_pagina":"None",
   "acessibilidade": [
-    "Banheiro acessível"
+    "Banheiro acessível",
     "Rampas de acesso"
   ],
   "musica": "Sim",
@@ -54,8 +54,8 @@ lugar = {
     "Térreo"
   ],
   "cartao": [
-    "Alelo"
-    "American Express"
+    "Alelo",
+    "American Express",
     "Crédito",
     "Débito",
     "Dinners",
@@ -541,7 +541,7 @@ lugar = {
     "Débito",
     "Dinheiro",
     "Elo",
-    "Hipercard"
+    "Hipercard",
     "Mastercard",
     "Visa"
   ],

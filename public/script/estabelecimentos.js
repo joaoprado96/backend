@@ -316,10 +316,10 @@ function aplicarFiltroTipoEvento(tipoSelecionado) {
 // Carroseel dos filtros
 function inicializarCarrosselFiltros() {
     $('#filtros-carrossel').slick({
-        infinite: false,
-        slidesToShow: 5,
-        slidesToScroll: 5,
         dots: true,
+        infinite: false,
+        slidesToShow: 8,
+        slidesToScroll: 8,
         responsive: [
             {
                 breakpoint: 768,

@@ -54,7 +54,7 @@
     "Fumódromo"
   ],
   "cartao": [
-    "American Express
+    "American Express,
     "Crédito",
     "Débito",
     "Dinners",
