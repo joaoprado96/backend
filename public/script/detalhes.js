@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const detalhesContainer = document.getElementById('detalhe-estabelecimento');
                 if (dados.length > 0) {
                     detalhesContainer.innerHTML = criarCardDetalhe(dados[0]);
+                    adicionarEventosDeCompartilhamento(); 
                 } else {
                     detalhesContainer.innerHTML = '<p>Estabelecimento não encontrado.</p>';
                 }
@@ -279,7 +280,7 @@ function criarCardDetalhe(estabelecimento) {
     const infoHobby                 =criarInformacaoHtmlLista('hobby','./icons/icon1.png',estabelecimento.hobby)
     const infoCartao                =criarInformacaoHtmlLista('cartões','./icons/icon1.png',estabelecimento.cartao)
 
-    return `
+    const cardHtml = `
     <div class="container">
         <div class="container">
             <div class="row link-background">
@@ -326,11 +327,14 @@ function criarCardDetalhe(estabelecimento) {
                                 ${criarAvaliacao(estabelecimento.preco)}
                             </div>
                         </div>
+                        <button id="whatsapp-share">Compartilhar no WhatsApp</button>
+                        <button id="instagram-share">Compartilhar no Instagram</button>
                     </div>
                     </div>
                     <div class="tab-pane fade" id="localizacao" role="tabpanel" aria-labelledby="localizacao-tab">
                         <!-- Conteúdo da aba Localização -->
                         <p><strong>endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep} </p>
+                        <button id="copy-address">Copiar Endereço</button>
                         <p><strong>bairro:</strong> ${estabelecimento.bairro} </p>
                         <p><strong>região:</strong> ${estabelecimento.regiao} </p>
                         <p><strong>cidade:</strong> ${estabelecimento.cidade} </p>
@@ -370,5 +374,41 @@ function criarCardDetalhe(estabelecimento) {
         </div>
     </div>
     `;
+    return cardHtml;
 }
 
+function adicionarEventosDeCompartilhamento() {
+    // Adicione aqui os manipuladores de eventos para os botões e outros elementos
+    const btnWhatsapp = document.getElementById('whatsapp-share');
+    const btnInstagram = document.getElementById('instagram-share');
+    const btnCopiar = document.getElementById('copy-address');
+
+    if (btnWhatsapp) {
+        btnWhatsapp.addEventListener('click', function() {
+            // Lógica para compartilhamento no WhatsApp
+            var url = window.location.href;
+            var whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(url);
+            window.open(whatsappUrl, '_blank');
+        });
+    }
+
+    if (btnInstagram) {
+        btnInstagram.addEventListener('click', function() {
+            // Lógica para compartilhamento no Instagram
+            alert('O Instagram não suporta compartilhamento direto de links via web. Copie o link para compartilhar no Instagram.');
+        });
+    }
+    
+    if (btnCopiar) {
+        btnCopiar.addEventListener('click', copiarEndereco);
+    }
+
+}
+function copiarEndereco() {
+    const endereco = document.querySelector('#localizacao p').innerText;
+    navigator.clipboard.writeText(endereco).then(() => {
+        alert("Endereço copiado com sucesso!");
+    }).catch(err => {
+        console.error('Erro ao copiar endereço:', err);
+    });
+}
