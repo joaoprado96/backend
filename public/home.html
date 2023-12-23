@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,59 +9,78 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <div id="navbar-placeholder"></div>
 </head>
-<body>
-    <div class="home-container">
-        <h1>O que você quer fazer hoje?</h1>
-        <p>Preencha somente o que você quiser!</p>
-        <div class="container">
-            <form id="search-form">
-                <label for="bairro">Bairro:</label>
-                <select id="bairro" name="bairro">
-                    <option value="">Selecione o Bairro</option>
-                    <!-- Opções preenchidas pelo JavaScript -->
-                </select>
-    
-                <label for="dia">Dia:</label>
-                <select id="dia" name="dia">
-                    <option value="">Selecione o Dia</option>
-                    <!-- Opções preenchidas pelo JavaScript -->
-                </select>
-    
-                <label for="horario_abertura">Horário de Abertura:</label>
-                <input type="time" id="horario_abertura" name="horario_abertura">
-                
-                <label for="horario_fechamento">Horário de Fechamento:</label>
-                <input type="time" id="horario_fechamento" name="horario_fechamento">
 
-                <label for="cartao">Cartão:</label>
-                <select id="cartao" name="cartao">
-                    <option value="">Selecione o Cartão</option>
-                    <!-- Opções preenchidas pelo JavaScript -->
-                </select>
-    
-                <label for="preco">Preço:</label>
-                <input type="number" id="preco" name="preco" placeholder="Insira o preço máximo">
-    
-                <label for="local">Local:</label>
-                <select id="local" name="local">
-                    <option value="">Selecione o Local</option>
-                    <!-- Opções preenchidas pelo JavaScript -->
-                </select>
-    
-                <label for="cozinha">Cozinha:</label>
-                <select id="cozinha" name="cozinha">
-                    <option value="">Selecione o Tipo de Cozinha</option>
-                    <!-- Opções preenchidas pelo JavaScript -->
-                </select>
-    
-                <button type="submit">Encontrar</button>
+<body class="">
+    <div class="row home-bg">
+        <!-- Seu formulário aqui -->
+        <div class="col-md-6 teste-2 question-container">
+            <h1>O que você quer fazer hoje?</h1>
+        </div>
+        <div class="col-md-6 teste-1 d-flex align-items-center justify-content-center"">
+            <form class="custom-card">
+                <h4 class="text-center">Crie sua programação em 3 minutos:</h4>
+                <h6 class="text-center">Preencha apenas o que achar necessário</h6>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <select id="local" name="local" class="btn-custom mt-2">
+                            <option value="" class="btn-custom">Selecione o Local</option>
+                            <!-- Opções preenchidas pelo JavaScript -->
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="bairro" name="bairro" class="btn-custom mt-2">
+                            <option value="">Selecione o Bairro</option>
+                            <!-- Opções preenchidas pelo JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <select id="cozinha" name="cozinha" class="btn-custom mt-2">
+                            <option value="">Cozinha</option>
+                            <!-- Opções preenchidas pelo JavaScript -->
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="dia" name="dia" class="btn-custom mt-2">
+                            <option value="">Selecione o Dia</option>
+                            <!-- Opções preenchidas pelo JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <input type="number" id="preco" name="preco" placeholder="Insira o preço máximo"
+                            class="btn-custom mt-2">
+                    </div>
+                    <div class="col-md-6">
+                        <select id="cartao" name="cartao" class="btn-custom mt-2">
+                            <option value="">Selecione o Cartão</option>
+                            <!-- Opções preenchidas pelo JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="time">Horário de abertura:</label>
+                        <input type="time" id="horario_abertura" name="horario_abertura" class="mt-2">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="time">Horário de encerramento:</label>
+                        <input type="time" id="horario_fechamento" name="horario_fechamento" class="mt-2">
+                    </div>
+                </div>
+                <a href="filtros-avancados.html">Filtros avançados</a>
+                <div class="btn-encontrar text-center">
+                    <button type="submit" class="btn btn-primary mt-2">Encontrar</button>
+                </div>
             </form>
         </div>
-        <a href="filtros-avancados.html">Filtros avançados</a>
     </div>
     <div id="footer-placeholder"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="script/home.js"></script>
 </body>
+
 </html>
