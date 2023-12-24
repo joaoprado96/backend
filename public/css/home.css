@@ -1,22 +1,33 @@
+@import url(https://fonts.googleapis.com/css?family=Economica:400,700);
+@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+
 .home-bg {
     background-image: url('/image/background-1.jpg');
-    height: 750px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: 'Afacad', sans-serif;
+    letter-spacing: 0.1em;
+    -webkit-backface-visibility: hidden;
 }
 
 .custom-card {
+    display: grid;
+    flex-direction: column;
     align-items: center;
-    margin-top: 100px;
-    padding: 20px;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-bottom: 100px;
+    padding: 30px;
     transition: transform 0.3s ease;
     height: 500px;
-    background-color: rgb(255, 255, 255);
     border-radius: 20px;
-    margin-bottom: 100px;
     width: 70%;
-    box-shadow: #000;
+    box-shadow: 2px 2px 5px #303030;
+    background-color: rgba(255, 255, 255, 0.93);
 }
 
 @media (max-width: 768px) {
@@ -24,18 +35,24 @@
         margin-top: 10%;
         /* Reduz a largura do container para telas menores */
         margin-left: 0%;
+        margin-right: 0%;
         /* Reduz a largura do container para telas menores */
         margin-bottom: 10%;
         width: 95%;
+        height: 90%;
     }
 }
 
 .btn-encontrar {
     align-items: center;
+    width: 100%;
+    background-color: rgba(255, 136, 0, 0.849);
+    border-radius: 20px;
+    font-size: large;
 }
 
 .btn-custom {
-    background-color: #ffc107;
+    background-color: #e1e1e1;
     /* Cor de fundo */
     color: #000;
     /* Cor do texto */
@@ -46,6 +63,7 @@
     font-weight: bold;
     /* Peso da fonte */
     width: 100%;
+    border-radius: 15px;
 }
 
 .teste-2 {
@@ -62,7 +80,7 @@
 
 body,
 html {
-    height: 100%;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -80,6 +98,16 @@ html {
 }
 
 .question-container {
-    width: 50%;
+    width: 100%;
     text-align: center;
+    padding-top: 400px;
+    font-family: Rubik Doodle Shadow;
+    font-size: 200px;
+}
+
+@media (max-width: 768px) {
+    .question-container {
+        padding-top: 10%;
+        font-size: 12px;
+    }
 }

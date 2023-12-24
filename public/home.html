@@ -13,13 +13,10 @@
 <body class="">
     <div class="row home-bg">
         <!-- Seu formulário aqui -->
-        <div class="col-md-6 teste-2 question-container">
-            <h1>O que você quer fazer hoje?</h1>
-        </div>
-        <div class="col-md-6 teste-1 d-flex align-items-center justify-content-center"">
+        <div class="col-md-6 d-flex align-items-center justify-content-center"">
             <form class="custom-card">
-                <h4 class="text-center">Crie sua programação em 3 minutos:</h4>
-                <h6 class="text-center">Preencha apenas o que achar necessário</h6>
+                <h2 class="text-center">Crie sua programação em 3 minutos:</h2>
+                <h5 class="text-center">Preencha apenas o que achar necessário</h5>
                 <div class="form-row">
                     <div class="col-md-6">
                         <select id="local" name="local" class="btn-custom mt-2">
@@ -62,19 +59,21 @@
                 </div>
                 <div class="form-row">
                     <div class="col-md-6">
-                        <label for="time">Horário de abertura:</label>
+                        <label for="time">Abertura:</label>
                         <input type="time" id="horario_abertura" name="horario_abertura" class="mt-2">
                     </div>
                     <div class="col-md-6">
-                        <label for="time">Horário de encerramento:</label>
+                        <label for="time">Encerramento:</label>
                         <input type="time" id="horario_fechamento" name="horario_fechamento" class="mt-2">
                     </div>
                 </div>
-                <a href="filtros-avancados.html">Filtros avançados</a>
                 <div class="btn-encontrar text-center">
-                    <button type="submit" class="btn btn-primary mt-2">Encontrar</button>
+                    <button type="submit" class="btn mt-2 btn-encontrar">Encontrar</button>
                 </div>
             </form>
+        </div>
+        <div class="col-md-6 question-container">
+            <h1>O que você quer fazer hoje?</h1>
         </div>
     </div>
     <div id="footer-placeholder"></div>
