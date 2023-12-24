@@ -9,6 +9,12 @@ body {
     -webkit-backface-visibility: hidden;
 }
 
+#mapa {
+    width: 100%; /* Largura completa */
+    height: 300px; /* Altura fixa - você pode ajustar conforme necessário */
+    /* Adicione quaisquer outros estilos que você achar necessário */
+}
+
 .mini-card {
     margin-bottom: 10px;
 }
