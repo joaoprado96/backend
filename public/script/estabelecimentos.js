@@ -10,8 +10,22 @@ document.addEventListener('DOMContentLoaded', function() {
     loadFooter();
     loadEstabelecimentos(1); // Carregar a primeira página
     getUserLocation(); // Obter a localização do usuário
+    inicalizarMenuLateral();
 });
 
+function inicalizarMenuLateral(){
+    document.getElementById('botao-menu-filtros').addEventListener('click', function() {
+        var menu = document.getElementById('menu-lateral-filtros');
+        if (menu.style.width === '250px') {
+            menu.style.width = '0';
+        } else {
+            menu.style.width = '250px';
+        }
+    });
+    document.getElementById('botao-fechar-menu').addEventListener('click', function() {
+        document.getElementById('menu-lateral-filtros').style.width = '0';
+    });
+}
 function getUserLocation() {
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -188,16 +202,16 @@ function construirFiltros() {
     var cozinhas = new Set();
     var regioes = new Set();
     var bairros = new Set();
-    // var cartoes = new Set();
+    var cartoes = new Set();
     var locais = new Set();
-    // const entradas = new Set();
-    // var linhas_metro = new Set();
-    // var estacoes = new Set();
-    // var acessibilidades = new Set();
-    // var estilos_musicais = new Set();
-    // var estilos_servicos = new Set();
-    // var hobbys = new Set();
-    // var ambientes = new Set();
+    const entradas = new Set();
+    var linhas_metro = new Set();
+    var estacoes = new Set();
+    var acessibilidades = new Set();
+    var estilos_musicais = new Set();
+    var estilos_servicos = new Set();
+    var hobbys = new Set();
+    var ambientes = new Set();
     const dias = new Set();
 
     estabelecimentos.forEach(estabelecimento => {
@@ -205,31 +219,31 @@ function construirFiltros() {
         regioes.add(estabelecimento.regiao);
         bairros.add(estabelecimento.bairro);
         estabelecimento.dias.forEach(ct => dias.add(ct));
-        // estabelecimento.cartao.forEach(ct => cartoes.add(ct));
+        estabelecimento.cartao.forEach(ct => cartoes.add(ct));
         estabelecimento.local.forEach(l => locais.add(l));
-        // entradas.add(estabelecimento.entrada);
-        // estabelecimento.linha_metro.forEach(lm => linhas_metro.add(lm));
-        // estabelecimento.estacao.forEach(est => estacoes.add(est));
-        // estabelecimento.acessibilidade.forEach(acess => acessibilidades.add(acess));
-        // estabelecimento.estilo_musical.forEach(em => estilos_musicais.add(em));
-        // estabelecimento.estilo_servico.forEach(es => estilos_servicos.add(es));
-        // estabelecimento.hobby.forEach(hb => hobbys.add(hb));
-        // estabelecimento.ambiente.forEach(amb => ambientes.add(amb));
+        entradas.add(estabelecimento.entrada);
+        estabelecimento.linha_metro.forEach(lm => linhas_metro.add(lm));
+        estabelecimento.estacao.forEach(est => estacoes.add(est));
+        estabelecimento.acessibilidade.forEach(acess => acessibilidades.add(acess));
+        estabelecimento.estilo_musical.forEach(em => estilos_musicais.add(em));
+        estabelecimento.estilo_servico.forEach(es => estilos_servicos.add(es));
+        estabelecimento.hobby.forEach(hb => hobbys.add(hb));
+        estabelecimento.ambiente.forEach(amb => ambientes.add(amb));
         
     });
     
     cozinhas = sortSetAlphabetically(cozinhas);
     regioes = sortSetAlphabetically(regioes);
     bairros = sortSetAlphabetically(bairros);
-    // cartoes = sortSetAlphabetically(cartoes);
+    cartoes = sortSetAlphabetically(cartoes);
     locais = sortSetAlphabetically(locais);
-    // linhas_metro = sortSetAlphabetically(linhas_metro);
-    // estacoes = sortSetAlphabetically(estacoes);
-    // acessibilidades = sortSetAlphabetically(acessibilidades);
-    // estilos_musicais = sortSetAlphabetically(estilos_musicais);
-    // estilos_servicos = sortSetAlphabetically(estilos_servicos);
-    // hobbys = sortSetAlphabetically(hobbys);
-    // ambientes = sortSetAlphabetically(ambientes);
+    linhas_metro = sortSetAlphabetically(linhas_metro);
+    estacoes = sortSetAlphabetically(estacoes);
+    acessibilidades = sortSetAlphabetically(acessibilidades);
+    estilos_musicais = sortSetAlphabetically(estilos_musicais);
+    estilos_servicos = sortSetAlphabetically(estilos_servicos);
+    hobbys = sortSetAlphabetically(hobbys);
+    ambientes = sortSetAlphabetically(ambientes);
 
     const filtroCozinha = document.getElementById('filtro-cozinha');
     cozinhas.forEach(c => filtroCozinha.add(new Option(c, c)));
@@ -240,35 +254,35 @@ function construirFiltros() {
     const filtroBairro = document.getElementById('filtro-bairro');
     bairros.forEach(b => filtroBairro.add(new Option(b, b)));
 
-    // const filtroCartao = document.getElementById('filtro-cartao');
-    // cartoes.forEach(ct => filtroCartao.add(new Option(ct, ct)));
+    const filtroCartao = document.getElementById('filtro-cartao');
+    cartoes.forEach(ct => filtroCartao.add(new Option(ct, ct)));
     
     const filtroLocal = document.getElementById('filtro-local');
     locais.forEach(l => filtroLocal.add(new Option(l, l)));
     
-    // const filtroEntrada = document.getElementById('filtro-entrada');
-    // entradas.forEach(ent => filtroEntrada.add(new Option(ent, ent)));
+    const filtroEntrada = document.getElementById('filtro-entrada');
+    entradas.forEach(ent => filtroEntrada.add(new Option(ent, ent)));
 
-    // const filtroMetro = document.getElementById('filtro-metro');
-    // linhas_metro.forEach(metro => filtroMetro.add(new Option(metro, metro)));
+    const filtroMetro = document.getElementById('filtro-metro');
+    linhas_metro.forEach(metro => filtroMetro.add(new Option(metro, metro)));
 
-    // const filtroEstacao = document.getElementById('filtro-estacao');
-    // estacoes.forEach(esta => filtroEstacao.add(new Option(esta, esta)));
+    const filtroEstacao = document.getElementById('filtro-estacao');
+    estacoes.forEach(esta => filtroEstacao.add(new Option(esta, esta)));
 
-    // const filtroAcessibilidade = document.getElementById('filtro-acessibilidade');
-    // acessibilidades.forEach(acess => filtroAcessibilidade.add(new Option(acess, acess)));
+    const filtroAcessibilidade = document.getElementById('filtro-acessibilidade');
+    acessibilidades.forEach(acess => filtroAcessibilidade.add(new Option(acess, acess)));
 
-    // const filtroEstiloMusical = document.getElementById('filtro-musical');
-    // estilos_musicais.forEach(mus => filtroEstiloMusical.add(new Option(mus, mus)));
+    const filtroEstiloMusical = document.getElementById('filtro-musical');
+    estilos_musicais.forEach(mus => filtroEstiloMusical.add(new Option(mus, mus)));
 
-    // const filtroEstiloServico = document.getElementById('filtro-servico');
-    // estilos_servicos.forEach(serv => filtroEstiloServico.add(new Option(serv, serv)));
+    const filtroEstiloServico = document.getElementById('filtro-servico');
+    estilos_servicos.forEach(serv => filtroEstiloServico.add(new Option(serv, serv)));
 
-    // const filtroHobby = document.getElementById('filtro-hobby');
-    // hobbys.forEach(hoby => filtroHobby.add(new Option(hoby, hoby)));
+    const filtroHobby = document.getElementById('filtro-hobby');
+    hobbys.forEach(hoby => filtroHobby.add(new Option(hoby, hoby)));
 
-    // const filtroAmbiente = document.getElementById('filtro-ambiente');
-    // ambientes.forEach(amb => filtroAmbiente.add(new Option(amb, amb)));
+    const filtroAmbiente = document.getElementById('filtro-ambiente');
+    ambientes.forEach(amb => filtroAmbiente.add(new Option(amb, amb)));
 
     adicionarEventListenersParaFiltros();
 }
@@ -277,16 +291,16 @@ function adicionarEventListenersParaFiltros() {
     document.getElementById('filtro-cozinha').addEventListener('change', () => aplicarFiltros());
     document.getElementById('filtro-regiao').addEventListener('change', () => aplicarFiltros());
     document.getElementById('filtro-bairro').addEventListener('change', () => aplicarFiltros());
-    // document.getElementById('filtro-cartao').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-cartao').addEventListener('change', () => aplicarFiltros());
     document.getElementById('filtro-local').addEventListener('change', () => aplicarFiltros());
-    // document.getElementById('filtro-entrada').addEventListener('change', () => aplicarFiltros());
-    // document.getElementById('filtro-metro').addEventListener('change', () => aplicarFiltros());
-    // document.getElementById('filtro-estacao').addEventListener('change', () => aplicarFiltros());
-    // document.getElementById('filtro-acessibilidade').addEventListener('change', () => aplicarFiltros());
-    // document.getElementById('filtro-musical').addEventListener('change', () => aplicarFiltros());
-    // document.getElementById('filtro-servico').addEventListener('change', () => aplicarFiltros());
-    // document.getElementById('filtro-hobby').addEventListener('change', () => aplicarFiltros());
-    // document.getElementById('filtro-ambiente').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-entrada').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-metro').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-estacao').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-acessibilidade').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-musical').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-servico').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-hobby').addEventListener('change', () => aplicarFiltros());
+    document.getElementById('filtro-ambiente').addEventListener('change', () => aplicarFiltros());
     document.getElementById('filtro-musica').addEventListener('change', () => aplicarFiltros());
     document.getElementById('filtro-estacionamento').addEventListener('change', () => aplicarFiltros());
     document.getElementById('filtro-cover').addEventListener('change', () => aplicarFiltros());
@@ -302,16 +316,16 @@ function aplicarFiltros() {
     const filtroCozinha = document.getElementById('filtro-cozinha').value;
     const filtroRegiao = document.getElementById('filtro-regiao').value;
     const filtroBairro = document.getElementById('filtro-bairro').value;
-    // const filtroCartao = document.getElementById('filtro-cartao').value;
+    const filtroCartao = document.getElementById('filtro-cartao').value;
     const filtroLocal = document.getElementById('filtro-local').value;
-    // const filtroEntrada = document.getElementById('filtro-entrada').value;
-    // const filtroMetro = document.getElementById('filtro-metro').value;
-    // const filtroEstacao = document.getElementById('filtro-estacao').value;
-    // const filtroAcessibilidade = document.getElementById('filtro-acessibilidade').value;
-    // const filtroEstiloMusical = document.getElementById('filtro-musical').value;
-    // const filtroEstiloServico = document.getElementById('filtro-servico').value;
-    // const filtroHobby = document.getElementById('filtro-hobby').value;
-    // const filtroAmbiente = document.getElementById('filtro-ambiente').value;
+    const filtroEntrada = document.getElementById('filtro-entrada').value;
+    const filtroMetro = document.getElementById('filtro-metro').value;
+    const filtroEstacao = document.getElementById('filtro-estacao').value;
+    const filtroAcessibilidade = document.getElementById('filtro-acessibilidade').value;
+    const filtroEstiloMusical = document.getElementById('filtro-musical').value;
+    const filtroEstiloServico = document.getElementById('filtro-servico').value;
+    const filtroHobby = document.getElementById('filtro-hobby').value;
+    const filtroAmbiente = document.getElementById('filtro-ambiente').value;
 
     // Filtros de checkbox
     const filtroMusica = document.getElementById('filtro-musica').checked;
@@ -327,16 +341,16 @@ function aplicarFiltros() {
         const matchCozinha = filtroCozinha ? estabelecimento.cozinha.includes(filtroCozinha) : true;
         const matchRegiao = filtroRegiao ? estabelecimento.regiao === filtroRegiao : true;
         const matchBairro = filtroBairro ? estabelecimento.bairro === filtroBairro : true;
-        // const matchCartao = filtroCartao ? estabelecimento.cartao.includes(filtroCartao) : true; // Supondo que cartao é um array
+        const matchCartao = filtroCartao ? estabelecimento.cartao.includes(filtroCartao) : true; // Supondo que cartao é um array
         const matchLocal = filtroLocal ? estabelecimento.local.includes(filtroLocal) : true; // Supondo que local é um array
-        // const matchEntrada = filtroEntrada ? estabelecimento.entrada === filtroEntrada : true;
-        // const matchMetro = filtroMetro ? estabelecimento.linha_metro.includes(filtroMetro) : true; // Supondo que linha_metro é um array
-        // const matchEstacao = filtroEstacao ? estabelecimento.estacao.includes(filtroEstacao) : true; // Supondo que estacao é um array
-        // const matchAcessibilidade = filtroAcessibilidade ? estabelecimento.acessibilidade.includes(filtroAcessibilidade) : true; // Supondo que acessibilidade é um array
-        // const matchEstiloMusical = filtroEstiloMusical ? estabelecimento.estilo_musical.includes(filtroEstiloMusical) : true; // Supondo que estilo_musical é um array
-        // const matchEstiloServico = filtroEstiloServico ? estabelecimento.estilo_servico.includes(filtroEstiloServico) : true; // Supondo que estilo_servico é um array
-        // const matchHobby = filtroHobby ? estabelecimento.hobby.includes(filtroHobby) : true; // Supondo que hobby é um array
-        // const matchAmbiente = filtroAmbiente ? estabelecimento.ambiente.includes(filtroAmbiente) : true; // Supondo que ambiente é um array
+        const matchEntrada = filtroEntrada ? estabelecimento.entrada === filtroEntrada : true;
+        const matchMetro = filtroMetro ? estabelecimento.linha_metro.includes(filtroMetro) : true; // Supondo que linha_metro é um array
+        const matchEstacao = filtroEstacao ? estabelecimento.estacao.includes(filtroEstacao) : true; // Supondo que estacao é um array
+        const matchAcessibilidade = filtroAcessibilidade ? estabelecimento.acessibilidade.includes(filtroAcessibilidade) : true; // Supondo que acessibilidade é um array
+        const matchEstiloMusical = filtroEstiloMusical ? estabelecimento.estilo_musical.includes(filtroEstiloMusical) : true; // Supondo que estilo_musical é um array
+        const matchEstiloServico = filtroEstiloServico ? estabelecimento.estilo_servico.includes(filtroEstiloServico) : true; // Supondo que estilo_servico é um array
+        const matchHobby = filtroHobby ? estabelecimento.hobby.includes(filtroHobby) : true; // Supondo que hobby é um array
+        const matchAmbiente = filtroAmbiente ? estabelecimento.ambiente.includes(filtroAmbiente) : true; // Supondo que ambiente é um array
 
         // Verificações para os filtros de checkbox
         const matchMusica = !filtroMusica || estabelecimento.musica === (filtroMusica ? 'Sim' : 'Não');
@@ -347,12 +361,9 @@ function aplicarFiltros() {
         const matchGlutenfree = !filtroGlutenfree || estabelecimento.glutenfree === (filtroGlutenfree ? 'Sim' : 'Não');
         const matchLactosefree = !filtroLactosefree || estabelecimento.lactosefree === (filtroLactosefree ? 'Sim' : 'Não');
 
-        // return matchCozinha && matchRegiao && matchBairro && matchCartao && matchLocal &&
-        //        matchEntrada && matchMetro && matchEstacao && matchAcessibilidade &&
-        //        matchEstiloMusical && matchEstiloServico && matchHobby && matchAmbiente &&
-        //        matchMusica && matchEstacionamento && matchCover && matchKids &&
-        //        matchPet && matchGlutenfree && matchLactosefree;
-        return matchCozinha && matchRegiao && matchBairro && matchLocal &&
+        return matchCozinha && matchRegiao && matchBairro && matchCartao && matchLocal &&
+               matchEntrada && matchMetro && matchEstacao && matchAcessibilidade &&
+               matchEstiloMusical && matchEstiloServico && matchHobby && matchAmbiente &&
                matchMusica && matchEstacionamento && matchCover && matchKids &&
                matchPet && matchGlutenfree && matchLactosefree;
     });

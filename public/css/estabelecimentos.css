@@ -257,3 +257,30 @@ h2 {
 #filtros-container > div {
   margin: 5px; /* Isso adiciona uma pequena margem em torno de cada filtro */
 }
+
+.menu-lateral {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #f1f1f1;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.menu-lateral-conteudo {
+  padding: 20px 30px;
+}
+
+.fechar-menu {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
