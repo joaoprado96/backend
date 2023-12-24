@@ -70,11 +70,11 @@
 }
 
 .btn-check {
-  border-radius: 5px;
+  border-radius: 20px;
   /* Borda redonda */
   background-color: rgb(221, 221, 221);
   /* Cor de fundo roxa */
-  color: #121212;
+  color: #0a0101;
   /* Cor do texto branco */
   border: none;
   /* Sem borda */
@@ -85,6 +85,7 @@
   justify-content: center;
   display: block;
   align-items: center;
+  padding: 10px;
 }
 
 
@@ -99,16 +100,17 @@
     text-align: right;
   }*/
 
-  /*width: 300px;
+/*width: 300px;
   /* Largura desejada do card */
-  /*height: 300px;
+/*height: 300px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #7fe868;*/
 
 .card {
-  width: 350px; /* Largura desejada dos cards */
+  width: 350px;
+  /* Largura desejada dos cards */
   overflow: hidden;
   border-radius: 8px;
   box-sizing: border-box;
