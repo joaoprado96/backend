@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (dados.length > 0) {
                     detalhesContainer.innerHTML = criarCardDetalhe(dados[0]);
                     adicionarEventosDeCompartilhamento(); 
+                    initMap(dados[0].latitude, dados[0].longitude);
                 } else {
                     detalhesContainer.innerHTML = '<p>Estabelecimento não encontrado.</p>';
                 }
@@ -335,6 +336,7 @@ function criarCardDetalhe(estabelecimento) {
                         <!-- Conteúdo da aba Localização -->
                         <p><strong>endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep} </p>
                         <button id="copy-address">Copiar Endereço</button>
+                        <div id="mapa"></div>
                         <p><strong>bairro:</strong> ${estabelecimento.bairro} </p>
                         <p><strong>região:</strong> ${estabelecimento.regiao} </p>
                         <p><strong>cidade:</strong> ${estabelecimento.cidade} </p>
@@ -366,7 +368,7 @@ function criarCardDetalhe(estabelecimento) {
                     </div>
                     <div class="tab-pane fade" id="menu" role="tabpanel" aria-labelledby="menu-tab">
                         <!-- Conteúdo da aba Menu -->
-                        <p><strong>região:</strong> ${estabelecimento.link_pagina} </p>
+                        <p><strong>Instagram:</strong> ${estabelecimento.link_pagina} </p>
                         <p><strong>Cardápio:</strong> ${estabelecimento.link_cardapio} </p>
                     </div>
                 </div>
@@ -412,3 +414,26 @@ function copiarEndereco() {
         console.error('Erro ao copiar endereço:', err);
     });
 }
+
+function initMap(latitude, longitude) {
+    var mapa = L.map('mapa').setView([latitude, longitude], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; Contribuidores do OpenStreetMap'
+    }).addTo(mapa);
+
+    L.marker([latitude, longitude]).addTo(mapa);
+
+    // Garantir que o mapa seja responsivo e redimensionado corretamente
+    window.addEventListener('resize', function() {
+        mapa.invalidateSize();
+    });
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+        if (e.target.href.includes('#localizacao')) {
+            mapa.invalidateSize();
+        }
+    });
+    
+}
+

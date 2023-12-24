@@ -9,6 +9,8 @@ const lugarSchema = new mongoose.Schema({
     bairro: String,
     regiao: String,
     entrada: String,
+    latitude: Number,
+    longitude: Number,
     linha_metro: [String],
     estacao: [String],
     estrelas: Number,
