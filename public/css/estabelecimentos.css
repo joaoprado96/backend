@@ -244,3 +244,14 @@ h2 {
   display: block;
   align-items: center;
 }
+
+#filtros-container {
+  display: flex;
+  justify-content: space-around; /* Isso irá distribuir o espaço uniformemente entre os filtros */
+  align-items: center; /* Isso irá alinhar os itens verticalmente no centro */
+  flex-wrap: wrap; /* Isso permite que os filtros quebrem em linhas em telas menores */
+}
+
+#filtros-container > div {
+  margin: 5px; /* Isso adiciona uma pequena margem em torno de cada filtro */
+}
