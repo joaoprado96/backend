@@ -1,6 +1,20 @@
+// Suponha que o nome da variável que você quer verificar seja 'minhaVariavel'
+var token = localStorage.getItem('token');
+
 document.addEventListener('DOMContentLoaded', function() {
+// Se não houver token, mostra a notificação popup e redireciona
+if (!token) {
+    var popup = document.getElementById('notificationPopup');
+    popup.style.display = 'block';
+
+    // Espera 3 segundos antes de redirecionar
+    setTimeout(function() {
+        window.location.href = '/login.html'; // Substitua pelo caminho correto
+    }, 3000);
+}
     loadNavbar();
     loadFooter();
+    fetchLugares();
 });
 
 function loadNavbar() {
@@ -23,10 +37,6 @@ function loadFooter() {
             console.error('Falha ao carregar o footer:', error);
         });
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    fetchLugares();
-});
 
 function fetchLugares() {
     fetch('/api/lugares')
@@ -109,6 +119,7 @@ function enviarFotos(lugarId) {
     console.log(formData);
     fetch('/api/fotos-lugares', {
         method: 'POST',
+        headers: {authorization: token},
         body: formData
     })
     .then(response => {
