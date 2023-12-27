@@ -10,7 +10,7 @@ if (!token) {
     // Espera 3 segundos antes de redirecionar
     setTimeout(function() {
         window.location.href = '/login.html'; // Substitua pelo caminho correto
-    }, 3000);
+    }, 1000);
 }
     loadNavbar();
     loadFooter();
@@ -56,18 +56,18 @@ document.getElementById('deleteButton').addEventListener('click', function() {
     const lugarId = document.getElementById('lugarSelect').value;
     
     if (!lugarId) {
-        alert('Por favor, selecione um lugar antes de tentar apagar.');
+        // alert('Por favor, selecione um lugar antes de tentar apagar.');
         return;
     }
 
-    if (confirm(`Tem certeza que deseja apagar o lugar e suas fotos? Esta ação é irreversível.`)) {
+    if (true) {
         fetch(`/api/fotos-lugares/${lugarId}`, {
             method: 'DELETE'
         })
         .then(response => {
             console.log(response);
             if (response.ok) {
-                alert('Lugar e suas fotos foram apagados com sucesso.');
+                // alert('Lugar e suas fotos foram apagados com sucesso.');
                 fetchLugares(); // Atualizar a lista de lugares
             } else {
                 alert('Falha ao apagar o lugar e suas fotos.');

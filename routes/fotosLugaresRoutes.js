@@ -17,6 +17,6 @@ router.get('/fotos-lugares/verificar/:lugarId', fotosLugaresController.verificar
 router.get('/fotos-lugares/:lugarId', fotosLugaresController.obterFotosPorLugar);
 
 // Rota para deletar um LugarId e suas fotos
-router.delete('/fotos-lugares/:lugarId', fotosLugaresController.deletarLugarEFotos);
+router.delete('/fotos-lugares/:lugarId',rateLimit, verificarToken.verificarToken, fotosLugaresController.deletarLugarEFotos);
 
 module.exports = router;
