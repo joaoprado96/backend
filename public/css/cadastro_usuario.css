@@ -1,0 +1,48 @@
+body {
+    background-color: #1c1c1e; /* Cor de fundo igual à imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  form {
+    background: #2c2c2e; /* Cor de fundo do formulário */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  input[type=text], input[type=password], input[type=email], input[type=date] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #3a3a3c; /* Cor de fundo dos campos de input */
+    color: white; /* Cor do texto */
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #0a84ff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background: #007aff; /* Cor de fundo do botão ao passar o mouse */
+  }
+  
+  input[type=checkbox] {
+    margin-right: 10px;
+  }
+  
+  label {
+    color: white; /* Cor do texto da label */
+  }

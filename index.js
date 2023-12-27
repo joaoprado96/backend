@@ -5,6 +5,7 @@ const connectDB = require('./config/db');
 const lugaresRoutes = require('./routes/lugaresRoutes');
 const opcoesSairRoutes = require('./routes/opcoesSairRoutes');
 const fotosLugaresRoutes = require('./routes/fotosLugaresRoutes');
+const usuarioRoutes = require('./routes/usuarioRoutes');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.static('public'));
 app.use('/api', lugaresRoutes);
 app.use('/api', opcoesSairRoutes);
 app.use('/api', fotosLugaresRoutes);
+app.use('/api', usuarioRoutes);
 
 app.get('/', (req, res) => {
     res.redirect('/home.html');
