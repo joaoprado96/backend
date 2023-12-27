@@ -8,21 +8,31 @@
   <div id="navbar-placeholder"></div>
 </head>
 <body>
-  <form id="registerForm">
-    <input type="text" id="nome" placeholder="Nome" required>
-    <input type="text" id="endereco" placeholder="Endereço">
-    <input type="date" id="dataNascimento" placeholder="Data de Nascimento">
-    <input type="email" id="email" placeholder="E-mail" required>
-    <input type="text" id="sexo" placeholder="Sexo">
-    <input type="text" id="genero" placeholder="Gênero">
-    <input type="text" id="username" placeholder="Nome de Usuário" required>
-    <input type="password" id="password" placeholder="Senha" required>
-    <input type="password" id="confirmPassword" placeholder="Confirmação de Senha" required>
-    <label>
-      <input type="checkbox" id="termos"> Eu concordo com os Termos
-    </label>
-    <input type="submit" value="REGISTRAR">
-  </form>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">cadastramento de usuarios</h1>
+            <p class="lead">se cadastre em nossa plataforma e tenha a melhor experiência.</p>
+            <hr class="my-4">
+        </div>
+    </div>
+    <div class="container">
+        <form id="registerForm" class="mt-4 row">
+            <input type="text" id="nome" placeholder="Nome" required>
+            <input type="text" id="endereco" placeholder="Endereço">
+            <input type="date" id="dataNascimento" placeholder="Data de Nascimento">
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="text" id="sexo" placeholder="Sexo">
+            <input type="text" id="genero" placeholder="Gênero">
+            <input type="text" id="username" placeholder="Nome de Usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <input type="password" id="confirmPassword" placeholder="Confirmação de Senha" required>
+            <label>
+            <input type="checkbox" id="termos"> Eu concordo com os Termos
+            </label>
+            <input type="submit" value="REGISTRAR">
+        </form>
+    </div>
+
   <div id="footer-placeholder"></div>
   <script src="script/cadastro_usuario.js"></script>
 </body>
