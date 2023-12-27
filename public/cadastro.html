@@ -19,7 +19,58 @@
         </div>
     </div>
     <div class="container">
-        <form id="lugarForm" class="mt-4 row"></form>
+        <form id="formCadastro" class="mt-4 row">
+            <input type="text" id="nome" placeholder="Nome" required>
+            <textarea id="descricao" placeholder="Descrição"></textarea>
+            <input type="text" id="rua" placeholder="Rua">
+            <input type="text" id="cep" placeholder="CEP">
+            <input type="text" id="cidade" placeholder="Cidade">
+            <input type="text" id="bairro" placeholder="Bairro">
+            <input type="text" id="regiao" placeholder="Região">
+            <input type="text" id="entrada" placeholder="Entrada">
+            <input type="number" id="latitude" placeholder="Latitude">
+            <input type="number" id="longitude" placeholder="Longitude">
+
+            <!-- Adicione campos para arrays como linha_metro, estacao aqui -->
+            <input type="checkbox" name="linha_metro" value="Linha 3 (Vermelha)"> Linha 3 (Vermelha)<br>
+            <input type="checkbox" name="linha_metro" value="Linha 4 (Amarela)"> Linha 4 (Amarela)<br>
+
+            <input type="number" id="estrelas" placeholder="Estrelas">
+            <input type="number" id="avaliacao_clientes" placeholder="Avaliação dos Clientes">
+            <input type="number" id="avaliacao_pagina" placeholder="Avaliação da Página">
+            <textarea id="descricao_pagina" placeholder="Descrição na Página"></textarea>
+            <input type="text" id="link_pagina" placeholder="Link da Página">
+            <input type="text" id="midia_pagina" placeholder="Mídia da Página">
+            
+            <!-- Adicione campos para arrays como acessibilidade aqui -->
+            <input type="checkbox" name="acessibilidade" value="Opçção 1"> Opçção 1<br>
+            <input type="checkbox" name="acessibilidade" value="Opçção 1"> Opçção 2<br>
+
+
+            <input type="text" id="musica" placeholder="Música">
+            <input type="text" id="estacionamento" placeholder="Estacionamento">
+            <input type="text" id="cover" placeholder="Cover">
+            <input type="text" id="kids" placeholder="Kids">
+            <input type="text" id="website" placeholder="Website">
+            
+            <!-- Adicione campos para arrays como premio, estilo_musical aqui -->
+            
+            <!-- Adicione campos para arrays como cozinha, local aqui -->
+            
+            <input type="number" id="preco" placeholder="Preço">
+            <!-- Adicione campos para arrays como tipo_evento, hobby aqui -->
+            <!-- Adicione campos para arrays como ambiente, cartao aqui -->
+            <!-- Adicione campos para arrays como dias aqui -->
+            <input type="number" id="nivel" placeholder="Nível">
+            <input type="text" id="link_cardapio" placeholder="Link do Cardápio">
+            <!-- Adicione campos para objeto horarios_funcionamento aqui -->
+            <input type="text" id="pet" placeholder="Pet Friendly">
+            <!-- Adicione campos para arrays como estilo_servico aqui -->
+            <input type="text" id="glutenfree" placeholder="Gluten Free">
+            <input type="text" id="lactosefree" placeholder="Lactose Free">
+            
+            <button type="submit">Cadastrar Estabelecimento</button>
+        </form>
     </div>
     <div id="footer-placeholder"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
