@@ -25,32 +25,33 @@ function loadFooter() {
 }
 
 document.getElementById('registerForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    var userData = {
+  var userData = {
       username: document.getElementById('username').value,
       password: document.getElementById('password').value,
-    };
+  };
 
-    fetch('/api/login', { // Altere para a URL correta se necessário
+  fetch('/api/login', { // Altere para a URL correta se necessário
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+          'Content-Type': 'application/json'
       },
       body: JSON.stringify(userData)
-    })
-    .then(response => {
+  })
+  .then(response => {
       if(response.ok) {
-        return response.text();
+          return response.json(); // Corretamente convertido para JSON aqui
       }
-      throw new Error('Falha no registro');
-    })
-    .then(data => {
-      alert('Registro bem-sucedido: ' + data);
-      // Você pode redirecionar o usuário ou limpar o formulário aqui
-    })
-    .catch(error => {
-      console.error('Erro no registro:', error);
-      alert('Erro no registro: ' + error.message);
-    });
+      return response.json().then(text => { throw new Error(text.message || 'Falha no Login') });
+  })
+  .then(data => {
+      alert(data.message); // Mostra uma mensagem de alerta com a mensagem do servidor
+      localStorage.setItem('token', data.token); // Salva o token no localStorage
+      window.location.href = '/home.html'; // Redireciona para a página desejada
+  })
+  .catch(error => {
+      console.error('Erro no login:', error);
+      alert('Erro no login: ' + error.message);
   });
+});
