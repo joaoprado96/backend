@@ -1,18 +1,20 @@
-@import url(https://fonts.googleapis.com/css?family=Economica:400,700);
-@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
-  background: #ffffff;
-  font-family: 'Economica', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  -webkit-backface-visibility: hidden;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #023047;
+    background-color: #480ca8;
 }
-.corpo {
-  margin: 0;
-  justify-content: space-around;
-  display: block;
-  align-items: center;
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
 }
 
 .box {
@@ -78,43 +80,21 @@ body {
 }
 
 .btn-check {
-  border-radius: 20px;
-  /* Borda redonda */
+  width: 180px;
+  border-radius: 12px;
   background-color: rgb(221, 221, 221);
-  /* Cor de fundo roxa */
   color: #0a0101;
-  /* Cor do texto branco */
   border: none;
-  /* Sem borda */
   cursor: pointer;
   transition: background-color 0.3s ease;
-  /* Transição suave de cor de fundo */
   margin-top: 10px;
-  justify-content: center;
-  display: block;
-  align-items: center;
+  margin-left: 6px;
   padding: 10px;
+  justify-content: center;
+  align-items: center;
+  display: block;
 }
 
-
-
-/*.card:hover {
-    transform: scale(1.05); /* Aumenta o tamanho em 20% ao passar o mouse */
-/* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-  }
-
-  .icone {
-    text-align: right;
-  }*/
-
-/*width: 300px;
-  /* Largura desejada do card */
-/*height: 300px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #7fe868;*/
 
 .card {
   width: 350px;
@@ -158,11 +138,8 @@ h2 {
   width: 100%;
   text-align: center;
   padding: 10px;
-  /* Espaçamento opcional */
   color: white;
-  /* Cor do título para contrastar com a imagem */
   background: rgba(0, 0, 0, 0.5);
-  /* Fundo semi-transparente para melhor legibilidade */
 }
 
 .card-container {
@@ -173,9 +150,11 @@ h2 {
 
 .filtro-checkbox {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-left: 20px;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+
 }
 
 .btn-filtros {
@@ -206,16 +185,13 @@ h2 {
 @media (max-width: 768px) {
   .carrosel-run {
     padding-left: 10%;
-    /* Reduz a largura do container para telas menores */
     padding-right: 10%;
-    /* Reduz a largura do container para telas menores */
     padding-top: 10%;
   }
 }
 
 .container {
   margin: 5vw;
-  /* Margem responsiva em relação à largura da viewport */
   padding: 20px;
   background: #ff9393;
 }
