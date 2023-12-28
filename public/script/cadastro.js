@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = '/login.html';
         }, 4500);
     }
-    loadNavbar();
-    loadFooter();
     Inicializar();
 });
 
@@ -83,27 +81,6 @@ function Inicializar(){
     $('#multiselectAmbientes').val(['jardim', 'terraço']).trigger('change');
     $('#multiselectTiposCartao').val(['visa', 'mastercard']).trigger('change');
     $('#multiselectEstilosServico').val(['buffet', 'à la carte']).trigger('change');
-}
-
-function loadNavbar() {
-    const navbarPlaceholder = document.getElementById('navbar-placeholder');
-    fetch('navbar.html')
-        .then(response => response.text())
-        .then(html => {
-            navbarPlaceholder.innerHTML = html;
-        }).catch(error => {
-            console.error('Falha ao carregar o navbar:', error);
-        });
-}
-function loadFooter() {
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(html => {
-            footerPlaceholder.innerHTML = html;
-        }).catch(error => {
-            console.error('Falha ao carregar o footer:', error);
-        });
 }
 document.getElementById("formCadastro").addEventListener("submit", function(event){
     event.preventDefault(); // Evita o envio padrão do formulário

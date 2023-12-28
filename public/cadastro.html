@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cadastro</title>
     <link rel="stylesheet" href="css/cadastro.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <div id="navbar-placeholder"></div>
 </head>
 <body>
     <div id="notificationPopupLogin" class="notification-popup" style="display: none;">
@@ -23,27 +20,36 @@
     <div id="notificationPopupFalha" class="notification-popup" style="display: none;">
         <p>Não foi possível cadastrar esse estabelecimento, ele já consta em nossos registros...</p>
     </div>
-    <div class="container">
-        <h2>cadastro de estabelecimento</h2>
+    <div class="page">
+        <br>
         <form id="formCadastro" class="formulario-cadastro">
-            <input type="text" id="nome" placeholder="Nome">
-            <textarea id="descricao" placeholder="Descrição"></textarea>
+            <h1>cadastro guia urbano</h1>
+            <p>insira as informações do seu estabelecimento para concluirmos o cadastro:</p>
+            <h4>nome</h4>
+            <input type="text" id="nome" placeholder="Nome"><br>
+            <h4>descrição</h4>
+            <input id="descricao" placeholder="Descrição"></input><br>
+            <br>
+            <h4>endereço</h4>
             <div class="formulario-grupo">
                 <input type="text" id="rua" placeholder="Rua">
-                <input type="text" id="cep" placeholder="CEP" style="width: 30%;">
+                <input type="text" id="cep" placeholder="CEP">
             </div>
             <div class="formulario-grupo">
                 <input type="text" id="bairro" placeholder="Bairro">
                 <input type="text" id="regiao" placeholder="Região">
                 <input type="text" id="cidade" placeholder="Cidade">
             </div>
+            <h4>coordenadas geográficas</h4>
             <div class="formulario-grupo">
                 <input type="number" id="latitude" placeholder="Latitude"   step="0.0000001" min="-100" max="100">
                 <input type="number" id="longitude" placeholder="Longitude" step="0.0000001" min="-100" max="100">
             </div>
+
+            <h4>taxa de entrada</h4>
             <input type="text" id="entrada" placeholder="Entrada">
 
-            <h4>linhas de metrô</h4>
+            <h2>linhas de metrô</h2>
             <select id="multiselectMetro" multiple>
                 <option value="Linha 1 (Azul)">Linha 1 (Azul)</option>
                 <option value="Linha 2 (Verde)">Linha 2 (Verde)</option>
@@ -53,7 +59,7 @@
                 <option value="Linha 15 (Prata)">Linha 15 (Prata)</option>
             </select>
             
-            <h4>estações de metro</h4>
+            <h2>estações de metro</h2>
             <select id="multiselectEstacoes" multiple>
                 <!-- Linha 1-Azul -->
                 <optgroup label="Linha 1 (Azul)">
@@ -99,7 +105,7 @@
                 </optgroup>
             </select>
 
-            <h4>avaliações e métricas</h4>
+            <h2>avaliações e métricas</h2>
             <div class="formulario-grupo">
                 <input type="number" id="estrelas" placeholder="Estrelas" min="0" max="5">
                 <input type="number" id="avaliacao_clientes" placeholder="Avaliação dos Clientes" min="0" max="5">
@@ -108,16 +114,20 @@
                 <input type="number" id="nivel" placeholder="Nível" min="0" max="4">
             </div>
 
-            <h4>mídias sociais</h4>
-            <textarea id="descricao_pagina" placeholder="Descrição na Página"></textarea>
+            <h2>mídias sociais</h2>
+            <h4>descrição da página</h4>
+            <input id="descricao_pagina" placeholder="Descrição na Página"></input>
+            <h4>link da página</h4>
             <input type="text" id="link_pagina" placeholder="Link da Página">
+            <h4>mídia da página</h4>
             <input type="text" id="midia_pagina" placeholder="Mídia da Página">
+            <h4>website</h4>
             <input type="text" id="website" placeholder="Website">
            
-            <h4>cardápio</h4>
+            <h2>cardápio</h2>
             <input type="text" id="link_cardapio" placeholder="Link do Cardápio">
 
-            <h4>opções de acessibilidade</h4>
+            <h2>opções de acessibilidade</h2>
             <select id="multiselectAcessibilidade" multiple>
                 <option value="banheiro acessível">Banheiro acessível</option>
                 <option value="cardápio em braile">Cardápio em braile</option>
@@ -142,13 +152,13 @@
                 <option value="áreas de descanso">Áreas de descanso</option>
             </select>
             
-            <h4>premiações</h4>
+            <h2>premiações</h2>
             <select id="multiselectPremios" multiple>
                 <option value="Os Melhores da Gastronomia 2023">Os Melhores da Gastronomia 2023</option>
                 <option value="Os Melhores da Gastronomia 2024">Os Melhores da Gastronomia 2024</option>
             </select>
             
-            <h4>informações úteis ao cliente</h4>
+            <h2>informações úteis ao cliente</h2>
             <div class="formulario-grupo">
                 <select id="musica">
                     <option value="">Música</option>
@@ -173,7 +183,8 @@
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
-
+            </div>
+            <div class="formulario-grupo">
                 <select id="pet">
                     <option value="">Pet Friendly</option>
                     <option value="Sim">Sim</option>
@@ -193,7 +204,7 @@
                 </select>
             </div>
 
-            <h4>estilos musicais</h4>
+            <h2>estilos musicais</h2>
             <select id="multiselectEstilosMusicais" multiple>
                 <option value="Axé">Axé</option>
                 <option value="Black Music">Black Music</option>
@@ -241,7 +252,7 @@
                 <option value="Trap">Trap</option>
             </select>
             
-            <h4>culinária</h4>
+            <h2>culinária</h2>
             <select id="multiselectCozinha" multiple>
                 <option value="Africana">Africana</option>
                 <option value="Alemã">Alemã</option>
@@ -280,7 +291,7 @@
                 <!-- Adicione mais tipos de cozinha conforme necessário -->
             </select>
 
-            <h4>tipos de locais</h4>
+            <h2>tipos de locais</h2>
             <select id="multiselectLocais" multiple>
                 <option value="padaria">Padaria</option>
                 <option value="restaurante">Restaurante</option>
@@ -312,7 +323,7 @@
                 <option value="resort">Resort</option>
             </select>
 
-            <h4>tipos de eventos</h4>
+            <h2>tipos de eventos</h2>
             <select id="multiselectTiposEvento" multiple>
                 <option value="primeiro encontro">Primeiro Encontro</option>
                 <option value="beber e dançar">Beber e Dançar</option>
@@ -352,7 +363,7 @@
                 <option value="maratona/caminhada beneficente">Maratona/Caminhada Beneficente</option>
             </select>
             
-            <h4>hobbies</h4>
+            <h2>hobbies</h2>
             <select id="multiselectHobbies" multiple>
                 <option value="jogos de tabuleiro">Jogos de Tabuleiro</option>
                 <option value="fliperama">Fliperama</option>
@@ -379,7 +390,7 @@
                 <option value="surf">Surf</option>
             </select>
 
-            <h4>ambientes</h4>
+            <h2>ambientes</h2>
             <select id="multiselectAmbientes" multiple>
                 <option value="jardim">Jardim</option>
                 <option value="jantar ao ar livre">Jantar ao Ar Livre</option>
@@ -408,7 +419,7 @@
                 <option value="retro">Retro</option>
             </select>
             
-            <h4>formas de pagamento</h4>
+            <h2>formas de pagamento</h2>
             <select id="multiselectTiposCartao" multiple>
                 <option value="dinheiro">Dinheiro</option>
                 <option value="american express">American Express</option>
@@ -452,7 +463,7 @@
                 <option value="pix">Pix</option>
             </select>
             
-            <h4>estilos de serviços</h4>
+            <h2>estilos de serviços</h2>
             <select id="multiselectEstilosServico" multiple>
                 <option value="buffet">Buffet</option>
                 <option value="à la carte">À la Carte</option>
@@ -477,7 +488,7 @@
                 <option value="tasting menu">Tasting Menu</option>
             </select>
 
-            <h4>horário de funcionamento</h4>
+            <h2>horário de funcionamento</h2>
             <div class="dia">
                 <label for="abertura-segunda">Segunda-feira:</label>
                 <div class="formulario-grupo">
@@ -544,17 +555,16 @@
                 </div>
             </div>
 
-            <h4>fotos</h4>
+            <h2>fotos</h2>
             <div class="form-group">
                 <label for="fotos">selecione fotos do seu estabelecimento</label>
                 <input type="file" class="form-control-file" id="fotos" multiple required>
             </div>
-            <!-- Adicione campos para objeto horarios_funcionamento aqui -->
-            <button type="submit">Cadastrar Estabelecimento</button>
+            <br>
+            <input type="submit" value="Acessar" class="btn"/>
         </form>
+        </div>
     </div>
-    </div>
-    <div id="footer-placeholder"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="script/cadastro.js"></script> <!-- Referência para o seu script JavaScript -->

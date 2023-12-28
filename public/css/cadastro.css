@@ -1,106 +1,155 @@
-@import url(https://fonts.googleapis.com/css?family=Economica:400,700);
-@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
-    height: 100%;
-    background: #ffffff;
-    font-family: 'Economica', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    -webkit-backface-visibility: hidden;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #023047;
+    background-color: #480ca8;
 }
 
-.container {
-    margin-top: 20px;
-    max-width: 600px; /* Define a largura máxima do contêiner */
-    margin: 0 auto; /* Centraliza o contêiner */
-    padding: 20px; /* Espaçamento interno */
-    background-color: #f9f9f9; /* Cor de fundo */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ao redor do contêiner */
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
 }
 
 .formulario-cadastro {
-    display: flex;
-    flex-direction: column; /* Organiza os campos em coluna */
-}
-
-.formulario-grupo{
-    display: flex;
-    margin-bottom: 1rem;
-    justify-content: space-between;
-}
-/* Estilo geral para todos os inputs e textareas */
-.formulario-cadastro input,
-.formulario-cadastro select,
-.formulario-cadastro textarea {
-    width: 100%; /* Faz o input ocupar toda a largura disponível */
-    padding: 8px 10px; /* Espaçamento interno */
-    margin-bottom: 15px; /* Espaço abaixo de cada campo */
-    border: 1px solid #ccc; /* Borda */
-    border-radius: 4px; /* Bordas arredondadas */
-    box-sizing: border-box; /* Calcula a largura incluindo padding e border */
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-/* Estilo para o input focado */
-.formulario-cadastro input:focus,
-.formulario-cadastro textarea:focus {
-    border-color: #007bff; /* Cor da borda ao focar */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25); /* Sombra ao focar */
-    outline: none; /* Remove o contorno padrão */
-}
-
-/* Estilização para checkboxes */
-.formulario-cadastro input[type="checkbox"] {
-    margin-right: 10px; /* Espaço à direita do checkbox */
-}
-
-/* Label para os checkboxes */
-.formulario-cadastro label {
-    margin-bottom: 10px; /* Espaço abaixo do label */
-    display: block; /* Faz o label ocupar toda a linha */
-    cursor: pointer; /* Cursor de mão ao passar sobre o label */
-}
-
-.formulario-cadastro button {
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 40px;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
     width: 100%;
-    padding: 10px 15px; /* Espaçamento interno do botão */
-    background-color: #007bff; /* Cor de fundo do botão */
-    color: white; /* Cor do texto do botão */
-    border: none; /* Sem bordas no botão */
-    border-radius: 5px; /* Bordas arredondadas no botão */
-    cursor: pointer; /* Cursor de mão ao passar sobre o botão */
+    max-width: 750px; /* Largura máxima para dispositivos maiores */
+    margin: auto;
 }
 
-.formulario-cadastro button:hover {
-    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+.formulario-cadastro h1 {
+    font-weight: 500;
+    font-size: 2em;
 }
 
+.formulario-cadastro p, 
+.formulario-cadastro label,
+.formulario-cadastro a {
+    font-size: 14px;
+}
 
-.notification-popup {
+.formulario-cadastro input, 
+.formulario-cadastro textarea, 
+.formulario-cadastro select {
+    width: 95%;
+    margin-left: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border 0.3s;
+}
+
+.formulario-cadastro input:focus,
+.formulario-cadastro textarea:focus,
+.formulario-cadastro select:focus {
+    border-color: #f72585;
+}
+
+.formulario-grupo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn {
+    background-color: #6a1b9a; /* Cor mais suave */
+    color: #fff;
+    padding: 10px 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #7e57c2;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .formulario-cadastro {
+        padding: 10px;
+        max-width: 70%;
+    }
+
+    .formulario-cadastro h1 {
+        font-size: 1.8em;
+    }
+
+    .formulario-grupo {
+        flex-direction: column;
+    }
+
+    .formulario-cadastro input, 
+    .formulario-cadastro textarea, 
+    .formulario-cadastro select {
+        width: 90%;
+        margin-left: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border 0.3s;
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario-cadastro {
+        padding: 5px;
+        max-width: 90%;
+    }
+
+    .formulario-cadastro h1 {
+        font-size: 1.6em;
+    }
+
+    .formulario-cadastro input, 
+    .formulario-cadastro textarea, 
+    .formulario-cadastro select {
+        width: 85%;
+        margin-left: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border 0.3s;
+    }
+}
+
+.notification-popup, .notification-popup-sucesso {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #f44336;
-    color: white;
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    text-align: center;
+}
+
+.notification-popup {
+    background-color: #f44336;
+    color: white;
 }
 
 .notification-popup-sucesso {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #189200;
+    background-color: #4caf50;
     color: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-    z-index: 1000;
 }
