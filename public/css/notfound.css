@@ -1,0 +1,15 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background: #ffffff;
+    font-family: 'Economica', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    -webkit-backface-visibility: hidden;
+  }
+  .content-wrap {
+    display: flex; /* Utiliza Flexbox */
+    flex-direction: column; /* Organiza o conteúdo verticalmente */
+    min-height: 100vh; /* Altura mínima baseada na altura da janela de visualização */
+    flex: 1; /* Faz o conteúdo crescer para ocupar o espaço disponível */
+  }

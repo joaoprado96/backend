@@ -1,6 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Economica:400,700);
 @import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;600&display=swap');
 
+body {
+    height: 100%;
+    background: #ffffff;
+    font-family: 'Economica', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    -webkit-backface-visibility: hidden;
+}
+
 .container {
     margin-top: 20px;
     max-width: 600px; /* Define a largura máxima do contêiner */
@@ -56,6 +65,7 @@
 }
 
 .formulario-cadastro button {
+    width: 100%;
     padding: 10px 15px; /* Espaçamento interno do botão */
     background-color: #007bff; /* Cor de fundo do botão */
     color: white; /* Cor do texto do botão */

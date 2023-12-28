@@ -11,7 +11,6 @@
 }
 
 .custom-navbar {
-  border-radius: 10px; /* bordas arredondadas */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra sutil */
 }
 
@@ -27,6 +26,9 @@
 
 @media (max-width: 768px) {
   .custom-navbar {
-      /* ajustes para dispositivos móveis */
+      border-radius: 0; /* Ajustando para telas menores */
+  }
+  .navbar-nav .nav-item .nav-link {
+      padding: 10px 15px; /* Mais espaço para links em telas menores */
   }
 }
