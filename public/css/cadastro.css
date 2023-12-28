@@ -1,49 +1,96 @@
 @import url(https://fonts.googleapis.com/css?family=Economica:400,700);
 @import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;600&display=swap');
 
-label {
-    margin-bottom: 5px;
+.container {
+    margin-top: 20px;
+    max-width: 600px; /* Define a largura máxima do contêiner */
+    margin: 0 auto; /* Centraliza o contêiner */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #f9f9f9; /* Cor de fundo */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ao redor do contêiner */
 }
 
-input, select, textarea {
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+.formulario-cadastro {
+    display: flex;
+    flex-direction: column; /* Organiza os campos em coluna */
 }
 
-button {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: blue;
-    color: white;
-    cursor: pointer;
+.formulario-grupo{
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+/* Estilo geral para todos os inputs e textareas */
+.formulario-cadastro input,
+.formulario-cadastro select,
+.formulario-cadastro textarea {
+    width: 100%; /* Faz o input ocupar toda a largura disponível */
+    padding: 8px 10px; /* Espaçamento interno */
+    margin-bottom: 15px; /* Espaço abaixo de cada campo */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 4px; /* Bordas arredondadas */
+    box-sizing: border-box; /* Calcula a largura incluindo padding e border */
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-button:hover {
-    background-color: darkblue;
+/* Estilo para o input focado */
+.formulario-cadastro input:focus,
+.formulario-cadastro textarea:focus {
+    border-color: #007bff; /* Cor da borda ao focar */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25); /* Sombra ao focar */
+    outline: none; /* Remove o contorno padrão */
 }
 
-.notificacao {
+/* Estilização para checkboxes */
+.formulario-cadastro input[type="checkbox"] {
+    margin-right: 10px; /* Espaço à direita do checkbox */
+}
+
+/* Label para os checkboxes */
+.formulario-cadastro label {
+    margin-bottom: 10px; /* Espaço abaixo do label */
+    display: block; /* Faz o label ocupar toda a linha */
+    cursor: pointer; /* Cursor de mão ao passar sobre o label */
+}
+
+.formulario-cadastro button {
+    padding: 10px 15px; /* Espaçamento interno do botão */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Sem bordas no botão */
+    border-radius: 5px; /* Bordas arredondadas no botão */
+    cursor: pointer; /* Cursor de mão ao passar sobre o botão */
+}
+
+.formulario-cadastro button:hover {
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+}
+
+
+.notification-popup {
     position: fixed;
     bottom: 20px;
-    left: 20px;
-    background-color: #f8d7da;
-    color: #721c24;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f44336;
+    color: white;
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
     z-index: 1000;
-    display: none;
 }
 
-.notificacao.sucesso {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.notificacao.erro {
-    background-color: #f8d7da;
-    color: #721c24;
+.notification-popup-sucesso {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #189200;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    z-index: 1000;
 }

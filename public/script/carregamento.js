@@ -2,16 +2,16 @@
 var token = localStorage.getItem('token');
 
 document.addEventListener('DOMContentLoaded', function() {
-// Se não houver token, mostra a notificação popup e redireciona
-if (!token) {
-    var popup = document.getElementById('notificationPopup');
-    popup.style.display = 'block';
+    // Se não houver token, mostra a notificação popup e redireciona
+    if (!token) {
+        var popup = document.getElementById('notificationPopup');
+        popup.style.display = 'block';
 
-    // Espera 3 segundos antes de redirecionar
-    setTimeout(function() {
-        window.location.href = '/login.html'; // Substitua pelo caminho correto
-    }, 1000);
-}
+        // Espera 3 segundos antes de redirecionar
+        setTimeout(function() {
+            window.location.href = '/login.html'; // Substitua pelo caminho correto
+        }, 2000);
+    }
     loadNavbar();
     loadFooter();
     fetchLugares();
@@ -62,7 +62,8 @@ document.getElementById('deleteButton').addEventListener('click', function() {
 
     if (true) {
         fetch(`/api/fotos-lugares/${lugarId}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {authorization: token}
         })
         .then(response => {
             console.log(response);
@@ -116,7 +117,6 @@ function enviarFotos(lugarId) {
         formData.append('fotos', fotos[i]);
     }
 
-    console.log(formData);
     fetch('/api/fotos-lugares', {
         method: 'POST',
         headers: {authorization: token},

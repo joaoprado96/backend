@@ -18,10 +18,10 @@
         <p>Você não preencheu todos os campos, ajuste os campos sinalizados...</p>
     </div>
     <div id="notificationPopupSucesso" class="notification-popup-sucesso" style="display: none;">
-        <p>O estabelecimento foi cadastrado com sucesso !!!</p>
+        <p>Você não preencheu todos os campos, ajuste os campos sinalizados...</p>
     </div>
-    <div id="notificationPopupFalha" class="notification-popup" style="display: none;">
-        <p>Não foi possível cadastrar esse estabelecimento, ele já consta em nossos registros...</p>
+    <div id="notificationPopupSucesso" class="notification-popup" style="display: none;">
+        <p>Você não preencheu todos os campos, ajuste os campos sinalizados...</p>
     </div>
     <div class="container">
         <h2>cadastro de estabelecimento</h2>
@@ -38,8 +38,8 @@
                 <input type="text" id="cidade" placeholder="Cidade">
             </div>
             <div class="formulario-grupo">
-                <input type="number" id="latitude" placeholder="Latitude"   step="0.0000001" min="-100" max="100">
-                <input type="number" id="longitude" placeholder="Longitude" step="0.0000001" min="-100" max="100">
+                <input type="number" id="latitude" placeholder="Latitude">
+                <input type="number" id="longitude" placeholder="Longitude">
             </div>
             <input type="text" id="entrada" placeholder="Entrada">
 
@@ -101,11 +101,11 @@
 
             <h4>avaliações e métricas</h4>
             <div class="formulario-grupo">
-                <input type="number" id="estrelas" placeholder="Estrelas" min="0" max="5">
-                <input type="number" id="avaliacao_clientes" placeholder="Avaliação dos Clientes" min="0" max="5">
-                <input type="number" id="avaliacao_pagina" placeholder="Avaliação da Página" min="0" max="5">
-                <input type="number" id="preco" placeholder="Preço" min="0" max="5">
-                <input type="number" id="nivel" placeholder="Nível" min="0" max="4">
+                <input type="number" id="estrelas" placeholder="Estrelas">
+                <input type="number" id="avaliacao_clientes" placeholder="Avaliação dos Clientes">
+                <input type="number" id="avaliacao_pagina" placeholder="Avaliação da Página">
+                <input type="number" id="preco" placeholder="Preço">
+                <input type="number" id="nivel" placeholder="Nível">
             </div>
 
             <h4>mídias sociais</h4>
@@ -113,10 +113,7 @@
             <input type="text" id="link_pagina" placeholder="Link da Página">
             <input type="text" id="midia_pagina" placeholder="Mídia da Página">
             <input type="text" id="website" placeholder="Website">
-           
-            <h4>cardápio</h4>
-            <input type="text" id="link_cardapio" placeholder="Link do Cardápio">
-
+            
             <h4>opções de acessibilidade</h4>
             <select id="multiselectAcessibilidade" multiple>
                 <option value="banheiro acessível">Banheiro acessível</option>
@@ -476,7 +473,6 @@
                 <option value="brunch">Brunch</option>
                 <option value="tasting menu">Tasting Menu</option>
             </select>
-
             <h4>horário de funcionamento</h4>
             <div class="dia">
                 <label for="abertura-segunda">Segunda-feira:</label>
@@ -543,12 +539,9 @@
                     </select>
                 </div>
             </div>
-
-            <h4>fotos</h4>
-            <div class="form-group">
-                <label for="fotos">escolha as fotos</label>
-                <input type="file" class="form-control-file" id="fotos" multiple required>
-            </div>
+            
+            <h4>cardápio</h4>
+            <input type="text" id="link_cardapio" placeholder="Link do Cardápio">
             <!-- Adicione campos para objeto horarios_funcionamento aqui -->
             <button type="submit">Cadastrar Estabelecimento</button>
         </form>
