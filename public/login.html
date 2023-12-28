@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <link rel="stylesheet" href="css/login.css">
-  <div id="navbar-placeholder"></div>
 </head>
 <body>
-    <div class="content-wrap">
-        <div class="container">
-            <form id="registerForm" class="mt-4 row">
-                <input type="text" id="username" placeholder="Nome de Usuário" required>
-                <input type="password" id="password" placeholder="Senha" required>
-                <input type="submit" value="ENTRAR">
-            </form>
-        </div>
+    <div id="notificationPopupSucesso" class="notification-popup-sucesso" style="display: none;">
+        <p>Bem vindo ao Guia Urbano, seu login foi um sucesso você será redirecionado...</p>
     </div>
-
-  <div id="footer-placeholder"></div>
-  <script src="script/login.js"></script>
+    <div id="notificationPopupFalha" class="notification-popup" style="display: none;">
+        <p>Parece que tem algo errado, tente novamente...</p>
+    </div>
+    <div class="page">
+        <form id="registerForm" class="formLogin">
+            <h3>bem vindo ao guia urbano</h3>
+            <p>digite os seus dados de acesso no campo abaixo:</p>
+            <label for="username">Usuário</label>
+            <input id= "username" type="text" placeholder="Digite seu usuário" autofocus="true" />
+            <label for="password">Senha</label>
+            <input id="password" type="password" placeholder="Digite sua senha" />
+            <a href="/usuario">Quero me cadastrar</a>
+            <input type="submit" value="Acessar" class="btn"/>
+        </form>
+    </div>
+    <script src="script/login.js"></script>
 </body>
 </html>

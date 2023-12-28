@@ -1,62 +1,124 @@
-@import url(https://fonts.googleapis.com/css?family=Economica:400,700);
-@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-html, body {
-  height: 100%;
-  margin: 0;
-  background: #ffffff;
-  font-family: 'Economica', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  -webkit-backface-visibility: hidden;
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #023047
 }
-.content-wrap {
-  display: flex; /* Utiliza Flexbox */
-  flex-direction: column; /* Organiza o conteúdo verticalmente */
-  min-height: 100vh; /* Altura mínima baseada na altura da janela de visualização */
-  flex: 1; /* Faz o conteúdo crescer para ocupar o espaço disponível */
-}
-  form {
+
+.page {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
-    flex-wrap: nowrap;
     align-items: center;
-    background: #2c2c2e; /* Cor de fundo do formulário */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  }
-  
-  input[type=text], input[type=password], input[type=email], input[type=date] {
+    align-content: center;
+    justify-content: center;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-    background: #3a3a3c; /* Cor de fundo dos campos de input */
-    color: white; /* Cor do texto */
-  }
-  
-  input[type=submit] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background: #0a84ff; /* Cor de fundo do botão */
-    color: white; /* Cor do texto do botão */
-    font-size: 16px;
+    height: 100vh;
+    background-color: #480ca8;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 40px;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+    gap: 5px
+}
+
+.areaLogin img {
+    width: 420px;
+}
+
+.formLogin h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 2.3em;
+}
+
+.formLogin p {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.formLogin input {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+}
+
+
+.formLogin input:focus {
+    border: 1px solid #f72585;
+}
+
+.formLogin label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.formLogin a {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #555;
+    transition: all linear 160ms;
+}
+
+.formLogin a:hover {
+    color: #f72585;
+}
+
+.btn {
+    background-color: purple;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none !important;
+    transition: all linear 160ms;
     cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
-    background: #007aff; /* Cor de fundo do botão ao passar o mouse */
-  }
-  
-  input[type=checkbox] {
-    margin-right: 10px;
-  }
-  
-  label {
-    color: white; /* Cor do texto da label */
-  }
+    margin: 0 !important;
+
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: rgb(83, 2, 83);
+
+}
+
+.notification-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f44336;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.notification-popup-sucesso {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #189200;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
