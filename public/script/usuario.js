@@ -26,11 +26,23 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
       throw new Error('Falha no registro');
     })
     .then(data => {
-      alert('Registro bem-sucedido: ' + data);
+      var popup = document.getElementById('notificationPopupSucesso');
+      popup.style.display = 'block';
+
+      // Espera 3 segundos antes de redirecionar
+      setTimeout(function() {
+          popup.style.display = 'none';
+          window.location.href = '/login.html'; // Redireciona para a página desejada    
+      }, 4500);
       // Você pode redirecionar o usuário ou limpar o formulário aqui
     })
     .catch(error => {
-      console.error('Erro no registro:', error);
-      alert('Erro no registro: ' + error.message);
+      var popup = document.getElementById('notificationPopupFalha');
+      popup.style.display = 'block';
+
+      // Espera 3 segundos antes de redirecionar
+      setTimeout(function() {
+          popup.style.display = 'none';
+      }, 4500);
     });
   });
