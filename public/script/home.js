@@ -127,7 +127,7 @@ function carregarFotos() {
     const carouselContainer = document.getElementById('carouselNovidades');
     carouselContainer.innerHTML = '';
 
-    fetch(`/api/fotos-lugares/658799aeb6c19129dbbc5d1d`)
+    fetch(`/api/fotos-lugares/658ebb156fb359c8fec19955`)
         .then(response => response.json())
         .then(data => {
             if (data && data.length > 0) {

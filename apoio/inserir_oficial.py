@@ -3,7 +3,8 @@ import json
 
 # URL da API
 url = 'http://localhost:3000/api/login'  # Substitua pela URL correta da sua API
-resposta = requests.post(url,json={"username":"JVSPPNX", "password":"78787878"})
+resposta = requests.post(url,json={"username":"lsfqlwp", "password":"123456"})
+print(resposta.text)
 data = json.loads(resposta.text)
 auth = data['token']
 
