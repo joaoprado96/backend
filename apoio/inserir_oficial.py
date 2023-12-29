@@ -1,4 +1,11 @@
 import requests
+import json
+
+# URL da API
+url = 'http://localhost:3000/api/login'  # Substitua pela URL correta da sua API
+resposta = requests.post(url,json={"username":"JVSPPNX", "password":"78787878"})
+data = json.loads(resposta.text)
+auth = data['token']
 
 # URL da API
 url = 'http://localhost:3000/api/lugares'  # Substitua pela URL correta da sua API
@@ -124,7 +131,7 @@ lugar = {
   "glutenfree": "Não",
   "lactosefree": "Sim"
 }
-response = requests.post(url, json=lugar)
+response = requests.post(url, json=lugar,headers={'authorization':auth})
 if response.status_code == 201:
     print(f"Lugar {lugar['nome']} adicionado com sucesso.")
 else:
@@ -246,7 +253,7 @@ lugar = {
   "lactosefree": "Não",
 }
 
-response = requests.post(url, json=lugar)
+response = requests.post(url, json=lugar,headers={'authorization':auth})
 if response.status_code == 201:
     print(f"Lugar {lugar['nome']} adicionado com sucesso.")
 else:
@@ -365,7 +372,7 @@ lugar = {
   "lactosefree": "Não",
 }
 
-response = requests.post(url, json=lugar)
+response = requests.post(url, json=lugar,headers={'authorization':auth})
 if response.status_code == 201:
     print(f"Lugar {lugar['nome']} adicionado com sucesso.")
 else:
@@ -485,7 +492,7 @@ lugar = {
   "lactosefree": "Sim",
 }
 
-response = requests.post(url, json=lugar)
+response = requests.post(url, json=lugar,headers={'authorization':auth})
 if response.status_code == 201:
     print(f"Lugar {lugar['nome']} adicionado com sucesso.")
 else:
@@ -607,7 +614,7 @@ lugar = {
   "glutenfree": "Não",
   "lactosefree": "Não",
 }
-response = requests.post(url, json=lugar)
+response = requests.post(url, json=lugar,headers={'authorization':auth})
 if response.status_code == 201:
     print(f"Lugar {lugar['nome']} adicionado com sucesso.")
 else:
