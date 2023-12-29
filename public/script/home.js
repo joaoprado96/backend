@@ -83,6 +83,7 @@ function initializeFormOptions() {
             populateSelect('local', locais);
             populateSelect('cozinha', cozinhas);
             populateSelect('cartao', cartoes);
+            populateSelect('estilo_servico', estilos_servicos);
             populateSelect('dia', dias);
         })
         .catch(error => console.error('Erro ao carregar opções do formulário:', error));
@@ -101,8 +102,8 @@ document.getElementById('search-form').addEventListener('submit', function(event
     // Coletar valores dos campos do formulário
     const bairro = document.getElementById('bairro').value;
     const dia = document.getElementById('dia').value;
-    const horarioAbertura = document.getElementById('horario_abertura').value;
-    const horarioFechamento = document.getElementById('horario_fechamento').value;
+    // const horarioAbertura = document.getElementById('horario_abertura').value;
+    // const horarioFechamento = document.getElementById('horario_fechamento').value;
     const cartao = document.getElementById('cartao').value;
     const preco = document.getElementById('preco').value;
     const local = document.getElementById('local').value;
@@ -112,8 +113,8 @@ document.getElementById('search-form').addEventListener('submit', function(event
     const queryParams = new URLSearchParams();
     if (bairro) queryParams.append('bairro', bairro);
     if (dia) queryParams.append('dia', dia);
-    if (horarioAbertura) queryParams.append('horario_abertura', horarioAbertura);
-    if (horarioFechamento) queryParams.append('horario_fechamento', horarioFechamento);
+    // if (horarioAbertura) queryParams.append('horario_abertura', horarioAbertura);
+    // if (horarioFechamento) queryParams.append('horario_fechamento', horarioFechamento);
     if (cartao) queryParams.append('cartao', cartao);
     if (preco) queryParams.append('preco', preco);
     if (local) queryParams.append('local', local);
