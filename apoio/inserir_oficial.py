@@ -3,7 +3,7 @@ import json
 
 # URL da API
 url = 'http://localhost:3000/api/login'  # Substitua pela URL correta da sua API
-resposta = requests.post(url,json={"username":"lsfqlwp", "password":"123456"})
+resposta = requests.post(url,json={"username":"LUANECAR", "password":"123456"})
 print(resposta.text)
 data = json.loads(resposta.text)
 auth = data['token']
@@ -16,6 +16,7 @@ lugar = {
   "descricao": "Bar e restaurante com uma mistura de culinária brasileira e portuguesa,situado no famoso edifício Copan e comandando pelo chef Raimundo Oliveira,que já comandou restaurantes conceituados e agora comanda a cozinha da Casa do Raimundo",
   "rua": "Rua Araújo,331",
   "cep": "05416-011",
+  "cnpj": "05416-011",
   "cidade": "São Paulo",
   "bairro": "República",
   "regiao": "Centro",
@@ -144,6 +145,7 @@ lugar = {
   "descricao": "Bar com clima de praia situado às margens da represa do Guarapiranga com porções generosas e drinks autorais.A casa oferece open bar e rodizio de churrasco em dias específicos da semana então fique atento às informações de funcionamento.",
   "rua": " Av. Atlântica ,4002 - Interlagos ",
   "cep": "04772-001",
+  "cnpj": "04772-001",
   "cidade": "São Paulo",
   "bairro": "Interlagos",
   "regiao": "Zona Sul",
@@ -265,6 +267,7 @@ lugar = {
   "descricao": "Localizado em uma das 10 ruas mais visitadas de São Paulo,o Anexo Pinheiros oferece uma atmosfera única.Composta por dois ambientes, a casa possui uma decoração baseada na arte urbana e de rua. Do nosso Rooftop, é possível apreciar um por do sol de brilhar os olhos.Além disso, a energia da balada sempre fica por conta dos diferentes DJs que comandam a pista.Venha desfrutar de um lugar aconchegante e animado, localizado no CORAÇÃO de Pinheiros.",
   "rua": "Rua Guaicuí,82",
   "cep": "05416-011",
+  "cnpj": "05416-011",
   "cidade": "São Paulo",
   "bairro": "Pinheiros",
   "regiao": "Zona Oeste",
@@ -384,6 +387,7 @@ lugar = {
   "descricao": "A Candy é um Sushi Bar, com gastronomia japonesa alto padrão e DJ deixando o ambiente do restaurante sempre bem animado! Tem diversos pontos instagramaveis,drinks premiados e claro,uma balada secreta com uma pista de dança que vai até o amanhecer!",
   "rua": "Alameda Lorena,2119",
   "cep": "01424-007",
+  "cnpj": "01424-007",
   "cidade": "São Paulo",
   "bairro": "Jardim Paulista",
   "regiao": "Zona Oeste",
@@ -504,6 +508,7 @@ lugar = {
   "descricao": "O Butiquim da Cidade é um bar no coração da Vila Madalena, muito alegre e contagiante com drinks incríveis e música ao vivo para a galera aproveitar. De quarta e sexta temos o nosso rodízio de petisco por apenas R$29,90 que viralizou nas redes sociais.",
   "rua": "R. Fradique Coutinho,1127",
   "cep": "05416-011",
+  "cnpj": "05416-011",
   "cidade": "São Paulo",
   "bairro": "Pinheiros",
   "regiao": "Zona Oeste",

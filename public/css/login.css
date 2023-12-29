@@ -43,7 +43,7 @@ body {
     margin-bottom: 25px;
 }
 
-.formLogin input {
+.formLogin input,select {
     padding: 15px;
     font-size: 14px;
     border: 1px solid #ccc;
@@ -54,7 +54,7 @@ body {
     outline: none;
 }
 
-.formLogin input:focus {
+.formLogin input:focus, select:focus {
     border: 1px solid #f72585;
 }
 

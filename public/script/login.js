@@ -27,6 +27,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
         setTimeout(function() {
             popup.style.display = 'none';
             localStorage.setItem('token', data.token); // Salva o token no localStorage
+            localStorage.setItem('currentUser', data.currentUser); // Salva o token no localStorage
             window.location.href = '/home.html'; // Redireciona para a página desejada    
         }, 4500);
 })

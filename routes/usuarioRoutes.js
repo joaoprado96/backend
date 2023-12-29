@@ -11,5 +11,11 @@ router.post('/register', rateLimit, userController.register);
 // Nova rota para fazer loggin
 router.post('/login', rateLimit, userController.login);
 
+// Rota para obter informações de um usuário
+router.get('/user/:username', rateLimit ,userController.getUserProfile);
+
+// Rota para atualizar o perfil do usuário
+router.put('/user/update/:username',rateLimit, userController.updateUserProfile);
+
 
 module.exports = router;

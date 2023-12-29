@@ -4,37 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cadastro</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-      <div id="notificationPopupSucesso" class="notification-popup-sucesso" style="display: none;">
+    <div id="notificationPopupSucesso" class="notification-popup-sucesso" style="display: none;">
         <p>Cadastro efetuado com sucesso, redirecionado para página de login ...</p>
     </div>
     <div id="notificationPopupFalha" class="notification-popup" style="display: none;">
         <p>Parece que tem algo errado, tente novamente...</p>
     </div>
     <div class="page">
-      <br>
+        <br>
         <form id="registerForm" class="formLogin">
             <h3>cadastre-se no guia urbano</h3>
             <p>Para seguir com o seu cadastro preencha as informações abaixo:</p>
             <input type="text" id="nome" placeholder="Nome" required>
+            <select id="tipoUsuario" required>
+                <option value="">Selecione o Tipo de Usuário</option>
+                <option value="fisica">Pessoa Física</option>
+                <option value="juridica">Pessoa Jurídica</option>
+            </select>
+            <input type="text" id="cpf" placeholder="CPF" style="display: none;">
+            <input type="text" id="cnpj" placeholder="CNPJ" style="display: none;">
             <input type="text" id="endereco" placeholder="Endereço">
             <input type="date" id="dataNascimento" placeholder="Data de Nascimento">
             <input type="email" id="email" placeholder="E-mail" required>
-            <input type="text" id="sexo" placeholder="Sexo">
-            <input type="text" id="genero" placeholder="Gênero">
             <input type="text" id="username" placeholder="Nome de Usuário" required>
             <input type="password" id="password" placeholder="Senha" required>
             <input type="password" id="confirmPassword" placeholder="Confirmação de Senha" required>
+
             <label>
-            <input type="checkbox" id="termos"> Eu concordo com os Termos
+                <input type="checkbox" id="termos"> Eu concordo com os Termos
             </label>
             <a href="/login">Quero fazer login</a>
             <input type="submit" value="Registrar" class="btn"/>
         </form>
-      <br>
+        <br>
     </div>
     <script src="script/usuario.js"></script>
 </body>

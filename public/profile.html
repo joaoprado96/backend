@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>perfil</title>
+    <link rel="stylesheet" href="css/login.css"> <!-- Substitua pelo seu arquivo CSS -->
+</head>
+<body>
+    <div class="page">
+        <br>
+        <div id="notificationPopupSucesso" class="notification-popup-sucesso" style="display: none;">
+            <p>Seu perfil foi alterado com suceso...</p>
+        </div>
+        <div id="notificationPopupFalha" class="notification-popup" style="display: none;">
+            <p>Parece que tem algo errado, tente novamente...</p>
+        </div>
+        <form id="editProfileForm" class="formLogin">
+            <h2>editar perfil</h2>
+            <!-- Campos para edição -->
+            <input type="text" id="nome" placeholder="Nome">
+            <input type="email" id="email" placeholder="E-mail">
+            <input type="text" id="endereco" placeholder="Endereço">
+            <input type="date" id="dataNascimento" placeholder="Data de Nascimento">
+
+            <!-- Nacionalidade -->
+            <select id="nacionalidade">
+                <option value="">Selecione uma Nacionalidade</option>
+                <option value="brasileira">Brasileira</option>
+                <option value="americana">Americana</option>
+                <option value="francesa">Francesa</option>
+                <option value="inglesa">Inglesa</option>
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
+            <!-- Sexo -->
+            <select id="sexo">
+                <option value="">Selecione o Sexo</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outro">Outro</option>
+            </select>
+            <!-- Gênero -->
+            <select id="genero">
+                <option value="">Selecione o Gênero</option>
+                <option value="homem">Homem</option>
+                <option value="mulher">Mulher</option>
+                <option value="nao-binario">Não-Binário</option>
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
+
+            <input type="text" id="telefone" placeholder="Telefone">
+            <input type="text" id="fotoPerfil" placeholder="URL da Foto de Perfil">
+            <input type="text" id="biografia" placeholder="Biografia">
+            
+
+            <select id="tipoUsuario">
+                <option value="">Selecione o Tipo de Usuário</option>
+                <option value="fisica">Pessoa Física</option>
+                <option value="juridica">Pessoa Jurídica</option>
+            </select>
+            <input type="text" id="cpf" placeholder="CPF">
+            <input type="text" id="cnpj" placeholder="CNPJ">
+
+            <!-- Campos para redes sociais -->
+            <input type="text" id="facebook" placeholder="Facebook">
+            <input type="text" id="twitter" placeholder="Twitter">
+            <input type="text" id="instagram" placeholder="Instagram">
+
+            <select id="idioma">
+                <option value="portugues">Português</option>
+                <option value="ingles">Inglês</option>
+                <option value="espanhol">Espanhol</option>
+                <option value="frances">Francês</option>
+                <option value="alemao">Alemão</option>
+                <option value="italiano">Italiano</option>
+                <option value="chines">Chinês</option>
+                <option value="japones">Japonês</option>
+                <option value="russo">Russo</option>
+                <!-- Adicione mais idiomas conforme necessário -->
+            </select>
+
+            <input type="text" id="tema" placeholder="Tema">
+
+            <input type="submit" value="Salvar alterações" class="btn"/>
+        </form>
+    </div>
+    <script src="script/profile.js"></script> <!-- Script para carregar e salvar os dados -->
+</body>
+</html>

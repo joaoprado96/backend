@@ -5,6 +5,7 @@ const lugarSchema = new mongoose.Schema({
     descricao: String,
     rua: String,
     cep: String,
+    cnpj: String,
     cidade: String,
     bairro: String,
     regiao: String,

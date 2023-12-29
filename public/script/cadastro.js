@@ -20,6 +20,7 @@ function Inicializar(){
     document.getElementById('descricao').value = 'Descrição do Estabelecimento';
     document.getElementById('rua').value = 'Rua do Estabelecimento';
     document.getElementById('cep').value = '01000-000';
+    document.getElementById('cnpj').value = '01000-000';
     document.getElementById('bairro').value = 'Bairro do Estabelecimento';
     document.getElementById('regiao').value = 'Região do Estabelecimento';
     document.getElementById('cidade').value = 'Cidade do Estabelecimento';
@@ -92,6 +93,7 @@ document.getElementById("formCadastro").addEventListener("submit", function(even
             descricao: document.getElementById('descricao').value,
             rua: document.getElementById('rua').value,
             cep: document.getElementById('cep').value,
+            cnpj: document.getElementById('cnpj').value,
             cidade: document.getElementById('cidade').value,
             bairro: document.getElementById('bairro').value,
             regiao: document.getElementById('regiao').value,

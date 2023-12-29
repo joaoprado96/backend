@@ -2,7 +2,7 @@ const Lugar = require('../models/lugarModel');
 
 exports.adicionarLugar = async (req, res) => {
     const {
-        nome, descricao, rua, cep, cidade, bairro, regiao, entrada, latitude, longitude, linha_metro, estacao, estrelas,
+        nome, descricao, rua, cep, cnpj, cidade, bairro, regiao, entrada, latitude, longitude, linha_metro, estacao, estrelas,
         avaliacao_clientes, avaliacao_pagina, descricao_pagina, link_pagina, midia_pagina,
         acessibilidade, musica, estacionamento, cover, kids, website, premio, estilo_musical,
         cozinha, local, preco, tipo_evento, hobby, ambiente, cartao, dias, nivel, link_cardapio, horarios_funcionamento, pet, estilo_servico,
@@ -11,14 +11,14 @@ exports.adicionarLugar = async (req, res) => {
 
     try {
         // Verifica se o id já existe na base de dados
-        const lugarExistente = await Lugar.findOne({ nome });
+        const lugarExistente = await Lugar.findOne({ nome, cep, cnpj });
         if (lugarExistente) {
-            return res.status(400).json({ message: 'Erro: um lugar com esse nome já existe.' });
+            return res.status(400).json({ message: 'Erro: um lugar com esse nome, CEP e CNPJ já existe.' });
         }
 
         // Cria um novo lugar se o id não existir
         const novoLugar = new Lugar({
-            nome, descricao, rua, cep, cidade, bairro, regiao, entrada, latitude, longitude, linha_metro, estacao, estrelas,
+            nome, descricao, rua, cep, cnpj, cidade, bairro, regiao, entrada, latitude, longitude, linha_metro, estacao, estrelas,
             avaliacao_clientes, avaliacao_pagina, descricao_pagina, link_pagina, midia_pagina,
             acessibilidade, musica, estacionamento, cover, kids, website, premio, estilo_musical,
             cozinha, local, preco, tipo_evento, hobby, ambiente, cartao, dias, nivel, link_cardapio, horarios_funcionamento, pet, estilo_servico,
