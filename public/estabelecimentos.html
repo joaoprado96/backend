@@ -15,34 +15,36 @@
     <div id="navbar-placeholder"></div>
 </head>
 
-<body class="teste">
-    <div class="">
-        <p class="lead mt-3 ml-5">Monte seu rolê em 3 minutos!</p>
-    </div>
-    <div class="carrosel-run">
+<body class="corpo">
+    <div class="testando">
         <div class="">
-            <div id="carrosselTipoEvento" class="carrossel-tipo-evento">
-                <!-- Os itens do carrossel serão inseridos aqui pelo JavaScript -->
+            <p class="lead mt-3 ml-5">Monte seu rolê em 3 minutos!</p>
+        </div>
+        <div class="carrosel-run">
+            <div class="">
+                <div id="carrosselTipoEvento" class="carrossel-tipo-evento">
+                    <!-- Os itens do carrossel serão inseridos aqui pelo JavaScript -->
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Menu lateral de filtros -->
-    <div id="menu-lateral-filtros" class="menu-lateral">
-        <!-- Botão de Fechar -->
-        <button id="botao-fechar-menu" class="fechar-menu">fechar</button>
     
-        <!-- Conteúdo do menu lateral -->
-        <div class="menu-lateral-conteudo">
-            <!-- Adicione seus filtros adicionais aqui -->
-            <div class="filtro-checkbox">
-                <label><input type="checkbox" id="filtro-musica" value="Sim"> Música</label>
-                <label><input type="checkbox" id="filtro-estacionamento" value="Sim"> Estacionamento</label>
-                <label><input type="checkbox" id="filtro-cover" value="Sim"> Cover</label>
-                <label><input type="checkbox" id="filtro-kids" value="Sim"> Kids</label>
-                <label><input type="checkbox" id="filtro-pet" value="Sim"> Pet Friendly</label>
-                <label><input type="checkbox" id="filtro-glutenfree" value="Sim"> Gluten Free</label>
-                <label><input type="checkbox" id="filtro-lactosefree" value="Sim"> Lactose Free</label>
+        <!-- Menu lateral de filtros -->
+        <div id="menu-lateral-filtros" class="menu-lateral">
+            <!-- Botão de Fechar -->
+            <button id="botao-fechar-menu" class="fechar-menu">fechar</button>
+        
+            <!-- Conteúdo do menu lateral -->
+            <div class="menu-lateral-conteudo">
+                <!-- Adicione seus filtros adicionais aqui -->
+                <div class="filtro-checkbox">
+                    <label><input type="checkbox" id="filtro-musica" value="Sim"> Música</label>
+                    <label><input type="checkbox" id="filtro-estacionamento" value="Sim"> Estacionamento</label>
+                    <label><input type="checkbox" id="filtro-cover" value="Sim"> Cover</label>
+                    <label><input type="checkbox" id="filtro-kids" value="Sim"> Kids</label>
+                    <label><input type="checkbox" id="filtro-pet" value="Sim"> Pet Friendly</label>
+                    <label><input type="checkbox" id="filtro-glutenfree" value="Sim"> Gluten Free</label>
+                    <label><input type="checkbox" id="filtro-lactosefree" value="Sim"> Lactose Free</label>
+                </div>
             </div>
             <!-- Filtro de Cartao -->
             <div>
@@ -83,80 +85,83 @@
             <!-- Filtro de Estilo de Serviço -->
             <div>
                 <select id="filtro-servico" class="btn-check">
-                    <option value="">tipo serviço</option>
+                    <option value="">Serviço</option>
                 </select>
             </div>
             <!-- Filtro de Hobby -->
             <div>
                 <select id="filtro-hobby" class="btn-check">
-                    <option value="">hobbies</option>
+                    <option value="">Hobbies</option>
                 </select>
             </div>
             <!-- Filtro de Ambiente -->
             <div>
                 <select id="filtro-ambiente" class="btn-check">
-                    <option value="">ambiente</option>
+                    <option value="">Ambiente</option>
                 </select>
-            </div>
-            <br>
-        </div>
-    </div>
-
-    <div class="btn-filtros teste-2">
-        <!-- Carrossel de Filtros -->
-        <div id="filtros-container">
-            <!-- Filtro de Local -->
-            <div>
-                <select id="filtro-local" class="btn-check">
-                    <option value="">tipo de local</option>
-                </select>
-            </div>
-            <!-- Filtro de Cozinha -->
-            <div>
-                <select id="filtro-cozinha" class="btn-check">
-                    <option value="">cozinha</option>
-                </select>
-            </div>
-            <!-- Filtro de Região -->
-            <div>
-                <select id="filtro-regiao" class="btn-check">
-                    <option value="">região</option>
-                </select>
-            </div>
-            <!-- Filtro de Bairro -->
-            <div>
-                <select id="filtro-bairro" class="btn-check">
-                    <option value="">bairro</option>
-                </select>
-            </div>
-            <div class="btn-filtros teste-2">
-                <button id="botao-menu-filtros">Mais Filtros</button>
-                <!-- Resto do seu conteúdo de filtros aqui -->
             </div>
         </div>
-    </div>
+    
+        <div class="btn-filtros">
+            <!-- Carrossel de Filtros -->
+            <div id="filtros-container">
+                <!-- Filtro de Local -->
+                <div>
+                    <select id="filtro-local" class="btn-check">
+                        <option value="">Tipo de local</option>
+                    </select>
+                </div>
+                <!-- Filtro de Cozinha -->
+                <div>
+                    <select id="filtro-cozinha" class="btn-check">
+                        <option value="">Cozinha</option>
+                    </select>
+                </div>
+                <!-- Filtro de Região -->
+                <div>
+                    <select id="filtro-regiao" class="btn-check">
+                        <option value="">Região</option>
+                    </select>
+                </div>
+                <!-- Filtro de Bairro -->
+                <div>
+                    <select id="filtro-bairro" class="btn-check">
+                        <option value="">Bairro</option>
+                    </select>
+                </div>
+                <div class="btn-filtros">
+                    <button id="botao-menu-filtros" class="btn-check">Mais Filtros</button>
+                    <!-- Resto do seu conteúdo de filtros aqui -->
+                </div>
 
-
-    <!-- Ordenação -->
-    <div id="ordenacao">
-        <button onclick="ordenarEstabelecimentos('estrelas', true)">Ordenar por Estrelas</button>
-        <button onclick="ordenarEstabelecimentos('preco', true)">Ordenar por Preço</button>
-    </div>
-    </div>
-    <!------------------------------------- CADS ABAIXO ----------------------------------------->
-    <div class="card-content">
-        <div id="estabelecimentos" class="row">
-            <!-- Os cards serão inseridos aqui pelo JavaScript -->
+                    <div class="">
+                        <button onclick="ordenarEstabelecimentos('estrelas', true)" class="btn-filtros-left">Ordenar por Estrelas</button>
+                    </div>
+                    <div class="">
+                        <button onclick="ordenarEstabelecimentos('preco', true)" class="btn-filtros-left">Ordenar por Preço</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <!-- Ordenação -->
+        </div>
+        <!------------------------------------- CADS ABAIXO ----------------------------------------->
+        <div class="card-content">
+            <div id="estabelecimentos" class="row">
+                <!-- Os cards serão inseridos aqui pelo JavaScript -->
+            </div>
         </div>
     </div>
     <!------------------------------------- CADS ACIMA ----------------------------------------->
     </div>
     <div id="paginacao" class="pagination"></div>
     <div id="footer-placeholder"></div>
-</div>
     <!-- Incluir jQuery via CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="script/estabelecimentos.js"></script> <!-- Seu script JavaScript -->
 </body>
+
 </html>
