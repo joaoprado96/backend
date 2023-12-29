@@ -15,138 +15,148 @@
     <div id="navbar-placeholder"></div>
 </head>
 
-<body class="teste">
-    <div class="">
-        <p class="lead mt-3 ml-5">Monte seu rolê em 3 minutos!</p>
-    </div>
-    <div class="carrosel-run">
+<body class="corpo">
+    <div class="testando">
         <div class="">
-            <div id="carrosselTipoEvento" class="carrossel-tipo-evento">
-                <!-- Os itens do carrossel serão inseridos aqui pelo JavaScript -->
+            <p class="lead mt-3 ml-5">Monte seu rolê em 3 minutos!</p>
+        </div>
+        <div class="carrosel-run">
+            <div class="">
+                <div id="carrosselTipoEvento" class="carrossel-tipo-evento">
+                    <!-- Os itens do carrossel serão inseridos aqui pelo JavaScript -->
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Menu lateral de filtros -->
-    <div id="menu-lateral-filtros" class="menu-lateral">
-        <!-- Botão de Fechar -->
-        <button id="botao-fechar-menu" class="fechar-menu">fechar</button>
-    
-        <!-- Conteúdo do menu lateral -->
-        <div class="menu-lateral-conteudo">
-            <!-- Adicione seus filtros adicionais aqui -->
-            <div class="filtro-checkbox">
-                <label><input type="checkbox" id="filtro-musica" value="Sim"> Música</label>
-                <label><input type="checkbox" id="filtro-estacionamento" value="Sim"> Estacionamento</label>
-                <label><input type="checkbox" id="filtro-cover" value="Sim"> Cover</label>
-                <label><input type="checkbox" id="filtro-kids" value="Sim"> Kids</label>
-                <label><input type="checkbox" id="filtro-pet" value="Sim"> Pet Friendly</label>
-                <label><input type="checkbox" id="filtro-glutenfree" value="Sim"> Gluten Free</label>
-                <label><input type="checkbox" id="filtro-lactosefree" value="Sim"> Lactose Free</label>
+        <!-- Menu lateral de filtros -->
+        <div id="menu-lateral-filtros" class="menu-lateral">
+            <!-- Botão de Fechar -->
+            <button id="botao-fechar-menu" class="fechar-menu">fechar</button>
+
+            <!-- Conteúdo do menu lateral -->
+            <div class="menu-lateral-conteudo">
+                <!-- Adicione seus filtros adicionais aqui -->
+                <div class="filtro-checkbox">
+                    <label><input type="checkbox" id="filtro-musica" value="Sim"> Música</label>
+                    <label><input type="checkbox" id="filtro-estacionamento" value="Sim"> Estacionamento</label>
+                    <label><input type="checkbox" id="filtro-cover" value="Sim"> Cover</label>
+                    <label><input type="checkbox" id="filtro-kids" value="Sim"> Kids</label>
+                    <label><input type="checkbox" id="filtro-pet" value="Sim"> Pet Friendly</label>
+                    <label><input type="checkbox" id="filtro-glutenfree" value="Sim"> Gluten Free</label>
+                    <label><input type="checkbox" id="filtro-lactosefree" value="Sim"> Lactose Free</label>
+                </div>
             </div>
-        </div>
-        <!-- Filtro de Cartao -->
-        <div>
-            <select id="filtro-cartao" class="btn-check">
-                <option value="">cartões</option>
-            </select>
-        </div>
-        <!-- Filtro de Entrada -->
-        <div>
-            <select id="filtro-entrada" class="btn-check">
-                <option value="">entrada</option>
-            </select>
-        </div>
-        <!-- Filtro de Linha de Metrô -->
-        <div>
-            <select id="filtro-metro" class="btn-check">
-                <option value="">Linha-Metrô</option>
-            </select>
-        </div>
-        <!-- Filtro de Estação -->
-        <div>
-            <select id="filtro-estacao" class="btn-check">
-                <option value="">estação</option>
-            </select>
-        </div>
-        <!-- Filtro de Acessibilidade -->
-        <div>
-            <select id="filtro-acessibilidade" class="btn-check">
-                <option value="">acessibilidade</option>
-            </select>
-        </div>
-        <!-- Filtro de Estilo Musical -->
-        <div>
-            <select id="filtro-musical" class="btn-check">
-                <option value="">estilos musical</option>
-            </select>
-        </div>
-        <!-- Filtro de Estilo de Serviço -->
-        <div>
-            <select id="filtro-servico" class="btn-check">
-                <option value="">tipo serviço</option>
-            </select>
-        </div>
-        <!-- Filtro de Hobby -->
-        <div>
-            <select id="filtro-hobby" class="btn-check">
-                <option value="">hobbies</option>
-            </select>
-        </div>
-        <!-- Filtro de Ambiente -->
-        <div>
-            <select id="filtro-ambiente" class="btn-check">
-                <option value="">ambiente</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="btn-filtros teste-2">
-        <!-- Carrossel de Filtros -->
-        <div id="filtros-container">
-            <!-- Filtro de Local -->
+            <!-- Filtro de Cartao -->
             <div>
-                <select id="filtro-local" class="btn-check">
-                    <option value="">tipo de local</option>
+                <select id="filtro-cartao" class="btn-check">
+                    <option value="">cartões</option>
                 </select>
             </div>
-            <!-- Filtro de Cozinha -->
+            <!-- Filtro de Entrada -->
             <div>
-                <select id="filtro-cozinha" class="btn-check">
-                    <option value="">cozinha</option>
+                <select id="filtro-entrada" class="btn-check">
+                    <option value="">entrada</option>
                 </select>
             </div>
-            <!-- Filtro de Região -->
+            <!-- Filtro de Linha de Metrô -->
             <div>
-                <select id="filtro-regiao" class="btn-check">
-                    <option value="">região</option>
+                <select id="filtro-metro" class="btn-check">
+                    <option value="">Linha-Metrô</option>
                 </select>
             </div>
-            <!-- Filtro de Bairro -->
+            <!-- Filtro de Estação -->
             <div>
-                <select id="filtro-bairro" class="btn-check">
-                    <option value="">bairro</option>
+                <select id="filtro-estacao" class="btn-check">
+                    <option value="">estação</option>
                 </select>
             </div>
-            <div class="btn-filtros teste-2">
-                <button id="botao-menu-filtros">Mais Filtros</button>
-                <!-- Resto do seu conteúdo de filtros aqui -->
+            <!-- Filtro de Acessibilidade -->
+            <div>
+                <select id="filtro-acessibilidade" class="btn-check">
+                    <option value="">acessibilidade</option>
+                </select>
+            </div>
+            <!-- Filtro de Estilo Musical -->
+            <div>
+                <select id="filtro-musical" class="btn-check">
+                    <option value="">estilos musical</option>
+                </select>
+            </div>
+            <!-- Filtro de Estilo de Serviço -->
+            <div>
+                <select id="filtro-servico" class="btn-check">
+                    <option value="">Serviço</option>
+                </select>
+            </div>
+            <!-- Filtro de Hobby -->
+            <div>
+                <select id="filtro-hobby" class="btn-check">
+                    <option value="">Hobbies</option>
+                </select>
+            </div>
+            <!-- Filtro de Ambiente -->
+            <div>
+                <select id="filtro-ambiente" class="btn-check">
+                    <option value="">Ambiente</option>
+                </select>
             </div>
         </div>
-    </div>
+
+        <div class="btn-filtros">
+            <!-- Carrossel de Filtros -->
+            <div id="filtros-container">
+                <!-- Filtro de Local -->
+                <div>
+                    <select id="filtro-local" class="btn-check">
+                        <option value="">Tipo de local</option>
+                    </select>
+                </div>
+                <!-- Filtro de Cozinha -->
+                <div>
+                    <select id="filtro-cozinha" class="btn-check">
+                        <option value="">Cozinha</option>
+                    </select>
+                </div>
+                <!-- Filtro de Região -->
+                <div>
+                    <select id="filtro-regiao" class="btn-check">
+                        <option value="">Região</option>
+                    </select>
+                </div>
+                <!-- Filtro de Bairro -->
+                <div>
+                    <select id="filtro-bairro" class="btn-check">
+                        <option value="">Bairro</option>
+                    </select>
+                </div>
+                <div class="btn-filtros">
+                    <button id="botao-menu-filtros" class="btn-check">Mais Filtros</button>
+                    <!-- Resto do seu conteúdo de filtros aqui -->
+                </div>
+                <div class="">
+                    <button onclick="ordenarEstabelecimentos('estrelas', true)" class="btn-filtros-left">Ordenar por
+                        Estrelas</button>
+                </div>
+                <div class="">
+                    <button onclick="ordenarEstabelecimentos('preco', true)" class="btn-filtros-left">Ordenar por
+                        Preço</button>
+                </div>
+            </div>
+        </div>
 
 
-    <!-- Ordenação -->
-    <div id="ordenacao">
-        <button onclick="ordenarEstabelecimentos('estrelas', true)">Ordenar por Estrelas</button>
-        <button onclick="ordenarEstabelecimentos('preco', true)">Ordenar por Preço</button>
-    </div>
+        <!-- Ordenação -->
+        <div id="ordenacao">
+            <button onclick="ordenarEstabelecimentos('estrelas', true)">Ordenar por Estrelas</button>
+            <button onclick="ordenarEstabelecimentos('preco', true)">Ordenar por Preço</button>
+        </div>
     </div>
     <!------------------------------------- CADS ABAIXO ----------------------------------------->
     <div class="card-content">
         <div id="estabelecimentos" class="row">
             <!-- Os cards serão inseridos aqui pelo JavaScript -->
         </div>
+    </div>
     </div>
     <!------------------------------------- CADS ACIMA ----------------------------------------->
     </div>

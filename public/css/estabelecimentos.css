@@ -1,18 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Economica:400,700);
 @import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;600&display=swap');
 
-body {
-  background: #ffffff;
-  font-family: 'Economica', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  -webkit-backface-visibility: hidden;
+body,
+html {
+    min-height: 100vh;
+    margin: 0;
+    background-color: #1794a7;
 }
+
+.testando {
+  padding: 50px;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
 .corpo {
+  min-height: 100vh;
   margin: 0;
-  justify-content: space-around;
-  display: block;
-  align-items: center;
+  background-color: #ffffff;
 }
 
 .box {
@@ -78,13 +83,13 @@ body {
 }
 
 .btn-check {
-  border-radius: 20px;
+  border-radius: 25px;
   /* Borda redonda */
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(255, 255, 255);
   /* Cor de fundo roxa */
   color: #0a0101;
   /* Cor do texto branco */
-  border: none;
+  border: 2px solid #d7d7d7;
   /* Sem borda */
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -93,9 +98,41 @@ body {
   justify-content: center;
   display: block;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
+
 }
 
+.btn-filtros-left {
+  border-radius: 25px;
+  /* Borda redonda */
+  background-color: rgb(255, 255, 255);
+  /* Cor de fundo roxa */
+  color: #0a0101;
+  /* Cor do texto branco */
+  border: 0;
+  /* Sem borda */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* Transição suave de cor de fundo */
+  margin-top: 10px;
+  justify-content: center;
+  display: block;
+  align-items: center;
+  padding: 15px;
+}
+
+.btn-filtros-left:hover {
+  color: #a8a8a8;
+}
+
+.btn-check:hover {
+  background-color: #eaeaea; /* Nova cor de fundo ao passar o mouse */
+  color: rgb(5, 5, 5); /* Nova cor do texto ao passar o mouse */
+}
+
+.left-apenas {
+  text-align: left;
+}
 
 
 /*.card:hover {
@@ -174,7 +211,7 @@ h2 {
 .filtro-checkbox {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   margin-left: 20px;
 }
 
@@ -257,9 +294,8 @@ h2 {
 
 #filtros-container {
   display: flex;
-  justify-content: space-around; /* Isso irá distribuir o espaço uniformemente entre os filtros */
-  align-items: center; /* Isso irá alinhar os itens verticalmente no centro */
-  flex-wrap: wrap; /* Isso permite que os filtros quebrem em linhas em telas menores */
+  text-align: left;
+  padding: 10px;
 }
 
 #filtros-container > div {
