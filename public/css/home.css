@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Economica:400,700);
 @import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Rubik+Doodle+Shadow&display=swap');
 
 .carousel-fullscreen {
     width: 100%;
@@ -21,7 +22,7 @@
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    font-family: 'Afacad', sans-serif;
+    font-family: 'Poppins';
     letter-spacing: 0.1em;
     -webkit-backface-visibility: hidden;
 }
@@ -31,16 +32,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left: 100px;
     margin-bottom: 100px;
-    padding: 30px;
+    padding: 80px;
     transition: transform 0.3s ease;
-    height: 500px;
+    height: 800px;
     border-radius: 20px;
     width: 70%;
-    box-shadow: 2px 2px 5px #303030;
-    background-color: rgba(255, 255, 255, 0.93);
+    box-shadow: 2px 2px 5px #6c6c6c;
+    background-color: rgb(244, 244, 244);
 }
 
 @media (max-width: 768px) {
@@ -59,24 +60,86 @@
 .btn-encontrar {
     align-items: center;
     width: 100%;
-    background-color: rgba(255, 136, 0, 0.849);
+    background-color: rgb(255, 179, 0);
     border-radius: 20px;
     font-size: large;
+    margin-top: 30px;
 }
 
-.btn-custom {
-    background-color: #e1e1e1;
-    /* Cor de fundo */
+/*.btn-custom {
+    background-color: #ececec;
     color: #000;
-    /* Cor do texto */
-    padding: 5px 10px;
-    /* Espaçamento interno */
-    border-radius: 4px;
-    /* Borda arredondada */
+    padding: 10px 10px;
+    border-radius: 20px;
     font-weight: bold;
-    /* Peso da fonte */
     width: 100%;
     border-radius: 15px;
+    border: 2px #9b0000;
+    font-size: 0.9em;;
+}*/
+
+.btn-custom {
+    width: 100%;
+    border-radius: 22px;
+    border: 2px #9b0000;
+    padding: 15px;
+    margin: 0px 10px 12px -5px;
+}
+
+.btn-custom:hover {
+    background-color: #ededed;
+}
+
+.btn-custom i{
+    font-size: 1.2em;
+    padding: 5px;
+    background: -webkit-linear-gradient(#000,#9b0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-custom input {
+    width: 80%;
+    border: none;
+    outline: none;
+    font-family: 'poppins', sans-serif;
+    transform: translateY(-10%);
+    color: #9b0000;
+    font-size: 11pt;
+}
+
+.btn-t {
+    margin-top: 5%;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-t button {
+    font-family: 'Poppins', sans-serif;
+    background: #6b00b3;
+    width: 100%;
+    height: 40px;
+    border: none;
+    font-size: 1.2em;
+    color:rgb(232, 232, 232);
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-t button:hover {
+    background: #cdab00;
+}
+
+.title {
+    font-size: 1.4em;
+    font-weight: 1000;
+}
+
+.subtitle {
+    font-size: 1.0em;
+    font-weight: 500;
+    padding-bottom: 30px;
 }
 
 .teste-2 {

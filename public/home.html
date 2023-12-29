@@ -7,6 +7,7 @@
     <title>home</title>
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
     <div id="navbar-placeholder"></div>
 </head>
 
@@ -17,18 +18,18 @@
         <!-- Seu formulário aqui -->
         <div class="col-md-6 d-flex align-items-center justify-content-center">
             <form class="custom-card" id="search-form">
-                <h2 class="text-center">Crie sua programação em 3 minutos:</h2>
-                <h5 class="text-center">Preencha apenas o que achar necessário</h5>
+                <h2 class="title text-center">Crie sua programação em 3 minutos:</h2>
+                <h5 class="subtitle text-center">Preencha apenas o que achar necessário</h5>
                 <div class="form-row">
                     <div class="col-md-6">
                         <select id="local" name="local" class="btn-custom mt-2">
-                            <option value="" class="btn-custom">Selecione o Local</option>
+                            <option value="" class="btn-custom">Tipo</option>
                             <!-- Opções preenchidas pelo JavaScript -->
                         </select>
                     </div>
                     <div class="col-md-6">
                         <select id="bairro" name="bairro" class="btn-custom mt-2">
-                            <option value="">Selecione o Bairro</option>
+                            <option value="">Bairro</option>
                             <!-- Opções preenchidas pelo JavaScript -->
                         </select>
                     </div>
@@ -42,36 +43,45 @@
                     </div>
                     <div class="col-md-6">
                         <select id="dia" name="dia" class="btn-custom mt-2">
-                            <option value="">Selecione o Dia</option>
+                            <option value="">Dia</option>
                             <!-- Opções preenchidas pelo JavaScript -->
                         </select>
                     </div>
                 </div>
                 <div class="form-row">
+            
+                    <div class="col-md-6">
+                        <select id="cartao" name="cartao" class="btn-custom mt-2">
+                            <option value="">Cartão</option>
+                            <!-- Opções preenchidas pelo JavaScript -->
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="estilo_servico" name="estilo_servico" class="btn-custom mt-2">
+                            <option value="">Serviço</option>
+                            <!-- Opções preenchidas pelo JavaScript -->
+                        </select>
+                    </div>
                     <div class="col-md-6">
                         <input type="number" id="preco" name="preco" placeholder="Insira o preço máximo"
                             class="btn-custom mt-2">
                     </div>
                     <div class="col-md-6">
-                        <select id="cartao" name="cartao" class="btn-custom mt-2">
-                            <option value="">Selecione o Cartão</option>
-                            <!-- Opções preenchidas pelo JavaScript -->
-                        </select>
+                        <input type="time" id="horario_abertura" name="horario_abertura" placeholder="Insira o preço máximo"
+                            class="btn-custom mt-2">
                     </div>
+                    
                 </div>
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <label for="time">Abertura:</label>
-                        <input type="time" id="horario_abertura" name="horario_abertura" class="mt-2">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="time">Encerramento:</label>
-                        <input type="time" id="horario_fechamento" name="horario_fechamento" class="mt-2">
-                    </div>
+                <h2 class="title text-center mt-4 mb-4">ou...</h2>
+                <h5 class="subtitle text-center">Pesquise por um restaurante:</h5>
+                <div class="col-md-12">
+                    <input type="text" id="horario_abertura" name="horario_abertura" placeholder="Digite o nome"
+                        class="btn-custom mt-2">
                 </div>
-                <div class="btn-encontrar text-center">
-                    <button type="submit" class="btn mt-2 btn-encontrar">Encontrar</button>
+                <div class="btn-t text-center">
+                    <button type="submit" class="">Encontrar</button>
                 </div>
+                
             </form>
         </div>
     </div>
