@@ -3,6 +3,7 @@ const multer = require('multer');
 
 exports.adicionarDestaque = async (req, res) => {
     try {
+
         if (!req.files || req.files.length === 0) {
             return res.status(400).json({ message: "Nenhuma imagem fornecida" });
         }
@@ -14,6 +15,8 @@ exports.adicionarDestaque = async (req, res) => {
 
         const novaDestaque = new Destaque({
             lugarId: req.body.lugarId,
+            manchete: req.body.manchete,
+            link: req.body.link,
             fotos: fotos
         });
 
@@ -64,5 +67,15 @@ exports.deletarLugarEFotos = async (req, res) => {
         res.status(200).json({ message: "Lugar e suas fotos foram deletados com sucesso." });
     } catch (err) {
         res.status(500).json({ message: err.message });
+    }
+};
+
+exports.buscarLugares = async (req, res) => {
+    try {
+        const destaques = await Destaque.find().select('lugarId -_id'); // Seleciona apenas o campo 'lugarId'
+        const lugaresIds = destaques.map(destaque => destaque.lugarId);
+        res.status(200).json(lugaresIds);
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao buscar lugares: " + error.message });
     }
 };

@@ -12,31 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = '/login.html'; // Substitua pelo caminho correto
         }, 2000);
     }
-    loadNavbar();
-    loadFooter();
     fetchLugares();
 });
-
-function loadNavbar() {
-    const navbarPlaceholder = document.getElementById('navbar-placeholder');
-    fetch('navbar.html')
-        .then(response => response.text())
-        .then(html => {
-            navbarPlaceholder.innerHTML = html;
-        }).catch(error => {
-            console.error('Falha ao carregar o navbar:', error);
-        });
-}
-function loadFooter() {
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(html => {
-            footerPlaceholder.innerHTML = html;
-        }).catch(error => {
-            console.error('Falha ao carregar o footer:', error);
-        });
-}
 
 function fetchLugares() {
     fetch('/api/lugares')
@@ -61,7 +38,7 @@ document.getElementById('deleteButton').addEventListener('click', function() {
     }
 
     if (true) {
-        fetch(`/api/fotos-lugares/${lugarId}`, {
+        fetch(`/api/fotos-destaques/${lugarId}`, {
             method: 'DELETE',
             headers: {authorization: token}
         })
@@ -87,13 +64,13 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
         if (existemFotos) {
             alert('Já existem fotos para este LugarId. Não é possível enviar mais fotos.');
         } else {
-            enviarFotos(lugarId);
+            AdicionarDestaque(lugarId);
         }
     });
 });
 
 function verificarFotosExistem(lugarId, callback) {
-    fetch(`/api/fotos-lugares/verificar/${lugarId}`)
+    fetch(`/api/fotos-destaques/verificar/${lugarId}`)
         .then(response => response.json())
         .then(data => {
             if (data.fotos && data.fotos.length > 0) {
@@ -108,19 +85,23 @@ function verificarFotosExistem(lugarId, callback) {
         });
 }
 
-function enviarFotos(lugarId) {
+function AdicionarDestaque(lugarId) {
     const fotos = document.getElementById('fotos').files;
     const formData = new FormData();
+    const manchete = document.getElementById('manchete').value;
 
     formData.append('lugarId', lugarId);
+    formData.append('manchete', manchete);
+    formData.append('link', 'http://localhost:3000/detalhes.html?id='+lugarId); // Adicione o link conforme necessário
+
     for (let i = 0; i < fotos.length; i++) {
         formData.append('fotos', fotos[i]);
     }
 
-    fetch('/api/fotos-lugares', {
+    fetch('/api/fotos-destaques', {
         method: 'POST',
-        headers: {authorization: token},
-        body: formData
+        body: formData,
+        headers: { 'authorization': token } // Remova 'Content-Type'
     })
     .then(response => {
         if (response.status === 201) {
@@ -137,3 +118,4 @@ function enviarFotos(lugarId) {
         alert(error.message);
     });
 }
+

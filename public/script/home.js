@@ -127,19 +127,33 @@ function carregarFotos() {
     const carouselContainer = document.getElementById('carouselNovidades');
     carouselContainer.innerHTML = '';
 
-    fetch(`/api/fotos-lugares/658ebb156fb359c8fec19955`)
+    // Buscar todos os lugarId disponíveis
+    fetch('/api/destaques/lugares')
+        .then(response => response.json())
+        .then(lugares => {
+            if (lugares && lugares.length > 0) {
+                // Escolher um lugarId aleatoriamente
+                const randomIndex = Math.floor(Math.random() * lugares.length);
+                const lugarIdSelecionado = lugares[randomIndex];
+
+                // Buscar fotos para o lugarId selecionado
+                return fetch(`/api/fotos-destaques/${lugarIdSelecionado}`);
+            } else {
+                throw new Error('Nenhum lugar encontrado.');
+            }
+        })
         .then(response => response.json())
         .then(data => {
             if (data && data.length > 0) {
                 let carouselIndicators = '';
                 let carouselInner = '';
-                let fotoIndex = 0; // Índice para cada foto
+                let fotoIndex = 0;
 
                 data.forEach(item => {
                     item.fotos.forEach(foto => {
                         const base64String = bufferToBase64(foto.data.data);
-                        const isActive = fotoIndex === 0 ? 'active' : ''; // Apenas a primeira foto é 'active'
-                        
+                        const isActive = fotoIndex === 0 ? 'active' : '';
+
                         carouselIndicators += `<li data-target="#fotosCarousel" data-slide-to="${fotoIndex}" class="${isActive}"></li>`;
                         carouselInner += `
                             <div class="carousel-item ${isActive}">
@@ -152,12 +166,8 @@ function carregarFotos() {
 
                 carouselContainer.innerHTML = `
                     <div id="fotosCarousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            ${carouselIndicators}
-                        </ol>
-                        <div class="carousel-inner">
-                            ${carouselInner}
-                        </div>
+                        <ol class="carousel-indicators">${carouselIndicators}</ol>
+                        <div class="carousel-inner">${carouselInner}</div>
                         <a class="carousel-control-prev" href="#fotosCarousel" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
@@ -176,9 +186,10 @@ function carregarFotos() {
         })
         .catch(error => {
             console.error('Erro ao carregar fotos:', error);
-            carouselContainer.innerHTML = '<p>Erro ao carregar fotos.</p>';
+            carouselContainer.innerHTML = `<p>${error.message}</p>`;
         });
 }
+
 
 function bufferToBase64(buf) {
     let binary = '';

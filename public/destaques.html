@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>destaques</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="page">
+        <form id="uploadForm" class="formLogin">
+            <h4>estabelecimento</h4>
+                <select id="lugarSelect" required></select>
+            <h4>machete</h4>
+            <input type="text" id="manchete" placeholder="digite a manchete" required>
+            <h4>escolha as fotos</h4>
+            <input type="file"  id="fotos" multiple required>
+
+            <input type="submit" value="Enviar" class="btn"/>
+            <input type="submit" value="Apagar" class="btn" id="deleteButton"/>
+        </form>
+    </div>
+
+    <div id="notificationPopup" class="notification-popup" style="display: none;">
+        <p>Você não está autenticado. Redirecionando para a página de login...</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="script/destaque.js"></script>
+</body>
+</html>
