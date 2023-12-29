@@ -27,12 +27,12 @@
                 </div>
             </div>
         </div>
-
+    
         <!-- Menu lateral de filtros -->
         <div id="menu-lateral-filtros" class="menu-lateral">
             <!-- Botão de Fechar -->
             <button id="botao-fechar-menu" class="fechar-menu">fechar</button>
-
+        
             <!-- Conteúdo do menu lateral -->
             <div class="menu-lateral-conteudo">
                 <!-- Adicione seus filtros adicionais aqui -->
@@ -101,7 +101,7 @@
                 </select>
             </div>
         </div>
-
+    
         <div class="btn-filtros">
             <!-- Carrossel de Filtros -->
             <div id="filtros-container">
@@ -133,30 +133,26 @@
                     <button id="botao-menu-filtros" class="btn-check">Mais Filtros</button>
                     <!-- Resto do seu conteúdo de filtros aqui -->
                 </div>
-                <div class="">
-                    <button onclick="ordenarEstabelecimentos('estrelas', true)" class="btn-filtros-left">Ordenar por
-                        Estrelas</button>
-                </div>
-                <div class="">
-                    <button onclick="ordenarEstabelecimentos('preco', true)" class="btn-filtros-left">Ordenar por
-                        Preço</button>
+
+                    <div class="">
+                        <button onclick="ordenarEstabelecimentos('estrelas', true)" class="btn-filtros-left">Ordenar por Estrelas</button>
+                    </div>
+                    <div class="">
+                        <button onclick="ordenarEstabelecimentos('preco', true)" class="btn-filtros-left">Ordenar por Preço</button>
+                    </div>
                 </div>
             </div>
         </div>
-
-
+    
+    
         <!-- Ordenação -->
-        <div id="ordenacao">
-            <button onclick="ordenarEstabelecimentos('estrelas', true)">Ordenar por Estrelas</button>
-            <button onclick="ordenarEstabelecimentos('preco', true)">Ordenar por Preço</button>
         </div>
-    </div>
-    <!------------------------------------- CADS ABAIXO ----------------------------------------->
-    <div class="card-content">
-        <div id="estabelecimentos" class="row">
-            <!-- Os cards serão inseridos aqui pelo JavaScript -->
+        <!------------------------------------- CADS ABAIXO ----------------------------------------->
+        <div class="card-content">
+            <div id="estabelecimentos" class="row">
+                <!-- Os cards serão inseridos aqui pelo JavaScript -->
+            </div>
         </div>
-    </div>
     </div>
     <!------------------------------------- CADS ACIMA ----------------------------------------->
     </div>
