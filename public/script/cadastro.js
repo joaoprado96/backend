@@ -1,6 +1,7 @@
 var token = localStorage.getItem('token');
 
 document.addEventListener('DOMContentLoaded', function() {
+    criarNavbar();
     // Se não houver token, mostra a notificação popup e redireciona
     if (!token) {
         var popup = document.getElementById('notificationPopupLogin');

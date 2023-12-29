@@ -1,37 +1,5 @@
-//testando uma coisa
-
-
-
-//testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-
-
 document.addEventListener('DOMContentLoaded', function() {
-    loadNavbar();
-    loadFooter();
-});
-
-function loadNavbar() {
-    const navbarPlaceholder = document.getElementById('navbar-placeholder');
-    fetch('navbar.html')
-        .then(response => response.text())
-        .then(html => {
-            navbarPlaceholder.innerHTML = html;
-        }).catch(error => {
-            console.error('Falha ao carregar o navbar:', error);
-        });
-}
-function loadFooter() {
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(html => {
-            footerPlaceholder.innerHTML = html;
-        }).catch(error => {
-            console.error('Falha ao carregar o footer:', error);
-        });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
+    criarNavbar();
     const urlParams = new URLSearchParams(window.location.search);
     const estabelecimentoId = urlParams.get('id');
     carregarFotos(estabelecimentoId);
@@ -286,21 +254,21 @@ function criarCardDetalhe(estabelecimento) {
         <div class="container">
             <div class="row link-background">
                 <!-- Abas de Navegação -->
-                <ul class="nav nav-tabs nav-details" id="estabelecimentoTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link letra-nav" id="descricao-tab" data-toggle="tab" href="#descricao" role="tab" aria-controls="descricao" aria-selected="true">descrição</a>
+                <ul class="nav2 nav2-tabs nav2-details" id="estabelecimentoTab" role="tablist">
+                    <li class="nav2-item">
+                        <a class="nav2-link letra-nav2" id="descricao-tab" data-toggle="tab" href="#descricao" role="tab" aria-controls="descricao" aria-selected="true">descrição</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link letra-nav" id="localizacao-tab" data-toggle="tab" href="#localizacao" role="tab" aria-controls="localizacao" aria-selected="false">localização</a>
+                    <li class="nav2-item">
+                        <a class="nav2-link letra-nav2" id="localizacao-tab" data-toggle="tab" href="#localizacao" role="tab" aria-controls="localizacao" aria-selected="false">localização</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link letra-nav" id="informacoes-tab" data-toggle="tab" href="#informacoes" role="tab" aria-controls="informacoes" aria-selected="false">informações</a>
+                    <li class="nav2-item">
+                        <a class="nav2-link letra-nav2" id="informacoes-tab" data-toggle="tab" href="#informacoes" role="tab" aria-controls="informacoes" aria-selected="false">informações</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link letra-nav" id="horario-tab" data-toggle="tab" href="#horario" role="tab" aria-controls="horario" aria-selected="false">horário</a>
+                    <li class="nav2-item">
+                        <a class="nav2-link letra-nav2" id="horario-tab" data-toggle="tab" href="#horario" role="tab" aria-controls="horario" aria-selected="false">horário</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link letra-nav" id="menu-tab" data-toggle="tab" href="#menu" role="tab" aria-controls="menu" aria-selected="false">menu</a>
+                    <li class="nav2-item">
+                        <a class="nav2-link letra-nav2" id="menu-tab" data-toggle="tab" href="#menu" role="tab" aria-controls="menu" aria-selected="false">menu</a>
                     </li>
                 </ul>
                 <h1 class="mt-4 mb-4">${estabelecimento.nome}</h1>

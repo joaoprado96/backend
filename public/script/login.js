@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', function() {
+    criarNavbar();
+});
 document.getElementById('registerForm').addEventListener('submit', function(e) {
   e.preventDefault();
 

@@ -18,7 +18,7 @@ const login = async (req, res) => {
           // Assine o token com uma chave secreta. Não se esqueça de armazenar a chave secreta em uma variável de ambiente.
           const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
   
-          res.json({ message: 'Login bem-sucedido', token,currentUser: username });
+          res.json({ message: 'Login bem-sucedido', token, currentUser: username });
         } else {
           res.status(400).send('Credenciais inválidas');
         }

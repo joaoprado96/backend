@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function() {
+  criarNavbar();
+});
+
 document.getElementById('tipoUsuario').addEventListener('change', function() {
   var tipo = this.value;
   document.getElementById('cpf').style.display = tipo === 'fisica' ? 'block' : 'none';

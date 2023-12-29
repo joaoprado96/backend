@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    criarNavbar();
     const username = localStorage.getItem('currentUser'); // Obtendo o username do localStorage
 
     if (!username) {
@@ -81,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             idiomaSelect.value = ''; // ou defina um valor padrão, se apropriado
         }
-        
+
         document.getElementById('tema').value = data.preferencias?.tema || '';
 
         // Ajustar a visibilidade dos campos CPF e CNPJ

@@ -6,7 +6,7 @@ let filtroTipoEventoAtual = null; // Variável global para armazenar o tipo de e
 atualizarDiaDaSemana();
 
 document.addEventListener('DOMContentLoaded', function() {
-    loadNavbar();
+    criarNavbar();
     loadFooter();
     loadEstabelecimentos(1); // Carregar a primeira página
     getUserLocation(); // Obter a localização do usuário
