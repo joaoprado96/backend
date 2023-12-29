@@ -8,6 +8,7 @@ const lugaresRoutes = require('./routes/lugaresRoutes');
 const opcoesSairRoutes = require('./routes/opcoesSairRoutes');
 const fotosLugaresRoutes = require('./routes/fotosLugaresRoutes');
 const usuarioRoutes = require('./routes/usuarioRoutes');
+const destaquesRoutes = require('./routes/destaquesRoutes');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/api', lugaresRoutes);
 app.use('/api', opcoesSairRoutes);
 app.use('/api', fotosLugaresRoutes);
 app.use('/api', usuarioRoutes);
+app.use('/api', destaquesRoutes);
 
 app.get('/', (req, res) => {
     res.redirect('/home.html');
