@@ -133,7 +133,7 @@ function criarInformacaoHtml(titulo, icone, valor) {
     } else {
         // Retorna o HTML formatado com o valor (que pode ser string ou primeiro elemento da lista)
         return `
-            <div>
+            <div class="div-icon-title">
                 <h6><img src="${icone}" alt="${titulo}" width="50" height="50"> ${titulo} </h6>
             </div>
         `;
@@ -160,7 +160,7 @@ function criarInformacaoHtmlLista(titulo, icone, valor) {
     } else {
         // Retorna o HTML formatado com o valor (que pode ser string ou elementos da lista)
         return `
-            <div>
+            <div class="div-icon-title">
                 <h6><img src="${icone}" alt="${titulo}" width="50" height="50"> ${titulo} </h6>
                 ${conteudoHtml}
             </div>
@@ -231,20 +231,21 @@ function criarCardDetalhe(estabelecimento) {
                 <p>${estabelecimento.descricao}</p>
                 <div class="info-row">
                     <div class="info-column">
-                        <h5>estrelas</h5>
+                        <h4 class="h4-small">estrelas</h4>
                         <div class="rating">${criarAvaliacao(estabelecimento.estrelas)}</div>
                     </div>
                     <div class="info-column">
-                        <h5>avaliação clientes</h5>
+                        <h4 class="h4-small">avaliação</h4>
                         <div class="rating">${criarAvaliacao(estabelecimento.avaliacao_clientes)}</div>
                     </div>
                     <div class="info-column">
-                        <h5>preço</h5>
+                        <h4 class="h4-small">preço</h4>
                         <div class="rating">${criarAvaliacao(estabelecimento.preco)}</div>
                     </div>
                 </div>
-                <button id="whatsapp-share">Compartilhar no WhatsApp</button>
-                <button id="instagram-share">Compartilhar no Instagram</button>
+                <p class="p-small">compartilhe através de:</p>
+                <button id="whatsapp-share"> whatsApp</button>
+                <button id="instagram-share">instagram</button>
             </div>
             <div class="tab-pane" id="localizacao">
                 <p><strong>endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep}</p>

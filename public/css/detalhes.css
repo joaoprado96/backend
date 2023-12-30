@@ -32,9 +32,11 @@ body {
   padding: 15px 200px;
   background: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 .nav,
 .nav .nav-links {
+    z-index: 1000;
   display: flex;
   align-items: center;
 }
@@ -57,6 +59,7 @@ a {
   transition: all 0.2s linear;
 }
 .nav.openSearch .nav-links a {
+  z-index: 1000;
   opacity: 0;
   pointer-events: none;
 }
@@ -70,6 +73,7 @@ a {
   }
 
 .nav .search-icon {
+  z-index: 1000;
   color: #8600c4;
   font-size: 20px;
   cursor: pointer;
@@ -183,35 +187,38 @@ a {
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 2px;
 }
 
 .tab-nav-container {
-    background-color: #f8f9fa; /* Cor de fundo do container das abas */
-    padding: 10px; /* Espaçamento interno para dar espaço ao redor dos itens */
+    padding: 15px; /* Espaçamento interno para dar espaço ao redor dos itens */
     border-bottom: 1px solid #dee2e6; /* Linha na parte inferior para separar as abas do conteúdo */
-    margin-bottom: 15px; /* Espaço abaixo do container das abas */
 }
 
 
 /* Navegação por abas */
 .nav2 {
-    list-style-type: none; /* Remove os marcadores de lista */
-    padding: 0; /* Remove o padding padrão da lista */
-    display: flex; /* Exibe os itens da lista em linha */
-    justify-content: flex-start; /* Alinha os itens ao início do container */
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    overflow-x: auto; /* Adiciona rolagem horizontal */
+    -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos iOS */
+    justify-content: space-around; /* Distribui os itens uniformemente */
+    white-space: nowrap; /* Evita que os itens da aba quebrem para a linha seguinte */
 }
 
 .nav2-item {
-    margin-right: 20px;
+    flex: 1; /* Faz com que cada aba ocupe uma fração igual do espaço disponível */
+    margin-right: 0; /* Remove a margem à direita */
+    text-align: center; /* Centraliza o texto dentro da aba */
 }
 
 .nav2-link {
     color: #8600c4;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 5px 5px; /* Reduz o padding para economizar espaço */
+    font-size: smaller; /* Reduz o tamanho da fonte */
     display: block;
-    box-shadow: 0 3px 0px rgba(116, 0, 124, 0.1);
     transition: all 0.4s ease;
 }
 
@@ -226,20 +233,21 @@ a {
 /* Responsividade */
 @media (max-width: 768px) {
     .nav2 {
-        flex-direction: column;
+        flex-direction: row; /* Mantém as abas em linha em telas pequenas */
     }
-
-    .nav2-item {
-        margin-bottom: 10px;
-    }
-
+    
     .container {
-        padding: 10px;
+        padding: 5px; /* Reduz o padding do container em telas pequenas */
+    }
+
+    .tab-nav-container {
+        padding: 5px; /* Reduz o padding do container das abas */
     }
 }
 
 /* Estilização dos botões */
 button {
+    font-size: 10px;
     width: auto;
     padding: 10px 20px;
     background-color: #ff7eee;
@@ -282,14 +290,14 @@ button:hover {
 
 
 #mapa {
+    z-index: 500;
     width: 100%; /* Largura completa */
     height: 300px; /* Altura fixa - você pode ajustar conforme necessário */
     /* Adicione quaisquer outros estilos que você achar necessário */
 }
 
-
 .rating {
-    font-size: 24px;
+    font-size: 12px;
 }
 
 .star {
@@ -379,17 +387,116 @@ button:hover {
     display: block;
 }
 
+/* Estilo padrão para .info-row */
 .info-row {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; /* Permite que os itens se ajustem na linha ou se movam para a próxima */
+    justify-content: space-between; /* Espaçamento entre os itens */
+    margin-bottom: 15px; /* Espaçamento abaixo da fila */
+}
+
+/* Estilos para os itens dentro de .info-row */
+.info-row > * {
+    flex-basis: calc(33% - 10px); /* Ocupa aproximadamente um terço do espaço, considerando margem */
+    margin-bottom: 10px; /* Espaçamento entre linhas */
+}
+
+/* Estilos para telas menores (ex: smartphones) */
+@media (max-width: 768px) {
+    .info-row > * {
+        flex-basis: 100%; /* Cada item ocupa a largura total da linha */
+    }
+}
+
+
+
+
+.p-small {
+    font-size: 12px;
+}
+
+/* Classe para um parágrafo de tamanho normal */
+.p-normal {
+    font-size: 16px; /* Este é geralmente o tamanho padrão */
+}
+
+/* Classe para um parágrafo de tamanho grande */
+.p-large {
+    font-size: 20px;
+}
+
+/* Classe para um parágrafo de tamanho extra-grande */
+.p-xlarge {
+    font-size: 24px;
+}
+
+.h4-small {
+    font-size: 14px;
+}
+
+/* Classe para um parágrafo de tamanho normal */
+.h4-normal {
+    font-size: 16px; /* Este é geralmente o tamanho padrão */
+}
+
+/* Classe para um parágrafo de tamanho grande */
+.h4-large {
+    font-size: 20px;
+}
+
+/* Classe para um parágrafo de tamanho extra-grande */
+.h4-xlarge {
+    font-size: 24px;
+}
+
+/* Classe para estilizar a div que contém o ícone e o título */
+.div-icon-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
     margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transição suave para sombra e transformação */
 }
 
-.info-column {
-    flex-basis: 33%;
-    padding: 5px;
+/* Estilo para a imagem dentro da div */
+.div-icon-title img {
+    width: 30px; /* Largura fixa para a imagem */
+    height: 30px; /* Altura fixa para a imagem */
+    margin-right: 10px; /* Espaço entre a imagem e o texto */
 }
 
-.rating {
-    /* Seus estilos para a classificação por estrelas */
+/* Estilo para o título dentro da div */
+.div-icon-title h6 {
+    margin: 0;
+    font-size: 12px; /* Tamanho do título */
+    color: #333; /* Cor do texto */
+}
+
+.div-icon-title p {
+    margin: 0;
+    margin-left: 15px;
+    font-size: 10px; /* Tamanho do título */
+    color: #333; /* Cor do texto */
+}
+
+/* Efeito ao passar o mouse */
+.div-icon-title:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais proeminente */
+    transform: translateY(-2px); /* Leve movimento para cima */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .div-icon-title {
+        flex-direction: column; /* Ícone e título em coluna */
+        align-items: center; /* Centraliza os itens */
+        text-align: center; /* Texto centralizado */
+    }
+
+    .div-icon-title img {
+        margin-bottom: 10px; /* Espaço entre a imagem e o título em dispositivos móveis */
+    }
 }
