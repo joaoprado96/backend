@@ -32,9 +32,11 @@ body {
   padding: 15px 200px;
   background: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 .nav,
 .nav .nav-links {
+    z-index: 1000;
   display: flex;
   align-items: center;
 }
@@ -57,6 +59,7 @@ a {
   transition: all 0.2s linear;
 }
 .nav.openSearch .nav-links a {
+  z-index: 1000;
   opacity: 0;
   pointer-events: none;
 }
@@ -70,6 +73,7 @@ a {
   }
 
 .nav .search-icon {
+  z-index: 1000;
   color: #8600c4;
   font-size: 20px;
   cursor: pointer;
@@ -147,7 +151,7 @@ a {
     padding-top: 100px;
     row-gap: 30px;
     flex-direction: column;
-    background-color: #11101d;
+    background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease;
     z-index: 100;
@@ -156,7 +160,7 @@ a {
     left: 0;
   }
   .nav .navOpenBtn {
-    color: #fff;
+    color: #ff7eee;
     font-size: 20px;
     cursor: pointer;
   }
@@ -164,7 +168,7 @@ a {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #fff;
+    color: #ff7eee;
     font-size: 20px;
     cursor: pointer;
   }
@@ -183,27 +187,38 @@ a {
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 2px;
 }
+
+.tab-nav-container {
+    padding: 15px; /* Espaçamento interno para dar espaço ao redor dos itens */
+    border-bottom: 1px solid #dee2e6; /* Linha na parte inferior para separar as abas do conteúdo */
+}
+
 
 /* Navegação por abas */
 .nav2 {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
     display: flex;
-    margin-bottom: 20px;
+    overflow-x: auto; /* Adiciona rolagem horizontal */
+    -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos iOS */
+    justify-content: space-around; /* Distribui os itens uniformemente */
+    white-space: nowrap; /* Evita que os itens da aba quebrem para a linha seguinte */
 }
 
 .nav2-item {
-    margin-right: 20px;
+    flex: 1; /* Faz com que cada aba ocupe uma fração igual do espaço disponível */
+    margin-right: 0; /* Remove a margem à direita */
+    text-align: center; /* Centraliza o texto dentro da aba */
 }
 
 .nav2-link {
     color: #8600c4;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 5px 5px; /* Reduz o padding para economizar espaço */
+    font-size: smaller; /* Reduz o tamanho da fonte */
     display: block;
-    box-shadow: 0 3px 0px rgba(116, 0, 124, 0.1);
     transition: all 0.4s ease;
 }
 
@@ -215,43 +230,36 @@ a {
     border-radius: 5px;
 }
 
-/* Conteúdo das abas */
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
-
 /* Responsividade */
 @media (max-width: 768px) {
     .nav2 {
-        flex-direction: column;
+        flex-direction: row; /* Mantém as abas em linha em telas pequenas */
     }
-
-    .nav2-item {
-        margin-bottom: 10px;
-    }
-
+    
     .container {
-        padding: 10px;
+        padding: 5px; /* Reduz o padding do container em telas pequenas */
+    }
+
+    .tab-nav-container {
+        padding: 5px; /* Reduz o padding do container das abas */
     }
 }
 
 /* Estilização dos botões */
 button {
+    font-size: 10px;
+    width: auto;
     padding: 10px 20px;
-    background-color: #4a98f7;
+    background-color: #ff7eee;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #377ad1;
+    background-color: #ff00b7;
 }
 
 /* Estilos adicionais para o mapa e outras seções podem ser adicionados aqui */
@@ -280,76 +288,16 @@ button:hover {
     font-family: Afacad;
 }
 
-.card-rest {
-    background-color: #ffffff;
-    border-radius: 40px;
-    height: 600px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.653);
-    justify-content: center;
-}
-
-.card-rest-menor {
-    height: 100px;
-
-}
-
-.card {
-    background-color: #333;
-    margin: 0;
-    padding: 0;
-    border: none;
-}
-
-.card-body {
-    border: none;
-}
-
-.centralizar {
-    justify-content: center;
-    margin-left: 20px;
-}
-
-.letra {
-    font-family: 'Arial';
-    font-size: 26px;
-    color: #ffffff;
-    font-weight: bold;
-}
 
 #mapa {
+    z-index: 500;
     width: 100%; /* Largura completa */
     height: 300px; /* Altura fixa - você pode ajustar conforme necessário */
     /* Adicione quaisquer outros estilos que você achar necessário */
 }
 
-.mini-card {
-    margin-bottom: 10px;
-}
-
-.mini-card .card {
-    border-radius: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Adiciona transição para transformação e sombra */
-    cursor: pointer;
-    /* Muda o cursor para indicar que é clicável */
-}
-
-.mini-card .card:hover {
-    transform: scale(1.08);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.mini-card .card-body {
-    padding: 2px;
-}
-
-.card-text-compact {
-    text-align: center;
-    margin-bottom: 5px;
-}
-
 .rating {
-    font-size: 24px;
+    font-size: 12px;
 }
 
 .star {
@@ -370,6 +318,7 @@ button:hover {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 50%;
 }
+
 .dia {
     font-size: 1.2em;
     margin: 10px 0;
@@ -378,6 +327,7 @@ button:hover {
     font-size: 1.1em;
     color: #333;
 }
+
 .icon {
     width: 24px;
     height: 24px;
@@ -387,11 +337,10 @@ button:hover {
 /* Estilos para as setas do carrossel */
 .carousel-control-prev,
 .carousel-control-next {
-    color: #7a0092;
-    width: 15%;
+    color: #ff7eee;
+    width: 5%;
 
 }
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-image: none;
@@ -401,10 +350,10 @@ button:hover {
 .carousel-control-next-icon:after {
     content: '';
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     background: transparent;
-    border: solid 2px #333;
+    border: solid 2px #ff7eee;
     border-width: 0 2px 2px 0;
 }
 
@@ -418,26 +367,136 @@ button:hover {
     -webkit-transform: rotate(-45deg);
 }
 
-.navigation {
-    width: 100%;
-    height: 100%;
-    background: #79066B;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    z-index: 1;
-    border-radius: 10px;
+.nome-estabelecimento {
+    font-size: 24px;
+    margin: 20px 0;
+    text-align: center;
 }
 
-.navigation ul {
-    display: flex;
-    width: 350px;
+.tab-content-custom {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
 }
 
-.navigation ul li {
-    position: relative;
-    list-style: none;
-    width: 70px;
-    height: 70px;
-    z-index: 1;
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Estilo padrão para .info-row */
+.info-row {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens se ajustem na linha ou se movam para a próxima */
+    justify-content: space-between; /* Espaçamento entre os itens */
+    margin-bottom: 15px; /* Espaçamento abaixo da fila */
+}
+
+/* Estilos para os itens dentro de .info-row */
+.info-row > * {
+    flex-basis: calc(33% - 10px); /* Ocupa aproximadamente um terço do espaço, considerando margem */
+    margin-bottom: 10px; /* Espaçamento entre linhas */
+}
+
+/* Estilos para telas menores (ex: smartphones) */
+@media (max-width: 768px) {
+    .info-row > * {
+        flex-basis: 100%; /* Cada item ocupa a largura total da linha */
+    }
+}
+
+
+
+
+.p-small {
+    font-size: 12px;
+}
+
+/* Classe para um parágrafo de tamanho normal */
+.p-normal {
+    font-size: 16px; /* Este é geralmente o tamanho padrão */
+}
+
+/* Classe para um parágrafo de tamanho grande */
+.p-large {
+    font-size: 20px;
+}
+
+/* Classe para um parágrafo de tamanho extra-grande */
+.p-xlarge {
+    font-size: 24px;
+}
+
+.h4-small {
+    font-size: 14px;
+}
+
+/* Classe para um parágrafo de tamanho normal */
+.h4-normal {
+    font-size: 16px; /* Este é geralmente o tamanho padrão */
+}
+
+/* Classe para um parágrafo de tamanho grande */
+.h4-large {
+    font-size: 20px;
+}
+
+/* Classe para um parágrafo de tamanho extra-grande */
+.h4-xlarge {
+    font-size: 24px;
+}
+
+/* Classe para estilizar a div que contém o ícone e o título */
+.div-icon-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transição suave para sombra e transformação */
+}
+
+/* Estilo para a imagem dentro da div */
+.div-icon-title img {
+    width: 30px; /* Largura fixa para a imagem */
+    height: 30px; /* Altura fixa para a imagem */
+    margin-right: 10px; /* Espaço entre a imagem e o texto */
+}
+
+/* Estilo para o título dentro da div */
+.div-icon-title h6 {
+    margin: 0;
+    font-size: 12px; /* Tamanho do título */
+    color: #333; /* Cor do texto */
+}
+
+.div-icon-title p {
+    margin: 0;
+    margin-left: 15px;
+    font-size: 10px; /* Tamanho do título */
+    color: #333; /* Cor do texto */
+}
+
+/* Efeito ao passar o mouse */
+.div-icon-title:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais proeminente */
+    transform: translateY(-2px); /* Leve movimento para cima */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .div-icon-title {
+        flex-direction: column; /* Ícone e título em coluna */
+        align-items: center; /* Centraliza os itens */
+        text-align: center; /* Texto centralizado */
+    }
+
+    .div-icon-title img {
+        margin-bottom: 10px; /* Espaço entre a imagem e o título em dispositivos móveis */
+    }
 }

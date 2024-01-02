@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
+    <div id="navbar-placeholder"></div><br><br>
     <div id="notificationPopupLogin" class="notification-popup" style="display: none;">
         <p>Você não está autenticado. Redirecionando para a página de login...</p>
     </div>
@@ -27,15 +27,15 @@
         <form id="formCadastro" class="formulario-cadastro">
             <h1>cadastro guia urbano</h1>
             <p>insira as informações do seu estabelecimento para concluirmos o cadastro:</p>
-            <h4>nome</h4>
+            <h5>nome</h5>
             <input type="text" id="nome" placeholder="Nome"><br>
-            <h4>descrição</h4>
+            <h5>descrição</h5>
             <input id="descricao" placeholder="Descrição"></input><br>
             <br>
-            <h4>cnpj</h4>
+            <h5>cnpj</h5>
             <input type="text" id="cnpj" placeholder="cnpj">
 
-            <h4>endereço</h4>
+            <h5>endereço</h5>
             <div class="formulario-grupo">
                 <input type="text" id="rua" placeholder="Rua">
                 <input type="text" id="cep" placeholder="CEP">
@@ -45,16 +45,16 @@
                 <input type="text" id="regiao" placeholder="Região">
                 <input type="text" id="cidade" placeholder="Cidade">
             </div>
-            <h4>coordenadas geográficas</h4>
+            <h5>coordenadas geográficas</h5>
             <div class="formulario-grupo">
                 <input type="number" id="latitude" placeholder="Latitude"   step="0.0000001" min="-100" max="100">
                 <input type="number" id="longitude" placeholder="Longitude" step="0.0000001" min="-100" max="100">
             </div>
 
-            <h4>taxa de entrada</h4>
+            <h5>taxa de entrada</h5>
             <input type="text" id="entrada" placeholder="Entrada">
 
-            <h2>linhas de metrô</h2>
+            <h5>linhas de metrô</h5>
             <select id="multiselectMetro" multiple>
                 <option value="Linha 1 (Azul)">Linha 1 (Azul)</option>
                 <option value="Linha 2 (Verde)">Linha 2 (Verde)</option>
@@ -64,7 +64,7 @@
                 <option value="Linha 15 (Prata)">Linha 15 (Prata)</option>
             </select>
             
-            <h2>estações de metro</h2>
+            <h5>estações de metro</h5>
             <select id="multiselectEstacoes" multiple>
                 <!-- Linha 1-Azul -->
                 <optgroup label="Linha 1 (Azul)">
@@ -110,7 +110,7 @@
                 </optgroup>
             </select>
 
-            <h2>avaliações e métricas</h2>
+            <h5>avaliações e métricas</h5>
             <div class="formulario-grupo">
                 <input type="number" id="estrelas" placeholder="Estrelas" min="0" max="5">
                 <input type="number" id="avaliacao_clientes" placeholder="Avaliação dos Clientes" min="0" max="5">
@@ -119,20 +119,20 @@
                 <input type="number" id="nivel" placeholder="Nível" min="0" max="4">
             </div>
 
-            <h2>mídias sociais</h2>
-            <h4>descrição da página</h4>
+            <h5>mídias sociais</h5>
+            <h5>descrição da página</h5>
             <input id="descricao_pagina" placeholder="Descrição na Página"></input>
-            <h4>link da página</h4>
+            <h5>link da página</h5>
             <input type="text" id="link_pagina" placeholder="Link da Página">
-            <h4>mídia da página</h4>
+            <h5>mídia da página</h5>
             <input type="text" id="midia_pagina" placeholder="Mídia da Página">
-            <h4>website</h4>
+            <h5>website</h5>
             <input type="text" id="website" placeholder="Website">
            
-            <h2>cardápio</h2>
+            <h5>cardápio</h5>
             <input type="text" id="link_cardapio" placeholder="Link do Cardápio">
 
-            <h2>opções de acessibilidade</h2>
+            <h5>opções de acessibilidade</h5>
             <select id="multiselectAcessibilidade" multiple>
                 <option value="banheiro acessível">Banheiro acessível</option>
                 <option value="cardápio em braile">Cardápio em braile</option>
@@ -157,13 +157,13 @@
                 <option value="áreas de descanso">Áreas de descanso</option>
             </select>
             
-            <h2>premiações</h2>
+            <h5>premiações</h5>
             <select id="multiselectPremios" multiple>
                 <option value="Os Melhores da Gastronomia 2023">Os Melhores da Gastronomia 2023</option>
                 <option value="Os Melhores da Gastronomia 2024">Os Melhores da Gastronomia 2024</option>
             </select>
             
-            <h2>informações úteis ao cliente</h2>
+            <h5>informações úteis ao cliente</h5>
             <div class="formulario-grupo">
                 <select id="musica">
                     <option value="">Música</option>
@@ -209,7 +209,7 @@
                 </select>
             </div>
 
-            <h2>estilos musicais</h2>
+            <h5>estilos musicais</h5>
             <select id="multiselectEstilosMusicais" multiple>
                 <option value="Axé">Axé</option>
                 <option value="Black Music">Black Music</option>
@@ -257,7 +257,7 @@
                 <option value="Trap">Trap</option>
             </select>
             
-            <h2>culinária</h2>
+            <h5>culinária</h5>
             <select id="multiselectCozinha" multiple>
                 <option value="Africana">Africana</option>
                 <option value="Alemã">Alemã</option>
@@ -296,7 +296,7 @@
                 <!-- Adicione mais tipos de cozinha conforme necessário -->
             </select>
 
-            <h2>tipos de locais</h2>
+            <h5>tipos de locais</h5>
             <select id="multiselectLocais" multiple>
                 <option value="padaria">Padaria</option>
                 <option value="restaurante">Restaurante</option>
@@ -328,7 +328,7 @@
                 <option value="resort">Resort</option>
             </select>
 
-            <h2>tipos de eventos</h2>
+            <h5>tipos de eventos</h5>
             <select id="multiselectTiposEvento" multiple>
                 <option value="primeiro encontro">Primeiro Encontro</option>
                 <option value="beber e dançar">Beber e Dançar</option>
@@ -368,7 +368,7 @@
                 <option value="maratona/caminhada beneficente">Maratona/Caminhada Beneficente</option>
             </select>
             
-            <h2>hobbies</h2>
+            <h5>hobbies</h5>
             <select id="multiselectHobbies" multiple>
                 <option value="jogos de tabuleiro">Jogos de Tabuleiro</option>
                 <option value="fliperama">Fliperama</option>
@@ -395,7 +395,7 @@
                 <option value="surf">Surf</option>
             </select>
 
-            <h2>ambientes</h2>
+            <h5>ambientes</h5>
             <select id="multiselectAmbientes" multiple>
                 <option value="jardim">Jardim</option>
                 <option value="jantar ao ar livre">Jantar ao Ar Livre</option>
@@ -424,7 +424,7 @@
                 <option value="retro">Retro</option>
             </select>
             
-            <h2>formas de pagamento</h2>
+            <h5>formas de pagamento</h5>
             <select id="multiselectTiposCartao" multiple>
                 <option value="dinheiro">Dinheiro</option>
                 <option value="american express">American Express</option>
@@ -468,7 +468,7 @@
                 <option value="pix">Pix</option>
             </select>
             
-            <h2>estilos de serviços</h2>
+            <h5>estilos de serviços</h5>
             <select id="multiselectEstilosServico" multiple>
                 <option value="buffet">Buffet</option>
                 <option value="à la carte">À la Carte</option>
@@ -493,7 +493,7 @@
                 <option value="tasting menu">Tasting Menu</option>
             </select>
 
-            <h2>horário de funcionamento</h2>
+            <h5>horário de funcionamento</h5>
             <div class="dia">
                 <label for="abertura-segunda">Segunda-feira:</label>
                 <div class="formulario-grupo">
@@ -560,7 +560,7 @@
                 </div>
             </div>
 
-            <h2>fotos</h2>
+            <h5>fotos</h5>
             <div class="form-group">
                 <label for="fotos">selecione fotos do seu estabelecimento</label>
                 <input type="file" class="form-control-file" id="fotos" multiple required>

@@ -120,51 +120,6 @@ function carregarFotos(lugarId) {
         });
 }
 
-function criarCarrosselIndividual(idCarrossel,tamanho , maximo, titulo, itens) {
-    if (!itens || itens.length === 0) {
-        return '<p>Nenhuma informação disponível</p>';
-    }
-
-    let carouselIndicators = '<ol class="carousel-indicators">';
-    let carouselInner = '<div class="carousel-inner">';
-    const maxCardsPorSlide = maximo;
-    
-    for (let i = 0; i < itens.length; i += maxCardsPorSlide) {
-        let slideContent = '';
-        for (let j = i; j < i + maxCardsPorSlide && j < itens.length; j++) {
-            slideContent += `
-                <div class="card" style="flex: 0 0 auto; width: ${tamanho}rem; margin-right: 15px;">
-                    <div class="card-body">
-                        <p class="card-text">${itens[j]}</p>
-                    </div>
-                </div>`;
-        }
-
-        carouselIndicators += `<li data-target="#${idCarrossel}" data-slide-to="${i / maxCardsPorSlide}" class="${i === 0 ? 'active' : ''}"></li>`;
-        carouselInner += `
-            <div class="carousel-item ${i === 0 ? 'active' : ''}">
-                <div class="d-flex">${slideContent}</div>
-            </div>`;
-    }
-
-    carouselIndicators += '</ol>';
-    carouselInner += '</div>';
-
-    return `
-        <div id="${idCarrossel}" class="carousel slide" data-ride="carousel">
-            ${carouselIndicators}
-            ${carouselInner}
-            <a class="carousel-control-prev" href="#${idCarrossel}" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#${idCarrossel}" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>`;
-}
-
 function criarInformacaoHtml(titulo, icone, valor) {
     // Verifica se o valor é uma lista
     if (Array.isArray(valor)) {
@@ -178,7 +133,7 @@ function criarInformacaoHtml(titulo, icone, valor) {
     } else {
         // Retorna o HTML formatado com o valor (que pode ser string ou primeiro elemento da lista)
         return `
-            <div class="col-3">
+            <div class="div-icon-title">
                 <h6><img src="${icone}" alt="${titulo}" width="50" height="50"> ${titulo} </h6>
             </div>
         `;
@@ -205,7 +160,7 @@ function criarInformacaoHtmlLista(titulo, icone, valor) {
     } else {
         // Retorna o HTML formatado com o valor (que pode ser string ou elementos da lista)
         return `
-            <div class="col-3">
+            <div class="div-icon-title">
                 <h6><img src="${icone}" alt="${titulo}" width="50" height="50"> ${titulo} </h6>
                 ${conteudoHtml}
             </div>
@@ -250,96 +205,81 @@ function criarCardDetalhe(estabelecimento) {
     const infoCartao                =criarInformacaoHtmlLista('cartões','./icons/icon1.png',estabelecimento.cartao)
 
     const cardHtml = `
-    <div class="container">
-        <div class="container">
-            <div class="row link-background">
-                <!-- Abas de Navegação -->
-                <ul class="nav2 nav2-tabs nav2-details" id="estabelecimentoTab" role="tablist">
-                    <li class="nav2-item">
-                        <a class="nav2-link letra-nav2" id="descricao-tab" data-toggle="tab" href="#descricao" role="tab" aria-controls="descricao" aria-selected="true">descrição</a>
-                    </li>
-                    <li class="nav2-item">
-                        <a class="nav2-link letra-nav2" id="localizacao-tab" data-toggle="tab" href="#localizacao" role="tab" aria-controls="localizacao" aria-selected="false">localização</a>
-                    </li>
-                    <li class="nav2-item">
-                        <a class="nav2-link letra-nav2" id="informacoes-tab" data-toggle="tab" href="#informacoes" role="tab" aria-controls="informacoes" aria-selected="false">informações</a>
-                    </li>
-                    <li class="nav2-item">
-                        <a class="nav2-link letra-nav2" id="horario-tab" data-toggle="tab" href="#horario" role="tab" aria-controls="horario" aria-selected="false">horário</a>
-                    </li>
-                    <li class="nav2-item">
-                        <a class="nav2-link letra-nav2" id="menu-tab" data-toggle="tab" href="#menu" role="tab" aria-controls="menu" aria-selected="false">menu</a>
-                    </li>
-                </ul>
-                <h1 class="mt-4 mb-4">${estabelecimento.nome}</h1>
-                <!-- Conteúdo das Abas -->
-                <div class="tab-content" id="estabelecimentoTabContent">
-                    <div class="tab-pane fade show active" id="descricao" role="tabpanel" aria-labelledby="descricao-tab">
-                        <!-- Conteúdo da aba Descrição -->
-                        <p>${estabelecimento.descricao}</p>
-                        <div class="row descricao-star">
-                        <div class="col-4">
-                            <h5>estrelas</h5>
-                            <div class="rating">
-                                ${criarAvaliacao(estabelecimento.estrelas)}
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <h5>avalição clientes</h5>
-                            <div class="rating">
-                                ${criarAvaliacao(estabelecimento.avaliacao_clientes)}
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <h5>preço</h5>
-                            <div class="rating">
-                                ${criarAvaliacao(estabelecimento.preco)}
-                            </div>
-                        </div>
-                        <button id="whatsapp-share">Compartilhar no WhatsApp</button>
-                        <button id="instagram-share">Compartilhar no Instagram</button>
+    <div class="container-custom">
+        <div class="tab-nav-container">
+            <ul class="nav2" id="estabelecimentoTab">
+                <li class="nav2-item">
+                    <a class="nav2-link active" href="#descricao">descrição</a>
+                </li>
+                <li class="nav2-item">
+                    <a class="nav2-link" href="#localizacao">localização</a>
+                </li>
+                <li class="nav2-item">
+                    <a class="nav2-link" href="#informacoes">informações</a>
+                </li>
+                <li class="nav2-item">
+                    <a class="nav2-link" href="#horario">horário</a>
+                </li>
+                <li class="nav2-item">
+                    <a class="nav2-link" href="#menu">menu</a>
+                </li>
+            </ul>
+        </div>
+        <h1 class="nome-estabelecimento">${estabelecimento.nome}</h1>
+        <div class="tab-content-custom" id="estabelecimentoTabContent">
+            <div class="tab-pane active" id="descricao">
+                <p>${estabelecimento.descricao}</p>
+                <div class="info-row">
+                    <div class="info-column">
+                        <h4 class="h4-small">estrelas</h4>
+                        <div class="rating">${criarAvaliacao(estabelecimento.estrelas)}</div>
                     </div>
+                    <div class="info-column">
+                        <h4 class="h4-small">avaliação</h4>
+                        <div class="rating">${criarAvaliacao(estabelecimento.avaliacao_clientes)}</div>
                     </div>
-                    <div class="tab-pane fade" id="localizacao" role="tabpanel" aria-labelledby="localizacao-tab">
-                        <!-- Conteúdo da aba Localização -->
-                        <p><strong>endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep} </p>
-                        <button id="copy-address">Copiar Endereço</button>
-                        <div id="mapa"></div>
-                        <p><strong>bairro:</strong> ${estabelecimento.bairro} </p>
-                        <p><strong>região:</strong> ${estabelecimento.regiao} </p>
-                        <p><strong>cidade:</strong> ${estabelecimento.cidade} </p>
-                        <p><strong>linha metro:</strong> ${estabelecimento.linha_metro} </p>
-                        <p><strong>estacao mais próxima:</strong> ${estabelecimento.estacao} </p>
-                    </div>
-                    <div class="tab-pane fade" id="informacoes" role="tabpanel" aria-labelledby="informacoes-tab">
-                        <!-- Conteúdo da aba Informações -->
-                        <div class="row">
-                            <p>${infoMusica}</p>
-                            <p>${infoEstacionamento}</p>
-                            <p>${infoKids}</p>
-                            <p>${infoPet}</p>
-                            <p>${infoGluten}</p>
-                            <p>${infoAmbiente}</p>
-                            <p>${infoHobby}</p>
-                            <p>${infoLactose}</p>
-                            <p>${infoMusica}</p>
-                            <p>${infoCozinha}</p>
-                            <p>${infoEstiloMusical}</p>
-                            <p>${infoTipoEvento}</p>
-                            <p>${infoLocal}</p>
-                            <p>${infoCartao}</p>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="horario" role="tabpanel" aria-labelledby="horario-tab">
-                        <!-- Conteúdo da aba Horário -->
-                        ${htmlHorarios}
-                    </div>
-                    <div class="tab-pane fade" id="menu" role="tabpanel" aria-labelledby="menu-tab">
-                        <!-- Conteúdo da aba Menu -->
-                        <p><strong>Instagram:</strong> ${estabelecimento.link_pagina} </p>
-                        <p><strong>Cardápio:</strong> ${estabelecimento.link_cardapio} </p>
+                    <div class="info-column">
+                        <h4 class="h4-small">preço</h4>
+                        <div class="rating">${criarAvaliacao(estabelecimento.preco)}</div>
                     </div>
                 </div>
+                <p class="p-small">compartilhe através de:</p>
+                <button id="whatsapp-share"> whatsApp</button>
+                <button id="instagram-share">instagram</button>
+            </div>
+            <div class="tab-pane" id="localizacao">
+                <p><strong>endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep}</p>
+                <button id="copy-address">Copiar Endereço</button>
+                <div id="mapa"></div>
+                <p><strong>bairro:</strong> ${estabelecimento.bairro}</p>
+                <p><strong>região:</strong> ${estabelecimento.regiao}</p>
+                <p><strong>cidade:</strong> ${estabelecimento.cidade}</p>
+                <p><strong>linha metro:</strong> ${estabelecimento.linha_metro}</p>
+                <p><strong>estacao mais próxima:</strong> ${estabelecimento.estacao}</p>
+            </div>
+            <div class="tab-pane" id="informacoes">
+                <div class="info-row">
+                    ${infoMusica}
+                    ${infoEstacionamento}
+                    ${infoKids}
+                    ${infoPet}
+                    ${infoGluten}
+                    ${infoLactose}
+                    ${infoAmbiente}
+                    ${infoCozinha}
+                    ${infoEstiloMusical}
+                    ${infoTipoEvento}
+                    ${infoLocal}
+                    ${infoHobby}
+                    ${infoCartao}
+                </div>
+            </div>
+            <div class="tab-pane" id="horario">
+                ${htmlHorarios}
+            </div>
+            <div class="tab-pane" id="menu">
+                <p><strong>Instagram:</strong> ${estabelecimento.link_pagina}</p>
+                <p><strong>Cardápio:</strong> ${estabelecimento.link_cardapio}</p>
             </div>
         </div>
     </div>
@@ -352,7 +292,39 @@ function adicionarEventosDeCompartilhamento() {
     const btnWhatsapp = document.getElementById('whatsapp-share');
     const btnInstagram = document.getElementById('instagram-share');
     const btnCopiar = document.getElementById('copy-address');
+    
+    var tabs = document.querySelectorAll('.nav2 .nav2-link');
 
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function(event) {
+            event.preventDefault();
+    
+            // Remover a classe 'active' de todas as abas e seus conteúdos
+            document.querySelectorAll('.nav2 .nav2-link').forEach(function(navLink) {
+                navLink.classList.remove('active');
+            });
+    
+            document.querySelectorAll('.tab-pane').forEach(function(tabPane) {
+                tabPane.classList.remove('active');
+            });
+    
+            // Ativa a aba clicada
+            this.classList.add('active');
+    
+            // Obter o ID do conteúdo da aba
+            var contentId = this.getAttribute('href').substring(1);
+    
+            // Selecionar o conteúdo da aba
+            var content = document.getElementById(contentId);
+            if (content) {
+                content.classList.add('active');
+            } else {
+                console.error('Conteúdo da aba não encontrado:', contentId);
+            }
+        });
+    });
+    
+    
     if (btnWhatsapp) {
         btnWhatsapp.addEventListener('click', function() {
             // Lógica para compartilhamento no WhatsApp
