@@ -7,7 +7,7 @@ body,
 html {
     min-height: 100vh;
     margin: 0;
-    background-color: #1794a7;
+    background-color: #ffffff;
 }
 
 .testando {
@@ -182,7 +182,7 @@ html {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: #ff93f1;
+  background-color: #ffffff;
 }
 
 h2 {
@@ -224,7 +224,7 @@ h2 {
 }
 
 .carrosel-icon {
-  height: 30px;
+  height: 200px;
   width: auto;
   align-items: center;
   justify-content: center;
@@ -234,7 +234,7 @@ h2 {
   justify-content: center;
   display: block;
   align-items: center;
-  background-color: #ffdbdb;
+  background-color: #ffffff;
   padding-left: 200px;
   padding-right: 200px;
   padding-top: 50px;
@@ -256,7 +256,7 @@ h2 {
   margin: 5vw;
   /* Margem responsiva em relação à largura da viewport */
   padding: 20px;
-  background: #ff9393;
+  background: #ffffff;
 }
 
 .box {

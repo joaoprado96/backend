@@ -414,8 +414,26 @@ function construirCarrosselTipoEvento() {
 
 function buscarImagemParaTipoEvento(tipo) {
     const imagensTipoEvento = {
-        "Date": "icons/icon1.png",
-        "Open food": "icons/openfood.png",
+        "Beber e dançar": "icons/1-beberedancar.png",
+        "Primeiro encontro": "icons/1-beberedancar.png",
+        "Conversar": "icons/Conversar.png",
+        "Lugares romântico": "icons/romantico.png",
+        "Reunião de amigos": "icons/reuniao.png",
+        "Encontro familiar": "icons/familiar.png",
+        "Festa de aniversário": "icons/aniversario.png",
+        "Happy Hour": "icons/happyhour.png",
+        "Assistir jogos esportivos": "icons/assistirjogos.png",
+        "Clube de comédia": "icons/comedy.png",
+        "Balada": "icons/balada.png",
+        "Experiência gastronômica": "icons/1-beberedancar.png",
+        "Cabaré/Boates": "icons/1-beberedancar.png",
+        "Música ao vivo": "icons/musica.png",
+        "Diferentão": "icons/1-beberedancar.png",
+        "Karaokê": "icons/karaoke.png",
+        "LGBTQIA+": "icons/1-beberedancar.png",
+        "Comer e Jogar": "icons/1-beberedancar.png",
+        "Temático": "icons/1-beberedancar.png",
+        "Sair sozinho": "icons/sairsozinha.png",
         // Adicionar mais correspondências de tipos de evento e imagens
     };
 
