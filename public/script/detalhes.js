@@ -188,21 +188,21 @@ function capitalizeFirstLetter(string) {
 function criarCardDetalhe(estabelecimento) {
     const htmlHorarios              =exibirHorariosFuncionamento(estabelecimento.horarios_funcionamento)
     //  Elementos que são "Sim" ou "Não"
-    const infoMusica                =criarInformacaoHtml('musica','./icons/icon1.png',estabelecimento.musica)
-    const infoEstacionamento        =criarInformacaoHtml('estacionamento','./icons/icon1.png',estabelecimento.estacionamento)
-    const infoKids                  =criarInformacaoHtml('espaço criança','./icons/icon1.png',estabelecimento.kids)
-    const infoPet                   =criarInformacaoHtml('pet friendly','./icons/icon1.png',estabelecimento.pet)
-    const infoGluten                =criarInformacaoHtml('gluten free','./icons/icon-gluten.png',estabelecimento.glutenfree)
-    const infoLactose               =criarInformacaoHtml('lactose free','./icons/icon1.png',estabelecimento.lactosefree)
+    const infoMusica                =criarInformacaoHtml('musica','./icons/icon-musica.png',estabelecimento.musica)
+    const infoEstacionamento        =criarInformacaoHtml('estacionamento','./icons/icon-estacionamento.png',estabelecimento.estacionamento)
+    const infoKids                  =criarInformacaoHtml('espaço criança','./icons/kids.png',estabelecimento.kids)
+    const infoPet                   =criarInformacaoHtml('pet friendly','./icons/icon-petfriendly.png',estabelecimento.pet)
+    const infoGluten                =criarInformacaoHtml('gluten free','./icons/icon-glutenfree.png',estabelecimento.glutenfree)
+    const infoLactose               =criarInformacaoHtml('lactose free','./icons/icon-lactosefree.png',estabelecimento.lactosefree)
 
     // Elementos que são listas
-    const infoCozinha               =criarInformacaoHtmlLista('culinária','./icons/icon1.png',estabelecimento.cozinha)
-    const infoEstiloMusical         =criarInformacaoHtmlLista('estilo musical','./icons/icon1.png',estabelecimento.estilo_musical)
-    const infoTipoEvento            =criarInformacaoHtmlLista('evento','./icons/icon1.png',estabelecimento.tipo_evento)
-    const infoLocal                 =criarInformacaoHtmlLista('tipo de local','./icons/icon1.png',estabelecimento.local)
-    const infoAmbiente              =criarInformacaoHtmlLista('ambiente','./icons/icon1.png',estabelecimento.ambiente)
+    const infoCozinha               =criarInformacaoHtmlLista('culinária','./icons/icon-culinaria.png',estabelecimento.cozinha)
+    const infoEstiloMusical         =criarInformacaoHtmlLista('estilo musical','./icons/icon-estilomusical.png',estabelecimento.estilo_musical)
+    const infoTipoEvento            =criarInformacaoHtmlLista('evento','./icons/icon-tipoevento.png',estabelecimento.tipo_evento)
+    const infoLocal                 =criarInformacaoHtmlLista('tipo de local','./icons/icon-tipolocal.png',estabelecimento.local)
+    const infoAmbiente              =criarInformacaoHtmlLista('ambiente','./icons/icon-ambiente.png',estabelecimento.ambiente)
     const infoHobby                 =criarInformacaoHtmlLista('hobby','./icons/icon1.png',estabelecimento.hobby)
-    const infoCartao                =criarInformacaoHtmlLista('cartões','./icons/icon1.png',estabelecimento.cartao)
+    const infoCartao                =criarInformacaoHtmlLista('cartões','./icons/icon-cartao.png',estabelecimento.cartao)
 
     const cardHtml = `
     <div class="container-custom">

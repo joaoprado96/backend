@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     color: #023047;
-    background-color: #480ca8;
+    background-color: #fff;
 }
 
 .page {
@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 100vh;
     width: 100%;
 }
@@ -182,7 +182,7 @@ body {
   justify-content: space-between;
 }
 a {
-  color: #8600c4;
+  color: #663A84;
   text-decoration: none;
 }
 .nav .logo {
@@ -203,14 +203,14 @@ a {
 
 .nav .nav-links a:hover {
     background-color: #fff; /* Cor de fundo ao passar o mouse */
-    color: #ff00b7; /* Cor do texto ao passar o mouse */
+    color: #FFDE59; /* Cor do texto ao passar o mouse */
     padding: 10px 15px; /* Ajuste o padding conforme necessário */
     border-radius: 5px; /* Adiciona bordas arredondadas */
     transition: all 0.3s ease; /* Suaviza a transição das propriedades */
   }
 
 .nav .search-icon {
-  color: #8600c4;
+  color: #663A84;
   font-size: 20px;
   cursor: pointer;
 }
@@ -233,7 +233,7 @@ a {
   left: 15px;
   top: 50%;
   left: 15px;
-  color: #8600c4;
+  color: #663A84;
   transform: translateY(-50%);
 }
 .search-box input {
@@ -296,7 +296,7 @@ a {
     left: 0;
   }
   .nav .navOpenBtn {
-    color: #ff7eee;
+    color: #E5671D;
     font-size: 20px;
     cursor: pointer;
   }
@@ -304,7 +304,7 @@ a {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #ff7eee;
+    color: #E5671D;
     font-size: 20px;
     cursor: pointer;
   }

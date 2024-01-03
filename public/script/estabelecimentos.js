@@ -7,9 +7,8 @@ atualizarDiaDaSemana();
 
 document.addEventListener('DOMContentLoaded', function() {
     criarNavbar();
-    loadFooter();
     loadEstabelecimentos(1); // Carregar a primeira página
-    getUserLocation(); // Obter a localização do usuário
+    // getUserLocation(); // Obter a localização do usuário
     inicalizarMenuLateral();
 });
 
@@ -133,26 +132,7 @@ function atualizarDiaDaSemana() {
     diaDaSemanaGlobal = diasDaSemana[hoje.getDay()];
 }
 
-function loadNavbar() {
-    const navbarPlaceholder = document.getElementById('navbar-placeholder');
-    fetch('navbar.html')
-        .then(response => response.text())
-        .then(html => {
-            navbarPlaceholder.innerHTML = html;
-        }).catch(error => {
-            console.error('Falha ao carregar o navbar:', error);
-        });
-}
-function loadFooter() {
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(html => {
-            footerPlaceholder.innerHTML = html;
-        }).catch(error => {
-            console.error('Falha ao carregar o footer:', error);
-        });
-}
+
 function loadEstabelecimentos(pagina) {
     const queryParams = getQueryParams();
     let queryString = Object.entries(queryParams).reduce((query, [key, value]) => {
@@ -390,20 +370,43 @@ function construirCarrosselTipoEvento() {
         carrossel.innerHTML += `
             <div class="item-carrossel">
                 <img src="${imageUrl}" alt="${tipo}" class="carrosel-icon">
-                <p class="carrosel-nome">${tipo}</p>
             </div>
         `;
     });
 
     // Inicializar o carrossel usando Slick
-    $(carrossel).slick({
-        dots: true,
+    $('#carrosselTipoEvento').slick({
+        dots: false,        // Desativa os pontos de navegação
+        arrows: false,      // Desativa os botões de próxima e anterior
         infinite: true,
         speed: 300,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        // outras opções conforme necessário
+        slidesToShow: 7,
+        slidesToScroll: 7,
+        responsive: [
+            {
+                breakpoint: 1024, // Largura máxima de 1024px
+                settings: {
+                    slidesToShow: 7,
+                    slidesToScroll: 7
+                }
+            },
+            {
+                breakpoint: 600, // Largura máxima de 600px
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5
+                }
+            },
+            {
+                breakpoint: 480, // Largura máxima de 480px
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5
+                }
+            }
+        ]
     });
+    
 
     // Adicionar event listener para seleção de tipo de evento
     $('.item-carrossel').on('click', function() {
@@ -414,25 +417,25 @@ function construirCarrosselTipoEvento() {
 
 function buscarImagemParaTipoEvento(tipo) {
     const imagensTipoEvento = {
-        "Beber e dançar": "icons/1-beberedancar.png",
-        "Primeiro encontro": "icons/1-beberedancar.png",
-        "Conversar": "icons/Conversar.png",
+        "Beber e dançar": "icons/beberedancar.png",
+        "Primeiro encontro": "icons/beberedancar.png",
+        "Conversar": "icons/conversar.png",
         "Lugares romântico": "icons/romantico.png",
         "Reunião de amigos": "icons/reuniao.png",
         "Encontro familiar": "icons/familiar.png",
         "Festa de aniversário": "icons/aniversario.png",
         "Happy Hour": "icons/happyhour.png",
         "Assistir jogos esportivos": "icons/assistirjogos.png",
-        "Clube de comédia": "icons/comedy.png",
+        "Clube de comédia": "icons/comedia.png",
         "Balada": "icons/balada.png",
-        "Experiência gastronômica": "icons/1-beberedancar.png",
-        "Cabaré/Boates": "icons/1-beberedancar.png",
+        "Experiência gastronômica": "icons/beberedancar.png",
+        "Cabaré/Boates": "icons/beberedancar.png",
         "Música ao vivo": "icons/musica.png",
-        "Diferentão": "icons/1-beberedancar.png",
+        "Diferentão": "icons/beberedancar.png",
         "Karaokê": "icons/karaoke.png",
-        "LGBTQIA+": "icons/1-beberedancar.png",
-        "Comer e Jogar": "icons/1-beberedancar.png",
-        "Temático": "icons/1-beberedancar.png",
+        "LGBTQIA+": "icons/beberedancar.png",
+        "Comer e Jogar": "icons/beberedancar.png",
+        "Temático": "icons/beberedancar.png",
         "Sair sozinho": "icons/sairsozinha.png",
         // Adicionar mais correspondências de tipos de evento e imagens
     };
@@ -446,32 +449,6 @@ function aplicarFiltroTipoEvento(tipoSelecionado) {
     );
     atualizarEstabelecimentos(1); // Atualizar para mostrar apenas os estabelecimentos filtrados
 }
-
-// Carroseel dos filtros
-// function inicializarCarrosselFiltros() {
-//     $('#filtros-carrossel').slick({
-//         dots: true,
-//         infinite: false,
-//         slidesToShow: 8,
-//         slidesToScroll: 8,
-//         responsive: [
-//             {
-//                 breakpoint: 768,
-//                 settings: {
-//                     slidesToShow: 2,
-//                     slidesToScroll: 2
-//                 }
-//             },
-//             {
-//                 breakpoint: 480,
-//                 settings: {
-//                     slidesToShow: 1,
-//                     slidesToScroll: 1
-//                 }
-//             }
-//         ]
-//     });
-// }
 
 function ordenarEstabelecimentos(criterio, ascending = true) {
     estabelecimentosFiltrados.sort((a, b) => {
@@ -535,7 +512,6 @@ async function criarCard(estabelecimento) {
     const imageUrl = await buscarPrimeiraFoto(estabelecimento._id);
 
     return `
-    <body>
     <div class="card-content">
         <div class="card">
             <a href="detalhes.html?id=${estabelecimento._id}" class="">
@@ -543,7 +519,6 @@ async function criarCard(estabelecimento) {
                 <div class="overlay">${estabelecimento.nome}</div>
         </div>
     </div>
-    </body>
     `;
 }
 

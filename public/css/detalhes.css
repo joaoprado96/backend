@@ -12,14 +12,14 @@ body {
     margin: 0;
     padding: 0;
     color: #023047;
-    background-color: #480ca8;
+    background-color: #fff;
 }
 
 .page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 100vh;
     width: 100%;
 }
@@ -44,7 +44,7 @@ body {
   justify-content: space-between;
 }
 a {
-  color: #8600c4;
+  color: #663A84;
   text-decoration: none;
 }
 .nav .logo {
@@ -66,7 +66,7 @@ a {
 
 .nav .nav-links a:hover {
     background-color: #fff; /* Cor de fundo ao passar o mouse */
-    color: #ff00b7; /* Cor do texto ao passar o mouse */
+    color: #E5671D; /* Cor do texto ao passar o mouse */
     padding: 10px 15px; /* Ajuste o padding conforme necessário */
     border-radius: 5px; /* Adiciona bordas arredondadas */
     transition: all 0.3s ease; /* Suaviza a transição das propriedades */
@@ -74,7 +74,7 @@ a {
 
 .nav .search-icon {
   z-index: 1000;
-  color: #8600c4;
+  color: #663A84;
   font-size: 20px;
   cursor: pointer;
 }
@@ -97,7 +97,7 @@ a {
   left: 15px;
   top: 50%;
   left: 15px;
-  color: #8600c4;
+  color: #663A84;
   transform: translateY(-50%);
 }
 .search-box input {
@@ -160,7 +160,7 @@ a {
     left: 0;
   }
   .nav .navOpenBtn {
-    color: #ff7eee;
+    color: #E5671D;
     font-size: 20px;
     cursor: pointer;
   }
@@ -168,7 +168,7 @@ a {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #ff7eee;
+    color: #E5671D;
     font-size: 20px;
     cursor: pointer;
   }
@@ -184,7 +184,7 @@ a {
 .container {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 0;
     padding: 20px;
     background-color: #fff;
     border-radius: 2px;
@@ -214,7 +214,7 @@ a {
 }
 
 .nav2-link {
-    color: #8600c4;
+    color: #663A84;
     text-decoration: none;
     padding: 5px 5px; /* Reduz o padding para economizar espaço */
     font-size: smaller; /* Reduz o tamanho da fonte */
@@ -225,7 +225,7 @@ a {
 .nav2-link:hover,
 .nav2-link.letra-nav2:active,
 .nav2-link.letra-nav2:focus {
-    background-color: #ff00b7;
+    background-color: #E5671D;
     color: white;
     border-radius: 5px;
 }
@@ -250,7 +250,7 @@ button {
     font-size: 10px;
     width: auto;
     padding: 10px 20px;
-    background-color: #ff7eee;
+    background-color: #E5671D;
     color: white;
     border: none;
     border-radius: 15px;
@@ -259,7 +259,7 @@ button {
 }
 
 button:hover {
-    background-color: #ff00b7;
+    background-color: #FFDE59;
 }
 
 /* Estilos adicionais para o mapa e outras seções podem ser adicionados aqui */
@@ -337,7 +337,7 @@ button:hover {
 /* Estilos para as setas do carrossel */
 .carousel-control-prev,
 .carousel-control-next {
-    color: #ff7eee;
+    color: #E5671D;
     width: 5%;
 
 }
@@ -353,7 +353,7 @@ button:hover {
     width: 10px;
     height: 10px;
     background: transparent;
-    border: solid 2px #ff7eee;
+    border: solid 2px #E5671D;
     border-width: 0 2px 2px 0;
 }
 
@@ -409,8 +409,6 @@ button:hover {
 }
 
 
-
-
 .p-small {
     font-size: 12px;
 }
@@ -463,8 +461,8 @@ button:hover {
 
 /* Estilo para a imagem dentro da div */
 .div-icon-title img {
-    width: 30px; /* Largura fixa para a imagem */
-    height: 30px; /* Altura fixa para a imagem */
+    width: 70px; /* Largura fixa para a imagem */
+    height: 70px; /* Altura fixa para a imagem */
     margin-right: 10px; /* Espaço entre a imagem e o texto */
 }
 
