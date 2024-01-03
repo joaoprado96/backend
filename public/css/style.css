@@ -11,7 +11,7 @@ body {
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    color: #023047;
+    color: #663A84;
     background-color: #fff;
 }
 
@@ -408,6 +408,381 @@ button:hover {
     }
 }
 
+.p-small {
+    font-size: 12px;
+}
+
+/* Classe para um parágrafo de tamanho normal */
+.p-normal {
+    font-size: 16px; /* Este é geralmente o tamanho padrão */
+}
+
+/* Classe para um parágrafo de tamanho grande */
+.p-large {
+    font-size: 20px;
+}
+
+/* Classe para um parágrafo de tamanho extra-grande */
+.p-xlarge {
+    font-size: 24px;
+}
+
+.h4-small {
+    font-size: 14px;
+}
+
+/* Classe para um parágrafo de tamanho normal */
+.h4-normal {
+    font-size: 16px; /* Este é geralmente o tamanho padrão */
+}
+
+/* Classe para um parágrafo de tamanho grande */
+.h4-large {
+    font-size: 20px;
+}
+
+/* Classe para um parágrafo de tamanho extra-grande */
+.h4-xlarge {
+    font-size: 24px;
+}
+
+/* Classe para estilizar a div que contém o ícone e o título */
+.div-icon-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transição suave para sombra e transformação */
+}
+
+/* Estilo para a imagem dentro da div */
+.div-icon-title img {
+    width: 70px; /* Largura fixa para a imagem */
+    height: 70px; /* Altura fixa para a imagem */
+    margin-right: 10px; /* Espaço entre a imagem e o texto */
+}
+
+/* Estilo para o título dentro da div */
+.div-icon-title h6 {
+    margin: 0;
+    font-size: 12px; /* Tamanho do título */
+    color: #333; /* Cor do texto */
+}
+
+.div-icon-title p {
+    margin: 0;
+    margin-left: 15px;
+    font-size: 10px; /* Tamanho do título */
+    color: #333; /* Cor do texto */
+}
+
+/* Efeito ao passar o mouse */
+.div-icon-title:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais proeminente */
+    transform: translateY(-2px); /* Leve movimento para cima */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .div-icon-title {
+        flex-direction: column; /* Ícone e título em coluna */
+        align-items: center; /* Centraliza os itens */
+        text-align: center; /* Texto centralizado */
+    }
+
+    .div-icon-title img {
+        margin-bottom: 10px; /* Espaço entre a imagem e o título em dispositivos móveis */
+    }
+}
+
+
+.formLogin {
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 40px;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    max-width: 420px; /* Largura máxima para dispositivos maiores */
+}
+
+.formLogin h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 2.3em;
+}
+
+.formLogin p {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.formLogin input,select {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+}
+
+.formLogin input:focus, select:focus {
+    border: 1px solid #E5671D;
+}
+
+.formLogin label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.formLogin a {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #555;
+    transition: all linear 160ms;
+}
+
+.formLogin a:hover {
+    color: #E5671D;
+}
+
+.btn {
+    background-color: #663A84;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    transition: all linear 160ms;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #E5671D;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .formLogin {
+        padding: 20px; /* Reduz o padding em telas menores */
+        max-width: 340px; /* Ajusta a largura máxima para telas menores */
+    }
+
+    .formLogin h1 {
+        font-size: 1.8em; /* Reduz o tamanho da fonte do título */
+    }
+}
+
+@media (max-width: 480px) {
+    .formLogin {
+        padding: 15px; /* Reduz ainda mais o padding para smartphones */
+        max-width: 290px; /* Ajusta a largura máxima para smartphones */
+    }
+
+    .formLogin h1 {
+        font-size: 1.6em; /* Reduz o tamanho da fonte do título para smartphones */
+    }
+}
+
+.notification-popup, .notification-popup-sucesso {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    z-index: 1000;
+    text-align: center;
+}
+
+.notification-popup {
+    background-color: #f44336;
+    color: white;
+}
+
+.notification-popup-sucesso {
+    background-color: #189200;
+    color: white;
+}
+
+
+.formulario-cadastro {
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 40px;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 750px; /* Largura máxima para dispositivos maiores */
+    margin: auto;
+}
+
+.formulario-cadastro h1 {
+    font-weight: 500;
+    font-size: 2em;
+}
+
+.formulario-cadastro p, 
+.formulario-cadastro label,
+.formulario-cadastro a {
+    font-size: 14px;
+}
+
+.formulario-cadastro input, 
+.formulario-cadastro textarea, 
+.formulario-cadastro select {
+    width: 95%;
+    margin-left: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border 0.3s;
+}
+
+.formulario-cadastro input:focus,
+.formulario-cadastro textarea:focus,
+.formulario-cadastro select:focus {
+    border-color: #E5671D;
+}
+
+.formulario-grupo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .formulario-cadastro {
+        padding: 10px;
+        max-width: 70%;
+    }
+
+    .formulario-cadastro h1 {
+        font-size: 1.8em;
+    }
+
+    .formulario-grupo {
+        flex-direction: column;
+    }
+
+    .formulario-cadastro input, 
+    .formulario-cadastro textarea, 
+    .formulario-cadastro select {
+        width: 90%;
+        margin-left: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border 0.3s;
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario-cadastro {
+        padding: 5px;
+        max-width: 90%;
+    }
+
+    .formulario-cadastro h1 {
+        font-size: 1.6em;
+    }
+
+    .formulario-cadastro input, 
+    .formulario-cadastro textarea, 
+    .formulario-cadastro select {
+        width: 85%;
+        margin-left: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border 0.3s;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 80px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.container-filtros-principais {
+  padding: 10px;
+  background-color: #fff; /* Exemplo de cor de fundo */
+}
+
+#filtros-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px; /* Espaço entre os itens do filtro */
+}
+
+#filtros-container > div {
+  flex: 1;
+  min-width: 150px; /* Largura mínima para cada filtro */
+}
+
+.btn-filtros, .btn-filtros-left {
+  width: 100%;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.filtro-select {
+  /* Estilos adicionais para os elementos select, se necessário */
+  width: 100%;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+
+/* Estilização dos botões */
+button {
+    font-size: 10px;
+    width: auto;
+    padding: 10px 20px;
+    background-color: #E5671D;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #FFDE59;
+}
+
+
 
 .p-small {
     font-size: 12px;
@@ -498,3 +873,113 @@ button:hover {
         margin-bottom: 10px; /* Espaço entre a imagem e o título em dispositivos móveis */
     }
 }
+
+.menu-lateral {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.menu-lateral-conteudo {
+  padding: 20px 30px;
+}
+
+.fechar-menu {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Estilo geral do carrossel */
+.carrossel-run {
+  margin: 20px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para cada item dentro do carrossel */
+.item-carrossel {
+  text-align: center;
+  padding: 5px;
+}
+
+/* Estilo para as imagens dentro dos itens do carrossel */
+.carrosel-icon {
+  max-width: 70px; /* Ajuste o tamanho conforme necessário */
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 4px;
+} 
+
+/* Efeito de Hover para os itens do carrossel */
+.item-carrossel:hover {
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+  cursor: pointer;
+}
+
+/* Estilo para o container dos estabelecimentos */
+#estabelecimentos {
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espaço entre os cards */
+  padding: 20px; /* Espaçamento ao redor do container */
+  width: 100%;
+}
+
+/* Estilo para cada card de estabelecimento */
+.card-content {
+  flex-basis: calc(25% - 20px); /* Três cards por linha, ajuste a margem conforme necessário */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para um efeito elevado */
+  border-radius: 8px; /* Bordas arredondadas */
+  overflow: hidden; /* Garante que a imagem não ultrapasse as bordas arredondadas */
+  height: 250px; /* Altura fixa para todos os cards */
+}
+
+.card-content img {
+  width: 100%; /* A imagem ocupa toda a largura do card */
+  height: 160px; /* Altura fixa para todas as imagens */
+  object-fit: cover; /* Corta a imagem para caber no contêiner sem distorcer */
+  transition: transform 0.3s ease; /* Efeito de zoom ao passar o mouse */
+}
+
+.card-content .overlay {
+  background-color: #663A84; /* Overlay escuro */
+  color: #ffffff; /* Texto branco */
+  padding: 10px; /* Espaçamento interno */
+  text-align: center; /* Alinhamento do texto */
+  height: 90px; /* Altura do overlay */
+}
+
+/* Efeito de hover para o card */
+.card-content:hover img {
+  transform: scale(1.05); /* Efeito de zoom na imagem */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .card-content {
+      flex-basis: calc(50% - 20px); /* Dois cards por linha em telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .card-content {
+      flex-basis: 100%; /* Um card por linha em telas muito pequenas */
+  }
+}
+
+
