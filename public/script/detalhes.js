@@ -201,7 +201,7 @@ function criarCardDetalhe(estabelecimento) {
     const infoTipoEvento            =criarInformacaoHtmlLista('evento','./icons/icon-tipoevento.png',estabelecimento.tipo_evento)
     const infoLocal                 =criarInformacaoHtmlLista('tipo de local','./icons/icon-tipolocal.png',estabelecimento.local)
     const infoAmbiente              =criarInformacaoHtmlLista('ambiente','./icons/icon-ambiente.png',estabelecimento.ambiente)
-    const infoHobby                 =criarInformacaoHtmlLista('hobby','./icons/icon1.png',estabelecimento.hobby)
+    const infoHobby                 =criarInformacaoHtmlLista('hobby','./icons/icon-hobby.png',estabelecimento.hobby)
     const infoCartao                =criarInformacaoHtmlLista('cartões','./icons/icon-cartao.png',estabelecimento.cartao)
 
     const cardHtml = `
