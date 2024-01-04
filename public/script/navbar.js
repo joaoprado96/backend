@@ -8,16 +8,26 @@ function criarNavbar() {
             <i class="uil uil-times navCloseBtn"></i>
             <li><a href="/home">home</a></li>
             <li><a href="/estabelecimentos">estabelecimentos</a></li>
-            <li><a href="/cadastro">cadastro</a></li>
-            <li><a href="/usuario">usuário</a></li>
-            <li><a href="/profile">perfil</a></li>
-            <li><a href="/destaques">destaques</a></li>
+            <li><a href="/informacoes">informacoes</a></li>
+            <li><a href="/contato">contato</a></li>
+
         </ul>
 
         <i class="uil uil-search search-icon" id="searchIcon"></i>
         <div class="search-box">
             <i class="uil uil-search search-icon"></i>
             <input type="text" placeholder="Search here..." />
+        </div>
+
+        <div class="user-icon-container">
+            <img src="icons/icon-usuariorx.png" alt="Usuário" class="user-icon">
+            <div class="user-submenu">
+            <a href="/login">login</a>
+                <a href="/usuario">novo usuário</a>
+                <a href="/perfil">minha conta</a>
+                <a href="/destaques">destaques</a>
+                <a href="/cadastro">cadastro</a>
+            </div>
         </div>
     </nav>
     `;

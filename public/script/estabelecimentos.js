@@ -30,6 +30,7 @@ function atualizarDiaDaSemana() {
     let hoje = new Date();
     let diasDaSemana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sabado"];
     diaDaSemanaGlobal = diasDaSemana[hoje.getDay()];
+    console.log(diaDaSemanaGlobal);
 }
 
 
@@ -407,20 +408,45 @@ function criaPaginacao(totalEstabelecimentos, estabelecimentosPorPagina, paginaA
 
 async function criarCard(estabelecimento) {
     const horarioHoje = estabelecimento.horarios_funcionamento[diaDaSemanaGlobal];
-    const horarioAbertura = horarioHoje ? horarioHoje.abertura : 'Indisponível';
-    const horarioFechamento = horarioHoje ? horarioHoje.fechamento : 'Indisponível';
+    let horarioAbertura = horarioHoje ? horarioHoje.abertura : 'Indisponível';
+    let horarioFechamento = horarioHoje ? horarioHoje.fechamento : 'Indisponível';
     const imageUrl = await buscarPrimeiraFoto(estabelecimento._id);
 
+    // Tratar caso de estabelecimento fechado
+    let horarioExibicao;
+    if (horarioAbertura.toLowerCase() === 'fechado' && horarioFechamento.toLowerCase() === 'fechado') {
+        horarioExibicao = '<span class="horario"><i class="fas fa-clock"></i> Fechado</span>';
+    } else if (horarioAbertura.toLowerCase() === 'fechado' || horarioFechamento.toLowerCase() === 'fechado') {
+        // Caso apenas um dos horários esteja como 'fechado'
+        horarioExibicao = '<span class="horario"><i class="fas fa-clock"></i> Horário não disponível</span>';
+    } else {
+        horarioExibicao = `<span class="horario"><i class="fas fa-clock"></i> ${horarioAbertura} - ${horarioFechamento}</span>`;
+    }
+    
+    const nivelClasse = `nivel-${estabelecimento.nivel}`;
+
     return `
-    <div class="card-content">
+    <div class="card-content ${nivelClasse}">
         <div class="card">
             <a href="detalhes.html?id=${estabelecimento._id}" class="">
-            <img src="${imageUrl}" alt="Imagem do Estabelecimento"></a>
-                <div class="overlay">${estabelecimento.nome}</div>
+                <img src="${imageUrl}" alt="Imagem do Estabelecimento">
+            </a>
+            <div class="overlay">
+                <div class="estabelecimento-header">
+                    <span class="estabelecimento-nome">${estabelecimento.nome}</span>
+                    <span class="avaliacao"><i class="fas fa-star"></i> ${estabelecimento.avaliacao_clientes}</span>
+                </div>
+                <div class="estabelecimento-info">
+                    ${horarioExibicao}
+                    <span class="localizacao"><i class="fas fa-map-marker-alt"></i> ${estabelecimento.bairro}</span>
+                </div>
+            </div>
         </div>
     </div>
     `;
 }
+
+
 
 async function renderizaEstabelecimentos(dados) {
     const container = document.getElementById('estabelecimentos');
