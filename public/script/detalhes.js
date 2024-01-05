@@ -37,16 +37,6 @@ function criarAvaliacao(avaliacao) {
     return `<div class="rating">${estrelasHtml}</div>`;
 }
 
-function bufferToBase64(buf) {
-    let binary = '';
-    const bytes = new Uint8Array(buf);
-    const len = bytes.byteLength;
-    for (let i = 0; i < len; i++) {
-        binary += String.fromCharCode(bytes[i]);
-    }
-    return window.btoa(binary);
-}
-
 function buscarPrimeiraFoto(lugarId) {
     return fetch(`/api/fotos-lugares/${lugarId}`)
         .then(response => response.json())
@@ -78,12 +68,12 @@ function carregarFotos(lugarId) {
                 data.forEach(item => {
                     item.fotos.forEach(foto => {
                         const base64String = bufferToBase64(foto.data.data);
-                        const isActive = fotoIndex === 0 ? 'active' : ''; // Apenas a primeira foto é 'active'
-                        
+                        const isActive = fotoIndex === 0 ? 'active' : '';
+            
                         carouselIndicators += `<li data-target="#fotosCarousel" data-slide-to="${fotoIndex}" class="${isActive}"></li>`;
                         carouselInner += `
                             <div class="carousel-item ${isActive}">
-                                <img class="d-block w-100" src="data:${foto.contentType};base64,${base64String}">
+                                <img class="d-block w-100 carousel-image" src="data:${foto.contentType};base64,${base64String}" data-index="${fotoIndex}">
                             </div>`;
                         
                         fotoIndex++;
@@ -110,6 +100,9 @@ function carregarFotos(lugarId) {
 
                 // Inicializar o carrossel
                 $('#fotosCarousel').carousel();
+
+                // Adicionar o manipulador de eventos após as imagens serem carregadas
+                adicionarEventosDeClique();
             } else {
                 carouselContainer.innerHTML = '<p>Nenhuma foto encontrada para este lugar.</p>';
             }
@@ -119,6 +112,23 @@ function carregarFotos(lugarId) {
             carouselContainer.innerHTML = '<p>Erro ao carregar fotos.</p>';
         });
 }
+
+function adicionarEventosDeClique() {
+    document.querySelectorAll('.carousel-image').forEach(img => {
+        img.addEventListener('click', function() {
+            abrirImagemEmModal(this.src);
+        });
+    });
+}
+
+function abrirImagemEmModal(src) {
+    // Definir a fonte da imagem no modal
+    document.getElementById('imagemModalSrc').src = src;
+
+    // Exibir o modal
+    $('#imagemModal').modal('show');
+}
+
 
 function criarInformacaoHtml(titulo, icone, valor) {
     // Verifica se o valor é uma lista

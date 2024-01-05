@@ -12,17 +12,26 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="navbar-placeholder"></div><br><br><br><br>
+    <div id="navbar-placeholder"></div>
     <div class="page">
           <div class="container">
                 <div id="detalhe-estabelecimento"></div>
           </div>
-          <br>
           <div class="container">
             <div id="carouselContainer"></div>
       </div>
     </div>
-    <div id="footer-placeholder"></div>
+
+    <div class="modal fade" id="imagemModal" tabindex="-1" role="dialog" aria-labelledby="imagemModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <img src="" id="imagemModalSrc" class="img-fluid" alt="Imagem em Tela Cheia">
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -30,5 +39,7 @@
 
     <script src="script/detalhes.js"></script> <!-- Referência para o seu script JavaScript -->
     <script src="script/navbar.js"></script>
+    <script src="script/func_img.js"></script>
+    <script src="script/func_semana.js"></script>
 </body>
 </html>

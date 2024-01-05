@@ -23,6 +23,16 @@ body {
     min-height: 100vh;
     width: 100%;
 }
+.page2 {
+    margin-top: 80px;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    width: 100%;
+}
 
 .nav {
   position: fixed;
@@ -242,6 +252,7 @@ a {
 
 /* Navegação por abas */
 .nav2 {
+    font-size: 12px;
     list-style-type: none;
     padding: 0;
     display: flex;
@@ -385,8 +396,8 @@ button:hover {
 .carousel-control-next-icon:after {
     content: '';
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 25px;
+    height: 25px;
     background: transparent;
     border: solid 2px #E5671D;
     border-width: 0 2px 2px 0;
@@ -543,7 +554,7 @@ button:hover {
     flex-direction: column;
     gap: 5px;
     width: 100%;
-    max-width: 420px; /* Largura máxima para dispositivos maiores */
+    max-width: 520px; /* Largura máxima para dispositivos maiores */
 }
 
 .formLogin h1 {
@@ -590,6 +601,14 @@ button:hover {
 
 .formLogin a:hover {
     color: #E5671D;
+}
+
+.form-row {
+    display: flex;       /* Utiliza flexbox para alinhamento */
+    justify-content: space-between; /* Espaçamento entre os elementos */
+    align-items: center; /* Alinha verticalmente */
+    flex-wrap: nowrap;     /* Permite que os itens se ajustem em telas menores */
+    gap: 30px;           /* Espaçamento entre os inputs */
 }
 
 .btn {
@@ -900,17 +919,24 @@ button:hover {
 
 /* Estilo para cada item dentro do carrossel */
 .item-carrossel {
-  text-align: center;
-  padding: 5px;
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
 }
 
-/* Estilo para as imagens dentro dos itens do carrossel */
 .carrosel-icon {
-  max-width: 70px; /* Ajuste o tamanho conforme necessário */
-  height: auto;
-  margin-bottom: 10px;
-  border-radius: 4px;
-} 
+    padding: 25px 25px;
+    max-width: 100%; /* Máximo de largura da imagem */
+    max-height: 100%; /* Máximo de altura da imagem */
+    object-fit: contain; /* Mantém as proporções da imagem */
+}
+
+@media (max-width: 768px) {
+    .carrosel-icon {
+        padding: 5px 5px;
+    }
+  }
+
 
 /* Efeito de Hover para os itens do carrossel */
 .item-carrossel:hover {
@@ -929,18 +955,51 @@ button:hover {
 }
 
 .nivel-1 {
-    border: 3px solid #4CAF50; /* Verde para nível 1 */
+    border: 3px solid #cdcdcd; /* Verde para nível 1 */
 }
 
 .nivel-2 {
-    border: 3px solid #FFC107; /* Amarelo para nível 2 */
+    border: 3px solid #8b6905; /* Amarelo para nível 2 */
+    box-shadow: 0 0 8px #8b6905; /* Brilho externo */
+    animation: pulse-2 2s infinite ease-in-out; /* Animação de pulsar */
 }
 
 .nivel-3 {
-    border: 3px solid #F44336; /* Vermelho para nível 3 */
+    border: 3px solid #d49f00; /* Vermelho para nível 3 */
+    box-shadow: 0 0 8px #d49f00; /* Brilho externo */
+    animation: pulse-3 2s infinite ease-in-out; /* Animação de pulsar */
 }
 
+/* Define a animação de pulsar */
+@keyframes pulse-2 {
+    0% {
+        transform: scale(1); /* Tamanho inicial */
+        box-shadow: 0 0 8px #8b6905; /* Brilho inicial */
+    }
+    50% {
+        transform: scale(1.02); /* Aumenta ligeiramente o tamanho */
+        box-shadow: 0 0 12px #8b6905; /* Aumenta o brilho */
+    }
+    100% {
+        transform: scale(1); /* Retorna ao tamanho inicial */
+        box-shadow: 0 0 8px #8b6905; /* Retorna ao brilho inicial */
+    }
+}
 
+@keyframes pulse-3 {
+    0% {
+        transform: scale(1); /* Tamanho inicial */
+        box-shadow: 0 0 8px #d49f00; /* Brilho inicial */
+    }
+    50% {
+        transform: scale(1.02); /* Aumenta ligeiramente o tamanho */
+        box-shadow: 0 0 12px #d49f00; /* Aumenta o brilho */
+    }
+    100% {
+        transform: scale(1); /* Retorna ao tamanho inicial */
+        box-shadow: 0 0 8px #d49f00; /* Retorna ao brilho inicial */
+    }
+}
 /* Estilo para cada card de estabelecimento */
 .card-content {
   position: relative;
@@ -1012,6 +1071,15 @@ button:hover {
 
 .fas {
     margin-right: 5px; /* Espaço entre o ícone e o texto */
+    color: #FFDE59; /* Cor do ícone */
+    text-shadow: 1px 1px 10px #000000; /* Sombra ao redor do ícone */
+}
+
+.icon-container {
+    display: inline-flex; /* Alinhamento flexível para ícone e texto */
+    align-items: center; /* Centraliza verticalmente o ícone com o texto */
+    padding: 5px; /* Espaço entre o ícone e a borda */
+    color: #FFDE59; /* Cor do ícone */
 }
 
 /* Responsividade para telas menores */
@@ -1027,4 +1095,42 @@ button:hover {
   }
 }
 
+/* Estilo para o carrossel em tela cheia */
+.carousel-fullscreen {
+    position: fixed; /* Fixa o carrossel no fundo */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Largura total da janela de visualização */
+    height: 100vh; /* Altura total da janela de visualização */
+    z-index: -1; /* Coloca o carrossel atrás do conteúdo da página */
+    overflow: hidden; /* Evita a rolagem do carrossel */
+}
 
+/* Estilos para as imagens dentro do carrossel */
+.carousel-fullscreen .carousel-item {
+    height: 100vh;
+    background-size: cover; /* Assegura que a imagem cubra todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    .carousel-fullscreen .carousel-item {
+        /* Alterações específicas para dispositivos móveis, se necessário */
+    }
+}
+
+/* Estilo para o conteúdo que será sobreposto ao carrossel */
+.content-over-carousel {
+    position: relative; /* Posiciona relativo ao pai */
+    z-index: 10; /* Garante que fique sobre o carrossel */
+    /* Adicione mais estilos conforme necessário */
+}
+
+/* Se necessário, ajuste a visibilidade do texto ou elementos */
+.content-over-carousel h1, .content-over-carousel p {
+    color: white; /* Exemplo para texto branco */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra no texto para legibilidade */
+    /* Adicione mais estilos conforme necessário */
+}

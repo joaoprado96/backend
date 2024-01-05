@@ -1,3 +1,9 @@
+// Definindo as variáveis
+var titulo = "Novo Título";
+var url = "https://www.exemplo.com";
+var textoHiperlink = "Visite o Exemplo.com";
+
+
 document.addEventListener('DOMContentLoaded', function() {
     criarNavbar();
     initializeFormOptions();
@@ -130,14 +136,16 @@ function carregarFotos() {
                 let fotoIndex = 0;
 
                 data.forEach(item => {
+                    document.getElementById('manchete').textContent = item.manchete;
+                    document.getElementById('linkHiperlink').setAttribute('href', item.link);
+                    document.getElementById('linkHiperlink').textContent = 'visite o estabelecimento';
                     item.fotos.forEach(foto => {
                         const base64String = bufferToBase64(foto.data.data);
                         const isActive = fotoIndex === 0 ? 'active' : '';
-
+            
                         carouselIndicators += `<li data-target="#fotosCarousel" data-slide-to="${fotoIndex}" class="${isActive}"></li>`;
                         carouselInner += `
-                            <div class="carousel-item ${isActive}">
-                                <img class="d-block w-100" src="data:${foto.contentType};base64,${base64String}">
+                            <div class="carousel-item ${isActive}" style="background-image: url('data:${foto.contentType};base64,${base64String}');">
                             </div>`;
                         
                         fotoIndex++;
@@ -168,15 +176,4 @@ function carregarFotos() {
             console.error('Erro ao carregar fotos:', error);
             carouselContainer.innerHTML = `<p>${error.message}</p>`;
         });
-}
-
-
-function bufferToBase64(buf) {
-    let binary = '';
-    const bytes = new Uint8Array(buf);
-    const len = bytes.byteLength;
-    for (let i = 0; i < len; i++) {
-        binary += String.fromCharCode(bytes[i]);
-    }
-    return window.btoa(binary);
 }

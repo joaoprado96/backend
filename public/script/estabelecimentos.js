@@ -7,7 +7,7 @@ let filtroTipoEventoAtual = null; // Variável global para armazenar o tipo de e
 
 document.addEventListener('DOMContentLoaded', function() {
     criarNavbar();
-    atualizarDiaDaSemana();
+    ObterDiaSemana();
     loadEstabelecimentos(1); // Carregar a primeira página
     inicalizarMenuLateral();
 });
@@ -25,14 +25,6 @@ function inicalizarMenuLateral(){
         document.getElementById('menu-lateral-filtros').style.width = '0';
     });
 }
-
-function atualizarDiaDaSemana() {
-    let hoje = new Date();
-    let diasDaSemana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sabado"];
-    diaDaSemanaGlobal = diasDaSemana[hoje.getDay()];
-    console.log(diaDaSemanaGlobal);
-}
-
 
 function loadEstabelecimentos(pagina) {
     const queryParams = getQueryParams();
@@ -189,6 +181,34 @@ function adicionarEventListenersParaFiltros() {
     document.getElementById('filtro-pet').addEventListener('change', () => aplicarFiltros());
     document.getElementById('filtro-glutenfree').addEventListener('change', () => aplicarFiltros());
     document.getElementById('filtro-lactosefree').addEventListener('change', () => aplicarFiltros());
+}
+function limparFiltros() {
+    // Resetar os filtros de seleção (dropdowns) para o valor padrão
+    document.getElementById('filtro-cozinha').value = '';
+    document.getElementById('filtro-regiao').value = '';
+    document.getElementById('filtro-bairro').value = '';
+    document.getElementById('filtro-cartao').value = '';
+    document.getElementById('filtro-local').value = '';
+    document.getElementById('filtro-entrada').value = '';
+    document.getElementById('filtro-metro').value = '';
+    document.getElementById('filtro-estacao').value = '';
+    document.getElementById('filtro-acessibilidade').value = '';
+    document.getElementById('filtro-musical').value = '';
+    document.getElementById('filtro-servico').value = '';
+    document.getElementById('filtro-hobby').value = '';
+    document.getElementById('filtro-ambiente').value = '';
+
+    // Resetar os filtros de checkbox
+    document.getElementById('filtro-musica').checked = false;
+    document.getElementById('filtro-estacionamento').checked = false;
+    document.getElementById('filtro-cover').checked = false;
+    document.getElementById('filtro-kids').checked = false;
+    document.getElementById('filtro-pet').checked = false;
+    document.getElementById('filtro-glutenfree').checked = false;
+    document.getElementById('filtro-lactosefree').checked = false;
+
+    // Aplicar os filtros após o reset
+    aplicarFiltros();
 }
 
 function aplicarFiltros() {
@@ -362,32 +382,6 @@ function ordenarEstabelecimentos(criterio, ascending = true) {
     atualizarEstabelecimentos(1); // Reset para a primeira página após ordenar
 }
 
-function bufferToBase64(buf) {
-    let binary = '';
-    const bytes = new Uint8Array(buf);
-    const len = bytes.byteLength;
-    for (let i = 0; i < len; i++) {
-        binary += String.fromCharCode(bytes[i]);
-    }
-    return window.btoa(binary);
-}
-
-function buscarPrimeiraFoto(lugarId) {
-    return fetch(`/api/fotos-lugares/${lugarId}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.length > 0 && data[0].fotos.length > 0) {
-                const foto = data[0].fotos[0];
-                return `data:${foto.contentType};base64,${bufferToBase64(foto.data.data)}`;
-            }
-            return './image/restaurante.jpg'; // Imagem padrão se não houver fotos
-        })
-        .catch(error => {
-            console.error('Erro ao carregar fotos:', error);
-            return './image/restaurante.jpg'; // Imagem padrão em caso de erro
-        });
-}
-
 function criaPaginacao(totalEstabelecimentos, estabelecimentosPorPagina, paginaAtual) {
     const totalPaginas = Math.ceil(totalEstabelecimentos / estabelecimentosPorPagina);
     const paginacaoContainer = document.getElementById('paginacao');
@@ -422,7 +416,7 @@ async function criarCard(estabelecimento) {
     } else {
         horarioExibicao = `<span class="horario"><i class="fas fa-clock"></i> ${horarioAbertura} - ${horarioFechamento}</span>`;
     }
-    
+
     const nivelClasse = `nivel-${estabelecimento.nivel}`;
 
     return `
@@ -434,7 +428,9 @@ async function criarCard(estabelecimento) {
             <div class="overlay">
                 <div class="estabelecimento-header">
                     <span class="estabelecimento-nome">${estabelecimento.nome}</span>
-                    <span class="avaliacao"><i class="fas fa-star"></i> ${estabelecimento.avaliacao_clientes}</span>
+                    <span class="icon-container">
+                        <i class="fas fa-star"></i> ${estabelecimento.avaliacao_clientes}
+                    </span>
                 </div>
                 <div class="estabelecimento-info">
                     ${horarioExibicao}

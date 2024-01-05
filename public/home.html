@@ -13,79 +13,83 @@
     <div id="navbar-placeholder"></div>
     <!-- Carrossel no topo da página -->
     <div id="carouselNovidades" class="carousel-fullscreen"></div>
-    <div class="row home-bg">
-        <div class="col-md-6 d-flex align-items-center justify-content-center">
-            <form class="custom-card" id="search-form">
-                <h2 class="title text-center">Crie sua programação em 3 minutos:</h2>
-                <h5 class="subtitle text-center">Preencha apenas o que achar necessário</h5>
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <select id="local" name="local" class="btn-custom mt-2">
-                            <option value="" class="btn-custom">Tipo</option>
-                            <!-- Opções preenchidas pelo JavaScript -->
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <select id="bairro" name="bairro" class="btn-custom mt-2">
-                            <option value="">Bairro</option>
-                            <!-- Opções preenchidas pelo JavaScript -->
-                        </select>
-                    </div>
+    
+    <div class="page2">
+        <form class="formLogin" id="search-form">
+            <h2>Crie sua programação em 3 minutos:</h2>
+            <h5>Preencha apenas o que achar necessário</h5>
+            <div class="form-row">
+                <div>
+                    <select id="local" name="local" >
+                        <option value="" class="btn-custom">Tipo</option>
+                        <!-- Opções preenchidas pelo JavaScript -->
+                    </select>
                 </div>
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <select id="cozinha" name="cozinha" class="btn-custom mt-2">
-                            <option value="">Cozinha</option>
-                            <!-- Opções preenchidas pelo JavaScript -->
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <select id="dia" name="dia" class="btn-custom mt-2">
-                            <option value="">Dia</option>
-                            <!-- Opções preenchidas pelo JavaScript -->
-                        </select>
-                    </div>
+                <div>
+                    <select id="bairro" name="bairro">
+                        <option value="">Bairro</option>
+                        <!-- Opções preenchidas pelo JavaScript -->
+                    </select>
                 </div>
-                <div class="form-row">
-            
-                    <div class="col-md-6">
-                        <select id="cartao" name="cartao" class="btn-custom mt-2">
-                            <option value="">Cartão</option>
-                            <!-- Opções preenchidas pelo JavaScript -->
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <select id="estilo_servico" name="estilo_servico" class="btn-custom mt-2">
-                            <option value="">Serviço</option>
-                            <!-- Opções preenchidas pelo JavaScript -->
-                        </select>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="number" id="preco" name="preco" placeholder="Insira o preço máximo"
-                            class="btn-custom mt-2" min="0" max="5">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="time" id="horario_abertura" name="horario_abertura" placeholder="Insira o preço máximo"
-                            class="btn-custom mt-2">
-                    </div>
-                    
+            </div>
+            <div class="form-row">
+                <div>
+                    <select id="cozinha" name="cozinha">
+                        <option value="">Cozinha</option>
+                        <!-- Opções preenchidas pelo JavaScript -->
+                    </select>
                 </div>
-                <h2 class="title text-center mt-4 mb-4">ou...</h2>
-                <h5 class="subtitle text-center">Pesquise por um restaurante:</h5>
-                <div class="col-md-12">
-                    <input type="text" id="horario_abertura" name="horario_abertura" placeholder="Digite o nome"
-                        class="btn-custom mt-2">
+                <div>
+                    <select id="dia" name="dia" >
+                        <option value="">Dia</option>
+                        <!-- Opções preenchidas pelo JavaScript -->
+                    </select>
                 </div>
-                <div class="btn-t text-center">
-                    <button type="submit" class="">Encontrar</button>
+            </div>
+            <div class="form-row">
+                <div>
+                    <select id="cartao" name="cartao" >
+                        <option value="">Cartão</option>
+                        <!-- Opções preenchidas pelo JavaScript -->
+                    </select>
                 </div>
-            </form>
+                <div >
+                    <select id="estilo_servico" name="estilo_servico" >
+                        <option value="">Serviço</option>
+                        <!-- Opções preenchidas pelo JavaScript -->
+                    </select>
+                </div>
+                <div >
+                    <input type="number" id="preco" name="preco" placeholder="Insira o preço máximo"
+                            min="0" max="5">
+                </div>
+                <div >
+                    <input type="time" id="horario_abertura" name="horario_abertura" placeholder="Insira o preço máximo">
+                </div>
+                
+            </div>
+            <h2>ou...</h2>
+            <h5>Pesquise por um restaurante:</h5>
+            <div class="form-row">
+                <input type="text" id="horario_abertura" name="horario_abertura" placeholder="Digite o nome">
+            </div>
+            <div >
+                <button type="submit" class="">Encontrar</button>
+            </div>
+        </form>
+
+        <div class="container">
+            <h2 id="manchete">Teste de título</h2>
+            <a id="linkHiperlink" href="#">Link</a>
         </div>
+        
     </div>
     <div id="footer-placeholder"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="script/home.js"></script>
     <script src="script/navbar.js"></script>
+    <script src="script/func_img.js"></script>
+    <script src="script/func_semana.js"></script>
 </body>
 </html>
