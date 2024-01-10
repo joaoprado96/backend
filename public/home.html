@@ -16,73 +16,72 @@
     
     <div class="page2">
         <form class="formLogin" id="search-form">
-            <h2>Crie sua programação em 3 minutos:</h2>
+            <h2 class="center-align">Crie sua programação em 3 minutos:</h2>
             <h5>Preencha apenas o que achar necessário</h5>
             <div class="form-row">
                 <div>
-                    <select id="local" name="local" >
+                    <select id="local" name="local" class="option-forms-home">
                         <option value="" class="btn-custom">Tipo</option>
                         <!-- Opções preenchidas pelo JavaScript -->
                     </select>
                 </div>
                 <div>
-                    <select id="bairro" name="bairro">
+                    <select id="bairro" name="bairro" class="option-forms-home ">
                         <option value="">Bairro</option>
                         <!-- Opções preenchidas pelo JavaScript -->
                     </select>
                 </div>
-            </div>
-            <div class="form-row">
                 <div>
-                    <select id="cozinha" name="cozinha">
-                        <option value="">Cozinha</option>
-                        <!-- Opções preenchidas pelo JavaScript -->
-                    </select>
-                </div>
-                <div>
-                    <select id="dia" name="dia" >
-                        <option value="">Dia</option>
+                    <select id="cozinha" name="cozinha" class="option-forms-home">
+                        <option value="" class="option-forms-home">Cozinha</option>
                         <!-- Opções preenchidas pelo JavaScript -->
                     </select>
                 </div>
             </div>
             <div class="form-row">
-                <div>
-                    <select id="cartao" name="cartao" >
-                        <option value="">Cartão</option>
-                        <!-- Opções preenchidas pelo JavaScript -->
-                    </select>
-                </div>
                 <div >
-                    <select id="estilo_servico" name="estilo_servico" >
+                    <select id="estilo_servico" name="estilo_servico" class="option-forms-home" >
                         <option value="">Serviço</option>
                         <!-- Opções preenchidas pelo JavaScript -->
                     </select>
                 </div>
                 <div >
                     <input type="number" id="preco" name="preco" placeholder="Insira o preço máximo"
-                            min="0" max="5">
+                            min="0" max="5" class="option-forms-home">
                 </div>
+                <div>
+                    <select id="cartao" name="cartao"class="option-forms-home" >
+                        <option value="">Cartão</option>
+                        <!-- Opções preenchidas pelo JavaScript -->
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">   
+                <div>
+                    <select id="dia" name="dia" class="option-forms-home" >
+                        <option value="">Dia</option>
+                        <!-- Opções preenchidas pelo JavaScript -->
+                    </select>
+                </div>             
+                
                 <div >
-                    <input type="time" id="horario_abertura" name="horario_abertura" placeholder="Insira o preço máximo">
+                    <input type="time" id="horario_abertura" name="horario_abertura" placeholder="Insira o preço máximo" class="option-forms-home">
                 </div>
                 
             </div>
             <h2>ou...</h2>
             <h5>Pesquise por um restaurante:</h5>
             <div class="form-row">
-                <input type="text" id="horario_abertura" name="horario_abertura" placeholder="Digite o nome">
+                <input type="text" id="horario_abertura" name="horario_abertura" placeholder="Digite o nome" class="option-forms-home-pes">
             </div>
             <div >
-                <button type="submit" class="">Encontrar</button>
+                <button type="submit">Encontrar</button>
             </div>
-        </form>
-
-        <div class="container">
-            <h2 id="manchete">Teste de título</h2>
-            <a id="linkHiperlink" href="#">Link</a>
-        </div>
-        
+        </form>        
+    </div>
+    <div class="container">
+        <h2 id="manchete">Teste de título</h2>
+        <a id="linkHiperlink" href="#">Link</a>
     </div>
     <div id="footer-placeholder"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
