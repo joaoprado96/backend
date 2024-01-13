@@ -1241,3 +1241,14 @@ button:hover {
     height: auto;
     margin-right: 8px;
 }
+
+.filtro-checkbox {
+    display: flex;
+    padding: 2% 2%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 18px;
+}
