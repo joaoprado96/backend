@@ -3,10 +3,10 @@
 
 
 :root {
-    --primaria:  #ffffff; /* Cor laranja para o esquema primário */
+    --primaria:  #663A84; /* Cor laranja para o esquema primário */
     --secundaria:#E5671D; /* Altere se desejar uma cor secundária diferente */
     --terciaria: #FFDE59;
-    --branco:    #663A84;
+    --branco:    #ffffff;
     --standard2: #000000;
     --nivel1: #e4e4e4;
     --nivel2: #787878;
