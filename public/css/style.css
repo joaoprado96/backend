@@ -81,7 +81,8 @@ a {
   font-weight: 700;
 }
 .nav .nav-links {
-  display: contents;
+  /* display: contents; */
+  column-gap: 20px;
   list-style: none;
 }
 .nav .nav-links a {
@@ -153,6 +154,9 @@ a {
   .nav .search-box {
     right: 150px;
   }
+  .nav .nav-links {
+    list-style: none;
+  }
 }
 @media screen and (max-width: 950px) {
   .nav {
@@ -161,6 +165,9 @@ a {
   .nav .search-box {
     right: 100px;
     max-width: 400px;
+  }
+  .nav .nav-links {
+    list-style: none;
   }
 }
 @media screen and (max-width: 768px) {
@@ -176,10 +183,10 @@ a {
     top: 0;
     left: -100%;
     height: 100%;
-    max-width: 280px;
+    max-width: 50%;
     width: 100%;
-    padding-top: 100px;
-    row-gap: 30px;
+    padding-top: 20%;
+    row-gap: 5%;
     flex-direction: column;
     background-color: var(--branco);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -212,7 +219,7 @@ a {
 }
 
 dl, ol, ul {
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 .user-icon-container {
@@ -658,8 +665,7 @@ button:hover {
 /* Media Queries */
 @media (max-width: 768px) {
     .formLogin {
-        padding: 20px; /* Reduz o padding em telas menores */
-        max-width: 340px; /* Ajusta a largura máxima para telas menores */
+        padding: 25px; /* Reduz o padding em telas menores */
     }
 
     .formLogin h1 {
@@ -669,8 +675,7 @@ button:hover {
 
 @media (max-width: 480px) {
     .formLogin {
-        padding: 15px; /* Reduz ainda mais o padding para smartphones */
-        max-width: 290px; /* Ajusta a largura máxima para smartphones */
+        padding: 10px; /* Reduz ainda mais o padding para smartphones */
     }
 
     .formLogin h1 {
@@ -812,28 +817,64 @@ button:hover {
 .container2 {
     width: 100%;
     max-width: 1200px;
-    margin: 0 0;
+    margin: 0px 0px;
     padding: 20px;
-    background-color: var(--branco);
     border-radius: 2px;
 }
 
+/* Estilo base */
 .container-side {
-    width: 80%;
+    width: 95%;
     max-width: 1200px;
     border-radius: 20px;
     display: flex;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     margin-top: var(--navbar-height);
     padding: 20px;
-    background-color: var(--branco);
 }
+
+/* Media query para telas menores que 768px (tablets) */
+@media (max-width: 768px) {
+    .container-side {
+        flex-direction: column;
+        width: 95%;
+        padding: 10px;
+    }
+
+    .container2 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Media query para telas menores que 480px (smartphones) */
+@media (max-width: 480px) {
+    .container-side {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .container2 {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
 
 .container-filtros-principais {
   padding: 10px;
   background-color: var(--branco); /* Exemplo de cor de fundo */
 }
 
+.h2-manchete{
+    color: var(--branco);
+}
+.a-manchete {
+    color: var(--branco);
+}
+.a-manchete:hover, .h2-manchete:hover {
+    color: var(--nivel3);
+}
 #filtros-container {
   display: flex;
   flex-wrap: nowrap;
