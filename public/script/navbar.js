@@ -2,7 +2,7 @@ function criarNavbar() {
     var navbarHTML = `
     <nav class="nav">
         <i class="uil uil-bars navOpenBtn"></i>
-        <a href="#" class="logo">Guia Urbano</a>
+        <a href="#" class="logo">Ache Aí</a>
 
         <ul class="nav-links">
             <i class="uil uil-times navCloseBtn"></i>
@@ -13,17 +13,16 @@ function criarNavbar() {
 
         </ul>
 
-        <i class="uil uil-search search-icon" id="searchIcon"></i>
         <div class="search-box">
             <i class="uil uil-search search-icon"></i>
             <input type="text" placeholder="Search here..." />
         </div>
 
         <div class="user-icon-container">
+            <i class="uil uil-search search-icon" id="searchIcon"></i>
             <img src="icons/icon-usuariorx.png" alt="Usuário" class="user-icon">
             <div class="user-submenu">
-            <a href="/login">login</a>
-                <a href="/usuario">novo usuário</a>
+                <a href="/login">login</a>
                 <a href="/perfil">minha conta</a>
                 <a href="/destaques">destaques</a>
                 <a href="/cadastro">cadastro</a>

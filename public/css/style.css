@@ -3,20 +3,18 @@
 
 
 :root {
-    --primaria:  #663A84; /* Cor laranja para o esquema primário */
+    --primaria:  #ffffff; /* Cor laranja para o esquema primário */
     --secundaria:#E5671D; /* Altere se desejar uma cor secundária diferente */
     --terciaria: #FFDE59;
-    --branco:    #ffffff;
+    --branco:    #663A84;
     --standard2: #000000;
-    --standard3: #333333;
-    --standard4: #f3f3f3;
-    --standard5: #f5f5f5;
+    --nivel1: #e4e4e4;
+    --nivel2: #787878;
+    --nivel3: #dbd000;
     --navbar-height: 80px; /* Definir a altura do navbar */
     /* Você pode adicionar mais substituições conforme necessário */
 }
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
   }
@@ -80,10 +78,10 @@ a {
 }
 .nav .logo {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .nav .nav-links {
-  column-gap: 20px;
+  display: contents;
   list-style: none;
 }
 .nav .nav-links a {
@@ -104,6 +102,7 @@ a {
   }
 
 .nav .search-icon {
+  margin-right: 30px;
   z-index: 1000;
   color: var(--primaria);
   font-size: 20px;
@@ -212,9 +211,14 @@ a {
   }
 }
 
+dl, ol, ul {
+    margin-bottom: 1rem;
+}
+
 .user-icon-container {
     position: relative;
     cursor: pointer;
+    display: flex;
 }
 
 .user-icon {
@@ -250,11 +254,9 @@ a {
     border-bottom: none;
 }
 
-/* Mostrar o submenu quando o ícone do usuário é clicado (JavaScript pode ser necessário) */
-.user-icon-container:hover .user-submenu {
+.user-icon:hover + .user-submenu {
     display: block;
 }
-
 
 .tab-nav-container {
     padding: 15px; /* Espaçamento interno para dar espaço ao redor dos itens */
@@ -702,7 +704,7 @@ button:hover {
 .formulario-cadastro {
     background-color: var(--branco);
     border-radius: 7px;
-    padding: 50px;
+    padding: 10px;
     width: 100%;
     max-width: 750px; /* Largura máxima para dispositivos maiores */
     margin: auto;
@@ -1001,18 +1003,18 @@ button:hover {
 }
 
 .nivel-1 {
-    border: 3px solid #cdcdcd; /* Verde para nível 1 */
+    border: 3px solid var(--nivel1); /* Verde para nível 1 */
 }
 
 .nivel-2 {
-    border: 3px solid #8b6905; /* terciaria para nível 2 */
-    box-shadow: 0 0 8px #8b6905; /* Brilho externo */
+    border: 3px solid var(--nivel2); /* terciaria para nível 2 */
+    box-shadow: 0 0 8px var(--nivel2); /* Brilho externo */
     animation: pulse-2 2s infinite ease-in-out; /* Animação de pulsar */
 }
 
 .nivel-3 {
-    border: 3px solid #d49f00; /* Vermelho para nível 3 */
-    box-shadow: 0 0 8px #d49f00; /* Brilho externo */
+    border: 3px solid var(--nivel3); /* Vermelho para nível 3 */
+    box-shadow: 0 0 8px var(--nivel3); /* Brilho externo */
     animation: pulse-3 2s infinite ease-in-out; /* Animação de pulsar */
 }
 
@@ -1020,30 +1022,30 @@ button:hover {
 @keyframes pulse-2 {
     0% {
         transform: scale(1); /* Tamanho inicial */
-        box-shadow: 0 0 8px #8b6905; /* Brilho inicial */
+        box-shadow: 0 0 8px var(--nivel2); /* Brilho inicial */
     }
     50% {
         transform: scale(1.02); /* Aumenta ligeiramente o tamanho */
-        box-shadow: 0 0 12px #8b6905; /* Aumenta o brilho */
+        box-shadow: 0 0 12px var(--nivel2); /* Aumenta o brilho */
     }
     100% {
         transform: scale(1); /* Retorna ao tamanho inicial */
-        box-shadow: 0 0 8px #8b6905; /* Retorna ao brilho inicial */
+        box-shadow: 0 0 8px var(--nivel2); /* Retorna ao brilho inicial */
     }
 }
 
 @keyframes pulse-3 {
     0% {
         transform: scale(1); /* Tamanho inicial */
-        box-shadow: 0 0 8px #d49f00; /* Brilho inicial */
+        box-shadow: 0 0 8px var(--nivel3); /* Brilho inicial */
     }
     50% {
         transform: scale(1.02); /* Aumenta ligeiramente o tamanho */
-        box-shadow: 0 0 12px #d49f00; /* Aumenta o brilho */
+        box-shadow: 0 0 12px var(--nivel3); /* Aumenta o brilho */
     }
     100% {
         transform: scale(1); /* Retorna ao tamanho inicial */
-        box-shadow: 0 0 8px #d49f00; /* Retorna ao brilho inicial */
+        box-shadow: 0 0 8px var(--nivel3); /* Retorna ao brilho inicial */
     }
 }
 /* Estilo para cada card de estabelecimento */
@@ -1179,4 +1181,22 @@ button:hover {
     color: var(--branco); /* Exemplo para texto branco */
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra no texto para legibilidade */
     /* Adicione mais estilos conforme necessário */
+}
+
+.contact-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.icon-container2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon-container2 img {
+    width: 24px; /* ou qualquer tamanho que desejar */
+    height: auto;
+    margin-right: 8px;
 }
