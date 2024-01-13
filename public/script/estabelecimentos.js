@@ -388,15 +388,15 @@ function criaPaginacao(totalEstabelecimentos, estabelecimentosPorPagina, paginaA
     paginacaoContainer.innerHTML = '';
 
     if (paginaAtual > 1) {
-        paginacaoContainer.innerHTML += `<button onclick="loadEstabelecimentos(${paginaAtual - 1})">Anterior</button>`;
+        paginacaoContainer.innerHTML += `<button onclick="atualizarEstabelecimentos(${paginaAtual - 1})">Anterior</button>`;
     }
 
     for (let i = 1; i <= totalPaginas; i++) {
-        paginacaoContainer.innerHTML += `<button onclick="loadEstabelecimentos(${i})">${i}</button>`;
+        paginacaoContainer.innerHTML += `<button onclick="atualizarEstabelecimentos(${i})">${i}</button>`;
     }
 
     if (paginaAtual < totalPaginas) {
-        paginacaoContainer.innerHTML += `<button onclick="loadEstabelecimentos(${paginaAtual + 1})">Próxima</button>`;
+        paginacaoContainer.innerHTML += `<button onclick="atualizarEstabelecimentos(${paginaAtual + 1})">Próxima</button>`;
     }
 }
 
