@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
+
+:root {
+    --primaria:  #663A84; /* Cor laranja para o esquema primário */
+    --secundaria:#E5671D; /* Altere se desejar uma cor secundária diferente */
+    --terciaria: #FFDE59;
+    --branco:    #ffffff;
+    --standard2: #000000;
+    --standard3: #333333;
+    --standard4: #f3f3f3;
+    --standard5: #f5f5f5;
+    --navbar-height: 80px; /* Definir a altura do navbar */
+    /* Você pode adicionar mais substituições conforme necessário */
+}
 * {
     margin: 0;
     padding: 0;
@@ -11,8 +24,8 @@ body {
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    color: #663A84;
-    background-color: #fff;
+    color: var(--primaria);
+    background-color: var(--branco);
 }
 
 .page {
@@ -48,7 +61,7 @@ body {
   left: 0;
   width: 100%;
   padding: 15px 60px;
-  background: #ffffff;
+  background: var(--branco);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
@@ -62,7 +75,7 @@ body {
   justify-content: space-between;
 }
 a {
-  color: #663A84;
+  color: var(--primaria);
   text-decoration: none;
 }
 .nav .logo {
@@ -83,8 +96,8 @@ a {
 }
 
 .nav .nav-links a:hover {
-    background-color: #fff; /* Cor de fundo ao passar o mouse */
-    color: #E5671D; /* Cor do texto ao passar o mouse */
+    background-color: var(--branco); /* Cor de fundo ao passar o mouse */
+    color: var(--secundaria); /* Cor do texto ao passar o mouse */
     padding: 10px 15px; /* Ajuste o padding conforme necessário */
     border-radius: 5px; /* Adiciona bordas arredondadas */
     transition: all 0.3s ease; /* Suaviza a transição das propriedades */
@@ -92,7 +105,7 @@ a {
 
 .nav .search-icon {
   z-index: 1000;
-  color: #663A84;
+  color: var(--primaria);
   font-size: 20px;
   cursor: pointer;
 }
@@ -115,7 +128,7 @@ a {
   left: 15px;
   top: 50%;
   left: 15px;
-  color: #663A84;
+  color: var(--primaria);
   transform: translateY(-50%);
 }
 .search-box input {
@@ -124,7 +137,7 @@ a {
   border: none;
   outline: none;
   border-radius: 6px;
-  background-color: #fff;
+  background-color: var(--branco);
   padding: 0 15px 0 45px;
 }
 
@@ -169,7 +182,7 @@ a {
     padding-top: 100px;
     row-gap: 30px;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: var(--branco);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease;
     z-index: 100;
@@ -178,7 +191,7 @@ a {
     left: 0;
   }
   .nav .navOpenBtn {
-    color: #E5671D;
+    color: var(--secundaria);
     font-size: 20px;
     cursor: pointer;
   }
@@ -186,7 +199,7 @@ a {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #E5671D;
+    color: var(--secundaria);
     font-size: 20px;
     cursor: pointer;
   }
@@ -214,7 +227,7 @@ a {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #fff;
+    background-color: var(--branco);
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -243,15 +256,6 @@ a {
 }
 
 
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 0;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 2px;
-}
-
 .tab-nav-container {
     padding: 15px; /* Espaçamento interno para dar espaço ao redor dos itens */
     border-bottom: 1px solid #dee2e6; /* Linha na parte inferior para separar as abas do conteúdo */
@@ -277,7 +281,7 @@ a {
 }
 
 .nav2-link {
-    color: #663A84;
+    color: var(--primaria);
     text-decoration: none;
     padding: 5px 5px; /* Reduz o padding para economizar espaço */
     font-size: smaller; /* Reduz o tamanho da fonte */
@@ -288,8 +292,8 @@ a {
 .nav2-link:hover,
 .nav2-link.letra-nav2:active,
 .nav2-link.letra-nav2:focus {
-    background-color: #E5671D;
-    color: white;
+    background-color: var(--secundaria);
+    color: var(--branco);
     border-radius: 5px;
 }
 
@@ -313,8 +317,8 @@ button {
     font-size: 10px;
     width: auto;
     padding: 10px 20px;
-    background-color: #E5671D;
-    color: white;
+    background-color: var(--secundaria);
+    color: var(--branco);
     border: none;
     border-radius: 15px;
     cursor: pointer;
@@ -322,7 +326,7 @@ button {
 }
 
 button:hover {
-    background-color: #FFDE59;
+    background-color: var(--terciaria);
 }
 
 /* Estilos adicionais para o mapa e outras seções podem ser adicionados aqui */
@@ -374,7 +378,7 @@ button:hover {
 }
 
 .horario-container {
-    background-color: white;
+    background-color: var(--branco);
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
@@ -391,7 +395,7 @@ button:hover {
 /* Estilos para as setas do carrossel */
 .carousel-control-prev,
 .carousel-control-next {
-    color: #E5671D;
+    color: var(--secundaria);
     width: 5%;
 
 }
@@ -407,7 +411,7 @@ button:hover {
     width: 25px;
     height: 25px;
     background: transparent;
-    border: solid 2px #E5671D;
+    border: solid 2px var(--secundaria);
     border-width: 0 2px 2px 0;
 }
 
@@ -554,7 +558,7 @@ button:hover {
 
 
 .formLogin {
-    background-color: #ffffff;
+    background-color: var(--branco);
     border-radius: 7px;
     padding: 40px;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
@@ -593,7 +597,7 @@ button:hover {
 }
 
 .formLogin input:focus, select:focus {
-    border: 1px solid #E5671D;
+    border: 1px solid var(--secundaria);
 }
 
 .formLogin label {
@@ -610,7 +614,7 @@ button:hover {
 }
 
 .formLogin a:hover {
-    color: #E5671D;
+    color: var(--secundaria);
 }
 
 .form-row {
@@ -620,12 +624,12 @@ button:hover {
     flex-wrap: nowrap;     /* Permite que os itens se ajustem em telas menores */
     gap: 30px;           /* Espaçamento entre os inputs */
     width: 100%;
-    background-color: #ffffff;
+    background-color: var(--branco);
 }
 
 .option-forms-home{
     width: 100%;
-    background-color: #ffffff;
+    background-color: var(--branco);
     border-radius: 25px;
 }
 
@@ -635,8 +639,8 @@ button:hover {
 }
 
 .btn {
-    background-color: #663A84;
-    color: #fff;
+    background-color: var(--primaria);
+    color: var(--branco);
     font-size: 14px;
     font-weight: 600;
     border: none;
@@ -646,7 +650,7 @@ button:hover {
 
 .btn:hover {
     transform: scale(1.05);
-    background-color: #E5671D;
+    background-color: var(--secundaria);
 }
 
 /* Media Queries */
@@ -686,20 +690,19 @@ button:hover {
 
 .notification-popup {
     background-color: #f44336;
-    color: white;
+    color: var(--branco);
 }
 
 .notification-popup-sucesso {
     background-color: #189200;
-    color: white;
+    color: var(--branco);
 }
 
 
 .formulario-cadastro {
-    background-color: #fff;
+    background-color: var(--branco);
     border-radius: 7px;
-    padding: 40px;
-    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+    padding: 50px;
     width: 100%;
     max-width: 750px; /* Largura máxima para dispositivos maiores */
     margin: auto;
@@ -730,7 +733,7 @@ button:hover {
 .formulario-cadastro input:focus,
 .formulario-cadastro textarea:focus,
 .formulario-cadastro select:focus {
-    border-color: #E5671D;
+    border-color: var(--secundaria);
 }
 
 .formulario-grupo {
@@ -798,15 +801,35 @@ button:hover {
 .container {
     width: 100%;
     max-width: 1200px;
-    margin-top: 80px;
+    margin-top: var(--navbar-height);
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--branco);
     border-radius: 2px;
+}
+
+.container2 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 0;
+    padding: 20px;
+    background-color: var(--branco);
+    border-radius: 2px;
+}
+
+.container-side {
+    width: 80%;
+    max-width: 1200px;
+    border-radius: 20px;
+    display: flex;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    margin-top: var(--navbar-height);
+    padding: 20px;
+    background-color: var(--branco);
 }
 
 .container-filtros-principais {
   padding: 10px;
-  background-color: #fff; /* Exemplo de cor de fundo */
+  background-color: var(--branco); /* Exemplo de cor de fundo */
 }
 
 #filtros-container {
@@ -827,7 +850,7 @@ button:hover {
   padding: 5px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: var(--branco);
   cursor: pointer;
 }
 
@@ -839,7 +862,7 @@ button:hover {
   width: 100% ;
   padding: 8px 15px;
   border: 2px solid #ccc;
-  color: #E5671D;
+  color: var(--secundaria);
   border-radius: 25px;
   background-color: #E2F0EE;
   cursor: pointer;
@@ -911,7 +934,7 @@ button:hover {
   z-index: 2000;
   top: 0;
   right: 0;
-  background-color: #fff;
+  background-color: var(--branco);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -969,7 +992,7 @@ button:hover {
 
 /* Estilo para o container dos estabelecimentos */
 #estabelecimentos {
-  background-color: #fff;
+  background-color: var(--branco);
   display: flex;
   flex-wrap: wrap;
   gap: 20px; /* Espaço entre os cards */
@@ -982,7 +1005,7 @@ button:hover {
 }
 
 .nivel-2 {
-    border: 3px solid #8b6905; /* Amarelo para nível 2 */
+    border: 3px solid #8b6905; /* terciaria para nível 2 */
     box-shadow: 0 0 8px #8b6905; /* Brilho externo */
     animation: pulse-2 2s infinite ease-in-out; /* Animação de pulsar */
 }
@@ -1049,8 +1072,8 @@ button:hover {
 
 .card-content .overlay {
   padding: 10px 10px;
-  background-color: #663A84; /* Overlay escuro */
-  color: #ffffff; /* Texto branco */
+  background-color: var(--primaria); /* Overlay escuro */
+  color: var(--branco); /* Texto branco */
   padding: 0px; /* Espaçamento interno */
   text-align: center; /* Alinhamento do texto */
   height: 90px; /* Altura do overlay */
@@ -1094,7 +1117,7 @@ button:hover {
 
 .fas {
     margin-right: 5px; /* Espaço entre o ícone e o texto */
-    color: #FFDE59; /* Cor do ícone */
+    color: var(--terciaria); /* Cor do ícone */
     text-shadow: 1px 1px 10px #000000; /* Sombra ao redor do ícone */
 }
 
@@ -1102,7 +1125,7 @@ button:hover {
     display: inline-flex; /* Alinhamento flexível para ícone e texto */
     align-items: center; /* Centraliza verticalmente o ícone com o texto */
     padding: 5px; /* Espaço entre o ícone e a borda */
-    color: #FFDE59; /* Cor do ícone */
+    color: var(--terciaria); /* Cor do ícone */
 }
 
 /* Responsividade para telas menores */
@@ -1153,7 +1176,7 @@ button:hover {
 
 /* Se necessário, ajuste a visibilidade do texto ou elementos */
 .content-over-carousel h1, .content-over-carousel p {
-    color: white; /* Exemplo para texto branco */
+    color: var(--branco); /* Exemplo para texto branco */
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra no texto para legibilidade */
     /* Adicione mais estilos conforme necessário */
 }

@@ -3,7 +3,6 @@ var titulo = "Novo Título";
 var url = "https://www.exemplo.com";
 var textoHiperlink = "Visite o Exemplo.com";
 
-
 document.addEventListener('DOMContentLoaded', function() {
     criarNavbar();
     initializeFormOptions();
