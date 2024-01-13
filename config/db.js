@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const DB_CONNECTION_STRING = 'mongodb://localhost:27017/dadosbackend';
+// const DB_CONNECTION_STRING = 'mongodb://localhost:27017/dadosbackend';
+const DB_CONNECTION_STRING = 'mongodb+srv://joaoprado:Eletrica16!@cluster01.4f55ixx.mongodb.net/?retryWrites=true&w=majority'
 
 
 const connectDB = async () => {

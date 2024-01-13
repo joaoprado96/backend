@@ -1,0 +1,119 @@
+
+{
+    "nome": "Anexo Pinheiros",
+    "descricao": "Localizado em uma das 10 ruas mais visitadas de São Paulo,o Anexo Pinheiros oferece uma atmosfera única.Composta por dois ambientes, a casa possui uma decoração baseada na arte urbana e de rua. Do nosso Rooftop, é possível apreciar um por do sol de brilhar os olhos.Além disso, a energia da balada sempre fica por conta dos diferentes DJs que comandam a pista.Venha desfrutar de um lugar aconchegante e animado, localizado no CORAÇÃO de Pinheiros.",
+    "rua": "Rua Guaicuí,82",
+    "cep": "05416-011",
+    "cnpj": "05416-011",
+    "cidade": "São Paulo",
+    "bairro": "Pinheiros",
+    "regiao": "Zona Oeste",
+    "entrada": "R$20",
+    "latitude": -23.56583,
+    "longitude": -46.69639,
+    "linha_metro": [
+      "Linha 4 (Amarela)"
+    ],
+    "estacao": [
+      "Faria Lima"
+    ],
+    "estrelas": 4,
+    "avaliacao_clientes": 4,
+    "avaliacao_pagina": 2,
+    "descricao_pagina": "None.",
+    "link_pagina": "https://www.instagram.com/anexopinheiros/",
+    "midia_pagina": "None",
+    "acessibilidade": [
+      "não possui"
+    ],
+    "musica": "Sim",
+    "estacionamento": "Não",
+    "cover": "Não",
+    "kids": "Não",
+    "website": "none",
+    "premio": [
+      "não possui"
+    ],
+    "estilo_musical": [
+      "Funk",
+      "Trap"
+    ],
+    "cozinha": [
+      "Brasileira"
+    ],
+    "local": [
+      "Bar",
+      "Balada"
+    ],
+    "preco": 3,
+    "tipo_evento": [
+      "Beber e dançar"
+    ],
+    "hobby": [
+      "Cantar"
+    ],
+    "ambiente": [
+      "Despojado",
+      "Fumódromo"
+    ],
+    "cartao": [
+      "American Express",
+      "Crédito",
+      "Débito",
+      "Dinners",
+      "Dinheiro",
+      "Elo",
+      "Hipercard",
+      "Mastercard",
+      "Visa"
+    ],
+    "dias": [
+      "quinta-feira",
+      "sexta-feira",
+      "sábado",
+      "feriados"
+    ],
+    "nivel": 1,
+    "link_cardapio": "https://cardapio.meep.cloud/96f35786-182c-16f6-04e1-3ae1810c7dbf",
+    "horarios_funcionamento": {
+      "segunda-feira": {
+        "abertura": "Fechado",
+        "fechamento": "Fechado"
+      },
+      "terca-feira": {
+        "abertura": "Fechado",
+        "fechamento": "Fechado"
+      },
+      "quarta-feira": {
+        "abertura": "Fechado",
+        "fechamento": "Fechado"
+      },
+      "quinta-feira": {
+        "abertura": "18:00",
+        "fechamento": "05:00"
+      },
+      "sexta-feira": {
+        "abertura": "18:00",
+        "fechamento": "05:00"
+      },
+      "sabado": {
+        "abertura": "16:00",
+        "fechamento": "05:00"
+      },
+      "domingo": {
+        "abertura": "Fechado",
+        "fechamento": "Fechado"
+      },
+      "feriados": {
+        "abertura": "Consultar",
+        "fechamento": "Consultar"
+      }
+    },
+    "pet": "Sim",
+    "estilo_servico": [
+      "À la carte"
+    ],
+    "glutenfree": "Não",
+    "lactosefree": "Não",
+    "__v": 0
+  }
