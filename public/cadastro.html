@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcheAi</title>
-    <link rel="icon" type="image/svg" href="/icons/logo.svg">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <title>cadastro</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div id="navbar-placeholder"></div><br><br>
     <div id="notificationPopupLogin" class="notification-popup" style="display: none;">
@@ -27,7 +28,7 @@
     <div class="page">
         <br>
         <form id="formCadastro" class="formulario-cadastro">
-            <h1>cadastro AcheAi!</h1>
+            <h1>cadastro guia urbano</h1>
             <p>insira as informações do seu estabelecimento para concluirmos o cadastro:</p>
             <h5>nome</h5>
             <input type="text" id="nome" placeholder="Nome"><br>
@@ -142,19 +143,31 @@
                     <option value="Vila Jacuí">Vila Jacuí</option>
                     <option value="Sapopemba">Sapopemba</option>
                     <option value="Vila Prudente">Vila Prudente</option>
-                    <option value="São Lucas">São Lucas</option> 
+                    <option value="São Lucas">São Lucas</option>
                 </select>
-                <input type="text" id="regiao" placeholder="Região">
-                <input type="text" id="cidade" placeholder="Cidade">
+                <select id="regiao" placeholder="Qual a região?">
+                    <option value="Norte">Norte</option>
+                    <option value="Sul">Sul</option>
+                    <option value="Leste">Leste</option>
+                    <option value="Oeste">Oeste</option>
+                    <option value="Centro">Centro</option>
+                </select>
+                <select id="cidade" placeholder="Selecione a cidade">
+                    <option value="São Paulo">São Paulo</option>
+                </select>
             </div>
             <h5>coordenadas geográficas</h5>
             <div class="formulario-grupo">
-                <input type="number" id="latitude" placeholder="Latitude"   step="0.0000001" min="-100" max="100">
+                <input type="number" id="latitude" placeholder="Latitude" step="0.0000001" min="-100" max="100">
                 <input type="number" id="longitude" placeholder="Longitude" step="0.0000001" min="-100" max="100">
             </div>
 
             <h5>taxa de entrada</h5>
             <input type="text" id="entrada" placeholder="Entrada">
+            <select id="entrada" placeholder="Selecione o tipo de entrada">
+                <option value="Gratuita">Gratuita</option>
+                <option value="Paga">Paga</option>
+            </select>
 
             <h5>linhas de metrô</h5>
             <select id="multiselectMetro" multiple>
@@ -165,7 +178,7 @@
                 <option value="Linha 5 (Lilás)">Linha 5 (Lilás)</option>
                 <option value="Linha 15 (Prata)">Linha 15 (Prata)</option>
             </select>
-            
+
             <h5>estações de metro</h5>
             <select id="multiselectEstacoes" multiple>
                 <!-- Linha 1-Azul -->
@@ -367,11 +380,23 @@
 
             <h5>avaliações e métricas</h5>
             <div class="formulario-grupo">
-                <input type="number" id="estrelas" placeholder="Estrelas" min="0" max="5">
+                <input type="number" id="estrelas" placeholder="Estrelas do Google" min="0" max="5">
                 <input type="number" id="avaliacao_clientes" placeholder="Avaliação dos Clientes" min="0" max="5">
                 <input type="number" id="avaliacao_pagina" placeholder="Avaliação da Página" min="0" max="5">
                 <input type="number" id="preco" placeholder="Preço" min="0" max="5">
+                <select id="preço" placeholder="Selecione o preço">
+                    <option value="1">1-Até R$30,00</option>
+                    <option value="2">1-De R$30 a R$60</option>
+                    <option value="3">1-De R$60 a R$150</option>
+                    <option value="4">1-De R$150 a R$300</option>
+                    <option value="5">1-Acima de R$300</option>
+                </select>
                 <input type="number" id="nivel" placeholder="Nível" min="0" max="4">
+                <select id="nivel" placeholder="Categoria do cliente">
+                    <option value="1">1-Não verificado</option>
+                    <option value="2">1-Verificado</option> 
+                    <option value="3">1-Ouro</option>
+                </select>
             </div>
 
             <h5>mídias sociais</h5>
@@ -383,41 +408,42 @@
             <input type="text" id="midia_pagina" placeholder="Mídia da Página">
             <h5>website</h5>
             <input type="text" id="website" placeholder="Website">
-           
+
             <h5>cardápio</h5>
             <input type="text" id="link_cardapio" placeholder="Link do Cardápio">
 
             <h5>opções de acessibilidade</h5>
             <select id="multiselectAcessibilidade" multiple>
-                <option value="banheiro acessível">Banheiro acessível</option>
+                <option value="Banheiro acessível">Banheiro acessível</option>
                 <option value="cardápio em braile">Cardápio em braile</option>
-                <option value="entrada de cão-guia">Entrada de cão-guia</option>
-                <option value="vagas especiais">Vagas especiais</option>
-                <option value="rampas de acesso">Rampas de acesso</option>
-                <option value="espaço adequado para cadeira de rodas">Espaço adequado para cadeira de rodas</option>
-                <option value="interpretação em libras">Interpretação em Libras</option>
-                <option value="sinalização em braile">Sinalização em Braile</option>
-                <option value="equipamentos de audiodescrição">Equipamentos de audiodescrição</option>
-                <option value="assentos reservados">Assentos reservados</option>
-                <option value="corrimãos e suportes">Corrimãos e suportes</option>
-                <option value="pisos táteis">Pisos táteis</option>
-                <option value="luzes de alerta para surdos">Luzes de alerta para surdos</option>
-                <option value="software de leitura de tela">Software de leitura de tela</option>
-                <option value="material informativo em formatos acessíveis">Material informativo em formatos acessíveis</option>
-                <option value="assistência pessoal">Assistência pessoal</option>
-                <option value="estacionamento acessível ampliado">Estacionamento acessível ampliado</option>
-                <option value="altura acessível">Altura acessível</option>
-                <option value="sistemas de loop indutivo">Sistemas de loop indutivo</option>
-                <option value="sinalização visual clara">Sinalização visual clara</option>
-                <option value="áreas de descanso">Áreas de descanso</option>
+                <option value="Entrada de cão-guia">Entrada de cão-guia</option>
+                <option value="Vagas especiais">Vagas especiais</option>
+                <option value="Rampas de acesso">Rampas de acesso</option>
+                <option value="Espaço adequado para cadeira de rodas">Espaço adequado para cadeira de rodas</option>
+                <option value="Interpretação em libras">Interpretação em Libras</option>
+                <option value="Sinalização em braile">Sinalização em Braile</option>
+                <option value="Equipamentos de audiodescrição">Equipamentos de audiodescrição</option>
+                <option value="Assentos reservados">Assentos reservados</option>
+                <option value="Corrimãos e suportes">Corrimãos e suportes</option>
+                <option value="Pisos táteis">Pisos táteis</option>
+                <option value="Luzes de alerta para surdos">Luzes de alerta para surdos</option>
+                <option value="Software de leitura de tela">Software de leitura de tela</option>
+                <option value="Material informativo em formatos acessíveis">Material informativo em formatos acessíveis
+                </option>
+                <option value="Assistência pessoal">Assistência pessoal</option>
+                <option value="Estacionamento acessível ampliado">Estacionamento acessível ampliado</option>
+                <option value="Altura acessível">Altura acessível</option>
+                <option value="Sistemas de loop indutivo">Sistemas de loop indutivo</option>
+                <option value="Sinalização visual clara">Sinalização visual clara</option>
+                <option value="Áreas de descanso">Áreas de descanso</option>
             </select>
-            
+
             <h5>premiações</h5>
             <select id="multiselectPremios" multiple>
                 <option value="Os Melhores da Gastronomia 2023">Os Melhores da Gastronomia 2023</option>
                 <option value="Os Melhores da Gastronomia 2024">Os Melhores da Gastronomia 2024</option>
             </select>
-            
+
             <h5>informações úteis ao cliente</h5>
             <div class="formulario-grupo">
                 <select id="musica">
@@ -425,19 +451,13 @@
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
-            
+
                 <select id="estacionamento">
                     <option value="">Estacionamento</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
-            
-                <select id="cover">
-                    <option value="">Cover</option>
-                    <option value="Sim">Sim</option>
-                    <option value="Não">Não</option>
-                </select>
-            
+
                 <select id="kids">
                     <option value="">Kids</option>
                     <option value="Sim">Sim</option>
@@ -511,17 +531,17 @@
                 <option value="Soul">Soul</option>
                 <option value="Trap">Trap</option>
             </select>
-            
+
             <h5>culinária</h5>
             <select id="multiselectCozinha" multiple>
                 <option value="Africana">Africana</option>
                 <option value="Alemã">Alemã</option>
                 <option value="Americana">Americana</option>
                 <option value="Árabe">Árabe</option>
-                <option value="Asiática">Asiática</option>
                 <option value="Brasileira">Brasileira</option>
                 <option value="Chinesa">Chinesa</option>
                 <option value="Contemporânea">Contemporânea</option>
+                <option value="Coreana">Coreana</option>
                 <option value="Espanhola">Espanhola</option>
                 <option value="Francesa">Francesa</option>
                 <option value="Grega">Grega</option>
@@ -536,7 +556,6 @@
                 <option value="Vegetariana">Vegetariana</option>
                 <option value="Vegana">Vegana</option>
                 <option value="Coreana">Coreana</option>
-                <option value="Etíope">Etíope</option>
                 <option value="Filipina">Filipina</option>
                 <option value="Irlandesa">Irlandesa</option>
                 <option value="Marroquina">Marroquina</option>
@@ -553,76 +572,52 @@
 
             <h5>tipos de locais</h5>
             <select id="multiselectLocais" multiple>
-                <option value="padaria">Padaria</option>
-                <option value="restaurante">Restaurante</option>
-                <option value="lanchonete">Lanchonete</option>
-                <option value="hamburgueria">Hamburgueria</option>
-                <option value="bar">Bar</option>
-                <option value="pub">Pub</option>
-                <option value="cafeterias">Cafeterias</option>
-                <option value="casa de show">Casa de Show</option>
-                <option value="clube de comédia">Clube de Comédia</option>
-                <option value="parques e áreas ao ar livre">Parques e Áreas ao Ar Livre</option>
-                <option value="cervejaria">Cervejaria</option>
-                <option value="doceria">Doceria</option>
-                <option value="bolaria">Bolaria</option>
-                <option value="confeitaria">Confeitaria</option>
-                <option value="sorveteria">Sorveteria</option>
-                <option value="pizzaria">Pizzaria</option>
-                <option value="churrascaria">Churrascaria</option>
-                <option value="food truck">Food Truck</option>
-                <option value="bistrô">Bistrô</option>
-                <option value="teatro">Teatro</option>
-                <option value="cinema">Cinema</option>
-                <option value="galeria de arte">Galeria de Arte</option>
-                <option value="livraria">Livraria</option>
-                <option value="centro cultural">Centro Cultural</option>
-                <option value="academia">Academia</option>
-                <option value="spa">Spa</option>
-                <option value="hotel">Hotel</option>
-                <option value="resort">Resort</option>
+                <option value="Padaria">Padaria</option>
+                <option value="Restaurante">Restaurante</option>
+                <option value="Lanchonete">Lanchonete</option>
+                <option value="Hamburgueria">Hamburgueria</option>
+                <option value="Bar">Bar</option>
+                <option value="Pub">Pub</option>
+                <option value="Cafeterias">Cafeterias</option>
+                <option value="Casa de show">Casa de Show</option>
+                <option value="Clube de comédia">Clube de Comédia</option>
+                <option value="Cervejaria">Cervejaria</option>
+                <option value="Doceria">Doceria</option>
+                <option value="Bolaria">Bolaria</option>
+                <option value="Confeitaria">Confeitaria</option>
+                <option value="Sorveteria">Sorveteria</option>
+                <option value="Pizzaria">Pizzaria</option>
+                <option value="Churrascaria">Churrascaria</option>
+                <option value="Food truck">Food Truck</option>
+                <option value="Bistrô">Bistrô</option>
+                <option value="Livraria">Livraria</option>
+                <option value="Centro cultural">Centro Cultural</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Resort">Resort</option>
             </select>
 
             <h5>tipos de eventos</h5>
             <select id="multiselectTiposEvento" multiple>
-                <option value="primeiro encontro">Primeiro Encontro</option>
-                <option value="beber e dançar">Beber e Dançar</option>
+                 <option value="beber e dançar">Beber e dançar</option>
+                <option value="rolê geek">Rolê geek</option>
                 <option value="conversar">Conversar</option>
-                <option value="lugares romântico">Lugares Românticos</option>
-                <option value="reunião de amigos">Reunião de Amigos</option>
-                <option value="encontro familiar">Encontro Familiar</option>
-                <option value="festa de aniversário">Festa de Aniversário</option>
+                <option value="lugar romântico">Lugar romântico</option>
+                <option value="rolê de amigos">Rolê de amigos</option>
+                <option value="encontro familiar">Encontro familiar</option>
+                <option value="aniversário">Aniversário</option>
                 <option value="happy hour">Happy Hour</option>
-                <option value="assistir jogos esportivos">Assistir Jogos Esportivos</option>
-                <option value="sair sozinho">Sair Sozinho</option>
-                <option value="clube de comédia">Clube de Comédia</option>
-                <option value="balada">Balada</option>
-                <option value="experiência gastronômica">Experiência Gastronômica</option>
+                <option value="assistir jogos">Assistir Jogos</option>
+                <option value="sair Sozinho/a">Sair Sozinho/a</option>                   
+                <option value="brunches">Brunches</option>
                 <option value="cabaré/boates">Cabaré/Boates</option>
-                <option value="música ao vivo">Música ao Vivo</option>
-                <option value="diferentão">Diferentão</option>
-                <option value="próprio para crianças">Próprio para Crianças</option>
-                <option value="show de comédia">Show de Comédia</option>
-                <option value="karaokê">Karaokê</option>
-                <option value="rodízio">Rodízio</option>
-                <option value="open bar/food">Open Bar/Food</option>
-                <option value="lgbtqia+">LGBTQIA+</option>
-                <option value="comer e jogar">Comer e Jogar</option>
-                <option value="degustação de vinhos">Degustação de Vinhos</option>
-                <option value="feira gastronômica">Feira Gastronômica</option>
-                <option value="feira de artesanato">Feira de Artesanato</option>
-                <option value="festival de música">Festival de Música</option>
-                <option value="exposição de arte">Exposição de Arte</option>
-                <option value="palestras e workshops">Palestras e Workshops</option>
-                <option value="cinema ao ar livre">Cinema ao Ar Livre</option>
-                <option value="piquenique">Piquenique</option>
-                <option value="yoga/meditação">Yoga/Meditação</option>
-                <option value="stand-up paddle/kayaking">Stand-up Paddle/Kayaking</option>
-                <option value="trilhas e caminhadas">Trilhas e Caminhadas</option>
-                <option value="passeio de bicicleta">Passeio de Bicicleta</option>
-                <option value="maratona/caminhada beneficente">Maratona/Caminhada Beneficente</option>
-            </select>
-            
+                <option value="música ao vivo">Música ao vivo</option>
+                <option value="para crianças">Para crianças</option>
+                <option value="temáticos">Temáticos</option>
+                <option value="karaokês">Karaokês</option>
+                <option value="casas noturnas">Casas noturnas</option>
+                <option value="LGBTQIA+">LGBTQIA+</option>
+             </select>
+
             <h5>hobbies</h5>
             <select id="multiselectHobbies" multiple>
                 <option value="jogos de tabuleiro">Jogos de Tabuleiro</option>
@@ -635,19 +630,7 @@
                 <option value="dançar">Dançar</option>
                 <option value="cozinhar">Cozinhar</option>
                 <option value="fotografia">Fotografia</option>
-                <option value="caminhada">Caminhada</option>
-                <option value="escalada">Escalada</option>
-                <option value="ciclismo">Ciclismo</option>
-                <option value="yoga">Yoga</option>
-                <option value="meditação">Meditação</option>
-                <option value="jardinagem">Jardinagem</option>
-                <option value="assistir filmes e séries">Assistir Filmes e Séries</option>
-                <option value="escrita">Escrita</option>
-                <option value="modelismo">Modelismo</option>
-                <option value="astronomia">Astronomia</option>
                 <option value="pescaria">Pescaria</option>
-                <option value="mergulho">Mergulho</option>
-                <option value="surf">Surf</option>
             </select>
 
             <h5>ambientes</h5>
@@ -659,9 +642,10 @@
                 <option value="terraço">Terraço</option>
                 <option value="melhores vistas">Melhores Vistas</option>
                 <option value="intimista">Intimista</option>
-                <option value="temático">Temático</option>
-                <option value="vista para o mar">Vista para o Mar</option>
+                <option value="Instagramável">Instagramável</option>
                 <option value="térreo">Térreo</option>
+                <option value="vista para o mar">Vista para o Mar</option>
+                <option value="temático">Temático</option>
                 <option value="despojado">Despojado</option>
                 <option value="moderno">Moderno</option>
                 <option value="clássico">Clássico</option>
@@ -674,11 +658,11 @@
                 <option value="campo">Campo</option>
                 <option value="luxuoso">Luxuoso</option>
                 <option value="minimalista">Minimalista</option>
-                <option value="exótico">Exótico</option>
+                <option value="speakeasy">Speakeasy</option>
                 <option value="vintage">Vintage</option>
                 <option value="retro">Retro</option>
             </select>
-            
+
             <h5>formas de pagamento</h5>
             <select id="multiselectTiposCartao" multiple>
                 <option value="dinheiro">Dinheiro</option>
@@ -722,7 +706,7 @@
                 <option value="bitcoin">Bitcoin</option>
                 <option value="pix">Pix</option>
             </select>
-            
+
             <h5>estilos de serviços</h5>
             <select id="multiselectEstilosServico" multiple>
                 <option value="buffet">Buffet</option>
@@ -730,22 +714,7 @@
                 <option value="rodízio">Rodízio</option>
                 <option value="serviço de entrega">Serviço de Entrega</option>
                 <option value="self-service">Self-Service</option>
-                <option value="fast food">Fast Food</option>
-                <option value="food truck">Food Truck</option>
-                <option value="take away">Take Away</option>
                 <option value="drive-thru">Drive-Thru</option>
-                <option value="casual dining">Casual Dining</option>
-                <option value="fine dining">Fine Dining</option>
-                <option value="cafeteria">Cafeteria</option>
-                <option value="pub">Pub</option>
-                <option value="bar">Bar</option>
-                <option value="bistrô">Bistrô</option>
-                <option value="quiosque">Quiosque</option>
-                <option value="temático">Temático</option>
-                <option value="gastronomia molecular">Gastronomia Molecular</option>
-                <option value="gourmet">Gourmet</option>
-                <option value="brunch">Brunch</option>
-                <option value="tasting menu">Tasting Menu</option>
             </select>
 
             <h5>horário de funcionamento</h5>
@@ -761,73 +730,74 @@
                 <div class="formulario-grupo">
                     <input type="time" id="abertura-terca" placeholder="Abertura">
                     <input type="time" id="fechamento-terca" placeholder="Fechamento">
-            </div>
-            <div class="dia">
-                <label for="abertura-quarta">Quarta-feira:</label>
-                <div class="formulario-grupo">
-                    <input type="time" id="abertura-quarta" placeholder="Abertura">
-                    <input type="time" id="fechamento-quarta" placeholder="Fechamento">
                 </div>
-            </div>
-            <div class="dia">
-                <label for="abertura-quinta">Quinta-feira:</label>
-                <div class="formulario-grupo">
-                    <input type="time" id="abertura-quinta" placeholder="Abertura">
-                    <input type="time" id="fechamento-quinta" placeholder="Fechamento">
+                <div class="dia">
+                    <label for="abertura-quarta">Quarta-feira:</label>
+                    <div class="formulario-grupo">
+                        <input type="time" id="abertura-quarta" placeholder="Abertura">
+                        <input type="time" id="fechamento-quarta" placeholder="Fechamento">
+                    </div>
                 </div>
-            </div>
-            <div class="dia">
-                <label for="abertura-sexta">Sexta-feira:</label>
-                <div class="formulario-grupo">
-                    <input type="time" id="abertura-sexta" placeholder="Abertura">
-                    <input type="time" id="fechamento-sexta" placeholder="Fechamento">
+                <div class="dia">
+                    <label for="abertura-quinta">Quinta-feira:</label>
+                    <div class="formulario-grupo">
+                        <input type="time" id="abertura-quinta" placeholder="Abertura">
+                        <input type="time" id="fechamento-quinta" placeholder="Fechamento">
+                    </div>
                 </div>
-            </div>
-            <div class="dia">
-                <label for="abertura-sabado">Sábado:</label>
-                <div class="formulario-grupo">
-                    <input type="time" id="abertura-sabado" placeholder="Abertura">
-                    <input type="time" id="fechamento-sabado" placeholder="Fechamento">
+                <div class="dia">
+                    <label for="abertura-sexta">Sexta-feira:</label>
+                    <div class="formulario-grupo">
+                        <input type="time" id="abertura-sexta" placeholder="Abertura">
+                        <input type="time" id="fechamento-sexta" placeholder="Fechamento">
+                    </div>
                 </div>
-            </div>
-            <div class="dia">
-                <label for="abertura-domingo">Domingo:</label>
-                <div class="formulario-grupo">
-                    <input type="time" id="abertura-domingo" placeholder="Abertura">
-                    <input type="time" id="fechamento-domingo" placeholder="Fechamento">
-                </div>  
-            </div>
-            <div class="dia">
-                <label for="abertura-feriados">Feriados:</label>
-                <div class="formulario-grupo">
-                    <select id="abertura-feriados">
-                        <option value="">Abertura</option>
-                        <option value="consultar">Consultar</option>
-                        <option value="comercial">Horário comercial</option>
-                        <option value="não">Não funciona</option>
-                    </select>
-                    <select id="fechamento-feriados">
-                        <option value="">Fechamento</option>
-                        <option value="consultar">Consultar</option>
-                        <option value="comercial">Horário comercial</option>
-                        <option value="não">Não funciona</option>
-                    </select>
+                <div class="dia">
+                    <label for="abertura-sabado">Sábado:</label>
+                    <div class="formulario-grupo">
+                        <input type="time" id="abertura-sabado" placeholder="Abertura">
+                        <input type="time" id="fechamento-sabado" placeholder="Fechamento">
+                    </div>
                 </div>
-            </div>
+                <div class="dia">
+                    <label for="abertura-domingo">Domingo:</label>
+                    <div class="formulario-grupo">
+                        <input type="time" id="abertura-domingo" placeholder="Abertura">
+                        <input type="time" id="fechamento-domingo" placeholder="Fechamento">
+                    </div>
+                </div>
+                <div class="dia">
+                    <label for="abertura-feriados">Feriados:</label>
+                    <div class="formulario-grupo">
+                        <select id="abertura-feriados">
+                            <option value="">Abertura</option>
+                            <option value="consultar">Consultar</option>
+                            <option value="comercial">Horário comercial</option>
+                            <option value="não">Não funciona</option>
+                        </select>
+                        <select id="fechamento-feriados">
+                            <option value="">Fechamento</option>
+                            <option value="consultar">Consultar</option>
+                            <option value="comercial">Horário comercial</option>
+                            <option value="não">Não funciona</option>
+                        </select>
+                    </div>
+                </div>
 
-            <h5>fotos</h5>
-            <div class="form-group">
-                <label for="fotos">selecione fotos do seu estabelecimento</label>
-                <input type="file" class="form-control-file" id="fotos" multiple required>
-            </div>
-            <br>
-            <input type="submit" value="Cadastrar" class="btn"/>
+                <h5>fotos</h5>
+                <div class="form-group">
+                    <label for="fotos">selecione fotos do seu estabelecimento</label>
+                    <input type="file" class="form-control-file" id="fotos" multiple required>
+                </div>
+                <br>
+                <input type="submit" value="Cadastrar" class="btn" />
         </form>
-        </div>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="script/cadastro.js"></script> <!-- Referência para o seu script JavaScript -->
     <script src="script/navbar.js"></script>
 </body>
+
 </html>
