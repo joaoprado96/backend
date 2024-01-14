@@ -400,6 +400,11 @@ function criaPaginacao(totalEstabelecimentos, estabelecimentosPorPagina, paginaA
     }
 }
 
+function formatarLista(locais) {
+    // Substitui o hífen por um ícone de bolinha
+    return locais.join(' • ').toUpperCase();
+}
+
 async function criarCard(estabelecimento) {
     const horarioHoje = estabelecimento.horarios_funcionamento[diaDaSemanaGlobal];
     let horarioAbertura = horarioHoje ? horarioHoje.abertura : 'Indisponível';
@@ -410,6 +415,10 @@ async function criarCard(estabelecimento) {
     let horarioExibicao;
     let bairroExibicao = estabelecimento.bairro;
     let resultado = bairroExibicao.toUpperCase();
+    let localFormatado = formatarLista(estabelecimento.local);
+    let cozinhaFormatado = formatarLista(estabelecimento.cozinha);
+
+    console.log(estabelecimento.local)
 
     if (horarioAbertura.toLowerCase() === 'fechado' && horarioFechamento.toLowerCase() === 'fechado') {
         horarioExibicao = '<span class="horario"><i class="fas fa-clock"></i> Fechado</span>';
@@ -440,10 +449,10 @@ async function criarCard(estabelecimento) {
                     ${horarioExibicao}
                 </div>
                 <div class="estabelecimento-info">
-                    <span class="culinaria"><i class="fa fa-cutlery"></i> ${estabelecimento.cozinha}</span>
+                    <span class="culinaria"><i class="fa fa-cutlery"></i> ${cozinhaFormatado}</span>
                 </div>
                 <div class="estabelecimento-info">
-                    <span class="localizacao"><i class="fas fa-glass-cheers"></i> ${estabelecimento.local}</span>
+                    <span class="localizacao"><i class="fas fa-glass-cheers"></i> ${localFormatado}</span>
                 </div>
             </div>
         </div>

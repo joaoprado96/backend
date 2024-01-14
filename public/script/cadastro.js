@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = '/login.html';
         }, 4500);
     }
-    Inicializar();
+    // Inicializar();
 });
 
 function Inicializar(){
@@ -22,10 +22,6 @@ function Inicializar(){
     document.getElementById('rua').value = 'Rua do Estabelecimento';
     document.getElementById('cep').value = '01000-000';
     document.getElementById('cnpj').value = '01000-000';
-    document.getElementById('bairro').value = 'Bairro do Estabelecimento';
-    document.getElementById('regiao').value = 'Região do Estabelecimento';
-    document.getElementById('cidade').value = 'Cidade do Estabelecimento';
-    document.getElementById('entrada').value = 'Entrada Principal';
     document.getElementById('latitude').value = -23.5629;
     document.getElementById('longitude').value = -46.6544;
     document.getElementById('estrelas').value = 4;
