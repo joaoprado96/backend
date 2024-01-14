@@ -2,7 +2,9 @@ function criarNavbar() {
     var navbarHTML = `
     <nav class="nav">
         <i class="uil uil-bars navOpenBtn"></i>
-        <a href="/home" class="logo">Ache Aí</a>
+        <a href="/home" class="logo">
+            <img src="icons/logo.svg" alt="Logo" style="height: 40px;"> AcheAi
+        </a>
 
         <ul class="nav-links">
             <i class="uil uil-times navCloseBtn"></i>

@@ -4,6 +4,8 @@
 
 :root {
     --primaria:  #663A84; /* Cor laranja para o esquema primário */
+    --primaria2:  #874cae; /* Cor laranja para o esquema primário */
+    --primaria3: #2b0d40; /* Cor laranja para o esquema primário */
     --secundaria:#E5671D; /* Altere se desejar uma cor secundária diferente */
     --terciaria: #FFDE59;
     --branco:    #ffffff;
@@ -81,6 +83,7 @@ a {
   font-size: 22px;
   font-weight: 700;
 }
+
 .nav .nav-links {
   /* display: contents; */
   column-gap: 20px;
@@ -101,8 +104,15 @@ a {
     padding: 10px 15px; /* Ajuste o padding conforme necessário */
     border-radius: 5px; /* Adiciona bordas arredondadas */
     transition: all 0.3s ease; /* Suaviza a transição das propriedades */
+    text-decoration: none;
   }
 
+  .nav .logo:hover {
+    background-color: var(--branco); /* Cor de fundo ao passar o mouse */
+    color: var(--secundaria); /* Cor do texto ao passar o mouse */
+    transition: all 0.3s ease; /* Suaviza a transição das propriedades */
+    text-decoration: none;
+  }
 .nav .search-icon {
   margin-right: 30px;
   z-index: 1000;
@@ -1232,7 +1242,7 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para um efeito elevado */
   border-radius: 8px; /* Bordas arredondadas */
   overflow: hidden; /* Garante que a imagem não ultrapasse as bordas arredondadas */
-  height: 250px; /* Altura fixa para todos os cards */
+  height: 300px; /* Altura fixa para todos os cards */
 }
 
 .card {
@@ -1244,18 +1254,18 @@ button:hover {
 
 .card-content img {
   width: 100%; /* A imagem ocupa toda a largura do card */
-  height: 160px; /* Altura fixa para todas as imagens */
+  height: 170px; /* Altura fixa para todas as imagens */
   object-fit: cover; /* Corta a imagem para caber no contêiner sem distorcer */
   transition: transform 0.3s ease; /* Efeito de zoom ao passar o mouse */
 }
 
 .card-content .overlay {
   padding: 10px 10px;
-  background-color: var(--primaria); /* Overlay escuro */
+  background-image: linear-gradient(to bottom, var(--primaria2), var(--primaria3));
   color: var(--branco); /* Texto branco */
   padding: 0px; /* Espaçamento interno */
   text-align: center; /* Alinhamento do texto */
-  height: 90px; /* Altura do overlay */
+  height: 120px; /* Altura do overlay */
 }
 
 /* Efeito de hover para o card */
@@ -1267,7 +1277,7 @@ button:hover {
     display: flex; /* Torna o cabeçalho um container flexível */
     justify-content: space-between; /* Espaço entre os itens */
     align-items: center; /* Alinha os itens verticalmente */
-    margin-bottom: 15px; /* Espaço abaixo do cabeçalho */
+    margin-bottom: 3px; /* Espaço abaixo do cabeçalho */
 }
 
 .estabelecimento-nome {
@@ -1295,6 +1305,12 @@ button:hover {
 }
 
 .fas {
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+    color: var(--terciaria); /* Cor do ícone */
+    text-shadow: 1px 1px 10px #000000; /* Sombra ao redor do ícone */
+}
+
+.fa {
     margin-right: 5px; /* Espaço entre o ícone e o texto */
     color: var(--terciaria); /* Cor do ícone */
     text-shadow: 1px 1px 10px #000000; /* Sombra ao redor do ícone */
@@ -1387,4 +1403,7 @@ button:hover {
     justify-content: center;
     align-items: flex-start;
     font-size: 18px;
+}
+.localizacao {
+    font: 12px;
 }

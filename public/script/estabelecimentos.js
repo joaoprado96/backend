@@ -408,6 +408,9 @@ async function criarCard(estabelecimento) {
 
     // Tratar caso de estabelecimento fechado
     let horarioExibicao;
+    let bairroExibicao = estabelecimento.bairro;
+    let resultado = bairroExibicao.toUpperCase();
+
     if (horarioAbertura.toLowerCase() === 'fechado' && horarioFechamento.toLowerCase() === 'fechado') {
         horarioExibicao = '<span class="horario"><i class="fas fa-clock"></i> Fechado</span>';
     } else if (horarioAbertura.toLowerCase() === 'fechado' || horarioFechamento.toLowerCase() === 'fechado') {
@@ -433,8 +436,14 @@ async function criarCard(estabelecimento) {
                     </span>
                 </div>
                 <div class="estabelecimento-info">
+                    <span class="localizacao"><i class="fas fa-map-marker-alt"></i> ${resultado}</span>
                     ${horarioExibicao}
-                    <span class="localizacao"><i class="fas fa-map-marker-alt"></i> ${estabelecimento.bairro}</span>
+                </div>
+                <div class="estabelecimento-info">
+                    <span class="culinaria"><i class="fa fa-cutlery"></i> ${estabelecimento.cozinha}</span>
+                </div>
+                <div class="estabelecimento-info">
+                    <span class="localizacao"><i class="fas fa-glass-cheers"></i> ${estabelecimento.local}</span>
                 </div>
             </div>
         </div>
