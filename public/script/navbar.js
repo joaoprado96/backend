@@ -26,7 +26,7 @@ function criarNavbar() {
                 <a href="/perfil">minha conta</a>
                 <a href="/destaques">destaques</a>
                 <a href="/cadastro">cadastro</a>
-                <a href="/editar_estabelecimento">Atualizar Estabelecimento</a>
+                <a href="/editar_estabelecimento">atualizar</a>
             </div>
         </div>
     </nav>
@@ -61,7 +61,7 @@ function criarNavbar() {
     });
 
 
-    const userIconContainer = document.querySelector(".user-icon-container");
+    const userIconContainer = document.querySelector(".user-icon");
     const userSubmenu = document.querySelector(".user-submenu");
 
     let closeTimeout;

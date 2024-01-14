@@ -837,6 +837,20 @@ button:hover {
     padding: 20px;
 }
 
+.container-central {
+    width: 95%;
+    max-width: 1200px;
+    border-radius: 20px;
+    margin-top: var(--navbar-height);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
 /* Media query para telas menores que 768px (tablets) */
 @media (max-width: 768px) {
     .container-side {
@@ -868,6 +882,85 @@ button:hover {
 .container-filtros-principais {
   padding: 10px;
   background-color: var(--branco); /* Exemplo de cor de fundo */
+}
+
+@keyframes pulseGlow {
+    0% {
+      text-shadow: 0 0 10px var(--branco), 0 0 20px var(--branco);
+      box-shadow: 0 0 20px var(--branco), 0 0 30px var(--branco);
+      opacity: 1;
+    }
+    50% {
+      text-shadow: 0 0 15px var(--branco), 0 0 25px var(--branco);
+      box-shadow: 0 0 25px var(--branco), 0 0 35px var(--branco);
+      opacity: 0.7;
+    }
+    100% {
+      text-shadow: 0 0 10px var(--branco), 0 0 20px var(--branco);
+      box-shadow: 0 0 20px var(--branco), 0 0 30px var(--branco);
+      opacity: 1;
+    }
+  }
+  
+  .h2-titulo {
+    color: var(--branco);
+    font-size: 40px;
+    font-weight: bold; /* Use 'font-weight' for bold style instead of 'font-style' */
+    position: relative; /* For the drop shadow */
+    border: 1px var(--standard2);
+  }
+
+  @media (max-width: 768px) {
+    .h2-titulo {
+        font-size: 26px;
+    }
+  }
+  
+  /* Adding a drop shadow that ensures readability over different backgrounds */
+  .h2-titulo::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: -1;
+    color: transparent;
+    text-shadow: 2px 2px 50px rgba(0, 0, 0, 0.7); /* Adjust color and opacity as needed */
+    transform: scale(1.02);
+    visibility: visible;
+    opacity: 0.5;
+  }
+
+
+  .b-titulo {
+    display: inline-block;
+    color: var(--branco); /* Cor do texto */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color:var(--branco);
+    background-color: var(--secundaria);
+    border: none;
+    border-radius: 20px;
+}
+
+.b-titulo:hover {
+    transform: scale(1.10); /* Aumenta ligeiramente o tamanho */
+    transition: all linear 160ms;
+    background-color:var(--terciaria);
+    color: var(--branco); /* Cor do texto */
+    text-decoration: none;
+}
+
+.b-titulo:active {
+  background-color: var(--terciaria); 
+  transform: translateY(4px);
+}
+.p-titulo {
+    color: var(--branco);
+    font-size: 14px;
 }
 
 .h2-manchete{
