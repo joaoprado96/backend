@@ -12,5 +12,11 @@ router.post('/lugares', rateLimit, verificarToken.verificarToken, lugaresControl
 // Nova rota para buscar lugares
 router.get('/lugares', lugaresController.buscarLugares);
 
+// Nova rota para buscar lugares
+router.get('/lugares/:lugarId', lugaresController.buscarLugarPorId);
+
+// Nova rota para atualizar o lugar
+router.put('/lugares/:lugarId', verificarToken.verificarToken, lugaresController.ataulizarLugarPorId);
+
 
 module.exports = router;

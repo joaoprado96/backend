@@ -242,7 +242,14 @@ dl, ol, ul {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    display: none;
+    opacity: 0; /* começa transparente */
+    visibility: hidden; /* esconde */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* adiciona uma transição suave */
+}
+
+.user-submenu.show {
+    opacity: 1; /* torna visível */
+    visibility: visible; /* exibe */
 }
 
 .user-submenu a {
@@ -261,9 +268,6 @@ dl, ol, ul {
     border-bottom: none;
 }
 
-.user-icon:hover + .user-submenu {
-    display: block;
-}
 
 .tab-nav-container {
     padding: 15px; /* Espaçamento interno para dar espaço ao redor dos itens */

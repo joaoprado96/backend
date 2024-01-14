@@ -2,7 +2,7 @@ function criarNavbar() {
     var navbarHTML = `
     <nav class="nav">
         <i class="uil uil-bars navOpenBtn"></i>
-        <a href="#" class="logo">Ache Aí</a>
+        <a href="/home" class="logo">Ache Aí</a>
 
         <ul class="nav-links">
             <i class="uil uil-times navCloseBtn"></i>
@@ -26,6 +26,7 @@ function criarNavbar() {
                 <a href="/perfil">minha conta</a>
                 <a href="/destaques">destaques</a>
                 <a href="/cadastro">cadastro</a>
+                <a href="/editar_estabelecimento">Atualizar Estabelecimento</a>
             </div>
         </div>
     </nav>
@@ -58,4 +59,37 @@ function criarNavbar() {
     navCloseBtn.addEventListener("click", () => {
         nav.classList.remove("openNav");
     });
+
+
+    const userIconContainer = document.querySelector(".user-icon-container");
+    const userSubmenu = document.querySelector(".user-submenu");
+
+    let closeTimeout;
+
+    userIconContainer.addEventListener("mouseenter", () => {
+        clearTimeout(closeTimeout);
+        userSubmenu.classList.add("show");
+    });
+
+    userIconContainer.addEventListener("mouseleave", () => {
+        closeTimeout = setTimeout(() => {
+            userSubmenu.classList.remove("show");
+        }, 300);
+    });
+
+    userSubmenu.addEventListener("mouseenter", () => {
+        clearTimeout(closeTimeout);
+    });
+
+    userSubmenu.addEventListener("mouseleave", () => {
+        closeTimeout = setTimeout(() => {
+            userSubmenu.classList.remove("show");
+        }, 300);
+    });
+
+
+
+
+
+
 }
