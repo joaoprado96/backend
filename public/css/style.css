@@ -7,6 +7,7 @@
     --secundaria:#E5671D; /* Altere se desejar uma cor secundária diferente */
     --terciaria: #FFDE59;
     --branco:    #ffffff;
+    --border:    #f3f3f3;
     --standard2: #000000;
     --nivel1: #e4e4e4;
     --nivel2: #787878;
@@ -339,7 +340,11 @@ button {
 }
 
 button:hover {
-    background-color: var(--terciaria);
+    background-color: var(--primaria);
+    color: var(--branco);
+    border-radius: 30px;
+    transition: all linear 160ms;
+    transform: scale(1.03);
 }
 
 /* Estilos adicionais para o mapa e outras seções podem ser adicionados aqui */
@@ -657,8 +662,8 @@ button:hover {
     font-size: 14px;
     font-weight: 600;
     border: none;
-    transition: all linear 160ms;
     cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .btn:hover {
@@ -880,7 +885,7 @@ button:hover {
 
 
 .container-filtros-principais {
-  padding: 10px;
+  width: 100%;
   background-color: var(--branco); /* Exemplo de cor de fundo */
 }
 
@@ -903,7 +908,7 @@ button:hover {
   }
   
   .h2-titulo {
-    color: var(--branco);
+    color: var(--primaria);
     font-size: 40px;
     font-weight: bold; /* Use 'font-weight' for bold style instead of 'font-style' */
     position: relative; /* For the drop shadow */
@@ -933,15 +938,15 @@ button:hover {
 
   .b-titulo {
     display: inline-block;
-    color: var(--branco); /* Cor do texto */
-    padding: 10px 20px;
+    color: var(--primaria); /* Cor do texto */
+    padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     outline: none;
     color:var(--branco);
-    background-color: var(--secundaria);
+    background-color: var(--primaria);
     border: none;
     border-radius: 20px;
 }
@@ -949,7 +954,7 @@ button:hover {
 .b-titulo:hover {
     transform: scale(1.10); /* Aumenta ligeiramente o tamanho */
     transition: all linear 160ms;
-    background-color:var(--terciaria);
+    background-color:var(--secundaria);
     color: var(--branco); /* Cor do texto */
     text-decoration: none;
 }
@@ -959,20 +964,26 @@ button:hover {
   transform: translateY(4px);
 }
 .p-titulo {
-    color: var(--branco);
+    color: var(--primaria);
     font-size: 14px;
+    font-style: bold;
 }
 
 .h2-manchete{
-    color: var(--branco);
+    color: var(--primaria);
 }
 .a-manchete {
-    color: var(--branco);
+    color: var(--primaria);
 }
 .a-manchete:hover, .h2-manchete:hover {
     color: var(--nivel3);
 }
+
+
 #filtros-container {
+  background-color: var(--branco);
+  border-radius: 30px;
+  padding: 10px 40px;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -982,7 +993,6 @@ button:hover {
 
 #filtros-container > div {
   flex: 1;
-  min-width: 100px; /* Largura mínima para cada filtro */
 }
 
 .btn-filtros, .btn-filtros-left {
@@ -999,18 +1009,46 @@ button:hover {
   margin-bottom: 0px;
   margin-top: 0px;
   font-size: 12px;
-  width: 100% ;
-  padding: 8px 15px;
-  border: 2px solid #ccc;
-  color: var(--secundaria);
-  border-radius: 25px;
-  background-color: #E2F0EE;
+  padding: 4px 5px;
+  border: 2px solid var(--border);
+  color: var(--primaria);
+  border-radius: 5px;
+  background-color: var(--branco);
   cursor: pointer;
 }
+
+.filtro-select-normal {
+    /* Estilos adicionais para os elementos select, se necessário */
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 12px;
+    padding: 4px 5px;
+    border: 2px solid var(--border);
+    color: var(--primaria);
+    border-radius: 20px;
+    background-color: var(--branco);
+    cursor: pointer;
+  }
+
+.filtro-select-pequeno {
+    /* Estilos adicionais para os elementos select, se necessário */
+    margin-bottom: 0px;
+    margin-top: 10px;
+    font-size: 10px;
+    padding: 4px 5px;
+    border: 1px solid var(--border);
+    color: var(--primaria);
+    border-radius: 15px;
+    background-color: var(--branco);
+    cursor: pointer;
+  }
 
 @media (max-width: 768px) {
     #filtros-container {
         flex-wrap: wrap;
+    }
+    .filtro-select, .filtro-select-normal {
+        width: 45%;
     }
   }
   
@@ -1077,7 +1115,7 @@ button:hover {
   background-color: var(--branco);
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 3%;
 }
 
 .menu-lateral-conteudo {
@@ -1089,6 +1127,7 @@ button:hover {
   top: 0;
   right: 20px;
   font-size: 12px;
+  color: var(--primaria);
   border: none;
   background: none;
   cursor: pointer;

@@ -94,7 +94,7 @@
                    <!-- Os itens do carrossel serão inseridos aqui pelo JavaScript -->
                 </div>
             </div>
-        
+        </div>
         <div class="container-filtros-principais">
             <!-- Carrossel de Filtros -->
             <div id="filtros-container">
@@ -113,15 +113,14 @@
                 <!-- Filtro de Bairro -->
                 <select id="filtro-bairro" class="filtro-select">
                     <option value="">Bairro</option>
-                </select>
-                <button id="botao-menu-filtros" class="filtro-select">filtros</button>
-                <button id="botao-limpar-filtros" class="filtro-select" onclick="limparFiltros()">limpar</button>
-                <button class="filtro-select" onclick="ordenarEstabelecimentos('estrelas', true)">estrelas</button>
-                <button class="filtro-select" onclick="ordenarEstabelecimentos('preco', true)">preço</button>
-            
+                </select>       
+                <button id="botao-menu-filtros" class="filtro-select-normal">+ mais filtros</button>
+                <button id="botao-limpar-filtros" class="filtro-select-normal" onclick="limparFiltros()">limpar</button>   
             </div>
         </div>
-    
+        <div>
+            <button class="filtro-select-pequeno" onclick="ordenarEstabelecimentos('estrelas', true)">ordenar por estrelas</button>
+            <button class="filtro-select-pequeno" onclick="ordenarEstabelecimentos('preco', true)">ordenar por preço</button>
         </div>
         <div id="estabelecimentos">
             <!-- Os cards serão inseridos aqui pelo JavaScript -->
