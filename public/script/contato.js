@@ -16,7 +16,7 @@ var data = {
 };
 
 // Exemplo de função para enviar dados para o servidor
-fetch('/api/fale-conosco', {
+fetch('/api/incluir-sugestao', {
     method: 'POST',
     headers: {
     'Content-Type': 'application/json',
