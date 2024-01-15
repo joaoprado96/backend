@@ -165,6 +165,7 @@
 
             <h5>taxa de entrada</h5>
             <select id="entrada" placeholder="Selecione o tipo de entrada">
+                <option value="Nulo">nulo</option>
                 <option value="Gratuita">Gratuita</option>
                 <option value="Paga">Paga</option>
             </select>
@@ -380,9 +381,27 @@
 
             <h5>avaliações e métricas</h5>
             <div class="formulario-grupo">
-                <input type="number" id="estrelas" placeholder="Estrelas do Google" min="0" max="5">
-                <input type="number" id="avaliacao_clientes" placeholder="Avaliação dos Clientes" min="0" max="5">
-                <input type="number" id="avaliacao_pagina" placeholder="Avaliação da Página" min="0" max="5">
+                <select id="estrelas" placeholder="Estrelas do Google">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <select id="avaliacao_clientes" placeholder="Avaliação dos Clientes">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <select id="avaliacao_pagina" placeholder="Avaliação da Página">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
                 <input type="number" id="preco" placeholder="Preço" min="0" max="5">
                 <select id="preço" placeholder="Selecione o preço">
                     <option value="1">1 - Até R$30,00</option>
@@ -414,6 +433,7 @@
 
             <h5>opções de acessibilidade</h5>
             <select id="multiselectAcessibilidade" multiple>
+                <option value="Nulo">Nulo</option>
                 <option value="Banheiro acessível">Banheiro acessível</option>
                 <option value="cardápio em braile">Cardápio em braile</option>
                 <option value="Entrada de cão-guia">Entrada de cão-guia</option>
@@ -439,6 +459,7 @@
 
             <h5>premiações</h5>
             <select id="multiselectPremios" multiple>
+                <option value="Nulo">Nulo</option>
                 <option value="Os Melhores da Gastronomia 2023">Os Melhores da Gastronomia 2023</option>
                 <option value="Os Melhores da Gastronomia 2024">Os Melhores da Gastronomia 2024</option>
             </select>
@@ -446,38 +467,38 @@
             <h5>informações úteis ao cliente</h5>
             <div class="formulario-grupo">
                 <select id="musica">
-                    <option value="">Música</option>
+                    <option value="Nulo">Nulo</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
 
                 <select id="estacionamento">
-                    <option value="">Estacionamento</option>
+                    <option value="Nulo">Nulo</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
 
                 <select id="kids">
-                    <option value="">Kids</option>
+                    <option value="Nulo">Nulo</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
             </div>
             <div class="formulario-grupo">
                 <select id="pet">
-                    <option value="">Pet Friendly</option>
+                    <option value="Nulo">Nulo</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
 
                 <select id="glutenfree">
-                    <option value="">Gluten Free</option>
+                    <option value="Nulo">Nulo</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
 
                 <select id="lactosefree">
-                    <option value="">Lactose Free</option>
+                    <option value="Nulo">Nulo</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
@@ -485,6 +506,7 @@
 
             <h5>estilos musicais</h5>
             <select id="multiselectEstilosMusicais" multiple>
+                <option value="Nulo">Nulo</option>
                 <option value="Axé">Axé</option>
                 <option value="Black Music">Black Music</option>
                 <option value="Blues">Blues</option>
@@ -619,6 +641,7 @@
 
             <h5>hobbies</h5>
             <select id="multiselectHobbies" multiple>
+                <option value="Nulo">Nulo</option>
                 <option value="jogos de tabuleiro">Jogos de Tabuleiro</option>
                 <option value="fliperama">Fliperama</option>
                 <option value="video game">Video Game</option>
@@ -634,6 +657,7 @@
 
             <h5>ambientes</h5>
             <select id="multiselectAmbientes" multiple>
+                <option value="Nulo">Nulo</option>
                 <option value="jardim">Jardim</option>
                 <option value="jantar ao ar livre">Jantar ao Ar Livre</option>
                 <option value="rooftop">Rooftop</option>
