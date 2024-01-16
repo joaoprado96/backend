@@ -230,9 +230,6 @@ function criarCardDetalhe(estabelecimento) {
                 <li class="nav2-item">
                     <a class="nav2-link" href="#horario">horário</a>
                 </li>
-                <li class="nav2-item">
-                    <a class="nav2-link" href="#menu">menu</a>
-                </li>
             </ul>
         </div>
         <h1 class="nome-estabelecimento">${estabelecimento.nome}</h1>
@@ -240,22 +237,26 @@ function criarCardDetalhe(estabelecimento) {
             <div class="tab-pane active" id="descricao">
                 <p>${estabelecimento.descricao}</p>
                 <div class="info-row">
-                    <div class="info-column">
-                        <h4 class="h4-small">estrelas</h4>
-                        <div class="rating">${criarAvaliacao(estabelecimento.estrelas)}</div>
-                    </div>
-                    <div class="info-column">
-                        <h4 class="h4-small">avaliação</h4>
-                        <div class="rating">${criarAvaliacao(estabelecimento.avaliacao_clientes)}</div>
-                    </div>
-                    <div class="info-column">
-                        <h4 class="h4-small">preço</h4>
-                        <div class="rating">${criarAvaliacao(estabelecimento.preco)}</div>
-                    </div>
+
+                        <div class="rating">${criarAvaliacao(estabelecimento.estrelas)}
+                        <h4 class="h4-small">estrelas</h4></div>
+
+                        <div class="rating">${criarAvaliacao(estabelecimento.avaliacao_clientes)}
+                        <h4 class="h4-small">avaliação</h4></div>
+
+                        <div class="rating">${criarAvaliacao(estabelecimento.preco)}
+                        <h4 class="h4-small">preço</h4></div>
+
                 </div>
-                <p class="p-small">compartilhe através de:</p>
+                <div class="row justify-content-center">
+                <button nref="${estabelecimento.link_pagina}" class="btn-descricao">Instagram restaurante</button>
+                <button nref="${estabelecimento.link_cardapio}" class="btn-descricao"> Cardápio</button>
+                </div>
+                <p class="p-small justify-content-center">compartilhe através de:</p>
+                <div class="btn-insta-whats">
                 <button id="whatsapp-share"> whatsApp</button>
                 <button id="instagram-share">instagram</button>
+                </div>
             </div>
             <div class="tab-pane" id="localizacao">
                 <p><strong>endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep}</p>
@@ -286,10 +287,6 @@ function criarCardDetalhe(estabelecimento) {
             </div>
             <div class="tab-pane" id="horario">
                 ${htmlHorarios}
-            </div>
-            <div class="tab-pane" id="menu">
-                <p><strong>Instagram:</strong> ${estabelecimento.link_pagina}</p>
-                <p><strong>Cardápio:</strong> ${estabelecimento.link_cardapio}</p>
             </div>
         </div>
     </div>
