@@ -165,7 +165,7 @@
 
             <h5>taxa de entrada</h5>
             <select id="entrada" placeholder="Selecione o tipo de entrada">
-                <option value="Nulo">nulo</option>
+                <option value="Nulo">Nulo</option>
                 <option value="Gratuita">Gratuita</option>
                 <option value="Paga">Paga</option>
             </select>
@@ -382,6 +382,7 @@
             <h5>avaliações e métricas</h5>
             <div class="formulario-grupo">
                 <select id="estrelas" placeholder="Estrelas do Google">
+                    <option value="Nulo">Nulo</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -389,6 +390,7 @@
                     <option value="5">5</option>
                 </select>
                 <select id="avaliacao_clientes" placeholder="Avaliação dos Clientes">
+                    <option value="Nulo">Nulo</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -396,13 +398,13 @@
                     <option value="5">5</option>
                 </select>
                 <select id="avaliacao_pagina" placeholder="Avaliação da Página">
+                    <option value="Nulo">Nulo</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <input type="number" id="preco" placeholder="Preço" min="0" max="5">
                 <select id="preço" placeholder="Selecione o preço">
                     <option value="1">1 - Até R$30,00</option>
                     <option value="2">2 - De R$30 a R$60</option>
@@ -744,49 +746,399 @@
             <div class="dia">
                 <label for="abertura-segunda">Segunda-feira:</label>
                 <div class="formulario-grupo">
-                    <input type="time" id="abertura-segunda" placeholder="Abertura">
-                    <input type="time" id="fechamento-segunda" placeholder="Fechamento">
+                    <select id="abertura-segunda" placeholder="Abertura" multiple>
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="01:00">11:00</option>
+                        <option value="02:00">12:00</option>
+                        <option value="03:00">13:00</option>
+                        <option value="04:00">14:00</option>
+                        <option value="05:00">15:00</option>
+                        <option value="06:00">16:00</option>
+                        <option value="07:00">17:00</option>
+                        <option value="08:00">18:00</option>
+                        <option value="09:00">19:00</option>
+                        <option value="10:00">20:00</option>
+                        <option value="10:00">21:00</option>
+                        <option value="10:00">22:00</option>
+                        <option value="10:00">23:00</option>
+                        <option value="10:00">24:00</option>
+                    </select>
+                    <select id="fechamento-segunda" placeholder="Fechamento" multiple>
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="01:00">11:00</option>
+                        <option value="02:00">12:00</option>
+                        <option value="03:00">13:00</option>
+                        <option value="04:00">14:00</option>
+                        <option value="05:00">15:00</option>
+                        <option value="06:00">16:00</option>
+                        <option value="07:00">17:00</option>
+                        <option value="08:00">18:00</option>
+                        <option value="09:00">19:00</option>
+                        <option value="10:00">20:00</option>
+                        <option value="10:00">21:00</option>
+                        <option value="10:00">22:00</option>
+                        <option value="10:00">23:00</option>
+                        <option value="10:00">24:00</option>
+                    </select>
                 </div>
             </div>
             <div class="dia">
                 <label for="abertura-terca">Terça-feira:</label>
                 <div class="formulario-grupo">
-                    <input type="time" id="abertura-terca" placeholder="Abertura">
-                    <input type="time" id="fechamento-terca" placeholder="Fechamento">
+                    <select id="abertura-terca" placeholder="Abertura" multiple>
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="01:00">11:00</option>
+                        <option value="02:00">12:00</option>
+                        <option value="03:00">13:00</option>
+                        <option value="04:00">14:00</option>
+                        <option value="05:00">15:00</option>
+                        <option value="06:00">16:00</option>
+                        <option value="07:00">17:00</option>
+                        <option value="08:00">18:00</option>
+                        <option value="09:00">19:00</option>
+                        <option value="10:00">20:00</option>
+                        <option value="10:00">21:00</option>
+                        <option value="10:00">22:00</option>
+                        <option value="10:00">23:00</option>
+                        <option value="10:00">24:00</option>
+                    </select>
+                    <select id="fechamento-terca" placeholder="Fechamento" multiple>
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="01:00">11:00</option>
+                        <option value="02:00">12:00</option>
+                        <option value="03:00">13:00</option>
+                        <option value="04:00">14:00</option>
+                        <option value="05:00">15:00</option>
+                        <option value="06:00">16:00</option>
+                        <option value="07:00">17:00</option>
+                        <option value="08:00">18:00</option>
+                        <option value="09:00">19:00</option>
+                        <option value="10:00">20:00</option>
+                        <option value="10:00">21:00</option>
+                        <option value="10:00">22:00</option>
+                        <option value="10:00">23:00</option>
+                        <option value="10:00">24:00</option>
+                    </select>
                 </div>
                 <div class="dia">
                     <label for="abertura-quarta">Quarta-feira:</label>
                     <div class="formulario-grupo">
-                        <input type="time" id="abertura-quarta" placeholder="Abertura">
-                        <input type="time" id="fechamento-quarta" placeholder="Fechamento">
+                        <select id="abertura-quarta" placeholder="Abertura" multiple>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="01:00">11:00</option>
+                            <option value="02:00">12:00</option>
+                            <option value="03:00">13:00</option>
+                            <option value="04:00">14:00</option>
+                            <option value="05:00">15:00</option>
+                            <option value="06:00">16:00</option>
+                            <option value="07:00">17:00</option>
+                            <option value="08:00">18:00</option>
+                            <option value="09:00">19:00</option>
+                            <option value="10:00">20:00</option>
+                            <option value="10:00">21:00</option>
+                            <option value="10:00">22:00</option>
+                            <option value="10:00">23:00</option>
+                            <option value="10:00">24:00</option>
+                        </select>
+                        <select id="fechamento-quarta" placeholder="Fechamento" multiple>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="01:00">11:00</option>
+                            <option value="02:00">12:00</option>
+                            <option value="03:00">13:00</option>
+                            <option value="04:00">14:00</option>
+                            <option value="05:00">15:00</option>
+                            <option value="06:00">16:00</option>
+                            <option value="07:00">17:00</option>
+                            <option value="08:00">18:00</option>
+                            <option value="09:00">19:00</option>
+                            <option value="10:00">20:00</option>
+                            <option value="10:00">21:00</option>
+                            <option value="10:00">22:00</option>
+                            <option value="10:00">23:00</option>
+                            <option value="10:00">24:00</option>
+                        </select>
                     </div>
                 </div>
                 <div class="dia">
                     <label for="abertura-quinta">Quinta-feira:</label>
                     <div class="formulario-grupo">
-                        <input type="time" id="abertura-quinta" placeholder="Abertura">
-                        <input type="time" id="fechamento-quinta" placeholder="Fechamento">
+                        <select id="abertura-quinta" placeholder="Abertura" multiple>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="01:00">11:00</option>
+                            <option value="02:00">12:00</option>
+                            <option value="03:00">13:00</option>
+                            <option value="04:00">14:00</option>
+                            <option value="05:00">15:00</option>
+                            <option value="06:00">16:00</option>
+                            <option value="07:00">17:00</option>
+                            <option value="08:00">18:00</option>
+                            <option value="09:00">19:00</option>
+                            <option value="10:00">20:00</option>
+                            <option value="10:00">21:00</option>
+                            <option value="10:00">22:00</option>
+                            <option value="10:00">23:00</option>
+                            <option value="10:00">24:00</option>
+                        </select>
+                        <select id="fechamento-quinta" placeholder="Fechamento" multiple>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="01:00">11:00</option>
+                            <option value="02:00">12:00</option>
+                            <option value="03:00">13:00</option>
+                            <option value="04:00">14:00</option>
+                            <option value="05:00">15:00</option>
+                            <option value="06:00">16:00</option>
+                            <option value="07:00">17:00</option>
+                            <option value="08:00">18:00</option>
+                            <option value="09:00">19:00</option>
+                            <option value="10:00">20:00</option>
+                            <option value="10:00">21:00</option>
+                            <option value="10:00">22:00</option>
+                            <option value="10:00">23:00</option>
+                            <option value="10:00">24:00</option>
+                        </select>
                     </div>
                 </div>
                 <div class="dia">
                     <label for="abertura-sexta">Sexta-feira:</label>
                     <div class="formulario-grupo">
-                        <input type="time" id="abertura-sexta" placeholder="Abertura">
-                        <input type="time" id="fechamento-sexta" placeholder="Fechamento">
+                        <select id="abertura-sexta" placeholder="Abertura" multiple>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="01:00">11:00</option>
+                            <option value="02:00">12:00</option>
+                            <option value="03:00">13:00</option>
+                            <option value="04:00">14:00</option>
+                            <option value="05:00">15:00</option>
+                            <option value="06:00">16:00</option>
+                            <option value="07:00">17:00</option>
+                            <option value="08:00">18:00</option>
+                            <option value="09:00">19:00</option>
+                            <option value="10:00">20:00</option>
+                            <option value="10:00">21:00</option>
+                            <option value="10:00">22:00</option>
+                            <option value="10:00">23:00</option>
+                            <option value="10:00">24:00</option>
+                        </select>
+                        <select id="fechamento-sexta" placeholder="Fechamento" multiple>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="01:00">11:00</option>
+                            <option value="02:00">12:00</option>
+                            <option value="03:00">13:00</option>
+                            <option value="04:00">14:00</option>
+                            <option value="05:00">15:00</option>
+                            <option value="06:00">16:00</option>
+                            <option value="07:00">17:00</option>
+                            <option value="08:00">18:00</option>
+                            <option value="09:00">19:00</option>
+                            <option value="10:00">20:00</option>
+                            <option value="10:00">21:00</option>
+                            <option value="10:00">22:00</option>
+                            <option value="10:00">23:00</option>
+                            <option value="10:00">24:00</option>
+                        </select>
                     </div>
                 </div>
                 <div class="dia">
                     <label for="abertura-sabado">Sábado:</label>
                     <div class="formulario-grupo">
-                        <input type="time" id="abertura-sabado" placeholder="Abertura">
-                        <input type="time" id="fechamento-sabado" placeholder="Fechamento">
+                        <select id="abertura-sabado" placeholder="Abertura" multiple>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="01:00">11:00</option>
+                            <option value="02:00">12:00</option>
+                            <option value="03:00">13:00</option>
+                            <option value="04:00">14:00</option>
+                            <option value="05:00">15:00</option>
+                            <option value="06:00">16:00</option>
+                            <option value="07:00">17:00</option>
+                            <option value="08:00">18:00</option>
+                            <option value="09:00">19:00</option>
+                            <option value="10:00">20:00</option>
+                            <option value="10:00">21:00</option>
+                            <option value="10:00">22:00</option>
+                            <option value="10:00">23:00</option>
+                            <option value="10:00">24:00</option>
+                        </select>
+                        <select id="fechamento-sabado" placeholder="Fechamento" multiple>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="01:00">11:00</option>
+                            <option value="02:00">12:00</option>
+                            <option value="03:00">13:00</option>
+                            <option value="04:00">14:00</option>
+                            <option value="05:00">15:00</option>
+                            <option value="06:00">16:00</option>
+                            <option value="07:00">17:00</option>
+                            <option value="08:00">18:00</option>
+                            <option value="09:00">19:00</option>
+                            <option value="10:00">20:00</option>
+                            <option value="10:00">21:00</option>
+                            <option value="10:00">22:00</option>
+                            <option value="10:00">23:00</option>
+                            <option value="10:00">24:00</option>
+                        </select>
                     </div>
                 </div>
                 <div class="dia">
                     <label for="abertura-domingo">Domingo:</label>
                     <div class="formulario-grupo">
-                        <input type="time" id="abertura-domingo" placeholder="Abertura">
-                        <input type="time" id="fechamento-domingo" placeholder="Fechamento">
+                        <select id="abertura-domingo" placeholder="Abertura" multiple>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="01:00">11:00</option>
+                            <option value="02:00">12:00</option>
+                            <option value="03:00">13:00</option>
+                            <option value="04:00">14:00</option>
+                            <option value="05:00">15:00</option>
+                            <option value="06:00">16:00</option>
+                            <option value="07:00">17:00</option>
+                            <option value="08:00">18:00</option>
+                            <option value="09:00">19:00</option>
+                            <option value="10:00">20:00</option>
+                            <option value="10:00">21:00</option>
+                            <option value="10:00">22:00</option>
+                            <option value="10:00">23:00</option>
+                            <option value="10:00">24:00</option>
+                        </select>
+                        <select id="fechamento-domingo" placeholder="Fechamento" multiple>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="01:00">11:00</option>
+                            <option value="02:00">12:00</option>
+                            <option value="03:00">13:00</option>
+                            <option value="04:00">14:00</option>
+                            <option value="05:00">15:00</option>
+                            <option value="06:00">16:00</option>
+                            <option value="07:00">17:00</option>
+                            <option value="08:00">18:00</option>
+                            <option value="09:00">19:00</option>
+                            <option value="10:00">20:00</option>
+                            <option value="10:00">21:00</option>
+                            <option value="10:00">22:00</option>
+                            <option value="10:00">23:00</option>
+                            <option value="10:00">24:00</option>
+                        </select>
                     </div>
                 </div>
                 <div class="dia">
