@@ -764,14 +764,14 @@ button:hover {
 
 .formulario-grupo {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 10px;
     margin-bottom: 1rem;
 }
 
 .form-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 5px;
 }
 
@@ -787,7 +787,7 @@ button:hover {
     }
 
     .formulario-grupo {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .formulario-cadastro input, 
@@ -1490,4 +1490,18 @@ button:hover {
 .h5, h5 {
     font-size: 0.8rem;
     margin-top: 15px;
+}
+
+.dias-semana {
+    display: flex;
+    align-items: center;
+}
+
+.dias-semana input {
+    width: 30%;
+    height: 30%;
+}
+
+.dias-semana label {
+    font-size: 14px;
 }

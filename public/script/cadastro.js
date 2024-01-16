@@ -1,5 +1,17 @@
 var token = localStorage.getItem('token');
 
+document.getElementById('aplicar-horarios').addEventListener('click', function() {
+    var horarioAbertura = document.getElementById('horario-abertura-global').value;
+    var horarioFechamento = document.getElementById('horario-fechamento-global').value;
+    var diasSelecionados = document.querySelectorAll('input[name="dias-semana"]:checked');
+
+    diasSelecionados.forEach(function(dia) {
+        var diaId = dia.value;
+        document.getElementById('abertura-' + diaId).value = horarioAbertura;
+        document.getElementById('fechamento-' + diaId).value = horarioFechamento;
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     criarNavbar();
     // Se não houver token, mostra a notificação popup e redireciona
@@ -12,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = '/login.html';
         }, 4500);
     }
-    Inicializar();
+    // Inicializar();
 });
 
 function Inicializar(){
@@ -80,7 +92,7 @@ function Inicializar(){
     $('#multiselectTiposCartao').val(['visa', 'mastercard']).trigger('change');
     $('#multiselectEstilosServico').val(['buffet', 'à la carte']).trigger('change');
 }
-document.getElementById("formCadastro").addEventListener("submit", function(event){
+document.getElementById("cadastrar").addEventListener("click", function(event){
     event.preventDefault(); // Evita o envio padrão do formulário
     const horariosFuncionamento = obterHorariosFuncionamento();
     let camposValidos = validarCampos();

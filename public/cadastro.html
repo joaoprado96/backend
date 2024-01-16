@@ -746,8 +746,94 @@
                 <option value="self-service">Self-Service</option>
                 <option value="drive-thru">Drive-Thru</option>
             </select>
-
-            <h5>horário de funcionamento</h5>
+            <br>
+            <br>
+            <h4>horário de funcionamento</h4>
+            <div class="configuracao-global">
+                <div class="formulario-grupo">
+                    <select id="horario-abertura-global">
+                        <!-- Opções de horário iguais às do formulário principal -->
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                        <option value="00:00">00:00</option>
+                    </select>
+                
+                    <select id="horario-fechamento-global">
+                        <!-- Opções de horário iguais às do formulário principal -->
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                        <option value="00:00">00:00</option>
+                    </select>
+                </div>
+                <h5>aplicar a:</h5>
+                <div class="dias-semana">
+                    <input type="checkbox" id="segunda" name="dias-semana" value="segunda">
+                    <label for="segunda">Segunda</label>
+                    
+                    <input type="checkbox" id="terca" name="dias-semana" value="terca">
+                    <label for="terca">Terça</label>
+                
+                    <input type="checkbox" id="quarta" name="dias-semana" value="quarta">
+                    <label for="quarta">Quarta</label>
+                
+                    <input type="checkbox" id="quinta" name="dias-semana" value="quinta">
+                    <label for="quinta">Quinta</label>
+                
+                    <input type="checkbox" id="sexta" name="dias-semana" value="sexta">
+                    <label for="sexta">Sexta</label>
+                
+                    <input type="checkbox" id="sabado" name="dias-semana" value="sabado">
+                    <label for="sabado">Sábado</label>
+                
+                    <input type="checkbox" id="domingo" name="dias-semana" value="domingo">
+                    <label for="domingo">Domingo</label>
+                </div>
+                <button id="aplicar-horarios" type="btn">Aplicar Horários</button>
+            </div>
+            <br>
+            <h5>personalize o horário para cada dia:</h5>
             <div class="dia">
                 <label for="abertura-segunda">Segunda-feira:</label>
                 <div class="formulario-grupo">
@@ -1177,14 +1263,14 @@
                         </select>
                     </div>
                 </div>
-
-                <h5>fotos</h5>
+                <br>
+                <h4>fotos</h4>
+                <label for="fotos">selecione fotos do seu estabelecimento</label>
                 <div class="form-group">
-                    <label for="fotos">selecione fotos do seu estabelecimento</label>
                     <input type="file" class="form-control-file" id="fotos" multiple required>
                 </div>
                 <br>
-                <input type="submit" value="Cadastrar" class="btn" />
+                <button id="cadastrar" class="btn">Cadastrar</button>
         </form>
     </div>
     </div>
