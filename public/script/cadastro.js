@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = '/login.html';
         }, 4500);
     }
-    // Inicializar();
+    Inicializar();
 });
 
 function Inicializar(){
@@ -39,7 +39,7 @@ function Inicializar(){
     // Pré-preenchendo seleções de opções únicas
     document.getElementById('musica').value = 'Sim';
     document.getElementById('estacionamento').value = 'Não';
-    document.getElementById('cover').value = 'Sim';
+    // document.getElementById('cover').value = 'Sim';
     document.getElementById('kids').value = 'Não';
     document.getElementById('pet').value = 'Sim';
     document.getElementById('glutenfree').value = 'Sim';
@@ -108,7 +108,7 @@ document.getElementById("formCadastro").addEventListener("submit", function(even
             acessibilidade: Array.from(document.getElementById('multiselectAcessibilidade').selectedOptions).map(opt => opt.value),
             musica: document.getElementById('musica').value,
             estacionamento: document.getElementById('estacionamento').value,
-            cover: document.getElementById('cover').value,
+            cover: "Sem informação",
             kids: document.getElementById('kids').value,
             website: document.getElementById('website').value,
             premio: Array.from(document.getElementById('multiselectPremios').selectedOptions).map(opt => opt.value),
