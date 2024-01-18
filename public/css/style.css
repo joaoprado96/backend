@@ -96,11 +96,11 @@ body {
 
 .nav {
     justify-content: space-between;
-    background-color: #ffffff;
+    background-color: var(--primaria);
 }
 
 a {
-    color: var(--primaria);
+    color: var(--branco);
     text-decoration: none;
 }
 
@@ -126,7 +126,7 @@ a {
 }
 
 .nav .nav-links a:hover {
-    background-color: var(--branco);
+   /* background-color: var(--branco);*/
     /* Cor de fundo ao passar o mouse */
     color: var(--secundaria);
     /* Cor do texto ao passar o mouse */
@@ -140,7 +140,7 @@ a {
 }
 
 .nav .logo:hover {
-    background-color: var(--branco);
+ /*   background-color: var(--secundaria);*/
     /* Cor de fundo ao passar o mouse */
     color: var(--secundaria);
     /* Cor do texto ao passar o mouse */
@@ -295,10 +295,10 @@ ul {
 }
 
 .user-icon {
-    width: 35px;
+    width: 30px;
     /* ou qualquer outro tamanho */
-    height: 35px;
-    border-radius: 50%;
+    height: 30px;
+    border-radius: 0;
     /* torna a imagem redonda */
 }
 
@@ -1051,16 +1051,20 @@ select:focus {
 }
 
 .container-central {
-    width: 95%;
+    width: 600px;
     max-width: 1200px;
+    height: flex;
     border-radius: 20px;
-    margin-top: var(--navbar-height);
+    margin-top: 150px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
     justify-content: center;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.315);
+    background-color: #ffffffd3;
+    padding-bottom: 50px;
 }
 
 
@@ -1075,6 +1079,11 @@ select:focus {
     .container2 {
         width: 100%;
         margin-bottom: 20px;
+    }
+
+    .container-central{
+        width: 90%;
+        margin-top: 30%;
     }
 }
 
@@ -1154,7 +1163,7 @@ select:focus {
     display: inline-block;
     color: var(--primaria);
     /* Cor do texto */
-    padding: 5px 10px;
+    padding: 10px 90px;
     font-size: 16px;
     cursor: pointer;
     text-align: center;
@@ -1162,6 +1171,22 @@ select:focus {
     outline: none;
     color: var(--branco);
     background-color: var(--primaria);
+    border: none;
+    border-radius: 20px;
+}
+
+.btn-inicial {
+    display: inline-block;
+    color: var(--primaria);
+    /* Cor do texto */
+    padding: 10px 90px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: var(--branco);
+    background-color:#d2d2d2;
     border: none;
     border-radius: 20px;
 }
@@ -1185,6 +1210,7 @@ select:focus {
     color: var(--primaria);
     font-size: 14px;
     font-style: bold;
+    text-align: center;
 }
 
 .h2-manchete {
