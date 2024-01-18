@@ -77,7 +77,7 @@ function construirFiltros() {
     var bairros = new Set();
     var cartoes = new Set();
     var locais = new Set();
-    const entradas = new Set();
+    var entradas = new Set();
     var linhas_metro = new Set();
     var estacoes = new Set();
     var acessibilidades = new Set();
@@ -85,9 +85,8 @@ function construirFiltros() {
     var estilos_servicos = new Set();
     var hobbys = new Set();
     var ambientes = new Set();
-    const dias = new Set();
 
-    estabelecimentosFiltrados.forEach(estabelecimento => {
+    estabelecimentos.forEach(estabelecimento => {
         estabelecimento.cozinha.forEach(c => cozinhas.add(c));
         regioes.add(estabelecimento.regiao);
         bairros.add(estabelecimento.bairro);
@@ -119,17 +118,17 @@ function construirFiltros() {
     ambientes = sortSetAlphabetically(ambientes);
 
     // Limpar opções existentes antes de adicionar novas
-    limparOpcoesFiltro('filtro-cozinha');
-    limparOpcoesFiltro('filtro-regiao');
-    limparOpcoesFiltro('filtro-bairro');
-    limparOpcoesFiltro('filtro-cartao');
-    limparOpcoesFiltro('filtro-local');
-    limparOpcoesFiltro('filtro-entrada');
-    limparOpcoesFiltro('filtro-metro');
-    limparOpcoesFiltro('filtro-estacao');
-    limparOpcoesFiltro('filtro-acessibilidade');
-    limparOpcoesFiltro('filtro-hobby');
-    limparOpcoesFiltro('filtro-ambiente');
+    // limparOpcoesFiltro('filtro-cozinha');
+    // limparOpcoesFiltro('filtro-regiao');
+    // limparOpcoesFiltro('filtro-bairro');
+    // limparOpcoesFiltro('filtro-cartao');
+    // limparOpcoesFiltro('filtro-local');
+    // limparOpcoesFiltro('filtro-entrada');
+    // limparOpcoesFiltro('filtro-metro');
+    // limparOpcoesFiltro('filtro-estacao');
+    // limparOpcoesFiltro('filtro-acessibilidade');
+    // limparOpcoesFiltro('filtro-hobby');
+    // limparOpcoesFiltro('filtro-ambiente');
 
     const filtroCozinha = document.getElementById('filtro-cozinha');
     cozinhas.forEach(c => filtroCozinha.add(new Option(c, c)));
@@ -293,7 +292,7 @@ function aplicarFiltros() {
             estabelecimento.tipo_evento.includes(filtroTipoEventoAtual));
     }
 
-    construirFiltros();
+    // construirFiltros();
 
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
 }
