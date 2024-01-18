@@ -8,10 +8,10 @@ function criarNavbar() {
 
         <ul class="nav-links">
             <i class="uil uil-times navCloseBtn"></i>
-            <li><a href="/home">home</a></li>
-            <li><a href="/estabelecimentos">estabelecimentos</a></li>
-            <li><a href="/informacoes">informacoes</a></li>
-            <li><a href="/contato">contato</a></li>
+            <li><a href="/home">Início</a></li>
+            <li><a href="/estabelecimentos">Estabelecimentos</a></li>
+            <li><a href="/informacoes">Quem somos</a></li>
+            <li><a href="/contato">Contato</a></li>
 
         </ul>
 

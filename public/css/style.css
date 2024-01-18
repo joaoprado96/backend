@@ -55,6 +55,18 @@ body {
     min-height: 100vh;
     width: 100%;
     padding-left: 200px;
+    background-color: #f7f7f7;
+}
+
+.page3 {
+    background-image: url('image/background-quem-somos.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f7f7f7;
 }
 
 @media screen and (max-width: 1160px) {
@@ -84,6 +96,7 @@ body {
 
 .nav {
     justify-content: space-between;
+    background-color: #ffffff;
 }
 
 a {
@@ -1001,6 +1014,40 @@ select:focus {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     margin-top: var(--navbar-height);
     padding: 20px;
+}
+
+.quem-somos {
+    width: 95%;
+    max-width: 1200px;
+    display: flex;
+    margin-top: var(--navbar-height);
+    padding: 20px;
+    color:#616161;
+    font-size: 20px;
+}
+
+.img-quem-somos {
+   width: 150px;
+   height: 150px;
+   margin-bottom: 30px;
+}
+
+@media (max-width: 480px) {
+    .img-quem-somos {
+        height: 50%;
+        width: 50%;
+    }
+}
+
+.tres-valores{
+    font-size: 15px;
+    margin-top: 70px;
+    justify-content: center;
+}
+
+.tres-valores h2{
+    font-size: 30px;
+    color:#663A84;
 }
 
 .container-central {
