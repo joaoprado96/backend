@@ -87,7 +87,7 @@ function construirFiltros() {
     var ambientes = new Set();
     const dias = new Set();
 
-    estabelecimentos.forEach(estabelecimento => {
+    estabelecimentosFiltrados.forEach(estabelecimento => {
         estabelecimento.cozinha.forEach(c => cozinhas.add(c));
         regioes.add(estabelecimento.regiao);
         bairros.add(estabelecimento.bairro);
@@ -117,6 +117,19 @@ function construirFiltros() {
     estilos_servicos = sortSetAlphabetically(estilos_servicos);
     hobbys = sortSetAlphabetically(hobbys);
     ambientes = sortSetAlphabetically(ambientes);
+
+    // Limpar opções existentes antes de adicionar novas
+    limparOpcoesFiltro('filtro-cozinha');
+    limparOpcoesFiltro('filtro-regiao');
+    limparOpcoesFiltro('filtro-bairro');
+    limparOpcoesFiltro('filtro-cartao');
+    limparOpcoesFiltro('filtro-local');
+    limparOpcoesFiltro('filtro-entrada');
+    limparOpcoesFiltro('filtro-metro');
+    limparOpcoesFiltro('filtro-estacao');
+    limparOpcoesFiltro('filtro-acessibilidade');
+    limparOpcoesFiltro('filtro-hobby');
+    limparOpcoesFiltro('filtro-ambiente');
 
     const filtroCozinha = document.getElementById('filtro-cozinha');
     cozinhas.forEach(c => filtroCozinha.add(new Option(c, c)));
@@ -158,6 +171,11 @@ function construirFiltros() {
     ambientes.forEach(amb => filtroAmbiente.add(new Option(amb, amb)));
 
     adicionarEventListenersParaFiltros();
+}
+
+
+function limparOpcoesFiltro(idFiltro) {
+    document.getElementById(idFiltro).innerHTML = '';
 }
 
 function adicionarEventListenersParaFiltros() {
@@ -274,6 +292,8 @@ function aplicarFiltros() {
         estabelecimentosFiltrados = estabelecimentosFiltrados.filter(estabelecimento => 
             estabelecimento.tipo_evento.includes(filtroTipoEventoAtual));
     }
+
+    construirFiltros();
 
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
 }
@@ -417,8 +437,6 @@ async function criarCard(estabelecimento) {
     let resultado = bairroExibicao.toUpperCase();
     let localFormatado = formatarLista(estabelecimento.local);
     let cozinhaFormatado = formatarLista(estabelecimento.cozinha);
-
-    console.log(estabelecimento.local)
 
     if (horarioAbertura.toLowerCase() === 'fechado' && horarioFechamento.toLowerCase() === 'fechado') {
         horarioExibicao = '<span class="horario"><i class="fas fa-clock"></i> Fechado</span>';

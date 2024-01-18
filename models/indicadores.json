@@ -1,0 +1,48 @@
+{
+    "LugarId": "65a87c45bdc03e7f47702384",
+    "nome": "Restaurante do João",
+    "indicadores":{
+        "acessoDetalhes":[
+            {"data":"18-01-2024", "valor": 1},
+            {"data":"17-01-2024", "valor": 1},
+            {"data":"16-01-2024", "valor": 1},
+            {"data":"15-01-2024", "valor": 1}
+        ],
+        "compartilhou":[
+            {"data":"18-01-2024", "valor": 1},
+            {"data":"17-01-2024", "valor": 1},
+            {"data":"16-01-2024", "valor": 1},
+            {"data":"15-01-2024", "valor": 1}
+        ],
+        "clicouLocalizacao":[
+            {"data":"18-01-2024", "valor": 1},
+            {"data":"17-01-2024", "valor": 1},
+            {"data":"16-01-2024", "valor": 1},
+            {"data":"15-01-2024", "valor": 1}
+        ],
+        "clicouCardapio":[
+            {"data":"18-01-2024", "valor": 1},
+            {"data":"17-01-2024", "valor": 1},
+            {"data":"16-01-2024", "valor": 1},
+            {"data":"15-01-2024", "valor": 1}
+        ]       
+    },
+    "indicadores_mensais":{
+        "acessoDetalhes":[
+            {"data":"Janeiro 2024", "valor": 1},
+            {"data":"Fevereiro 2024", "valor": 1}
+        ],
+        "compartilhou":[
+            {"data":"Janeiro 2024", "valor": 1},
+            {"data":"Fevereiro 2024", "valor": 1}
+        ],
+        "clicouLocalizacao":[
+            {"data":"Janeiro 2024", "valor": 1},
+            {"data":"Fevereiro 2024", "valor": 1}
+        ],
+        "clicouCardapio":[
+            {"data":"Janeiro 2024", "valor": 1},
+            {"data":"Fevereiro 2024", "valor": 1}
+        ]       
+    }
+}

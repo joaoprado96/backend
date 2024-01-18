@@ -37,8 +37,8 @@
     <div id="updateCadastro"class="page">
         <br>
         <form id="updateForm" class="formulario-cadastro">
-            <h1>cadastro AcheAi!</h1>
-            <p>insira as informações do seu estabelecimento para concluirmos o cadastro:</p>
+            <h1>Atualização de Cadastro AcheAi!</h1>
+            <p>Ajuste as informações do seu estabelecimento para concluirmos o cadastro:</p>
             <h5>nome</h5>
             <input type="text" id="nome" placeholder="Nome"><br>
             <h5>descrição</h5>
@@ -53,18 +53,130 @@
                 <input type="text" id="cep" placeholder="CEP">
             </div>
             <div class="formulario-grupo">
-                <input type="text" id="bairro" placeholder="Bairro">
-                <input type="text" id="regiao" placeholder="Região">
-                <input type="text" id="cidade" placeholder="Cidade">
+                <select id="bairro">
+                    <option value="Casa Verde">Casa Verde</option>
+                    <option value="Cachoeirinha">Cachoeirinha</option>
+                    <option value="Limão">Limão</option>
+                    <option value="Brasilândia">Brasilândia</option>
+                    <option value="Freguesia do Ó">Freguesia do Ó</option>
+                    <option value="Jaçanã">Jaçanã</option>
+                    <option value="Tremembé">Tremembé</option>
+                    <option value="Perus">Perus</option>
+                    <option value="Anhanguera">Anhanguera</option>
+                    <option value="Pirituba">Pirituba</option>
+                    <option value="Jaraguá">Jaraguá</option>
+                    <option value="São Domingos">São Domingos</option>
+                    <option value="Santana">Santana</option>
+                    <option value="Tucuruvi">Tucuruvi</option>
+                    <option value="Mandaqui">Mandaqui</option>
+                    <option value="Vila Maria">Vila Maria</option>
+                    <option value="Vila Guilherme">Vila Guilherme</option>
+                    <option value="Vila Medeiros">Vila Medeiros</option>
+                    <option value="Campo Limpo">Campo Limpo</option>
+                    <option value="Capão Redondo">Capão Redondo</option>
+                    <option value="Vila Andrade">Vila Andrade</option>
+                    <option value="Capela do Socorro Cidade Dutra">Capela do Socorro Cidade Dutra</option>
+                    <option value="Grajaú">Grajaú</option>
+                    <option value="Socorro">Socorro</option>
+                    <option value="Cidade Ademar">Cidade Ademar</option>
+                    <option value="Pedreira">Pedreira</option>
+                    <option value="Ipiranga">Ipiranga</option>
+                    <option value="Sacomã">Sacomã</option>
+                    <option value="Jabaquara">Jabaquara</option>
+                    <option value="M'Boi Mirim">M'Boi Mirim</option>
+                    <option value="Jardim Ângela">Jardim Ângela</option>
+                    <option value="Jardim São Luís">Jardim São Luís</option>
+                    <option value="Parelheiros">Parelheiros</option>
+                    <option value="Marsilac">Marsilac</option>
+                    <option value="Santo Amaro">Santo Amaro</option>
+                    <option value="Campo Belo">Campo Belo</option>
+                    <option value="Campo Grande">Campo Grande</option>
+                    <option value="Moema">Moema</option>
+                    <option value="Saúde">Saúde</option>
+                    <option value="Vila Mariana">Vila Mariana</option>
+                    <option value="Paraíso">Paraíso</option>
+                    <option value="Bela Vista">Bela Vista</option>
+                    <option value="Bom Retiro">Bom Retiro</option>
+                    <option value="Cambuci">Cambuci</option>
+                    <option value="Consolação">Consolação</option>
+                    <option value="Liberdade">Liberdade</option>
+                    <option value="República">República</option>
+                    <option value="Santa Cecília">Santa Cecília</option>
+                    <option value="Cerqueira César">Cerqueira César</option>
+                    <option value="Higienópolis">Higienópolis</option>
+                    <option value="Sé">Sé</option>
+                    <option value="Butantã">Butantã</option>
+                    <option value="Morumbi">Morumbi</option>
+                    <option value="Raposo Tavares">Raposo Tavares</option>
+                    <option value="Rio Pequeno">Rio Pequeno</option>
+                    <option value="Vila Sônia">Vila Sônia</option>
+                    <option value="Lapa">Lapa</option>
+                    <option value="Barra Funda">Barra Funda</option>
+                    <option value="Jaguara">Jaguara</option>
+                    <option value="Jaguaré">Jaguaré</option>
+                    <option value="Perdizes">Perdizes</option>
+                    <option value="Vila Leopoldina">Vila Leopoldina</option>
+                    <option value="Pinheiros">Pinheiros</option>
+                    <option value="Alto de Pinheiros">Alto de Pinheiros</option>
+                    <option value="Itaim Bibi">Itaim Bibi</option>
+                    <option value="Jardim Paulista">Jardim Paulista</option>
+                    <option value="Vila Olímpia">Vila Olímpia</option>
+                    <option value="Aricanduva">Aricanduva</option>
+                    <option value="Carrão">Carrão</option>
+                    <option value="Vila Formosa">Vila Formosa</option>
+                    <option value="Cidade Tiradentes">Cidade Tiradentes</option>
+                    <option value="Ermelino Matarazzo">Ermelino Matarazzo</option>
+                    <option value="Ponte Rasa">Ponte Rasa</option>
+                    <option value="Guaianases">Guaianases</option>
+                    <option value="Lajeado">Lajeado</option>
+                    <option value="Itaim Paulista">Itaim Paulista</option>
+                    <option value="Vila Curuçá">Vila Curuçá</option>
+                    <option value="Itaquera">Itaquera</option>
+                    <option value="Cidade Líder">Cidade Líder</option>
+                    <option value="José Bonifácio">José Bonifácio</option>
+                    <option value="Parque do Carmo">Parque do Carmo</option>
+                    <option value="Mooca Água Rasa">Mooca Água Rasa</option>
+                    <option value="Belenzinho">Belenzinho</option>
+                    <option value="Brás">Brás</option>
+                    <option value="Mooca">Mooca</option>
+                    <option value="Pari">Pari</option>
+                    <option value="Tatuapé">Tatuapé</option>
+                    <option value="Penha">Penha</option>
+                    <option value="Artur Alvim">Artur Alvim</option>
+                    <option value="Cangaíba">Cangaíba</option>
+                    <option value="Vila Matilde">Vila Matilde</option>
+                    <option value="São Mateus">São Mateus</option>
+                    <option value="São Rafael">São Rafael</option>
+                    <option value="São Miguel">São Miguel</option>
+                    <option value="Jardim Helena">Jardim Helena</option>
+                    <option value="Vila Jacuí">Vila Jacuí</option>
+                    <option value="Sapopemba">Sapopemba</option>
+                    <option value="Vila Prudente">Vila Prudente</option>
+                    <option value="São Lucas">São Lucas</option>
+                </select>
+                <select id="regiao">
+                    <option value="Norte">Norte</option>
+                    <option value="Sul">Sul</option>
+                    <option value="Leste">Leste</option>
+                    <option value="Oeste">Oeste</option>
+                    <option value="Centro">Centro</option>
+                </select>
+                <select id="cidade">
+                    <option value="São Paulo">São Paulo</option>
+                </select>
             </div>
             <h5>coordenadas geográficas</h5>
             <div class="formulario-grupo">
-                <input type="number" id="latitude" placeholder="Latitude"   step="0.0000001" min="-100" max="100">
+                <input type="number" id="latitude" placeholder="Latitude" step="0.0000001" min="-100" max="100">
                 <input type="number" id="longitude" placeholder="Longitude" step="0.0000001" min="-100" max="100">
             </div>
 
             <h5>taxa de entrada</h5>
-            <input type="text" id="entrada" placeholder="Entrada">
+            <select id="entrada" placeholder="Selecione o tipo de entrada">
+                <option value="Sem informação">Taxa de entrada: Sem essa informação</option>
+                <option value="Gratuita">Gratuita</option>
+                <option value="Paga">Paga</option>
+            </select>
 
             <h5>linhas de metrô</h5>
             <select id="multiselectMetro" multiple>
@@ -73,9 +185,16 @@
                 <option value="Linha 3 (Vermelha)">Linha 3 (Vermelha)</option>
                 <option value="Linha 4 (Amarela)">Linha 4 (Amarela)</option>
                 <option value="Linha 5 (Lilás)">Linha 5 (Lilás)</option>
+                <option value="Linha 7 (Rubi)">Linha 7 (Rubi)</option>
+                <option value="Linha 8 (Diamante)">Linha 8 (Diamante)</option>
+                <option value="Linha 9 (Esmeralda)">Linha 9 (Esmeralda)</option>
+                <option value="Linha 10 (Turquesa)">Linha 10 (Turquesa)</option>
+                <option value="Linha 11 (Coral)">Linha 11 (Coral)</option>
+                <option value="Linha 12 (Safira)">Linha 12 (Safira)</option>
+                <option value="Linha 13 (Jade)">Linha 13 (Jade)</option>
                 <option value="Linha 15 (Prata)">Linha 15 (Prata)</option>
             </select>
-            
+
             <h5>estações de metro</h5>
             <select id="multiselectEstacoes" multiple>
                 <!-- Linha 1-Azul -->
@@ -84,13 +203,44 @@
                     <option value="Conceição">Conceição</option>
                     <option value="São Judas">São Judas</option>
                     <!-- Adicione as outras estações da Linha 1 -->
+                    <option value="Saúde">Saúde</option>
+                    <option value="Praça da Árvore">Praça da Árvore</option>
+                    <option value="Santa Cruz">Santa Cruz</option>
+                    <option value="Vila Mariana">Vila Mariana</option>
+                    <option value="Ana Rosa">Ana Rosa</option>
+                    <option value="Paraíso">Paraíso</option>
+                    <option value="Vergueiro">Vergueiro</option>
+                    <option value="São Joaquim">São Joaquim</option>
+                    <option value="Japão-Liberdade">Japão-Liberdade</option>
+                    <option value="Sé">Sé</option>
+                    <option value="São Bento">São Bento</option>
+                    <option value="Luz">Luz</option>
+                    <option value="Tiradentes">Tiradentes</option>
+                    <option value="Armênia">Armênia</option>
+                    <option value="Portuguesa-Tietê">Portuguesa-Tietê</option>
+                    <option value="Carandiru">Carandiru</option>
+                    <option value="Santana">Santana</option>
+                    <option value="Jardim São Paulo-Ayrton Senna">Jardim São Paulo-Ayrton Senna</option>
+                    <option value="Parada Inglesa">Parada Inglesa</option>
+                    <option value="Tucuruvi">Tucuruvi</option>
                 </optgroup>
 
                 <!-- Linha 2-Verde -->
                 <optgroup label="Linha 2 (Verde)">
                     <option value="Vila Prudente">Vila Prudente</option>
                     <option value="Tamanduateí">Tamanduateí</option>
-                    <!-- Adicione as outras estações da Linha 2 -->
+                    <option value="Sacomã">Sacomã</option>
+                    <option value="Alto do Ipiranga">Alto do Ipiranga</option>
+                    <option value="Santos-Imigrantes">Santos-Imigrantes</option>
+                    <option value="Chácara Klabin">Chácara Klabin</option>
+                    <option value="Ana Rosa">Ana Rosa</option>
+                    <option value="Paraíso">Paraíso</option>
+                    <option value="Brigadeiro">Brigadeiro</option>
+                    <option value="Trianon-Masp">Trianon-Masp</option>
+                    <option value="Consolação">Consolação</option>
+                    <option value="Clínicas">Clínicas</option>
+                    <option value="S. N. Sra. de Fátima-Sumaré">S. N. Sra. de Fátima-Sumaré</option>
+                    <option value="Vila Madalena">Vila Madalena</option>
                 </optgroup>
 
                 <!-- Linha 3-Vermelha -->
@@ -98,6 +248,22 @@
                     <option value="Corinthians-Itaquera">Corinthians-Itaquera</option>
                     <option value="Artur Alvim">Artur Alvim</option>
                     <!-- Adicione as outras estações da Linha 3 -->
+                    <option value="Patriarca-Vila Ré">Patriarca-Vila Ré</option>
+                    <option value="Guilhermina-Esperança">Guilhermina-Esperança</option>
+                    <option value="Vila Matilde">Vila Matilde</option>
+                    <option value="Penha">Penha</option>
+                    <option value="Carrão-Assaí Atacadista">Carrão-Assaí Atacadista</option>
+                    <option value="Tatuapé">Tatuapé</option>
+                    <option value="Belém">Belém</option>
+                    <option value="Bresser-Mooca">Bresser-Mooca</option>
+                    <option value="Brás">Brás</option>
+                    <option value="Pedro II">Pedro II</option>
+                    <option value="Sé">Sé</option>
+                    <option value="Anhangabaú">Anhangabaú</option>
+                    <option value="República">República</option>
+                    <option value="Santa Cecília">Santa Cecília</option>
+                    <option value="Marechal Deodoro">Marechal Deodoro</option>
+                    <option value="Palmeiras-Barra Funda">Palmeiras-Barra Funda</option>
                 </optgroup>
 
                 <!-- Linha 4-Amarela -->
@@ -105,6 +271,15 @@
                     <option value="Luz">Luz</option>
                     <option value="República">República</option>
                     <!-- Adicione as outras estações da Linha 4 -->
+                    <option value="Higienópolis-Mackenzie">Higienópolis-Mackenzie</option>
+                    <option value="Paulista">Paulista</option>
+                    <option value="Oscar Freire">Oscar Freire</option>
+                    <option value="Fradique Coutinho">Fradique Coutinho</option>
+                    <option value="Faria Lima">Faria Lima</option>
+                    <option value="Pinheiros">Pinheiros</option>
+                    <option value="Butantã">Butantã</option>
+                    <option value="São Paulo-Morumbi">São Paulo-Morumbi</option>
+                    <option value="Vila Sônia">Vila Sônia</option>
                 </optgroup>
 
                 <!-- Linha 5-Lilás -->
@@ -112,6 +287,140 @@
                     <option value="Capão Redondo">Capão Redondo</option>
                     <option value="Campo Limpo">Campo Limpo</option>
                     <!-- Adicione as outras estações da Linha 5 -->
+                    <option value="Vila das Belezas">Vila das Belezas</option>
+                    <option value="Giovanni Gronchi">Giovanni Gronchi</option>
+                    <option value="Santo Amaro">Santo Amaro</option>
+                    <option value="Largo Treze">Largo Treze</option>
+                    <option value="Adolfo Pinheiro">Adolfo Pinheiro</option>
+                    <option value="Alto da Boa Vista">Alto da Boa Vista</option>
+                    <option value="Borba Gato">Borba Gato</option>
+                    <option value="Brooklin">Brooklin</option>
+                    <option value="Campo Belo">Campo Belo</option>
+                    <option value="Eucaliptos">Eucaliptos</option>
+                    <option value="Moema">Moema</option>
+                    <option value="AACD-Servidor">AACD-Servidor</option>
+                    <option value="Hospital São Paulo">Hospital São Paulo</option>
+                    <option value="Santa Cruz">Santa Cruz</option>
+                    <option value="Chácara Klabin">Chácara Klabin</option>
+                </optgroup>
+
+                <!-- Linha 7-Rubi -->
+                <optgroup label="Linha 7 (Rubi)">
+                    <option value="Brás">Brás</option>
+                    <option value="Luz">Luz</option>
+                    <option value="Palmeiras-Barra Funda">Palmeiras-Barra Funda</option>
+                    <option value="Água Branca">Água Branca</option>
+                    <option value="Lapa">Lapa</option>
+                    <option value="Piqueri">Piqueri</option>
+                    <option value="Pirituba">Pirituba</option>
+                    <option value="Vila Clarice">Vila Clarice</option>
+                    <option value="Vila Aurora">Vila Aurora</option>
+                    <option value="Perus">Perus</option>
+                    <option value="Caieiras">Caieiras</option>
+                    <option value="Franco da Rocha">Franco da Rocha</option>
+                    <option value="Baltazar Fidélis">Baltazar Fidélis</option>
+                </optgroup>
+                
+                <!-- Linha 8-Diamante -->
+                <optgroup label="Linha 8 (Diamante)">
+                    <option value="Júlio Prestes">Júlio Prestes</option>
+                    <option value="Palmeiras-Barra Funda">Palmeiras-Barra Funda</option>
+                    <option value="Lapa">Lapa</option>
+                    <option value="Domingos de Moraes">Domingos de Moraes</option>
+                    <option value="Imperatriz Leopoldina">Imperatriz Leopoldina</option>
+                    <option value="Presidente Altino">Presidente Altino</option>
+                    <option value="Osasco">Osasco</option>
+                    <option value="Comandante Sampaio">Comandante Sampaio</option>
+                    <option value="Quitaúna">Quitaúna</option>
+                    <option value="General Miguel Costa">General Miguel Costa</option>
+                    <option value="Carapicuíba">Carapicuíba</option>
+                    <option value="Santa Terezinha">Santa Terezinha</option>
+                    <option value="Antônio João">Antônio João</option>
+                    <option value="Barueri">Barueri</option>
+                    <option value="Jardim Belval">Jardim Belval</option>
+                    <option value="Jardim Silveira">Jardim Silveira</option>
+                    <option value="Jandira">Jandira</option>
+                    <option value="Sagrado Coração">Sagrado Coração</option>
+                    <option value="Engenheiro Cardoso">Engenheiro Cardoso</option>
+                    <option value="Itapevi">Itapevi</option>
+                    <option value="Amador Bueno">Amador Bueno</option>
+                </optgroup>
+
+                <!-- Linha 9-Esmeralda -->
+                <optgroup label="Linha 9 (Esmeralda)">
+                    <option value="Osasco">Osasco</option>
+                    <option value="Presidente Altino">Presidente Altino</option>
+                    <option value="Ceasa">Ceasa</option>
+                    <option value="Villa-Lobos-Jaguaré">Villa-Lobos-Jaguaré</option>
+                    <option value="Cidade Universitária">Cidade Universitária</option>
+                    <option value="Pinheiros">Pinheiros</option>
+                    <option value="Hebraica-Rebouças">Hebraica-Rebouças</option>
+                    <option value="Cidade Jardim">Cidade Jardim</option>
+                    <option value="Vila Olímpia">Vila Olímpia</option>
+                    <option value="Berrini">Berrini</option>
+                    <option value="Morumbi">Morumbi</option>
+                    <option value="Granja Julieta">Granja Julieta</option>
+                    <option value="Santo Amaro">Santo Amaro</option>
+                    <option value="Socorro">Socorro</option>
+                    <option value="Jurubatuba">Jurubatuba</option>
+                    <option value="Autódromo">Autódromo</option>
+                    <option value="Interlagos">Interlagos</option>
+                    <option value="Grajaú">Grajaú</option>
+                </optgroup>
+                <!-- Linha 10-Turquesa -->
+                <optgroup label="Linha 10 (Turquesa)">
+                    <option value="Brás">Brás</option>
+                    <option value="Juventus Mooca">Juventus Mooca</option>
+                    <option value="Ipiranga">Ipiranga</option>
+                    <option value="Tamanduateí">Tamanduateí</option>
+                    <option value="São Caetano do Sul">São Caetano do Sul</option>
+                    <option value="Utinga">Utinga</option>
+                    <option value="Pref Saladino">Pref Saladino</option>
+                    <option value="Capuava">Capuava</option>
+                    <option value="Mauá">Mauá</option>
+                    <option value="Guapituba">Guapituba</option>
+                    <option value="Ribeirão Pires">Ribeirão Pires</option>
+                    <option value="Rio Grande da Serra">Rio Grande da Serra</option>
+                </optgroup>
+
+                <!-- Linha 11-Coral -->
+                <optgroup label="Linha 11 (Coral)">
+                    <option value="Brás">Brás</option>
+                    <option value="Juventus Mooca">Juventus Mooca</option>
+                    <option value="Ipiranga">Ipiranga</option>
+                    <option value="Tamanduateí">Tamanduateí</option>
+                    <option value="São Caetano do Sul">São Caetano do Sul</option>
+                    <option value="Utinga">Utinga</option>
+                    <option value="Pref Saladino">Pref Saladino</option>
+                    <option value="Capuava">Capuava</option>
+                    <option value="Mauá">Mauá</option>
+                    <option value="Guapituba">Guapituba</option>
+                    <option value="Ribeirão Pires">Ribeirão Pires</option>
+                    <option value="Rio Grande da Serra">Rio Grande da Serra</option>
+                </optgroup>
+
+                <!-- Linha 12-Safira -->
+                <optgroup label="Linha 12 (Safira)">
+                    <option value="Brás">Brás</option>
+                    <option value="Tatuapé">Tatuapé</option>
+                    <option value="Engº Goulart">Engº Goulart</option>
+                    <option value="Usp Leste">Usp Leste</option>
+                    <option value="Comendador Ermelino">Comendador Ermelino</option>
+                    <option value="São Miguel Paulista">São Miguel Paulista</option>
+                    <option value="Jardim Helena Vila Mara">Jardim Helena Vila Mara</option>
+                    <option value="Itaim Paulista">Itaim Paulista</option>
+                    <option value="Jardim Romano">Jardim Romano</option>
+                    <option value="Eng Manoel Feio">Eng Manoel Feio</option>
+                    <option value="Itaquaquecetuba">Itaquaquecetuba</option>
+                    <option value="Aracaré">Aracaré</option>
+                    <option value="Calmon Viana">Calmon Viana</option>
+                </optgroup>
+
+                <!-- Linha 13-Jade -->
+                <optgroup label="Linha 13 (Jade)">
+                    <option value="Aeroporto-Guarulhos">Aeroporto-Guarulhos</option>
+                    <option value="Guarulhos-Cecap">Guarulhos-Cecap</option>
+                    <option value="Eng. Goulart">Eng. Goulart</option>
                 </optgroup>
 
                 <!-- Linha 15-Prata -->
@@ -119,16 +428,58 @@
                     <option value="Vila Prudente">Vila Prudente</option>
                     <option value="Oratório">Oratório</option>
                     <!-- Adicione as outras estações da Linha 15 -->
+                    <option value="São Lucas">São Lucas</option>
+                    <option value="Camilo Haddad">Camilo Haddad</option>
+                    <option value="Vila Tolstói">Vila Tolstói</option>
+                    <option value="Vila União">Vila União</option>
+                    <option value="Jardim Planalto">Jardim Planalto</option>
+                    <option value="Sapopemba">Sapopemba</option>
+                    <option value="Fazenda da Juta">Fazenda da Juta</option>
+                    <option value="São Mateus">São Mateus</option>
+                    <option value="Jardim Colonial">Jardim Colonial</option>
                 </optgroup>
+
             </select>
 
             <h5>avaliações e métricas</h5>
             <div class="formulario-grupo">
-                <input type="number" id="estrelas" placeholder="Estrelas" min="0" max="5">
-                <input type="number" id="avaliacao_clientes" placeholder="Avaliação dos Clientes" min="0" max="5">
-                <input type="number" id="avaliacao_pagina" placeholder="Avaliação da Página" min="0" max="5">
-                <input type="number" id="preco" placeholder="Preço" min="0" max="5">
-                <input type="number" id="nivel" placeholder="Nível" min="0" max="4">
+                <select id="estrelas" placeholder="Estrelas do Google">
+                    <option value="Sem informação">Estrelas do Google: Sem essa informação</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <select id="avaliacao_clientes" placeholder="Avaliação dos Clientes">
+                    <option value="Sem informação">Avaliação dos Clientes: Sem essa informação</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <select id="avaliacao_pagina" placeholder="Avaliação da Página">
+                    <option value="Sem informação">Avaliação da Página: Sem essa informação</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <select id="preco" placeholder="Selecione o preço">
+                    <option value="1">1 - Até R$30,00</option>
+                    <option value="2">2 - De R$30 a R$60</option>
+                    <option value="3">3 - De R$60 a R$150</option>
+                    <option value="4">4 - De R$150 a R$300</option>
+                    <option value="5">5 - Acima de R$300</option>
+                </select>
+
+                <select id="nivel" placeholder="Categoria do cliente">
+                    <option value="1">1 - Não verificado</option>
+                    <option value="2">2 - Verificado</option> 
+                    <option value="3">3 - Ouro</option>
+                </select>
             </div>
 
             <h5>mídias sociais</h5>
@@ -140,82 +491,78 @@
             <input type="text" id="midia_pagina" placeholder="Mídia da Página">
             <h5>website</h5>
             <input type="text" id="website" placeholder="Website">
-            
+
             <h5>cardápio</h5>
             <input type="text" id="link_cardapio" placeholder="Link do Cardápio">
 
             <h5>opções de acessibilidade</h5>
             <select id="multiselectAcessibilidade" multiple>
-                <option value="banheiro acessível">Banheiro acessível</option>
+                <option value="Sem informação">Acessibilidade: Sem essa informação</option>
+                <option value="Banheiro acessível">Banheiro acessível</option>
                 <option value="cardápio em braile">Cardápio em braile</option>
-                <option value="entrada de cão-guia">Entrada de cão-guia</option>
-                <option value="vagas especiais">Vagas especiais</option>
-                <option value="rampas de acesso">Rampas de acesso</option>
-                <option value="espaço adequado para cadeira de rodas">Espaço adequado para cadeira de rodas</option>
-                <option value="interpretação em libras">Interpretação em Libras</option>
-                <option value="sinalização em braile">Sinalização em Braile</option>
-                <option value="equipamentos de audiodescrição">Equipamentos de audiodescrição</option>
-                <option value="assentos reservados">Assentos reservados</option>
-                <option value="corrimãos e suportes">Corrimãos e suportes</option>
-                <option value="pisos táteis">Pisos táteis</option>
-                <option value="luzes de alerta para surdos">Luzes de alerta para surdos</option>
-                <option value="software de leitura de tela">Software de leitura de tela</option>
-                <option value="material informativo em formatos acessíveis">Material informativo em formatos acessíveis</option>
-                <option value="assistência pessoal">Assistência pessoal</option>
-                <option value="estacionamento acessível ampliado">Estacionamento acessível ampliado</option>
-                <option value="altura acessível">Altura acessível</option>
-                <option value="sistemas de loop indutivo">Sistemas de loop indutivo</option>
-                <option value="sinalização visual clara">Sinalização visual clara</option>
-                <option value="áreas de descanso">Áreas de descanso</option>
+                <option value="Entrada de cão-guia">Entrada de cão-guia</option>
+                <option value="Vagas especiais">Vagas especiais</option>
+                <option value="Rampas de acesso">Rampas de acesso</option>
+                <option value="Espaço adequado para cadeira de rodas">Espaço adequado para cadeira de rodas</option>
+                <option value="Interpretação em libras">Interpretação em Libras</option>
+                <option value="Sinalização em braile">Sinalização em Braile</option>
+                <option value="Equipamentos de audiodescrição">Equipamentos de audiodescrição</option>
+                <option value="Assentos reservados">Assentos reservados</option>
+                <option value="Corrimãos e suportes">Corrimãos e suportes</option>
+                <option value="Pisos táteis">Pisos táteis</option>
+                <option value="Luzes de alerta para surdos">Luzes de alerta para surdos</option>
+                <option value="Software de leitura de tela">Software de leitura de tela</option>
+                <option value="Material informativo em formatos acessíveis">Material informativo em formatos acessíveis</option>
+                <option value="Assistência pessoal">Assistência pessoal</option>
+                <option value="Estacionamento acessível ampliado">Estacionamento acessível ampliado</option>
+                <option value="Altura acessível">Altura acessível</option>
+                <option value="Sistemas de loop indutivo">Sistemas de loop indutivo</option>
+                <option value="Sinalização visual clara">Sinalização visual clara</option>
+                <option value="Áreas de descanso">Áreas de descanso</option>
             </select>
-            
+
             <h5>premiações</h5>
             <select id="multiselectPremios" multiple>
+                <option value="Sem informação">Prêmios: Sem essa informação</option>
                 <option value="Os Melhores da Gastronomia 2023">Os Melhores da Gastronomia 2023</option>
                 <option value="Os Melhores da Gastronomia 2024">Os Melhores da Gastronomia 2024</option>
             </select>
-            
+
             <h5>informações úteis ao cliente</h5>
             <div class="formulario-grupo">
                 <select id="musica">
-                    <option value="">Música</option>
+                    <option value="Sem informação">Música ao vivo: Sem essa informação</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
-            
+
                 <select id="estacionamento">
-                    <option value="">Estacionamento</option>
+                    <option value="Sem informação">Estacionamento: Sem essa informação</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
-            
-                <select id="cover">
-                    <option value="">Cover</option>
-                    <option value="Sim">Sim</option>
-                    <option value="Não">Não</option>
-                </select>
-            
+
                 <select id="kids">
-                    <option value="">Kids</option>
+                    <option value="Sem informação">Espaço Kids: Sem essa informação</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
             </div>
             <div class="formulario-grupo">
                 <select id="pet">
-                    <option value="">Pet Friendly</option>
+                    <option value="Sem informação">Pet Friendly: Sem essa informação</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
 
                 <select id="glutenfree">
-                    <option value="">Gluten Free</option>
+                    <option value="Sem informação">Gluten Free: Sem essa informação</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
 
                 <select id="lactosefree">
-                    <option value="">Lactose Free</option>
+                    <option value="Sem informação">Lactose Free: Sem essa informação</option>
                     <option value="Sim">Sim</option>
                     <option value="Não">Não</option>
                 </select>
@@ -223,6 +570,7 @@
 
             <h5>estilos musicais</h5>
             <select id="multiselectEstilosMusicais" multiple>
+                <option value="Sem informação">Estilos musicais: Sem essa informação</option>
                 <option value="Axé">Axé</option>
                 <option value="Black Music">Black Music</option>
                 <option value="Blues">Blues</option>
@@ -268,17 +616,24 @@
                 <option value="Soul">Soul</option>
                 <option value="Trap">Trap</option>
             </select>
-            
+
             <h5>culinária</h5>
             <select id="multiselectCozinha" multiple>
+                <option value="Sem informação">Cozinha: Sem essa informação</option>
                 <option value="Africana">Africana</option>
                 <option value="Alemã">Alemã</option>
                 <option value="Americana">Americana</option>
                 <option value="Árabe">Árabe</option>
-                <option value="Asiática">Asiática</option>
                 <option value="Brasileira">Brasileira</option>
+                <option value="Baiana">Baiana</option>
+                <option value="Nordestina">Nordestina</option>
+                <option value="Gaúcha">Gaúcha</option>
+                <option value="Amazônica">Amazônica</option>
+                <option value="Mineira">Mineira</option>
+                <option value="Paraense">Paraense</option>
                 <option value="Chinesa">Chinesa</option>
                 <option value="Contemporânea">Contemporânea</option>
+                <option value="Coreana">Coreana</option>
                 <option value="Espanhola">Espanhola</option>
                 <option value="Francesa">Francesa</option>
                 <option value="Grega">Grega</option>
@@ -293,7 +648,6 @@
                 <option value="Vegetariana">Vegetariana</option>
                 <option value="Vegana">Vegana</option>
                 <option value="Coreana">Coreana</option>
-                <option value="Etíope">Etíope</option>
                 <option value="Filipina">Filipina</option>
                 <option value="Irlandesa">Irlandesa</option>
                 <option value="Marroquina">Marroquina</option>
@@ -310,78 +664,57 @@
 
             <h5>tipos de locais</h5>
             <select id="multiselectLocais" multiple>
-                <option value="padaria">Padaria</option>
-                <option value="restaurante">Restaurante</option>
-                <option value="lanchonete">Lanchonete</option>
-                <option value="hamburgueria">Hamburgueria</option>
-                <option value="bar">Bar</option>
-                <option value="pub">Pub</option>
-                <option value="cafeterias">Cafeterias</option>
-                <option value="casa de show">Casa de Show</option>
-                <option value="clube de comédia">Clube de Comédia</option>
-                <option value="parques e áreas ao ar livre">Parques e Áreas ao Ar Livre</option>
-                <option value="cervejaria">Cervejaria</option>
-                <option value="doceria">Doceria</option>
-                <option value="bolaria">Bolaria</option>
-                <option value="confeitaria">Confeitaria</option>
-                <option value="sorveteria">Sorveteria</option>
-                <option value="pizzaria">Pizzaria</option>
-                <option value="churrascaria">Churrascaria</option>
-                <option value="food truck">Food Truck</option>
-                <option value="bistrô">Bistrô</option>
-                <option value="teatro">Teatro</option>
-                <option value="cinema">Cinema</option>
-                <option value="galeria de arte">Galeria de Arte</option>
-                <option value="livraria">Livraria</option>
-                <option value="centro cultural">Centro Cultural</option>
-                <option value="academia">Academia</option>
-                <option value="spa">Spa</option>
-                <option value="hotel">Hotel</option>
-                <option value="resort">Resort</option>
+                <option value="Sem informação">Tipo de local: Sem essa informação</option>
+                <option value="Padaria">Padaria</option>
+                <option value="Restaurante">Restaurante</option>
+                <option value="Lanchonete">Lanchonete</option>
+                <option value="Hamburgueria">Hamburgueria</option>
+                <option value="Bar">Bar</option>
+                <option value="Pub">Pub</option>
+                <option value="Cafeterias">Cafeterias</option>
+                <option value="Casa de show">Casa de Show</option>
+                <option value="Clube de comédia">Clube de Comédia</option>
+                <option value="Cervejaria">Cervejaria</option>
+                <option value="Doceria">Doceria</option>
+                <option value="Bolaria">Bolaria</option>
+                <option value="Confeitaria">Confeitaria</option>
+                <option value="Sorveteria">Sorveteria</option>
+                <option value="Pizzaria">Pizzaria</option>
+                <option value="Churrascaria">Churrascaria</option>
+                <option value="Food truck">Food Truck</option>
+                <option value="Bistrô">Bistrô</option>
+                <option value="Livraria">Livraria</option>
+                <option value="Centro cultural">Centro Cultural</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Resort">Resort</option>
             </select>
 
             <h5>tipos de eventos</h5>
             <select id="multiselectTiposEvento" multiple>
-                <option value="primeiro encontro">Primeiro Encontro</option>
-                <option value="beber e dançar">Beber e Dançar</option>
+                <option value="Sem informação">Tipo de Evento: Sem essa informação</option>
+                <option value="beber e dançar">Beber e dançar</option>
+                <option value="rolê geek">Rolê geek</option>
                 <option value="conversar">Conversar</option>
-                <option value="lugares romântico">Lugares Românticos</option>
-                <option value="reunião de amigos">Reunião de Amigos</option>
-                <option value="encontro familiar">Encontro Familiar</option>
-                <option value="festa de aniversário">Festa de Aniversário</option>
+                <option value="lugar romântico">Lugar romântico</option>
+                <option value="rolê de amigos">Rolê de amigos</option>
+                <option value="encontro familiar">Encontro familiar</option>
+                <option value="aniversário">Aniversário</option>
                 <option value="happy hour">Happy Hour</option>
-                <option value="assistir jogos esportivos">Assistir Jogos Esportivos</option>
-                <option value="sair sozinho">Sair Sozinho</option>
-                <option value="clube de comédia">Clube de Comédia</option>
-                <option value="balada">Balada</option>
-                <option value="experiência gastronômica">Experiência Gastronômica</option>
+                <option value="assistir jogos">Assistir Jogos</option>
+                <option value="sair Sozinho/a">Sair Sozinho/a</option>                   
+                <option value="brunches">Brunches</option>
                 <option value="cabaré/boates">Cabaré/Boates</option>
-                <option value="música ao vivo">Música ao Vivo</option>
-                <option value="diferentão">Diferentão</option>
-                <option value="próprio para crianças">Próprio para Crianças</option>
-                <option value="show de comédia">Show de Comédia</option>
-                <option value="karaokê">Karaokê</option>
-                <option value="rodízio">Rodízio</option>
-                <option value="open bar/food">Open Bar/Food</option>
-                <option value="lgbtqia+">LGBTQIA+</option>
-                <option value="comer e jogar">Comer e Jogar</option>
-                <option value="degustação de vinhos">Degustação de Vinhos</option>
-                <option value="feira gastronômica">Feira Gastronômica</option>
-                <option value="feira de artesanato">Feira de Artesanato</option>
-                <option value="festival de música">Festival de Música</option>
-                <option value="exposição de arte">Exposição de Arte</option>
-                <option value="palestras e workshops">Palestras e Workshops</option>
-                <option value="cinema ao ar livre">Cinema ao Ar Livre</option>
-                <option value="piquenique">Piquenique</option>
-                <option value="yoga/meditação">Yoga/Meditação</option>
-                <option value="stand-up paddle/kayaking">Stand-up Paddle/Kayaking</option>
-                <option value="trilhas e caminhadas">Trilhas e Caminhadas</option>
-                <option value="passeio de bicicleta">Passeio de Bicicleta</option>
-                <option value="maratona/caminhada beneficente">Maratona/Caminhada Beneficente</option>
-            </select>
-            
+                <option value="música ao vivo">Música ao vivo</option>
+                <option value="para crianças">Para crianças</option>
+                <option value="temáticos">Temáticos</option>
+                <option value="karaokês">Karaokês</option>
+                <option value="casas noturnas">Casas noturnas</option>
+                <option value="LGBTQIA+">LGBTQIA+</option>
+             </select>
+
             <h5>hobbies</h5>
             <select id="multiselectHobbies" multiple>
+                <option value="Sem informação">Hobbies: Sem essa informação</option>
                 <option value="jogos de tabuleiro">Jogos de Tabuleiro</option>
                 <option value="fliperama">Fliperama</option>
                 <option value="video game">Video Game</option>
@@ -392,23 +725,12 @@
                 <option value="dançar">Dançar</option>
                 <option value="cozinhar">Cozinhar</option>
                 <option value="fotografia">Fotografia</option>
-                <option value="caminhada">Caminhada</option>
-                <option value="escalada">Escalada</option>
-                <option value="ciclismo">Ciclismo</option>
-                <option value="yoga">Yoga</option>
-                <option value="meditação">Meditação</option>
-                <option value="jardinagem">Jardinagem</option>
-                <option value="assistir filmes e séries">Assistir Filmes e Séries</option>
-                <option value="escrita">Escrita</option>
-                <option value="modelismo">Modelismo</option>
-                <option value="astronomia">Astronomia</option>
                 <option value="pescaria">Pescaria</option>
-                <option value="mergulho">Mergulho</option>
-                <option value="surf">Surf</option>
             </select>
 
             <h5>ambientes</h5>
             <select id="multiselectAmbientes" multiple>
+                <option value="Sem informação">Ambientes: Sem essa informação</option>
                 <option value="jardim">Jardim</option>
                 <option value="jantar ao ar livre">Jantar ao Ar Livre</option>
                 <option value="rooftop">Rooftop</option>
@@ -416,9 +738,10 @@
                 <option value="terraço">Terraço</option>
                 <option value="melhores vistas">Melhores Vistas</option>
                 <option value="intimista">Intimista</option>
-                <option value="temático">Temático</option>
-                <option value="vista para o mar">Vista para o Mar</option>
+                <option value="Instagramável">Instagramável</option>
                 <option value="térreo">Térreo</option>
+                <option value="vista para o mar">Vista para o Mar</option>
+                <option value="temático">Temático</option>
                 <option value="despojado">Despojado</option>
                 <option value="moderno">Moderno</option>
                 <option value="clássico">Clássico</option>
@@ -431,13 +754,14 @@
                 <option value="campo">Campo</option>
                 <option value="luxuoso">Luxuoso</option>
                 <option value="minimalista">Minimalista</option>
-                <option value="exótico">Exótico</option>
+                <option value="speakeasy">Speakeasy</option>
                 <option value="vintage">Vintage</option>
                 <option value="retro">Retro</option>
             </select>
-            
+
             <h5>formas de pagamento</h5>
             <select id="multiselectTiposCartao" multiple>
+                <option value="Sem informação">Formas de pagamento: Sem essa informação</option>
                 <option value="dinheiro">Dinheiro</option>
                 <option value="american express">American Express</option>
                 <option value="banricompras crédito">Banricompras Crédito</option>
@@ -479,102 +803,546 @@
                 <option value="bitcoin">Bitcoin</option>
                 <option value="pix">Pix</option>
             </select>
-            
+
             <h5>estilos de serviços</h5>
             <select id="multiselectEstilosServico" multiple>
+                <option value="Sem informação">Estilos de Serviço: Sem essa informação</option>
                 <option value="buffet">Buffet</option>
                 <option value="à la carte">À la Carte</option>
                 <option value="rodízio">Rodízio</option>
                 <option value="serviço de entrega">Serviço de Entrega</option>
                 <option value="self-service">Self-Service</option>
-                <option value="fast food">Fast Food</option>
-                <option value="food truck">Food Truck</option>
-                <option value="take away">Take Away</option>
                 <option value="drive-thru">Drive-Thru</option>
-                <option value="casual dining">Casual Dining</option>
-                <option value="fine dining">Fine Dining</option>
-                <option value="cafeteria">Cafeteria</option>
-                <option value="pub">Pub</option>
-                <option value="bar">Bar</option>
-                <option value="bistrô">Bistrô</option>
-                <option value="quiosque">Quiosque</option>
-                <option value="temático">Temático</option>
-                <option value="gastronomia molecular">Gastronomia Molecular</option>
-                <option value="gourmet">Gourmet</option>
-                <option value="brunch">Brunch</option>
-                <option value="tasting menu">Tasting Menu</option>
             </select>
-
-            <h5>horário de funcionamento</h5>
+            <br>
+            <br>
+            <h4>horário de funcionamento</h4>
+            <div class="configuracao-global">
+                <div class="formulario-grupo">
+                    <select id="horario-abertura-global">
+                        <!-- Opções de horário iguais às do formulário principal -->
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                        <option value="00:00">00:00</option>
+                    </select>
+                
+                    <select id="horario-fechamento-global">
+                        <!-- Opções de horário iguais às do formulário principal -->
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                        <option value="00:00">00:00</option>
+                    </select>
+                </div>
+                <h5>aplicar a:</h5>
+                <div class="dias-semana">
+                    <input type="checkbox" id="segunda" name="dias-semana" value="segunda">
+                    <label for="segunda">Segunda</label>
+                    
+                    <input type="checkbox" id="terca" name="dias-semana" value="terca">
+                    <label for="terca">Terça</label>
+                
+                    <input type="checkbox" id="quarta" name="dias-semana" value="quarta">
+                    <label for="quarta">Quarta</label>
+                
+                    <input type="checkbox" id="quinta" name="dias-semana" value="quinta">
+                    <label for="quinta">Quinta</label>
+                
+                    <input type="checkbox" id="sexta" name="dias-semana" value="sexta">
+                    <label for="sexta">Sexta</label>
+                
+                    <input type="checkbox" id="sabado" name="dias-semana" value="sabado">
+                    <label for="sabado">Sábado</label>
+                
+                    <input type="checkbox" id="domingo" name="dias-semana" value="domingo">
+                    <label for="domingo">Domingo</label>
+                </div>
+                <button id="aplicar-horarios" type="btn">Aplicar Horários</button>
+            </div>
+            <br>
+            <h5>personalize o horário para cada dia:</h5>
             <div class="dia">
                 <label for="abertura-segunda">Segunda-feira:</label>
                 <div class="formulario-grupo">
-                    <input type="time" id="abertura-segunda-feira" placeholder="Abertura">
-                    <input type="time" id="fechamento-segunda-feira" placeholder="Fechamento">
+                    <select id="abertura-segunda" placeholder="Abertura">
+                        <option value="fechado">Não abre</option>
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                        <option value="00:00">00:00</option>
+                    </select>
+                    <select id="fechamento-segunda" placeholder="Fechamento">
+                        <option value="fechado">Fechado</option>
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                        <option value="00:00">00:00</option>
+                    </select>
                 </div>
             </div>
             <div class="dia">
                 <label for="abertura-terca">Terça-feira:</label>
                 <div class="formulario-grupo">
-                    <input type="time" id="abertura-terca-feira" placeholder="Abertura">
-                    <input type="time" id="fechamento-terca-feira" placeholder="Fechamento">
-            </div>
-            <div class="dia">
-                <label for="abertura-quarta">Quarta-feira:</label>
-                <div class="formulario-grupo">
-                    <input type="time" id="abertura-quarta-feira" placeholder="Abertura">
-                    <input type="time" id="fechamento-quarta-feira" placeholder="Fechamento">
-                </div>
-            </div>
-            <div class="dia">
-                <label for="abertura-quinta">Quinta-feira:</label>
-                <div class="formulario-grupo">
-                    <input type="time" id="abertura-quinta-feira" placeholder="Abertura">
-                    <input type="time" id="fechamento-quinta-feira" placeholder="Fechamento">
-                </div>
-            </div>
-            <div class="dia">
-                <label for="abertura-sexta">Sexta-feira:</label>
-                <div class="formulario-grupo">
-                    <input type="time" id="abertura-sexta-feira" placeholder="Abertura">
-                    <input type="time" id="fechamento-sexta-feira" placeholder="Fechamento">
-                </div>
-            </div>
-            <div class="dia">
-                <label for="abertura-sabado">Sábado:</label>
-                <div class="formulario-grupo">
-                    <input type="time" id="abertura-sabado" placeholder="Abertura">
-                    <input type="time" id="fechamento-sabado" placeholder="Fechamento">
-                </div>
-            </div>
-            <div class="dia">
-                <label for="abertura-domingo">Domingo:</label>
-                <div class="formulario-grupo">
-                    <input type="time" id="abertura-domingo" placeholder="Abertura">
-                    <input type="time" id="fechamento-domingo" placeholder="Fechamento">
-                </div>  
-            </div>
-            <div class="dia">
-                <label for="abertura-feriados">Feriados:</label>
-                <div class="formulario-grupo">
-                    <select id="abertura-feriados">
-                        <option value="">Abertura</option>
-                        <option value="consultar">Consultar</option>
-                        <option value="comercial">Horário comercial</option>
-                        <option value="não">Não funciona</option>
+                    <select id="abertura-terca" placeholder="Abertura">
+                        <option value="fechado">Não abre</option>
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                        <option value="00:00">00:00</option>
                     </select>
-                    <select id="fechamento-feriados">
-                        <option value="">Fechamento</option>
-                        <option value="consultar">Consultar</option>
-                        <option value="comercial">Horário comercial</option>
-                        <option value="não">Não funciona</option>
+                    <select id="fechamento-terca" placeholder="Fechamento">
+                        <option value="fechado">Fechado</option>
+                        <option value="01:00">01:00</option>
+                        <option value="02:00">02:00</option>
+                        <option value="03:00">03:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                        <option value="06:00">06:00</option>
+                        <option value="07:00">07:00</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                        <option value="00:00">00:00</option>
                     </select>
                 </div>
-            </div>
-            <input type="submit" value="Atualizar" class="btn"/>
+                <div class="dia">
+                    <label for="abertura-quarta">Quarta-feira:</label>
+                    <div class="formulario-grupo">
+                        <select id="abertura-quarta" placeholder="Abertura">
+                            <option value="fechado">Não abre</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="00:00">00:00</option>
+                        </select>
+                        <select id="fechamento-quarta" placeholder="Fechamento">
+                            <option value="fechado">Fechado</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="00:00">00:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dia">
+                    <label for="abertura-quinta">Quinta-feira:</label>
+                    <div class="formulario-grupo">
+                        <select id="abertura-quinta" placeholder="Abertura">
+                            <option value="fechado">Não abre</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="00:00">00:00</option>
+                        </select>
+                        <select id="fechamento-quinta" placeholder="Fechamento">
+                            <option value="fechado">Fechado</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="00:00">00:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dia">
+                    <label for="abertura-sexta">Sexta-feira:</label>
+                    <div class="formulario-grupo">
+                        <select id="abertura-sexta" placeholder="Abertura">
+                            <option value="fechado">Não abre</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="00:00">00:00</option>
+                        </select>
+                        <select id="fechamento-sexta" placeholder="Fechamento">
+                            <option value="fechado">Fechado</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="00:00">00:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dia">
+                    <label for="abertura-sabado">Sábado:</label>
+                    <div class="formulario-grupo">
+                        <select id="abertura-sabado" placeholder="Abertura">
+                            <option value="fechado">Não abre</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="00:00">00:00</option>
+                        </select>
+                        <select id="fechamento-sabado" placeholder="Fechamento">
+                            <option value="fechado">Fechado</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="00:00">00:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dia">
+                    <label for="abertura-domingo">Domingo:</label>
+                    <div class="formulario-grupo">
+                        <select id="abertura-domingo" placeholder="Abertura">
+                            <option value="fechado">Não abre</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="00:00">00:00</option>
+                        </select>
+                        <select id="fechamento-domingo" placeholder="Fechamento">
+                            <option value="fechado">Fechado</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                            <option value="00:00">00:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dia">
+                    <label for="abertura-feriados">Feriados:</label>
+                    <div class="formulario-grupo">
+                        <select id="abertura-feriados">
+                            <option value="fechado">Não abre</option>
+                            <option value="consultar">Consultar</option>
+                            <option value="comercial">Horário comercial</option>
+                            <option value="não">Não funciona</option>
+                        </select>
+                        <select id="fechamento-feriados">
+                            <option value="fechado">Fechado</option>
+                            <option value="consultar">Consultar</option>
+                            <option value="comercial">Horário comercial</option>
+                            <option value="não">Não funciona</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <h4>fotos</h4>
+                <label for="fotos">selecione fotos do seu estabelecimento</label>
+                <div class="form-group">
+                    <input type="file" class="form-control-file" id="fotos" multiple required>
+                </div>
+                <br>
+                <input type="submit" value="Atualizar" class="btn"/>
         </form>
         </div>
     </div>
+    
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
