@@ -340,7 +340,7 @@ function buscarImagemParaTipoEvento(tipo) {
     const imagensTipoEvento = {
         "beber e dançar": "icons/beberedancar.png",
         "primeiro encontro": "icons/primeiroencontro.png",
-        "conversar": "icons/conversar.png",
+        "conversar": "icons/Conversar.png",
         "lugares romântico": "icons/romantico.png",
         "reunião de amigos": "icons/reuniao.png",
         "encontro familiar": "icons/familiar.png",
@@ -358,7 +358,7 @@ function buscarImagemParaTipoEvento(tipo) {
         "comer e jogar": "icons/beberedancar.png",
         "temático": "icons/beberedancar.png",
         "sair sozinho": "icons/sairsozinha.png",
-        // Adicionar mais correspondências de tipos de evento e imagens
+        // Adicionar mais correspondências de tipos de evento e imagenssssssssssssssss
     };
 
     return imagensTipoEvento[tipo] || "icons/icon-gluten.png";
