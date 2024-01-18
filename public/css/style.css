@@ -117,6 +117,8 @@ a {
 
 .nav .nav-links a {
     transition: all 0.2s linear;
+    color:#000000;
+    text-align: right;
 }
 
 .nav.openSearch .nav-links a {
