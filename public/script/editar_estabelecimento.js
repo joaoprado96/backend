@@ -172,7 +172,7 @@ function enviarDados(lugarId,dados) {
 
 // Codigo que verifica se o botão editar foi assionado e preenche os campos com os dados do estabelecimento
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('uploadForm').addEventListener('submit', function(e) {
+    document.getElementById('editar').addEventListener('click', function(e) {
         e.preventDefault();
         toggleDiv()
 
@@ -220,7 +220,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 handleMultiSelect('multiselectTiposCartao', data.cartao);
                 handleMultiSelect('multiselectEstilosServico', data.estilo_servico);
                 Object.keys(data.horarios_funcionamento).forEach(dia => {
-
                     document.getElementById(`abertura-${dia}`).value = data.horarios_funcionamento[dia].abertura;
                     document.getElementById(`fechamento-${dia}`).value = data.horarios_funcionamento[dia].fechamento;
                 });
@@ -234,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Codigo que verifica se o botão atualizar foi assionado e atualiza os dados do estabelecimento no banco de dados
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('updateForm').addEventListener('submit', function (event) {
+    document.getElementById('atualizar').addEventListener('click', function (event) {
         event.preventDefault();
         const lugarId = document.getElementById('lugarSelect').value;
         const horariosFuncionamento = obterHorariosFuncionamento();
