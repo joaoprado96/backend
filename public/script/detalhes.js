@@ -213,7 +213,8 @@ function criarCardDetalhe(estabelecimento) {
     const infoAmbiente              =criarInformacaoHtmlLista('ambiente','./icons/icon-ambiente.png',estabelecimento.ambiente)
     const infoHobby                 =criarInformacaoHtmlLista('hobby','./icons/icon-hobby.png',estabelecimento.hobby)
     const infoCartao                =criarInformacaoHtmlLista('cartões','./icons/icon-cartao.png',estabelecimento.cartao)
-
+    
+    acaoDoUsuario(estabelecimento._id,'acessoDetalhes',estabelecimento.nome);
     const cardHtml = `
     <div class="container-custom">
         <div class="tab-nav-container">
