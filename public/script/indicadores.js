@@ -38,3 +38,61 @@ function acaoDoUsuario(LugarId, nomeIndicador ,nomeEstabelecimento) {
             console.error('Erro ao atualizar indicador:', error);
         });
 }
+
+function enviarDadosDeAcesso(sessionId, evento) {
+    // Captura o sistema operacional, tipo de dispositivo e navegador
+    const sistemaOperacional = navigator.platform;
+    const tipoDispositivo = /Mobi/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+    const navegador = navigator.userAgent;
+  
+    // Captura a resolução da tela
+    const resolucaoTela = `${window.screen.width}x${window.screen.height}`;
+  
+    // Estrutura do objeto de dados a ser enviado
+    const dadosDeAcesso = {
+      idSessao: sessionId,
+      sistemaOperacional: sistemaOperacional,
+      tipoDispositivo: tipoDispositivo,
+      navegador: navegador,
+      resolucaoTela: resolucaoTela,
+      localizacao: {}, // Localização será adicionada posteriormente
+      eventos: [
+        {
+          tipo: evento
+        }
+      ]
+    };
+  
+    // Obter a localização geográfica, se possível
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        dadosDeAcesso.localizacao = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        };
+  
+        // Enviar os dados para o servidor
+        enviarParaServidor(dadosDeAcesso);
+      }, () => {
+        // Em caso de erro, ou se a localização não estiver disponível
+        enviarParaServidor(dadosDeAcesso);
+      });
+    } else {
+      // Se a geolocalização não for suportada pelo navegador
+      enviarParaServidor(dadosDeAcesso);
+    }
+  }
+  
+  function enviarParaServidor(dados) {
+    fetch('/api/adicionar-evento', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dados)
+    })
+    .then(response => response.json())
+    .then(data => console.log('Dados enviados com sucesso:', data))
+    .catch(error => console.error('Erro ao enviar dados:', error));
+  }
+  

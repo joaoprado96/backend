@@ -1,4 +1,5 @@
 function criarNavbar() {
+    getSessionId();
     var navbarHTML = `
     <nav class="nav">
         <i class="uil uil-bars navOpenBtn"></i>
@@ -88,10 +89,17 @@ function criarNavbar() {
             userSubmenu.classList.remove("show");
         }, 300);
     });
-
-
-
-
-
-
 }
+
+function getSessionId() {
+    let sessionId = localStorage.getItem('sessionId');
+  
+    // Se não houver um SessionID, cria um novo usando UUID
+    if (!sessionId) {
+      sessionId = uuid.v4(); // Gera um UUID
+      localStorage.setItem('sessionId', sessionId);
+    }
+  
+    return sessionId;
+  }
+  

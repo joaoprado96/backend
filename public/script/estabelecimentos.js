@@ -48,6 +48,8 @@ function loadEstabelecimentos(pagina) {
             construirFiltros();
             atualizarEstabelecimentos(pagina); 
             construirCarrosselTipoEvento();
+            let sessionId = localStorage.getItem('sessionId');
+            enviarDadosDeAcesso(sessionId, 'acesso à estabelecimentos')
             // inicializarCarrosselFiltros(); // Chame esta função depois que os estabelecimentos forem carregados
         })
         .catch(erro => console.error('Erro ao carregar estabelecimentos:', erro));
