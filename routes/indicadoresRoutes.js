@@ -14,6 +14,18 @@ router.post('/atualizarIndicador/:LugarId/:nomeIndicador', rateLimit ,async (req
       res.status(500).send('Erro ao atualizar o indicador.');
     }
   });
-  
+
+
+router.post('/removerIndicadoresPorData/:data', async (req, res) => {
+  try {
+    await indicadoresController.removerIndicadoresPorData(req.params.data);
+    res.status(200).send('Indicadores removidos com sucesso.');
+  } catch (error) {
+    console.error('Erro na rota ao remover indicadores:', error);
+    res.status(500).send('Erro ao remover indicadores.');
+  }
+});
+
+
 
 module.exports = router;

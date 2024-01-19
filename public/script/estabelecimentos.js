@@ -117,18 +117,6 @@ function construirFiltros() {
     hobbys = sortSetAlphabetically(hobbys);
     ambientes = sortSetAlphabetically(ambientes);
 
-    // Limpar opções existentes antes de adicionar novas
-    // limparOpcoesFiltro('filtro-cozinha');
-    // limparOpcoesFiltro('filtro-regiao');
-    // limparOpcoesFiltro('filtro-bairro');
-    // limparOpcoesFiltro('filtro-cartao');
-    // limparOpcoesFiltro('filtro-local');
-    // limparOpcoesFiltro('filtro-entrada');
-    // limparOpcoesFiltro('filtro-metro');
-    // limparOpcoesFiltro('filtro-estacao');
-    // limparOpcoesFiltro('filtro-acessibilidade');
-    // limparOpcoesFiltro('filtro-hobby');
-    // limparOpcoesFiltro('filtro-ambiente');
 
     const filtroCozinha = document.getElementById('filtro-cozinha');
     cozinhas.forEach(c => filtroCozinha.add(new Option(c, c)));
