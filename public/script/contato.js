@@ -26,6 +26,8 @@ fetch('/api/incluir-sugestao', {
 .then(response => response.json())
 .then(data => {
     console.log('Success:', data);
+    let sessionId = localStorage.getItem('sessionId');
+    enviarDadosDeAcesso(sessionId, 'acesso à contato')
 })
 .catch((error) => {
     console.error('Error:', error);

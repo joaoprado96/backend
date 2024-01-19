@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     detalhesContainer.innerHTML = criarCardDetalhe(dados[0]);
                     adicionarEventosDeCompartilhamento(); 
                     initMap(dados[0].latitude, dados[0].longitude);
+                    let sessionId = localStorage.getItem('sessionId');
+                    enviarDadosDeAcesso(sessionId, `acesso à detalhes: ${estabelecimentoId}`)
                 } else {
                     detalhesContainer.innerHTML = '<p>Estabelecimento não encontrado.</p>';
                 }

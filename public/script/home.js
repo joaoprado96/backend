@@ -67,6 +67,8 @@ function carregarFotos() {
 
                 // Inicializar o carrossel
                 $('#fotosCarousel').carousel();
+                let sessionId = localStorage.getItem('sessionId');
+                enviarDadosDeAcesso(sessionId, 'acesso à home')
             } else {
                 carouselContainer.innerHTML = '<p>Nenhuma foto encontrada para este lugar.</p>';
             }
