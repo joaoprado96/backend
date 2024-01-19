@@ -27,3 +27,12 @@ async function atualizarIndicador(LugarId, nomeIndicador, nomeEstabelecimento) {
     return null; // Retorna null ou um valor padrão adequado
   }
 }
+
+function acaoDoUsuario(LugarId,nomeIndicador ,nomeEstabelecimento) {
+    // Chama a função sem aguardar pela resposta
+    atualizarIndicador(LugarId, nomeIndicador, nomeEstabelecimento)
+        .catch(error => {
+            // Trate o erro de forma discreta, se necessário
+            console.error('Erro ao atualizar indicador:', error);
+        });
+}
