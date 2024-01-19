@@ -39,4 +39,21 @@ async function atualizarIndicador(LugarId, nomeIndicador, requestBody) {
   }
 }
 
-module.exports = { atualizarIndicador };
+
+async function removerIndicadoresPorData(dataEspecifica) {
+  try {
+    const estabelecimentos = await Estabelecimento.find();
+
+    for (let estabelecimento of estabelecimentos) {
+      for (let chaveIndicador in estabelecimento.indicadores) {
+        estabelecimento.indicadores[chaveIndicador] = estabelecimento.indicadores[chaveIndicador].filter(indicador => indicador.data !== dataEspecifica);
+      }
+      await estabelecimento.save();
+    }
+  } catch (error) {
+    console.error('Erro ao remover indicadores:', error);
+    throw error;
+  }
+}
+
+module.exports = { removerIndicadoresPorData, atualizarIndicador };
