@@ -59,15 +59,46 @@ body {
 }
 
 .page3 {
-    background-image: url('image/background-quem-somos.png');
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
-    width: 100%;
-    background-color: #f7f7f7;
+    width: 90%;
+
+      /* Configurações adicionais (ajuste conforme necessário) */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      /* Adicionando altura para a imagem cobrir a tela inteira */
+      height: 100vh;
+
+      /* Resetando margens padrão do corpo da página */
+      margin: 0;
 }
+
+.info-col {
+    padding: 10px; /* Adicione um espaçamento interno conforme necessário */
+  }
+
+  /* Estilo para a coluna do card */
+  .card-cole {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicione sombra ao card */
+    border: 1px solid #ddd; /* Adicione uma borda */
+    border-radius: 30px; /* Adicione bordas arredondadas */
+    overflow: hidden; /* Garante que as bordas arredondadas se apliquem corretamente */
+    width: 100%;
+    height: 200px;
+  }
+
+  /* Adapta o tamanho do card para ocupar a largura máxima da tela */
+  @media (max-width: 767px) {
+    .card-col {
+      width: 100%;
+    }
+  }
+
 
 @media screen and (max-width: 1160px) {
     .page2 {
@@ -1035,23 +1066,37 @@ select:focus {
 }
 
 .img-quem-somos {
-   width: 150px;
-   height: 150px;
-   margin-bottom: 30px;
-}
+    width: 150px; /* Ajuste conforme necessário */
+    height: auto; /* Mantém a proporção original da imagem */
+    margin-bottom: 30px;
+  }
 
 @media (max-width: 480px) {
     .img-quem-somos {
-        height: 50%;
+        height: auto;
         width: 50%;
+    }
+
+    .quem-somos{
+        font-size: 15px;
     }
 }
 
 .tres-valores{
     font-size: 15px;
     margin-top: 70px;
-    justify-content: center;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
 }
+
+.col {
+    display: flex;
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    align-items: center; /* Centraliza os elementos no eixo transversal (vertical) */
+    text-align: center; /* Centraliza o texto horizontalmente */
+  }
 
 .tres-valores h2{
     font-size: 30px;
