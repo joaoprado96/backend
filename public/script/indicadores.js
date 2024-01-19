@@ -1,34 +1,36 @@
 async function atualizarIndicador(LugarId, nomeIndicador, nomeEstabelecimento) {
-  const url = `http://localhost:3000/api/atualizarIndicador/${LugarId}/${nomeIndicador}`;
+  const url = `/api/atualizarIndicador/${LugarId}/${nomeIndicador}`;
   const body = {
     nome: nomeEstabelecimento
   };
 
   try {
     const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
     });
 
     if (!response.ok) {
-      // Em vez de lançar um erro, considere enviar esses detalhes para um serviço de log ou monitoramento
-      console.error(`Erro HTTP: ${response.status}`); // Remova ou substitua por um logger mais discreto
-      return null; // Retorna null ou um valor padrão adequado
+        throw new Error(`Erro HTTP: ${response.status}`);
     }
 
-    const responseData = await response.json();
-    return responseData;
-  } catch (error) {
-    // Trate os erros silenciosamente em produção, mas você pode querer registrar em algum lugar
-    console.error('Erro ao atualizar indicador:', error); // Remova ou substitua por um logger mais discreto
-    return null; // Retorna null ou um valor padrão adequado
-  }
+    // Verifica se a resposta é do tipo JSON antes de tentar analisar
+    if (response.headers.get('Content-Type').includes('application/json')) {
+        const responseData = await response.json();
+        return responseData;
+    } else {
+        const responseText = await response.text();
+        return null;
+    }
+} catch (error) {
+    console.error('Erro ao atualizar indicador:', error);
+}
 }
 
-function acaoDoUsuario(LugarId,nomeIndicador ,nomeEstabelecimento) {
+function acaoDoUsuario(LugarId, nomeIndicador ,nomeEstabelecimento) {
     // Chama a função sem aguardar pela resposta
     atualizarIndicador(LugarId, nomeIndicador, nomeEstabelecimento)
         .catch(error => {
