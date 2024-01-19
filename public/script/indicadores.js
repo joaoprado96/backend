@@ -92,7 +92,6 @@ function enviarDadosDeAcesso(sessionId, evento) {
       body: JSON.stringify(dados)
     })
     .then(response => response.json())
-    .then(data => console.log('Dados enviados com sucesso:', data))
     .catch(error => console.error('Erro ao enviar dados:', error));
   }
   

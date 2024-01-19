@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     criarNavbar();
+    let sessionId = localStorage.getItem('sessionId');
+    enviarDadosDeAcesso(sessionId, 'acesso à contato')
 });
 
 document.getElementById('contactForm').addEventListener('submit', function(event) {
@@ -26,8 +28,6 @@ fetch('/api/incluir-sugestao', {
 .then(response => response.json())
 .then(data => {
     console.log('Success:', data);
-    let sessionId = localStorage.getItem('sessionId');
-    enviarDadosDeAcesso(sessionId, 'acesso à contato')
 })
 .catch((error) => {
     console.error('Error:', error);
