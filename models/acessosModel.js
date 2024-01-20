@@ -12,6 +12,7 @@ const AcessoSchema = new Schema({
   localizacao: {
     pais: String,
     cidade: String,
+    bairro: String,
     latitude: Number,
     longitude: Number
   },

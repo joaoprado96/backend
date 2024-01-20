@@ -27,26 +27,39 @@ function getUserLocation() {
 function getCityFromCoordinates(latitude, longitude) {
     const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
 
-    fetch(url)
+    return fetch(url)
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             if (data && data.address) {
-                const city = data.address.city || data.address.town || data.address.village;
-                const road = data.address.road;
-                const state = data.address.state;
-                if (city && road && state) {
-                    console.log("Cidade:", city);
-                    console.log("Rua:", road);
-                    console.log("Estado:", state);
+                const city = data.address.city || data.address.town || data.address.village || "Indisponível";
+                const road = data.address.road || "Indisponível";
+                const state = data.address.state || "Indisponível";
+                const suburb = data.address.suburb || "Indisponível"; // Bairro
+                const country = data.address.country || "Indisponível"; // País
+
+
+                if (city && state) {
+                    return {
+                        pais: country,
+                        cidade: city,
+                        rua: road,
+                        estado: state,
+                        bairro: suburb
+                    };
                 } else {
-                    console.log("Cidade não encontrada.");
+                    throw new Error("Cidade não encontrada.");
                 }
             } else {
-                console.log("Nenhum resultado encontrado.");
+                throw new Error("Nenhum resultado encontrado.");
             }
         })
-        .catch(error => console.error("Erro ao obter a cidade:", error));
+        .catch(error => {
+            console.error("Erro ao obter a cidade:", error);
+            throw error; // Propague o erro ou retorne um valor padrão
+        });
 }
+
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371; // Raio da Terra em km

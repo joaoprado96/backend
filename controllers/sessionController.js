@@ -26,13 +26,20 @@ const validateTokenController = (req, res) => {
     }
 
     try {
-        // Decodifica e verifica o token
-        const decoded = jwt.verify(token, secretKey);
-        res.send({ valid: true, decoded });
+        jwt.verify(token, secretKey);
+        // Token é válido
+        res.send({ valid: true });
     } catch (error) {
-        console.error(error);
-        // Se o token é inválido ou expirou
-        res.status(401).send({ valid: false, message: 'Token inválido ou expirado' });
+        // Tratamento específico de erros relacionados ao JWT
+        if (error instanceof jwt.JsonWebTokenError) {
+            // Logue uma mensagem genérica sem detalhes sensíveis
+            console.error(' O TOKEN recebido é de oura chave, erro na verificação do JWT');
+            return res.status(401).send({ valid: false, message: 'Token inválido' });
+        }
+
+        // Para outros erros, você pode querer logar mais detalhes ou tratar de forma diferente
+        console.error('Erro desconhecido na verificação do token', error);
+        return res.status(500).send({ message: 'Erro interno no servidor' });
     }
 };
 

@@ -65,21 +65,33 @@ function enviarDadosDeAcesso(sessionId, evento) {
   
     // Obter a localização geográfica, se possível
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        dadosDeAcesso.localizacao = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        };
-  
-        // Enviar os dados para o servidor
-        enviarParaServidor(dadosDeAcesso);
-      }, () => {
-        // Em caso de erro, ou se a localização não estiver disponível
-        enviarParaServidor(dadosDeAcesso);
-      });
+        navigator.geolocation.getCurrentPosition(position => {
+            getCityFromCoordinates(position.coords.latitude, position.coords.longitude)
+                .then(locationInfo => {
+                    // Atualiza dadosDeAcesso com a localização obtida
+                    dadosDeAcesso.localizacao = {
+                        pais: locationInfo.pais,
+                        cidade: locationInfo.cidade,
+                        bairro: locationInfo.bairro,
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude
+                    };
+
+                    // Agora envia os dados para o servidor
+                    enviarParaServidor(dadosDeAcesso);
+                })
+                .catch(error => {
+                    console.error("Erro ao obter informações:", error);
+                    // Envie os dados mesmo se a localização falhar, mas sem as informações de localização
+                    enviarParaServidor(dadosDeAcesso);
+                });
+        }, () => {
+            // Em caso de erro, ou se a localização não estiver disponível
+            enviarParaServidor(dadosDeAcesso);
+        });
     } else {
-      // Se a geolocalização não for suportada pelo navegador
-      enviarParaServidor(dadosDeAcesso);
+        // Se a geolocalização não for suportada pelo navegador
+        enviarParaServidor(dadosDeAcesso);
     }
   }
   

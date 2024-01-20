@@ -34,3 +34,65 @@ exports.adicionarEvento = async (req, res) => {
     res.status(500).json({ message: 'Erro ao processar a solicitação.', error });
   }
 };
+
+exports.contarSessoesUnicasPorDia = async (req, res) => {
+  try {
+      const resultado = await Acesso.aggregate([
+          {
+              $group: {
+                  _id: {
+                      year: { $year: "$dataHora" },
+                      month: { $month: "$dataHora" },
+                      day: { $dayOfMonth: "$dataHora" }
+                  },
+                  sessoesUnicas: { $addToSet: "$idSessao" }
+              }
+          },
+          {
+              $project: {
+                  _id: 0,
+                  data: "$_id",
+                  quantidade: { $size: "$sessoesUnicas" }
+              }
+          },
+          {
+              $sort: { "data.year": 1, "data.month": 1, "data.day": 1 }
+          }
+      ]);
+
+      res.json(resultado);
+  } catch (error) {
+      console.error(error);
+      res.status(500).send({ message: 'Erro ao realizar a agregação', error });
+  }
+};
+
+// ... (restante do código do controlador)
+
+exports.contarSessoesUnicasPorCidade = async (req, res) => {
+  try {
+      const resultado = await Acesso.aggregate([
+          {
+              $group: {
+                  _id: "$localizacao.cidade",
+                  sessoesUnicas: { $addToSet: "$idSessao" }
+              }
+          },
+          {
+              $project: {
+                  _id: 0,
+                  cidade: "$_id",
+                  quantidade: { $size: "$sessoesUnicas" }
+              }
+          },
+          {
+              $sort: { cidade: 1 }
+          }
+      ]);
+
+      res.json(resultado);
+  } catch (error) {
+      console.error(error);
+      res.status(500).send({ message: 'Erro ao realizar a agregação', error });
+  }
+};

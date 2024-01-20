@@ -338,7 +338,8 @@ function construirCarrosselTipoEvento() {
 
     // Adicionar event listener para seleção de tipo de evento
     $('.item-carrossel').on('click', function() {
-        const tipoSelecionado = $(this).find('h2').text();
+        const tipoSelecionado = $(this).find('.carrosel-icon').attr('alt');
+        console.log(tipoSelecionado);
         aplicarFiltroTipoEvento(tipoSelecionado);
     });
 }
