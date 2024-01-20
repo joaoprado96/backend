@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Projeto de API para Banco de Dados MongoDB",
   "main": "index.js",
+  "engines": {
+    "node": ">=21.6.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
