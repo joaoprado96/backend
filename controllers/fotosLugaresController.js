@@ -1,4 +1,5 @@
 const FotoLugar = require('../models/fotoLugarModel');
+const sharp = require('sharp');
 const multer = require('multer');
 
 exports.adicionarFotoLugar = async (req, res) => {
@@ -46,6 +47,32 @@ exports.obterFotosPorLugar = async (req, res) => {
 
         if (fotos) {
             res.status(200).json(fotos);
+        } else {
+            res.status(404).json({ message: "Nenhuma foto encontrada para este lugar" });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+exports.obterPrimeiraFotoPorLugar = async (req, res) => {
+    try {
+        const lugarId = req.params.lugarId;
+        const fotos = await FotoLugar.findOne({ lugarId: lugarId });
+
+        if (fotos && fotos.fotos.length > 0) {
+            // Redimensionar e comprimir a primeira imagem
+            sharp(fotos.fotos[0].data)
+                .resize(500) // Redimensiona para uma largura de 200px, mantendo a proporção
+                .jpeg({ quality: 100 }) // Converte para JPEG com 80% de qualidade
+                .toBuffer()
+                .then(compressedImage => {
+                    res.status(200).contentType('image/jpeg').send(compressedImage);
+                })
+                .catch(err => {
+                    console.error('Erro ao processar a imagem:', err);
+                    res.status(500).json({ message: "Erro ao processar a imagem", error: err });
+                });
         } else {
             res.status(404).json({ message: "Nenhuma foto encontrada para este lugar" });
         }

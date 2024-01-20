@@ -9,17 +9,19 @@ function bufferToBase64(buf) {
 }
 
 function buscarPrimeiraFoto(lugarId) {
-    return fetch(`/api/fotos-lugares/${lugarId}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.length > 0 && data[0].fotos.length > 0) {
-                const foto = data[0].fotos[0];
-                return `data:${foto.contentType};base64,${bufferToBase64(foto.data.data)}`;
+    return fetch(`/api/primeira-foto-lugar/${lugarId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Falha ao buscar foto');
             }
-            return './image/restaurante.jpg'; // Imagem padrão se não houver fotos
+            return response.blob(); // Converte a resposta em um Blob
+        })
+        .then(imageBlob => {
+            const imageUrl = URL.createObjectURL(imageBlob); // Cria uma URL a partir do Blob
+            return imageUrl;
         })
         .catch(error => {
-            console.error('Erro ao carregar fotos:', error);
+            console.error('Erro ao carregar a primeira foto:', error);
             return './image/restaurante.jpg'; // Imagem padrão em caso de erro
         });
 }

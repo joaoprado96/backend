@@ -282,8 +282,6 @@ function aplicarFiltros() {
             estabelecimento.tipo_evento.includes(filtroTipoEventoAtual));
     }
 
-    // construirFiltros();
-
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
 }
 
