@@ -1,4 +1,12 @@
+// Framework para a aplicação Code Runer
 require('dotenv').config();
+const crypto = require('crypto');
+
+// Gerando informações uteis de ambiente
+process.env.BASEDIR = __dirname
+process.env.NODE_ENV = 'production'
+process.env.JWT_SECRET_KEY = crypto.randomBytes(256).toString('hex');
+
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -11,6 +19,7 @@ const destaquesRoutes = require('./routes/destaquesRoutes');
 const faleconoscoRoutes = require('./routes/faleconoscoRoutes');
 const indicadoresRoutes = require('./routes/indicadoresRoutes');
 const acessoRoutes = require('./routes/acessoRoutes');
+const sessionRoutes = require('./routes/sessionRoutes');
 
 const app = express();
 
@@ -32,6 +41,7 @@ app.use('/api', destaquesRoutes);
 app.use('/api', faleconoscoRoutes);
 app.use('/api', indicadoresRoutes);
 app.use('/api', acessoRoutes);
+app.use('/api', sessionRoutes);
 
 app.get('/', (req, res) => {
     res.redirect('/home.html');

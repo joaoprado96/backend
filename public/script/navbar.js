@@ -91,15 +91,48 @@ function criarNavbar() {
     });
 }
 
-function getSessionId() {
+async function getSessionId() {
     let sessionId = localStorage.getItem('sessionId');
+    let tentativas = 0;
   
-    // Se não houver um SessionID, cria um novo usando UUID
-    if (!sessionId) {
-      sessionId = uuid.v4(); // Gera um UUID
-      localStorage.setItem('sessionId', sessionId);
+    // Função para validar o token
+    async function validarToken(token) {
+      try {
+        const response = await fetch('/api/validate-token', {
+          method: 'GET',
+          headers: {
+            'Authorization': token
+          }
+        });
+        const data = await response.json();
+        return response.ok && data.valid;
+      } catch (error) {
+        console.error('Erro ao validar o token:', error);
+        return false;
+      }
     }
   
-    return sessionId;
+    // Função para obter um novo token
+    async function obterNovoToken() {
+      try {
+        const response = await fetch('/api/generate-token', { method: 'GET' });
+        const data = await response.json();
+        return response.ok ? data.token : null;
+      } catch (error) {
+        console.error('Erro ao obter um novo token:', error);
+        return null;
+      }
+    }
+  
+    // Verifica se o token existe e é válido
+    while (tentativas < 3 && (!sessionId || !await validarToken(sessionId))) {
+      sessionId = await obterNovoToken();
+      if (sessionId) {
+        localStorage.setItem('sessionId', sessionId);
+      }
+      tentativas++;
+    }
+  
+    return sessionId || null;
   }
   
