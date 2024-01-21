@@ -566,7 +566,7 @@ async function atualizarEstabelecimentos(pagina) {
 }
 
 function exibirLoader() {
-  const overlay = document.getElementById('overlay');
+  const overlay = document.getElementById('overlay2');
   overlay.style.display = 'block';
 
   const loaderContainer = document.getElementById('loader-container');
@@ -575,7 +575,7 @@ function exibirLoader() {
 
 // Função para esconder o loader e o overlay
 function esconderLoader() {
-  const overlay = document.getElementById('overlay');
+  const overlay = document.getElementById('overlay2');
   overlay.style.display = 'none';
 
   const loaderContainer = document.getElementById('loader-container');
