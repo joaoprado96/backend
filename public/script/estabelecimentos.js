@@ -289,22 +289,6 @@ function limparFiltros() {
 }
 
 function aplicarFiltros() {
-    const opcoesOriginais = {
-        filtroCozinha: [...document.getElementById('filtro-cozinha').options],
-        filtroRegiao: [...document.getElementById('filtro-regiao').options],
-        filtroBairro: [...document.getElementById('filtro-bairro').options],
-        filtroCartao: [...document.getElementById('filtro-cartao').options],
-        filtroLocal: [...document.getElementById('filtro-local').options],
-        filtroEntrada: [...document.getElementById('filtro-entrada').options],
-        filtroMetro: [...document.getElementById('filtro-metro').options],
-        filtroEstacao: [...document.getElementById('filtro-estacao').options],
-        filtroAcessibilidade: [...document.getElementById('filtro-acessibilidade').options],
-        filtroEstiloMusical: [...document.getElementById('filtro-musical').options],
-        filtroEstiloServico: [...document.getElementById('filtro-servico').options],
-        filtroHobby: [...document.getElementById('filtro-hobby').options],
-        filtroAmbiente: [...document.getElementById('filtro-ambiente').options]
-    };
-
     let resultadosFiltro = estabelecimentos;
     
     // Filtros de seleção (dropdowns)
