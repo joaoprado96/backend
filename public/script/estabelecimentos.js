@@ -513,7 +513,7 @@ async function criarCard(estabelecimento) {
     <div class="card-content ${nivelClasse}">
         <div class="card">
             <a href="detalhes.html?id=${estabelecimento._id}" class="">
-                <img src="${imageUrl}" alt="Imagem do Estabelecimento">
+                <img src="${imageUrl}" loading="lazy" alt="Imagem do Estabelecimento">
             </a>
             <div class="overlay">
                 <div class="estabelecimento-header">
@@ -542,17 +542,20 @@ async function criarCard(estabelecimento) {
 
 async function renderizaEstabelecimentos(dados) {
     const container = document.getElementById('estabelecimentos');
-    container.innerHTML = '';
-
+    
     // Cria um array de Promises usando 'criarCard'
     const promises = dados.map(estabelecimento => criarCard(estabelecimento));
 
     // Aguarda todas as Promises serem resolvidas
     const cards = await Promise.all(promises);
 
-    // Adiciona cada card resolvido ao HTML
-    cards.forEach(card => container.innerHTML += card);
+    // Constrói uma única string HTML com todos os cards
+    const cardsHTML = cards.join('');
+
+    // Adiciona a string ao HTML de uma só vez
+    container.innerHTML = cardsHTML;
 }
+
 
 async function atualizarEstabelecimentos(pagina) {
     exibirLoader();

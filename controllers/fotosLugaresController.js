@@ -62,7 +62,7 @@ exports.obterPrimeiraFotoPorLugar = async (req, res) => {
             { lugarId: lugarId },
             { 'fotos': { '$slice': 1 } } // Projeção para pegar apenas a primeira foto
         );
-
+        
         if (foto && foto.fotos.length > 0) {
             // Redimensionar e comprimir a primeira imagem
             sharp(foto.fotos[0].data)

@@ -25,3 +25,4 @@ function buscarPrimeiraFoto(lugarId) {
             return './image/restaurante.jpg'; // Imagem padrão em caso de erro
         });
 }
+
