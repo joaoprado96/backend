@@ -58,12 +58,15 @@ exports.obterFotosPorLugar = async (req, res) => {
 exports.obterPrimeiraFotoPorLugar = async (req, res) => {
     try {
         const lugarId = req.params.lugarId;
-        const fotos = await FotoLugar.findOne({ lugarId: lugarId });
+        const foto = await FotoLugar.findOne(
+            { lugarId: lugarId },
+            { 'fotos': { '$slice': 1 } } // Projeção para pegar apenas a primeira foto
+        );
 
-        if (fotos && fotos.fotos.length > 0) {
+        if (foto && foto.fotos.length > 0) {
             // Redimensionar e comprimir a primeira imagem
-            sharp(fotos.fotos[0].data)
-                .resize(300) // Redimensiona para uma largura de 200px, mantendo a proporção
+            sharp(foto.fotos[0].data)
+                .resize(300) // Redimensiona para uma largura de 300px, mantendo a proporção
                 .jpeg({ quality: 80 }) // Converte para JPEG com 80% de qualidade
                 .toBuffer()
                 .then(compressedImage => {
