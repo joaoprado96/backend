@@ -555,10 +555,30 @@ async function renderizaEstabelecimentos(dados) {
 }
 
 async function atualizarEstabelecimentos(pagina) {
+    iniciarLoader();
     const estabelecimentosPorPagina = 28;
     const inicio = (pagina - 1) * estabelecimentosPorPagina;
     const fim = inicio + estabelecimentosPorPagina;
     const dadosPagina = estabelecimentosFiltrados.slice(inicio, fim);
     await renderizaEstabelecimentos(dadosPagina);
+    esconderLoader();
     criaPaginacao(estabelecimentosFiltrados.length, estabelecimentosPorPagina, pagina);
+}
+
+// Função para inicializar o loader com Spin.js
+function iniciarLoader() {
+  const loaderContainer = document.getElementById('loader-container');
+  const spinner = new Spinner().spin(loaderContainer);
+}
+
+// Função para exibir o loader
+function exibirLoader() {
+  const loaderContainer = document.getElementById('loader-container');
+  loaderContainer.style.display = 'block';
+}
+
+// Função para esconder o loader
+function esconderLoader() {
+  const loaderContainer = document.getElementById('loader-container');
+  loaderContainer.style.display = 'none';
 }
