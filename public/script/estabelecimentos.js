@@ -219,7 +219,46 @@ function limparFiltros() {
 }
 
 function aplicarFiltros() {
+    const opcoesOriginais = {
+        filtroCozinha: [...document.getElementById('filtro-cozinha').options],
+        filtroRegiao: [...document.getElementById('filtro-regiao').options],
+        filtroBairro: [...document.getElementById('filtro-bairro').options],
+        filtroCartao: [...document.getElementById('filtro-cartao').options],
+        filtroLocal: [...document.getElementById('filtro-local').options],
+        filtroEntrada: [...document.getElementById('filtro-entrada').options],
+        filtroMetro: [...document.getElementById('filtro-metro').options],
+        filtroEstacao: [...document.getElementById('filtro-estacao').options],
+        filtroAcessibilidade: [...document.getElementById('filtro-acessibilidade').options],
+        filtroEstiloMusical: [...document.getElementById('filtro-musical').options],
+        filtroEstiloServico: [...document.getElementById('filtro-servico').options],
+        filtroHobby: [...document.getElementById('filtro-hobby').options],
+        filtroAmbiente: [...document.getElementById('filtro-ambiente').options]
+    };
+
     let resultadosFiltro = estabelecimentos;
+
+    // Restaurar opções originais após aplicar os filtros
+    function restaurarOpcoes(originais, filtroId) {
+        const filtroElemento = document.getElementById(filtroId);
+        filtroElemento.options.length = 0; // Limpar as opções atuais
+
+        originais.forEach(opcao => {
+            filtroElemento.add(opcao.cloneNode(true));
+        });
+    }
+
+    // Função para obter opções únicas de um determinado campo nos estabelecimentos filtrados
+    function obterOpcoesUnicas(filtroId, campo) {
+        const opcoesUnicas = new Set();
+        resultadosFiltro.forEach(estabelecimento => {
+            const valores = estabelecimento[campo];
+            if (valores && valores.length > 0) {
+                valores.forEach(valor => opcoesUnicas.add(valor));
+            }
+        });
+        return sortSetAlphabetically([...opcoesUnicas]);
+    }
+    
     // Filtros de seleção (dropdowns)
     const filtroCozinha = document.getElementById('filtro-cozinha').value;
     const filtroRegiao = document.getElementById('filtro-regiao').value;
@@ -280,6 +319,59 @@ function aplicarFiltros() {
     if (filtroTipoEventoAtual) {
         estabelecimentosFiltrados = estabelecimentosFiltrados.filter(estabelecimento => 
             estabelecimento.tipo_evento.includes(filtroTipoEventoAtual));
+    }
+    // Após a aplicação dos filtros, restaurar as opções originais para filtros não utilizados
+    if (!filtroCozinha) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-cozinha', 'cozinha');
+        restaurarOpcoes(novasOpcoes, 'filtro-cozinha');
+    }
+    if (!filtroRegiao) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-regiao', 'regiao');
+        restaurarOpcoes(novasOpcoes, 'filtro-regiao');
+    }
+    if (!filtroBairro) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-bairro', 'bairro');
+        restaurarOpcoes(novasOpcoes, 'filtro-bairro');
+    }
+    if (!filtroCartao) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-cartao', 'cartao');
+        restaurarOpcoes(novasOpcoes, 'filtro-cartao');
+    }
+    if (!filtroLocal) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-local', 'local');
+        restaurarOpcoes(novasOpcoes, 'filtro-local');
+    }
+    if (!filtroEntrada) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-entrada', 'entrada');
+        restaurarOpcoes(novasOpcoes, 'filtro-entrada');
+    }
+    if (!filtroMetro) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-metro', 'linha_metro');
+        restaurarOpcoes(novasOpcoes, 'filtro-metro');
+    }
+    if (!filtroEstacao) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-estacao', 'estacao');
+        restaurarOpcoes(novasOpcoes, 'filtro-estacao');
+    }
+    if (!filtroAcessibilidade) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-acessibilidade', 'acessibilidade');
+        restaurarOpcoes(novasOpcoes, 'filtro-acessibilidade');
+    }
+    if (!filtroEstiloMusical) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-musical', 'estilo_musical');
+        restaurarOpcoes(novasOpcoes, 'filtro-musical');
+    }
+    if (!filtroEstiloServico) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-servico', 'estilo_servico');
+        restaurarOpcoes(novasOpcoes, 'filtro-servico');
+    }
+    if (!filtroHobby) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-hobby', 'hobby');
+        restaurarOpcoes(novasOpcoes, 'filtro-hobby');
+    }
+    if (!filtroAmbiente) {
+        const novasOpcoes = obterOpcoesUnicas('filtro-ambiente', 'ambiente');
+        restaurarOpcoes(novasOpcoes, 'filtro-ambiente');
     }
 
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
