@@ -555,7 +555,7 @@ async function renderizaEstabelecimentos(dados) {
 }
 
 async function atualizarEstabelecimentos(pagina) {
-    iniciarLoader();
+    exibirLoader();
     const estabelecimentosPorPagina = 28;
     const inicio = (pagina - 1) * estabelecimentosPorPagina;
     const fim = inicio + estabelecimentosPorPagina;
@@ -565,20 +565,19 @@ async function atualizarEstabelecimentos(pagina) {
     criaPaginacao(estabelecimentosFiltrados.length, estabelecimentosPorPagina, pagina);
 }
 
-// Função para inicializar o loader com Spin.js
-function iniciarLoader() {
+function exibirLoader() {
+  const overlay = document.getElementById('overlay');
+  overlay.style.display = 'block';
+
   const loaderContainer = document.getElementById('loader-container');
   const spinner = new Spinner().spin(loaderContainer);
 }
 
-// Função para exibir o loader
-function exibirLoader() {
-  const loaderContainer = document.getElementById('loader-container');
-  loaderContainer.style.display = 'block';
-}
-
-// Função para esconder o loader
+// Função para esconder o loader e o overlay
 function esconderLoader() {
+  const overlay = document.getElementById('overlay');
+  overlay.style.display = 'none';
+
   const loaderContainer = document.getElementById('loader-container');
-  loaderContainer.style.display = 'none';
+  loaderContainer.innerHTML = ''; // Limpa o conteúdo do loader
 }
