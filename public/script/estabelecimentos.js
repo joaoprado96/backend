@@ -240,12 +240,13 @@ function aplicarFiltros() {
     // Restaurar opções originais após aplicar os filtros
     function restaurarOpcoes(originais, filtroId) {
         const filtroElemento = document.getElementById(filtroId);
-        filtroElemento.options.length = 0; // Limpar as opções atuais
-
+        filtroElemento.innerHTML = ""; // Limpar as opções atuais
+    
         originais.forEach(opcao => {
-            filtroElemento.add(opcao.cloneNode(true));
+            filtroElemento.add(new Option(opcao.text, opcao.value));  // Criar uma nova opção e adicioná-la ao filtro
         });
     }
+
 
     // Função para obter opções únicas de um determinado campo nos estabelecimentos filtrados
     function obterOpcoesUnicas(filtroId, campo) {
