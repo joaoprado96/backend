@@ -626,7 +626,7 @@ button:hover {
     /* Ocupa aproximadamente um terço do espaço, considerando margem */
     margin-bottom: 10px;
     /* Espaçamento entre linhas */
-    background-color: #c32514;
+    background-color: var(--branco);
     display: flex;
     flex-wrap: wrap;
     /* Permite que os itens se ajustem na linha ou se movam para a próxima */
@@ -785,7 +785,7 @@ button:hover {
     width: 100%;
     max-width: 520px;
     /* Largura máxima para dispositivos maiores */
-    border-color: #c32514;
+    border-color: var(--branco);
     border: 20px;
 }
 
