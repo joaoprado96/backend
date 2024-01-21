@@ -369,7 +369,7 @@ function aplicarFiltros() {
             estabelecimento.tipo_evento.includes(filtroTipoEventoAtual));
     }
 
-    atualizarFiltrosComBaseEmEstabelecimentosFiltrados(estabelecimentosFiltrados);
+    // atualizarFiltrosComBaseEmEstabelecimentosFiltrados(estabelecimentosFiltrados);
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
 }
 
