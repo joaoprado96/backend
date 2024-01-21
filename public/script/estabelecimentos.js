@@ -119,7 +119,6 @@ function construirFiltros() {
     hobbys = sortSetAlphabetically(hobbys);
     ambientes = sortSetAlphabetically(ambientes);
 
-
     const filtroCozinha = document.getElementById('filtro-cozinha');
     cozinhas.forEach(c => filtroCozinha.add(new Option(c, c)));
 
@@ -160,6 +159,77 @@ function construirFiltros() {
     ambientes.forEach(amb => filtroAmbiente.add(new Option(amb, amb)));
 
     adicionarEventListenersParaFiltros();
+}
+
+function atualizarFiltrosComBaseEmEstabelecimentosFiltrados(estabelecimentosFiltrados) {
+    // Limpar variáveis existentes
+    var cozinhas = new Set();
+    var regioes = new Set();
+    var bairros = new Set();
+    var cartoes = new Set();
+    var locais = new Set();
+    var entradas = new Set();
+    var linhas_metro = new Set();
+    var estacoes = new Set();
+    var acessibilidades = new Set();
+    var estilos_musicais = new Set();
+    var estilos_servicos = new Set();
+    var hobbys = new Set();
+    var ambientes = new Set();
+
+    // Preencher conjuntos com base nos estabelecimentos filtrados
+    estabelecimentosFiltrados.forEach(estabelecimento => {
+        estabelecimento.cozinha.forEach(c => cozinhas.add(c));
+        regioes.add(estabelecimento.regiao);
+        bairros.add(estabelecimento.bairro);
+        estabelecimento.cartao.forEach(ct => cartoes.add(ct));
+        estabelecimento.local.forEach(l => locais.add(l));
+        entradas.add(estabelecimento.entrada);
+        estabelecimento.linha_metro.forEach(lm => linhas_metro.add(lm));
+        estabelecimento.estacao.forEach(est => estacoes.add(est));
+        estabelecimento.acessibilidade.forEach(acess => acessibilidades.add(acess));
+        estabelecimento.estilo_musical.forEach(em => estilos_musicais.add(em));
+        estabelecimento.estilo_servico.forEach(es => estilos_servicos.add(es));
+        estabelecimento.hobby.forEach(hb => hobbys.add(hb));
+        estabelecimento.ambiente.forEach(amb => ambientes.add(amb));
+    });
+
+    // Ordenar conjuntos alfabeticamente
+    cozinhas = sortSetAlphabetically(cozinhas);
+    regioes = sortSetAlphabetically(regioes);
+    bairros = sortSetAlphabetically(bairros);
+    cartoes = sortSetAlphabetically(cartoes);
+    locais = sortSetAlphabetically(locais);
+    linhas_metro = sortSetAlphabetically(linhas_metro);
+    estacoes = sortSetAlphabetically(estacoes);
+    acessibilidades = sortSetAlphabetically(acessibilidades);
+    estilos_musicais = sortSetAlphabetically(estilos_musicais);
+    estilos_servicos = sortSetAlphabetically(estilos_servicos);
+    hobbys = sortSetAlphabetically(hobbys);
+    ambientes = sortSetAlphabetically(ambientes);
+
+    // Atualizar os elementos do filtro no DOM
+    atualizarElementosFiltro('filtro-cozinha', cozinhas);
+    atualizarElementosFiltro('filtro-regiao', regioes);
+    atualizarElementosFiltro('filtro-bairro', bairros);
+    atualizarElementosFiltro('filtro-cartao', cartoes);
+    atualizarElementosFiltro('filtro-local', locais);
+    atualizarElementosFiltro('filtro-entrada', entradas);
+    atualizarElementosFiltro('filtro-metro', linhas_metro);
+    atualizarElementosFiltro('filtro-estacao', estacoes);
+    atualizarElementosFiltro('filtro-acessibilidade', acessibilidades);
+    atualizarElementosFiltro('filtro-musical', estilos_musicais);
+    atualizarElementosFiltro('filtro-servico', estilos_servicos);
+    atualizarElementosFiltro('filtro-hobby', hobbys);
+    atualizarElementosFiltro('filtro-ambiente', ambientes);
+}
+
+function atualizarElementosFiltro(id, elementos) {
+    const filtroElemento = document.getElementById(id);
+    // Limpar as opções atuais
+    filtroElemento.innerHTML = "";
+    // Adicionar novas opções
+    elementos.forEach(elemento => filtroElemento.add(new Option(elemento, elemento)));
 }
 
 
@@ -236,29 +306,6 @@ function aplicarFiltros() {
     };
 
     let resultadosFiltro = estabelecimentos;
-
-    // Restaurar opções originais após aplicar os filtros
-    function restaurarOpcoes(originais, filtroId) {
-        const filtroElemento = document.getElementById(filtroId);
-        filtroElemento.innerHTML = ""; // Limpar as opções atuais
-    
-        originais.forEach(opcao => {
-            filtroElemento.add(new Option(opcao.text, opcao.value));  // Criar uma nova opção e adicioná-la ao filtro
-        });
-    }
-
-
-    // Função para obter opções únicas de um determinado campo nos estabelecimentos filtrados
-    function obterOpcoesUnicas(filtroId, campo) {
-        const opcoesUnicas = new Set();
-        resultadosFiltro.forEach(estabelecimento => {
-            const valores = estabelecimento[campo];
-            if (valores && valores.length > 0) {
-                valores.forEach(valor => opcoesUnicas.add(valor));
-            }
-        });
-        return sortSetAlphabetically([...opcoesUnicas]);
-    }
     
     // Filtros de seleção (dropdowns)
     const filtroCozinha = document.getElementById('filtro-cozinha').value;
@@ -321,60 +368,8 @@ function aplicarFiltros() {
         estabelecimentosFiltrados = estabelecimentosFiltrados.filter(estabelecimento => 
             estabelecimento.tipo_evento.includes(filtroTipoEventoAtual));
     }
-    // Após a aplicação dos filtros, restaurar as opções originais para filtros não utilizados
-    if (!filtroCozinha) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-cozinha', 'cozinha');
-        restaurarOpcoes(novasOpcoes, 'filtro-cozinha');
-    }
-    if (!filtroRegiao) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-regiao', 'regiao');
-        restaurarOpcoes(novasOpcoes, 'filtro-regiao');
-    }
-    if (!filtroBairro) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-bairro', 'bairro');
-        restaurarOpcoes(novasOpcoes, 'filtro-bairro');
-    }
-    if (!filtroCartao) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-cartao', 'cartao');
-        restaurarOpcoes(novasOpcoes, 'filtro-cartao');
-    }
-    if (!filtroLocal) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-local', 'local');
-        restaurarOpcoes(novasOpcoes, 'filtro-local');
-    }
-    if (!filtroEntrada) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-entrada', 'entrada');
-        restaurarOpcoes(novasOpcoes, 'filtro-entrada');
-    }
-    if (!filtroMetro) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-metro', 'linha_metro');
-        restaurarOpcoes(novasOpcoes, 'filtro-metro');
-    }
-    if (!filtroEstacao) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-estacao', 'estacao');
-        restaurarOpcoes(novasOpcoes, 'filtro-estacao');
-    }
-    if (!filtroAcessibilidade) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-acessibilidade', 'acessibilidade');
-        restaurarOpcoes(novasOpcoes, 'filtro-acessibilidade');
-    }
-    if (!filtroEstiloMusical) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-musical', 'estilo_musical');
-        restaurarOpcoes(novasOpcoes, 'filtro-musical');
-    }
-    if (!filtroEstiloServico) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-servico', 'estilo_servico');
-        restaurarOpcoes(novasOpcoes, 'filtro-servico');
-    }
-    if (!filtroHobby) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-hobby', 'hobby');
-        restaurarOpcoes(novasOpcoes, 'filtro-hobby');
-    }
-    if (!filtroAmbiente) {
-        const novasOpcoes = obterOpcoesUnicas('filtro-ambiente', 'ambiente');
-        restaurarOpcoes(novasOpcoes, 'filtro-ambiente');
-    }
 
+    atualizarFiltrosComBaseEmEstabelecimentosFiltrados(estabelecimentosFiltrados);
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
 }
 
