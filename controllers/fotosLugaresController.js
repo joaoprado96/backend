@@ -63,8 +63,8 @@ exports.obterPrimeiraFotoPorLugar = async (req, res) => {
         if (fotos && fotos.fotos.length > 0) {
             // Redimensionar e comprimir a primeira imagem
             sharp(fotos.fotos[0].data)
-                .resize(500) // Redimensiona para uma largura de 200px, mantendo a proporção
-                .jpeg({ quality: 100 }) // Converte para JPEG com 80% de qualidade
+                .resize(300) // Redimensiona para uma largura de 200px, mantendo a proporção
+                .jpeg({ quality: 80 }) // Converte para JPEG com 80% de qualidade
                 .toBuffer()
                 .then(compressedImage => {
                     res.status(200).contentType('image/jpeg').send(compressedImage);
