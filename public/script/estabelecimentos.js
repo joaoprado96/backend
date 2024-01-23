@@ -3,6 +3,28 @@ let estabelecimentos = [];
 let estabelecimentosFiltrados = [];
 let diaDaSemanaGlobal;
 let filtroTipoEventoAtual = null; // Variável global para armazenar o tipo de evento selecionado
+const filtrosGlobais = [
+    { id: 'filtro-cozinha', tipo: 'dropdown' },
+    { id: 'filtro-regiao', tipo: 'dropdown' },
+    { id: 'filtro-bairro', tipo: 'dropdown' },
+    { id: 'filtro-cartao', tipo: 'dropdown' },
+    { id: 'filtro-local', tipo: 'dropdown' },
+    { id: 'filtro-entrada', tipo: 'dropdown' },
+    { id: 'filtro-metro', tipo: 'dropdown' },
+    { id: 'filtro-estacao', tipo: 'dropdown' },
+    { id: 'filtro-acessibilidade', tipo: 'dropdown' },
+    { id: 'filtro-musical', tipo: 'dropdown' },
+    { id: 'filtro-servico', tipo: 'dropdown' },
+    { id: 'filtro-hobby', tipo: 'dropdown' },
+    { id: 'filtro-ambiente', tipo: 'dropdown' },
+    { id: 'filtro-musica', tipo: 'checkbox' },
+    { id: 'filtro-estacionamento', tipo: 'checkbox' },
+    { id: 'filtro-cover', tipo: 'checkbox' },
+    { id: 'filtro-kids', tipo: 'checkbox' },
+    { id: 'filtro-pet', tipo: 'checkbox' },
+    { id: 'filtro-glutenfree', tipo: 'checkbox' },
+    { id: 'filtro-lactosefree', tipo: 'checkbox' }
+];
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -50,7 +72,6 @@ function loadEstabelecimentos(pagina) {
             construirCarrosselTipoEvento();
             let sessionId = localStorage.getItem('sessionId');
             enviarDadosDeAcesso(sessionId, 'acesso à estabelecimentos')
-            // inicializarCarrosselFiltros(); // Chame esta função depois que os estabelecimentos forem carregados
         })
         .catch(erro => console.error('Erro ao carregar estabelecimentos:', erro));
 }
@@ -72,226 +93,68 @@ function getQueryParams() {
 function sortSetAlphabetically(set) {
     return Array.from(set).sort();
   }
-function construirFiltros() {
-    // Esta função preencherá os elementos de filtro com opções baseadas nos estabelecimentos carregados
-    var cozinhas = new Set();
-    var regioes = new Set();
-    var bairros = new Set();
-    var cartoes = new Set();
-    var locais = new Set();
-    var entradas = new Set();
-    var linhas_metro = new Set();
-    var estacoes = new Set();
-    var acessibilidades = new Set();
-    var estilos_musicais = new Set();
-    var estilos_servicos = new Set();
-    var hobbys = new Set();
-    var ambientes = new Set();
+  function construirFiltros() {
+    const conjuntosFiltros = {
+        'filtro-cozinha': new Set(),
+        'filtro-regiao': new Set(),
+        'filtro-bairro': new Set(),
+        'filtro-cartao': new Set(),
+        'filtro-local': new Set(),
+        'filtro-entrada': new Set(),
+        'filtro-metro': new Set(),
+        'filtro-estacao': new Set(),
+        'filtro-acessibilidade': new Set(),
+        'filtro-musical': new Set(),
+        'filtro-servico': new Set(),
+        'filtro-hobby': new Set(),
+        'filtro-ambiente': new Set()
+    };
 
     estabelecimentos.forEach(estabelecimento => {
-        estabelecimento.cozinha.forEach(c => cozinhas.add(c));
-        regioes.add(estabelecimento.regiao);
-        bairros.add(estabelecimento.bairro);
-        estabelecimento.dias.forEach(ct => dias.add(ct));
-        estabelecimento.cartao.forEach(ct => cartoes.add(ct));
-        estabelecimento.local.forEach(l => locais.add(l));
-        entradas.add(estabelecimento.entrada);
-        estabelecimento.linha_metro.forEach(lm => linhas_metro.add(lm));
-        estabelecimento.estacao.forEach(est => estacoes.add(est));
-        estabelecimento.acessibilidade.forEach(acess => acessibilidades.add(acess));
-        estabelecimento.estilo_musical.forEach(em => estilos_musicais.add(em));
-        estabelecimento.estilo_servico.forEach(es => estilos_servicos.add(es));
-        estabelecimento.hobby.forEach(hb => hobbys.add(hb));
-        estabelecimento.ambiente.forEach(amb => ambientes.add(amb));
-        
+        ['cozinha', 'regiao', 'bairro', 'cartao', 'local', 'entrada', 'metro', 'estacao', 'acessibilidade', 'musical', 'servico', 'hobby', 'ambiente'].forEach(campo => {
+            const valores = Array.isArray(estabelecimento[campo]) ? estabelecimento[campo] : [estabelecimento[campo]];
+            valores.forEach(valor => {
+                if (valor) conjuntosFiltros[`filtro-${campo}`].add(valor);
+            });
+        });
     });
-    
-    cozinhas = sortSetAlphabetically(cozinhas);
-    regioes = sortSetAlphabetically(regioes);
-    bairros = sortSetAlphabetically(bairros);
-    cartoes = sortSetAlphabetically(cartoes);
-    locais = sortSetAlphabetically(locais);
-    linhas_metro = sortSetAlphabetically(linhas_metro);
-    estacoes = sortSetAlphabetically(estacoes);
-    acessibilidades = sortSetAlphabetically(acessibilidades);
-    estilos_musicais = sortSetAlphabetically(estilos_musicais);
-    estilos_servicos = sortSetAlphabetically(estilos_servicos);
-    hobbys = sortSetAlphabetically(hobbys);
-    ambientes = sortSetAlphabetically(ambientes);
 
-    const filtroCozinha = document.getElementById('filtro-cozinha');
-    cozinhas.forEach(c => filtroCozinha.add(new Option(c, c)));
-
-    const filtroRegiao = document.getElementById('filtro-regiao');
-    regioes.forEach(r => filtroRegiao.add(new Option(r, r)));
-
-    const filtroBairro = document.getElementById('filtro-bairro');
-    bairros.forEach(b => filtroBairro.add(new Option(b, b)));
-
-    const filtroCartao = document.getElementById('filtro-cartao');
-    cartoes.forEach(ct => filtroCartao.add(new Option(ct, ct)));
-    
-    const filtroLocal = document.getElementById('filtro-local');
-    locais.forEach(l => filtroLocal.add(new Option(l, l)));
-    
-    const filtroEntrada = document.getElementById('filtro-entrada');
-    entradas.forEach(ent => filtroEntrada.add(new Option(ent, ent)));
-
-    const filtroMetro = document.getElementById('filtro-metro');
-    linhas_metro.forEach(metro => filtroMetro.add(new Option(metro, metro)));
-
-    const filtroEstacao = document.getElementById('filtro-estacao');
-    estacoes.forEach(esta => filtroEstacao.add(new Option(esta, esta)));
-
-    const filtroAcessibilidade = document.getElementById('filtro-acessibilidade');
-    acessibilidades.forEach(acess => filtroAcessibilidade.add(new Option(acess, acess)));
-
-    const filtroEstiloMusical = document.getElementById('filtro-musical');
-    estilos_musicais.forEach(mus => filtroEstiloMusical.add(new Option(mus, mus)));
-
-    const filtroEstiloServico = document.getElementById('filtro-servico');
-    estilos_servicos.forEach(serv => filtroEstiloServico.add(new Option(serv, serv)));
-
-    const filtroHobby = document.getElementById('filtro-hobby');
-    hobbys.forEach(hoby => filtroHobby.add(new Option(hoby, hoby)));
-
-    const filtroAmbiente = document.getElementById('filtro-ambiente');
-    ambientes.forEach(amb => filtroAmbiente.add(new Option(amb, amb)));
-
+    Object.entries(conjuntosFiltros).forEach(([filtroId, conjunto]) => {
+        addOptionsToFiltro(filtroId, conjunto);
+    });
     adicionarEventListenersParaFiltros();
 }
 
-function atualizarFiltrosComBaseEmEstabelecimentosFiltrados(estabelecimentosFiltrados) {
-    // Limpar variáveis existentes
-    var cozinhas = new Set();
-    var regioes = new Set();
-    var bairros = new Set();
-    var cartoes = new Set();
-    var locais = new Set();
-    var entradas = new Set();
-    var linhas_metro = new Set();
-    var estacoes = new Set();
-    var acessibilidades = new Set();
-    var estilos_musicais = new Set();
-    var estilos_servicos = new Set();
-    var hobbys = new Set();
-    var ambientes = new Set();
-
-    // Preencher conjuntos com base nos estabelecimentos filtrados
-    estabelecimentosFiltrados.forEach(estabelecimento => {
-        estabelecimento.cozinha.forEach(c => cozinhas.add(c));
-        regioes.add(estabelecimento.regiao);
-        bairros.add(estabelecimento.bairro);
-        estabelecimento.cartao.forEach(ct => cartoes.add(ct));
-        estabelecimento.local.forEach(l => locais.add(l));
-        entradas.add(estabelecimento.entrada);
-        estabelecimento.linha_metro.forEach(lm => linhas_metro.add(lm));
-        estabelecimento.estacao.forEach(est => estacoes.add(est));
-        estabelecimento.acessibilidade.forEach(acess => acessibilidades.add(acess));
-        estabelecimento.estilo_musical.forEach(em => estilos_musicais.add(em));
-        estabelecimento.estilo_servico.forEach(es => estilos_servicos.add(es));
-        estabelecimento.hobby.forEach(hb => hobbys.add(hb));
-        estabelecimento.ambiente.forEach(amb => ambientes.add(amb));
+function addOptionsToFiltro(filtroId, conjunto) {
+    const elementoFiltro = document.getElementById(filtroId);
+    Array.from(conjunto).sort().forEach(opcao => {
+        elementoFiltro.add(new Option(opcao, opcao));
     });
-
-    // Ordenar conjuntos alfabeticamente
-    cozinhas = sortSetAlphabetically(cozinhas);
-    regioes = sortSetAlphabetically(regioes);
-    bairros = sortSetAlphabetically(bairros);
-    cartoes = sortSetAlphabetically(cartoes);
-    locais = sortSetAlphabetically(locais);
-    linhas_metro = sortSetAlphabetically(linhas_metro);
-    estacoes = sortSetAlphabetically(estacoes);
-    acessibilidades = sortSetAlphabetically(acessibilidades);
-    estilos_musicais = sortSetAlphabetically(estilos_musicais);
-    estilos_servicos = sortSetAlphabetically(estilos_servicos);
-    hobbys = sortSetAlphabetically(hobbys);
-    ambientes = sortSetAlphabetically(ambientes);
-
-    // Atualizar os elementos do filtro no DOM
-    atualizarElementosFiltro('filtro-cozinha', cozinhas);
-    atualizarElementosFiltro('filtro-regiao', regioes);
-    atualizarElementosFiltro('filtro-bairro', bairros);
-    atualizarElementosFiltro('filtro-cartao', cartoes);
-    atualizarElementosFiltro('filtro-local', locais);
-    atualizarElementosFiltro('filtro-entrada', entradas);
-    atualizarElementosFiltro('filtro-metro', linhas_metro);
-    atualizarElementosFiltro('filtro-estacao', estacoes);
-    atualizarElementosFiltro('filtro-acessibilidade', acessibilidades);
-    atualizarElementosFiltro('filtro-musical', estilos_musicais);
-    atualizarElementosFiltro('filtro-servico', estilos_servicos);
-    atualizarElementosFiltro('filtro-hobby', hobbys);
-    atualizarElementosFiltro('filtro-ambiente', ambientes);
 }
 
-function atualizarElementosFiltro(id, elementos) {
-    const filtroElemento = document.getElementById(id);
-    // Limpar as opções atuais
-    filtroElemento.innerHTML = "";
-    // Adicionar novas opções
-    elementos.forEach(elemento => filtroElemento.add(new Option(elemento, elemento)));
-}
-
-
-function limparOpcoesFiltro(idFiltro) {
-    document.getElementById(idFiltro).innerHTML = '';
-}
 
 function adicionarEventListenersParaFiltros() {
-    document.getElementById('filtro-cozinha').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-regiao').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-bairro').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-cartao').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-local').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-entrada').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-metro').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-estacao').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-acessibilidade').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-musical').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-servico').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-hobby').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-ambiente').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-musica').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-estacionamento').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-cover').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-kids').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-pet').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-glutenfree').addEventListener('change', () => aplicarFiltros());
-    document.getElementById('filtro-lactosefree').addEventListener('change', () => aplicarFiltros());
+    ['cozinha', 'regiao', 'bairro', 'cartao', 'local', 'entrada', 'metro', 'estacao', 'acessibilidade', 'musical', 'servico', 'hobby', 'ambiente', 'musica', 'estacionamento', 'cover', 'kids', 'pet', 'glutenfree', 'lactosefree'].forEach(filtro => {
+        document.getElementById(`filtro-${filtro}`).addEventListener('change', aplicarFiltros);
+    });
 }
-function limparFiltros() {
-    // Resetar os filtros de seleção (dropdowns) para o valor padrão
-    document.getElementById('filtro-cozinha').value = '';
-    document.getElementById('filtro-regiao').value = '';
-    document.getElementById('filtro-bairro').value = '';
-    document.getElementById('filtro-cartao').value = '';
-    document.getElementById('filtro-local').value = '';
-    document.getElementById('filtro-entrada').value = '';
-    document.getElementById('filtro-metro').value = '';
-    document.getElementById('filtro-estacao').value = '';
-    document.getElementById('filtro-acessibilidade').value = '';
-    document.getElementById('filtro-musical').value = '';
-    document.getElementById('filtro-servico').value = '';
-    document.getElementById('filtro-hobby').value = '';
-    document.getElementById('filtro-ambiente').value = '';
 
-    // Resetar os filtros de checkbox
-    document.getElementById('filtro-musica').checked = false;
-    document.getElementById('filtro-estacionamento').checked = false;
-    document.getElementById('filtro-cover').checked = false;
-    document.getElementById('filtro-kids').checked = false;
-    document.getElementById('filtro-pet').checked = false;
-    document.getElementById('filtro-glutenfree').checked = false;
-    document.getElementById('filtro-lactosefree').checked = false;
+// Função para limpar filtros
+function limparFiltros() {
+    filtrosGlobais.forEach(filtro => {
+        if (filtro.tipo === 'dropdown') {
+            document.getElementById(filtro.id).value = '';
+        } else if (filtro.tipo === 'checkbox') {
+            document.getElementById(filtro.id).checked = false;
+        }
+    });
 
     // Aplicar os filtros após o reset
     aplicarFiltros();
 }
 
+// Função para aplicar filtros
 function aplicarFiltros() {
-    let resultadosFiltro = estabelecimentos;
-    
-    // Filtros de seleção (dropdowns)
     const filtroCozinha = document.getElementById('filtro-cozinha').value;
     const filtroRegiao = document.getElementById('filtro-regiao').value;
     const filtroBairro = document.getElementById('filtro-bairro').value;
@@ -353,9 +216,9 @@ function aplicarFiltros() {
             estabelecimento.tipo_evento.includes(filtroTipoEventoAtual));
     }
 
-    // atualizarFiltrosComBaseEmEstabelecimentosFiltrados(estabelecimentosFiltrados);
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
 }
+
 
 function construirCarrosselTipoEvento() {
     const tiposEvento = new Set();
@@ -379,29 +242,30 @@ function construirCarrosselTipoEvento() {
         dots: false,        // Desativa os pontos de navegação
         arrows: false,      // Desativa os botões de próxima e anterior
         infinite: true,
-        speed: 300,
+        autoplay: true,        // Ativa o autoplay
+        autoplaySpeed: 1000,   // Velocidade do autoplay (2000 ms = 2 segundos)
         slidesToShow: 7,
-        slidesToScroll: 7,
+        slidesToScroll: 2,
         responsive: [
             {
                 breakpoint: 1024, // Largura máxima de 1024px
                 settings: {
                     slidesToShow: 7,
-                    slidesToScroll: 7
+                    slidesToScroll: 2
                 }
             },
             {
                 breakpoint: 600, // Largura máxima de 600px
                 settings: {
                     slidesToShow: 5,
-                    slidesToScroll: 5
+                    slidesToScroll: 2
                 }
             },
             {
                 breakpoint: 480, // Largura máxima de 480px
                 settings: {
                     slidesToShow: 5,
-                    slidesToScroll: 5
+                    slidesToScroll: 2
                 }
             }
         ]
@@ -542,7 +406,18 @@ async function criarCard(estabelecimento) {
 
 async function renderizaEstabelecimentos(dados) {
     const container = document.getElementById('estabelecimentos');
-    
+    // Verifica se há estabelecimentos a serem exibidos
+    if (dados.length === 0) {
+        // Exibe uma mensagem amigável caso não encontre estabelecimentos
+        container.innerHTML = `
+            <div class="mensagem-vazia">
+                <span class="mensagem-vazia-icon">&#128546;</span>
+                <p>Desculpe, não encontramos nenhum estabelecimento <br>
+                 Ajuste os filtros para enocntrar outras opções.... <br>
+                 Em breve teremos mais opções que atendem a essas características!</p>
+            </div>`;
+        return;
+    }
     // Cria um array de Promises usando 'criarCard'
     const promises = dados.map(estabelecimento => criarCard(estabelecimento));
 
