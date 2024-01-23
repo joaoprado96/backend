@@ -41,6 +41,6 @@ def buscar_restaurantes(api_key, location, radius=5000, type='restaurant'):
         print("\n")
 
 # Exemplo de uso
-api_key = 'SUA_API_KEY'
+api_key = 'AIzaSyDYmYvexhcMcyqYxDRfsyZqzAT3wSkHBHk'
 location = '-22.907104, -47.063240'  # Coordenadas de Campinas
 buscar_restaurantes(api_key, location)
