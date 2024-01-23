@@ -559,7 +559,7 @@ async function renderizaEstabelecimentos(dados) {
 
 async function atualizarEstabelecimentos(pagina) {
     exibirLoader();
-    const estabelecimentosPorPagina = 28;
+    const estabelecimentosPorPagina = 12;
     const inicio = (pagina - 1) * estabelecimentosPorPagina;
     const fim = inicio + estabelecimentosPorPagina;
     const dadosPagina = estabelecimentosFiltrados.slice(inicio, fim);
