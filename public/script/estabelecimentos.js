@@ -93,7 +93,9 @@ function getQueryParams() {
 function sortSetAlphabetically(set) {
     return Array.from(set).sort();
   }
+
   function construirFiltros() {
+    // Definição dos conjuntos de filtros
     const conjuntosFiltros = {
         'filtro-cozinha': new Set(),
         'filtro-regiao': new Set(),
@@ -110,7 +112,24 @@ function sortSetAlphabetically(set) {
         'filtro-ambiente': new Set()
     };
 
-    estabelecimentos.forEach(estabelecimento => {
+    // Armazenar os valores atuais dos filtros
+    const valoresAtuais = {};
+    Object.keys(conjuntosFiltros).forEach(filtroId => {
+        valoresAtuais[filtroId] = document.getElementById(filtroId).value;
+    });
+
+    // Limpar os elementos de filtro existentes
+    Object.keys(conjuntosFiltros).forEach(filtroId => {
+        const selectElement = document.getElementById(filtroId);
+        while (selectElement.firstChild) {
+            selectElement.removeChild(selectElement.firstChild);
+        }
+        // Adicionar opção padrão ou vazia
+        selectElement.add(new Option('Selecione uma opção', ''));
+    });
+
+    // Preenchimento dos conjuntos com valores baseados nos estabelecimentos
+    estabelecimentosFiltrados.forEach(estabelecimento => {
         ['cozinha', 'regiao', 'bairro', 'cartao', 'local', 'entrada', 'metro', 'estacao', 'acessibilidade', 'musical', 'servico', 'hobby', 'ambiente'].forEach(campo => {
             const valores = Array.isArray(estabelecimento[campo]) ? estabelecimento[campo] : [estabelecimento[campo]];
             valores.forEach(valor => {
@@ -119,19 +138,22 @@ function sortSetAlphabetically(set) {
         });
     });
 
+    // Adicionar opções aos elementos de filtro e restaurar o valor selecionado
     Object.entries(conjuntosFiltros).forEach(([filtroId, conjunto]) => {
         addOptionsToFiltro(filtroId, conjunto);
+        document.getElementById(filtroId).value = valoresAtuais[filtroId];
     });
+
+    // Adicionar event listeners para os filtros
     adicionarEventListenersParaFiltros();
 }
 
 function addOptionsToFiltro(filtroId, conjunto) {
     const elementoFiltro = document.getElementById(filtroId);
-    Array.from(conjunto).sort().forEach(opcao => {
+    conjunto.forEach(opcao => {
         elementoFiltro.add(new Option(opcao, opcao));
     });
 }
-
 
 function adicionarEventListenersParaFiltros() {
     ['cozinha', 'regiao', 'bairro', 'cartao', 'local', 'entrada', 'metro', 'estacao', 'acessibilidade', 'musical', 'servico', 'hobby', 'ambiente', 'musica', 'estacionamento', 'cover', 'kids', 'pet', 'glutenfree', 'lactosefree'].forEach(filtro => {
@@ -217,6 +239,7 @@ function aplicarFiltros() {
     }
 
     atualizarEstabelecimentos(1); // Reset para a primeira página após filtrar
+    construirFiltros();
 }
 
 
