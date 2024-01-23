@@ -14,13 +14,19 @@ def buscar_restaurantes(api_key, location, radius=5000, type='restaurant'):
         print(f"Nome: {place.get('name')}")
         print(f"Endereço: {place.get('vicinity')}")
         print(f"Avaliação: {place.get('rating', 'Não disponível')}")
+        print(f"Preço: {place.get('price_level', 'Não disponível')}")
 
-        # Obter detalhes para mais informações e fotos
-        place_details = gmaps.place(place_id=place['place_id'])
-        print(f"Detalhes: {place_details.get('result', {}).get('formatted_phone_number', 'Não disponível')}")
+        # Obter detalhes para mais informações
+        place_details = gmaps.place(place_id=place['place_id'])['result']
+
+        print(f"Telefone: {place_details.get('formatted_phone_number', 'Não disponível')}")
+        print(f"Horário de Funcionamento: {place_details.get('opening_hours', {}).get('weekday_text', 'Não disponível')}")
+        print("Avaliações de Usuários:")
+        for review in place_details.get('reviews', []):
+            print(f"- {review.get('author_name')}: {review.get('rating')}/5, \"{review.get('text')}\"")
 
         # Baixar e salvar fotos
-        for i, photo in enumerate(place_details.get('result', {}).get('photos', [])):
+        for i, photo in enumerate(place_details.get('photos', [])):
             # Obter a URL da foto
             photo_url = gmaps.places_photo(photo_reference=photo['photo_reference'], max_width=400)
             
@@ -35,6 +41,6 @@ def buscar_restaurantes(api_key, location, radius=5000, type='restaurant'):
         print("\n")
 
 # Exemplo de uso
-api_key = 'AIzaSyDYmYvexhcMcyqYxDRfsyZqzAT3wSkHBHk'
+api_key = 'SUA_API_KEY'
 location = '-22.907104, -47.063240'  # Coordenadas de Campinas
 buscar_restaurantes(api_key, location)
