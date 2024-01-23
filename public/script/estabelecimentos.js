@@ -125,7 +125,7 @@ function sortSetAlphabetically(set) {
             selectElement.removeChild(selectElement.firstChild);
         }
         // Adicionar opção padrão ou vazia
-        selectElement.add(new Option('Selecione uma opção', ''));
+        selectElement.add(new Option(`${filtroId.split('-')[1]}: todas opções`, ''));
     });
 
     // Preenchimento dos conjuntos com valores baseados nos estabelecimentos
