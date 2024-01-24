@@ -2060,3 +2060,8 @@ h5 {
 .horarios-container .dia .horario {
     font-weight: bold;
 }
+
+.endereco-info {
+    font-size: 10px; /* Ajuste o tamanho da letra conforme necessário */
+    /* Outros estilos que você deseja aplicar */
+}

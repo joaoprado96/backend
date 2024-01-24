@@ -275,25 +275,20 @@ function criarCardDetalhe(estabelecimento) {
                 </div>
             </div>
             <div class="tab-pane" id="localizacao">
-    <p>
-        <i class="fas fa-map-marker-alt"></i> 
-        <strong>Endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep}
-    </p>
-    <button id="copy-address">Copiar Endereço</button>
-    <div id="mapa"></div>
-    
-    <!-- Região -->
-    <p>
-        <i class="fas fa-location-arrow"></i>
-        <strong>Região:</strong> ${estabelecimento.regiao}
-    </p>
-    
-    <!-- Linha de Metrô e Estação mais Próxima -->
-    <p>
-        <i class="fas fa-subway"></i>
-        <strong>Metrô:</strong> Linha ${estabelecimento.linha_metro} - Estação ${estabelecimento.estacao}
-    </p>
-</div>
+                <p id="endereco-info" class="endereco-info">
+                    <i class="fas fa-map-marker-alt"></i> 
+                    <strong>Endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep}
+                </p>
+                <p class="endereco-info">
+                    <i class="fas fa-location-arrow"></i>
+                    <strong>Região:</strong> ${estabelecimento.regiao}
+                </p>
+                <p class="endereco-info">
+                    <i class="fas fa-subway"></i>
+                    <strong>Metrô:</strong> ${estabelecimento.linha_metro} - Estações: ${estabelecimento.estacao}
+                </p>
+                <div id="mapa"></div>
+            </div>
             <div class="tab-pane" id="informacoes">
                 <div class="info-row">
                     ${infoMusica}
@@ -324,7 +319,6 @@ function adicionarEventosDeCompartilhamento() {
     // Adicione aqui os manipuladores de eventos para os botões e outros elementos
     const btnWhatsapp = document.getElementById('whatsapp-share');
     const btnInstagram = document.getElementById('instagram-share');
-    const btnCopiar = document.getElementById('copy-address');
     
     var tabs = document.querySelectorAll('.nav2 .nav2-link');
 
@@ -373,19 +367,59 @@ function adicionarEventosDeCompartilhamento() {
             alert('O Instagram não suporta compartilhamento direto de links via web. Copie o link para compartilhar no Instagram.');
         });
     }
-    
-    if (btnCopiar) {
-        btnCopiar.addEventListener('click', copiarEndereco);
+    // Adicionando evento de clique/tap ao elemento de endereço
+    const enderecoElemento = document.querySelector('#endereco-info');
+    if (enderecoElemento) {
+        enderecoElemento.addEventListener('click', copiarEndereco);
+        enderecoElemento.addEventListener('touchend', function(event) {
+            event.preventDefault();
+            copiarEndereco();
+        });
+    }
+}
+
+function copiarEndereco() {
+    const endereco = document.querySelector('#endereco-info').innerText;
+
+    // Primeira tentativa: Usando a API navigator.clipboard
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(endereco).then(() => {
+            alert("Endereço copiado com sucesso!");
+        }).catch(err => {
+            console.error('Erro ao copiar endereço com API clipboard:', err);
+            copiarComTextarea(endereco); // Recorrendo ao método alternativo
+        });
+    } else {
+        // Se a API clipboard não estiver disponível, usar o método alternativo
+        copiarComTextarea(endereco);
+    }
+}
+
+function copiarComTextarea(textoParaCopiar) {
+    // Criando um textarea temporário
+    const textarea = document.createElement('textarea');
+    textarea.value = textoParaCopiar;
+    document.body.appendChild(textarea);
+
+    // Selecionando o texto do textarea
+    textarea.select();
+    textarea.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+    try {
+        // Copiando o texto selecionado
+        const successful = document.execCommand('copy');
+        if (successful) {
+            alert("Endereço copiado com sucesso!");
+        } else {
+            alert("Falha ao copiar endereço.");
+        }
+    } catch (err) {
+        console.error('Erro ao copiar endereço com execCommand:', err);
+        alert("Erro ao copiar endereço.");
     }
 
-}
-function copiarEndereco() {
-    const endereco = document.querySelector('#localizacao p').innerText;
-    navigator.clipboard.writeText(endereco).then(() => {
-        alert("Endereço copiado com sucesso!");
-    }).catch(err => {
-        console.error('Erro ao copiar endereço:', err);
-    });
+    // Removendo o textarea
+    document.body.removeChild(textarea);
 }
 
 function initMap(latitude, longitude) {
