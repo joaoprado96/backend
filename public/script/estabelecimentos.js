@@ -297,29 +297,29 @@ function construirCarrosselTipoEvento() {
         arrows: false,      // Desativa os botões de próxima e anterior
         infinite: true,
         autoplay: true,        // Ativa o autoplay
-        autoplaySpeed: 1000,   // Velocidade do autoplay (2000 ms = 2 segundos)
+        autoplaySpeed: 2000,   // Velocidade do autoplay (2000 ms = 2 segundos)
         slidesToShow: 7,
         slidesToScroll: 2,
         responsive: [
             {
                 breakpoint: 1024, // Largura máxima de 1024px
                 settings: {
-                    slidesToShow: 7,
-                    slidesToScroll: 2
+                    slidesToShow: 5,
+                    slidesToScroll: 4
                 }
             },
             {
                 breakpoint: 600, // Largura máxima de 600px
                 settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 2
+                    slidesToShow: 4,
+                    slidesToScroll: 3
                 }
             },
             {
                 breakpoint: 480, // Largura máxima de 480px
                 settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 2
+                    slidesToShow: 4,
+                    slidesToScroll: 3
                 }
             }
         ]
@@ -400,10 +400,38 @@ function criaPaginacao(totalEstabelecimentos, estabelecimentosPorPagina, paginaA
     }
 }
 
+function formatarLista2(locais) {
+    return locais.map(local => {
+        const localMinusculo = local.toLowerCase();
+
+        // Verifica e substitui pela palavra-chave correspondente
+        if (localMinusculo.includes('padaria')) {
+            return `<i class="fas fa-bread-slice"></i> ${local.toUpperCase()}`;
+        } else if (localMinusculo.includes('bar')) {
+            return `<i class="fas fa-beer"></i> ${local.toUpperCase()}`;
+        } else if (localMinusculo.includes('baladas')) {
+            return `<i class="fas fa-music"></i> ${local.toUpperCase()}`;
+        } else if (localMinusculo.includes('restaurantes')) {
+            return `<i class="fas fa-utensils"></i> ${local.toUpperCase()}`;
+        } else if (localMinusculo.includes('pizzaria')) {
+            return `<i class="fas fa-pizza-slice"></i> ${local.toUpperCase()}`;
+        } else if (localMinusculo.includes('lanchonete')) {
+            return `<i class="fas fa-hamburger"></i> ${local.toUpperCase()}`;
+        } else if (localMinusculo.includes('hamburgueria')) {
+            return `<i class="fas fa-hamburger"></i> ${local.toUpperCase()}`;
+        } else if (localMinusculo.includes('bistro')) {
+            return `<i class="fas fa-wine-glass-alt"></i> ${local.toUpperCase()}`;
+        } else {
+            return `<i class="fas fa-glass-cheers"></i> ${local.toUpperCase()}`;
+        }
+    }).join(' &emsp; '); // Alterado para usar um espaço maior entre os itens
+}
+
 function formatarLista(locais) {
     // Substitui o hífen por um ícone de bolinha
     return locais.join(' • ').toUpperCase();
 }
+
 
 async function criarCard(estabelecimento) {
     const horarioHoje = estabelecimento.horarios_funcionamento[diaDaSemanaGlobal];
@@ -415,7 +443,7 @@ async function criarCard(estabelecimento) {
     let horarioExibicao;
     let bairroExibicao = estabelecimento.bairro;
     let resultado = bairroExibicao.toUpperCase();
-    let localFormatado = formatarLista(estabelecimento.local);
+    let localFormatado = formatarLista2(estabelecimento.local);
     let cozinhaFormatado = formatarLista(estabelecimento.cozinha);
 
     if (horarioAbertura.toLowerCase() === 'fechado' && horarioFechamento.toLowerCase() === 'fechado') {
@@ -451,7 +479,7 @@ async function criarCard(estabelecimento) {
                     <span class="culinaria"><i class="fa fa-cutlery"></i> ${cozinhaFormatado}</span>
                 </div>
                 <div class="estabelecimento-info">
-                    <span class="localizacao"><i class="fas fa-glass-cheers"></i> ${localFormatado}</span>
+                    <span class="localizacao">${localFormatado}</span>
                 </div>
             </div>
         </div>

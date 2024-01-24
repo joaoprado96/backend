@@ -1041,11 +1041,17 @@ select:focus {
     }
 }
 
+.container-evento {
+    width: 100%;
+    margin-top: var(--navbar-height)*0.8;
+    background-color: var(--branco);
+    border-radius: 2px;
+}
+
 .container {
     width: 100%;
     max-width: 1200px;
     margin-top: var(--navbar-height);
-    padding: 2px 20px;
     background-color: var(--branco);
     border-radius: 2px;
 }
@@ -1522,10 +1528,8 @@ select:focus {
 
 .carrosel-icon {
     padding: 10px 10px;
-    max-width: 100%;
-    /* Máximo de largura da imagem */
-    max-height: 100%;
-    /* Máximo de altura da imagem */
+    max-width: 90%;
+    max-height: 90%;
     object-fit: contain;
     /* Mantém as proporções da imagem */
 }
@@ -2115,4 +2119,26 @@ h5 {
     padding: 5px 10px; /* Espaçamento interno da tag */
     border-radius: 5px; /* Arredondamento da tag */
     font-size: 12px; /* Tamanho da fonte da tag */
+}
+
+#carrosselTipoEvento {
+    background-image: url('../image/oquefazer.png');
+    background-size: cover; /* Garante que a imagem cubra todo o container */
+    background-repeat: no-repeat;
+    background-position: center; /* Centraliza a imagem de fundo */
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    width: 100vw; /* Define a largura como 100% da viewport */
+    height: 100vh; /* Define a altura como 100% da viewport */
+    margin: 0;
+}
+
+@media (max-width: 768px) { /* Ajuste o valor '768px' conforme necessário */
+    #carrosselTipoEvento {
+        /* Coloque aqui os estilos específicos para celulares */
+        width: 100vw; /* Define a largura como 100% da viewport */
+        height: 40vh; /* Exemplo: Reduz a altura do carrossel pela metade */
+        /* Outros ajustes de estilo podem ser adicionados aqui */
+    }
 }
