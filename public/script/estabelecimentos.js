@@ -125,7 +125,7 @@ function sortSetAlphabetically(set) {
             selectElement.removeChild(selectElement.firstChild);
         }
         // Adicionar opção padrão ou vazia
-        selectElement.add(new Option(`${filtroId.split('-')[1]}: todas opções`, ''));
+        selectElement.add(new Option(`${filtroId.split('-')[1]}`, ''));
     });
 
     // Preenchimento dos conjuntos com valores baseados nos estabelecimentos
@@ -159,7 +159,7 @@ function adicionarEventListenersParaFiltros() {
     ['cozinha', 'regiao', 'bairro', 'cartao', 'local', 'entrada', 'metro', 'estacao', 'acessibilidade', 'musical', 'servico', 'hobby', 'ambiente', 'musica', 'estacionamento', 'cover', 'kids', 'pet', 'glutenfree', 'lactosefree'].forEach(filtro => {
         document.getElementById(`filtro-${filtro}`).addEventListener('change', function() {
             // Verifica o valor selecionado
-            if (this.value === "" || this.value === `${filtro}: todas opções`) {
+            if (this.value === "" || this.value === `${filtro}`) {
                 // Se for o valor padrão, seta como inativo
                 this.classList.remove("ativo");
                 this.classList.add("inativo");
@@ -329,7 +329,6 @@ function construirCarrosselTipoEvento() {
     // Adicionar event listener para seleção de tipo de evento
     $('.item-carrossel').on('click', function() {
         const tipoSelecionado = $(this).find('.carrosel-icon').attr('alt');
-        console.log(tipoSelecionado);
         aplicarFiltroTipoEvento(tipoSelecionado);
     });
 }
@@ -369,6 +368,7 @@ function aplicarFiltroTipoEvento(tipoSelecionado) {
         estabelecimento.tipo_evento.includes(tipoSelecionado)
     );
     atualizarEstabelecimentos(1); // Atualizar para mostrar apenas os estabelecimentos filtrados
+    construirFiltros();
 }
 
 function ordenarEstabelecimentos(criterio, ascending = true) {
