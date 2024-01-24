@@ -45,6 +45,20 @@ body {
     width: 100%;
 }
 
+.pagedetalhes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    width: 100%;
+}
+/* Media query para dispositivos móveis */
+@media (max-width: 768px) { /* Ajuste o valor de 'max-width' conforme necessário */
+    .pagedetalhes {
+        flex-direction: column;
+    }
+}
 .page2 {
     margin-top: 80px;
     padding: 30px 30px;
@@ -133,8 +147,6 @@ body {
 a {
     color: var(--branco);
     text-decoration: none;
-    text-align: left;
-
 }
 
 .nav .logo {
@@ -213,7 +225,6 @@ a {
     position: absolute;
     left: 15px;
     top: 50%;
-    left: 15px;
     color: var(--primaria);
     transform: translateY(-50%);
 }
@@ -1320,6 +1331,20 @@ select:focus {
     cursor: pointer;
 }
 
+.filtro-select.ativo {
+    /* Estilos para quando está ativo (ex: cor de fundo ou borda alterada) */
+    background-color: var(--secundaria); /* Exemplo: mudança na cor de fundo */
+    color: var(--branco);
+    /* outros estilos */
+  }
+
+  .filtro-select.inativo {
+    /* Estilos para quando está ativo (ex: cor de fundo ou borda alterada) */
+    background-color: var(--branco); /* Exemplo: mudança na cor de fundo */
+    color: var(--primaria);
+    /* outros estilos */
+  }
+
 .filtro-select-normal {
     /* Estilos adicionais para os elementos select, se necessário */
     margin-bottom: 0px;
@@ -1958,4 +1983,62 @@ h5 {
     text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
     /* Estilos adicionais aqui */
     max-width: 95%;
+}
+
+.foto-grande {
+    width: 100%; /* Ajusta a largura do container da foto grande para ocupar 100% da largura disponível */
+    height: 300px; /* Altura fixa para a foto grande */
+    border-radius: 30px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Garante que a imagem não exceda o container */
+}
+
+.foto-grande img {
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta a imagem para cobrir o espaço disponível, mantendo sua proporção */
+}
+
+.miniaturas {
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.miniatura-item {
+    border-radius: 10px;
+    width: 100px; /* Largura fixa para miniaturas */
+    height: 100px; /* Altura fixa para miniaturas */
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden; /* Garante que a imagem não exceda o container */
+    cursor: pointer;
+}
+
+.miniatura-imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta a imagem para cobrir o espaço disponível, mantendo sua proporção */
+}
+
+/* Media query para telas menores */
+@media (max-width: 600px) {
+    .foto-grande {
+        height: 200px; /* Altura menor para telas menores */
+    }
+
+    .miniatura-item {
+        width: 70px; /* Largura menor para miniaturas em telas menores */
+        height: 70px; /* Altura menor para miniaturas em telas menores */
+    }
+}
+
+#imagemModalSrc {
+    max-width: 100%; /* A imagem pode ocupar no máximo 100% da largura do modal */
+    height: auto; /* Altura auto para manter a proporção */
+    display: block; /* Remove qualquer margem extra abaixo da imagem */
+    margin: auto; /* Centraliza a imagem horizontalmente e verticalmente */
 }

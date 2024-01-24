@@ -157,9 +157,25 @@ function addOptionsToFiltro(filtroId, conjunto) {
 
 function adicionarEventListenersParaFiltros() {
     ['cozinha', 'regiao', 'bairro', 'cartao', 'local', 'entrada', 'metro', 'estacao', 'acessibilidade', 'musical', 'servico', 'hobby', 'ambiente', 'musica', 'estacionamento', 'cover', 'kids', 'pet', 'glutenfree', 'lactosefree'].forEach(filtro => {
-        document.getElementById(`filtro-${filtro}`).addEventListener('change', aplicarFiltros);
+        document.getElementById(`filtro-${filtro}`).addEventListener('change', function() {
+            // Verifica o valor selecionado
+            if (this.value === "" || this.value === `${filtro}: todas opções`) {
+                // Se for o valor padrão, seta como inativo
+                this.classList.remove("ativo");
+                this.classList.add("inativo");
+            } else {
+                // Caso contrário, seta como ativo
+                this.classList.remove("inativo");
+                this.classList.add("ativo");
+            }
+
+            // Chama a função aplicarFiltros (se necessário)
+            aplicarFiltros();
+        });
     });
 }
+
+
 
 // Função para limpar filtros
 function limparFiltros() {

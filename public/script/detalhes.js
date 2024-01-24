@@ -56,72 +56,76 @@ function buscarPrimeiraFoto(lugarId) {
 }
 
 function carregarFotos(lugarId) {
-    const carouselContainer = document.getElementById('carouselContainer');
-    carouselContainer.innerHTML = '';
+    const galeriaContainer = document.getElementById('carouselContainer');
+    galeriaContainer.innerHTML = '';
 
     fetch(`/api/fotos-lugares/${lugarId}`)
         .then(response => response.json())
         .then(data => {
             if (data && data.length > 0) {
-                let carouselIndicators = '';
-                let carouselInner = '';
-                let fotoIndex = 0; // Índice para cada foto
+                let fotoGrandeHTML = '';
+                let miniaturasHTML = '<div class="miniaturas">';
 
-                data.forEach(item => {
+                data.forEach((item, index) => {
                     item.fotos.forEach(foto => {
                         const base64String = bufferToBase64(foto.data.data);
-                        const isActive = fotoIndex === 0 ? 'active' : '';
-            
-                        carouselIndicators += `<li data-target="#fotosCarousel" data-slide-to="${fotoIndex}" class="${isActive}"></li>`;
-                        carouselInner += `
-                            <div class="carousel-item ${isActive}">
-                                <img class="d-block w-100 carousel-image" src="data:${foto.contentType};base64,${base64String}" data-index="${fotoIndex}">
+
+                        // A primeira foto será a foto grande
+                        if (index === 0) {
+                            fotoGrandeHTML = `
+                                <div class="foto-grande">
+                                <img class="foto-grande-imagem" src="data:${foto.contentType};base64,${base64String}">
+                                </div>`;
+                        }
+
+                        // Todas as fotos como miniaturas
+                        miniaturasHTML += `
+                            <div class="miniatura-item">
+                                <img class="miniatura-imagem" src="data:${foto.contentType};base64,${base64String}" onclick="mudarFotoGrande(this)">
                             </div>`;
-                        
-                        fotoIndex++;
                     });
                 });
 
-                carouselContainer.innerHTML = `
-                    <div id="fotosCarousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            ${carouselIndicators}
-                        </ol>
-                        <div class="carousel-inner">
-                            ${carouselInner}
-                        </div>
-                        <a class="carousel-control-prev" href="#fotosCarousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#fotosCarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>`;
+                miniaturasHTML += '</div>';
+                // Define o conteúdo HTML do container da galeria
+                galeriaContainer.innerHTML = fotoGrandeHTML + miniaturasHTML;
 
-                // Inicializar o carrossel
-                $('#fotosCarousel').carousel();
+                // Adiciona evento de clique na foto grande para abrir em modal
+                const fotoGrande = document.querySelector('.foto-grande-imagem');
+                if (fotoGrande) {
+                    fotoGrande.addEventListener('click', function() {
+                        abrirImagemEmModal(this.src);
+                    });
+                }
 
-                // Adicionar o manipulador de eventos após as imagens serem carregadas
-                adicionarEventosDeClique();
             } else {
-                carouselContainer.innerHTML = '<p>Nenhuma foto encontrada para este lugar.</p>';
+                galeriaContainer.innerHTML = '<p>Nenhuma foto encontrada para este lugar.</p>';
             }
         })
         .catch(error => {
             console.error('Erro ao carregar fotos:', error);
-            carouselContainer.innerHTML = '<p>Erro ao carregar fotos.</p>';
+            galeriaContainer.innerHTML = '<p>Erro ao carregar fotos.</p>';
         });
 }
 
+function mudarFotoGrande(elemento) {
+    const fotoGrande = document.querySelector('.foto-grande img');
+    fotoGrande.src = elemento.src;
+}
+
+
 function adicionarEventosDeClique() {
-    document.querySelectorAll('.carousel-image').forEach(img => {
+    // Adiciona evento de clique em todas as imagens da galeria
+    document.querySelectorAll('.galeria-imagem, .foto-grande img').forEach(img => {
         img.addEventListener('click', function() {
-            abrirImagemEmModal(this.src);
+            // Verifica se a imagem clicada é a foto grande
+            if (this.classList.contains('foto-grande-imagem')) {
+                abrirImagemEmModal(this.src);
+            }
         });
     });
 }
+
 
 function abrirImagemEmModal(src) {
     // Definir a fonte da imagem no modal
@@ -172,10 +176,14 @@ function criarInformacaoHtmlLista(titulo, icone, valor) {
     } else {
         // Retorna o HTML formatado com o valor (que pode ser string ou elementos da lista)
         return `
-            <div class="div-icon-title">
-                <h6><img src="${icone}" alt="${titulo}" width="50" height="50"> ${titulo} </h6>
-                ${conteudoHtml}
-            </div>
+        <div class="div-icon-title">
+            <h6>
+                <img class="icone-imagem" src="${icone}" alt="${titulo}" width="50" height="50">
+                ${titulo}
+            </h6>
+            ${conteudoHtml}
+        </div>
+    
         `;
     }
 }
@@ -219,6 +227,7 @@ function criarCardDetalhe(estabelecimento) {
     acaoDoUsuario(estabelecimento._id,'acessoDetalhes',estabelecimento.nome);
     const cardHtml = `
     <div class="container-custom">
+        <h1 class="nome-estabelecimento">${estabelecimento.nome}</h1>
         <div class="tab-nav-container">
             <ul class="nav2" id="estabelecimentoTab">
                 <li class="nav2-item">
@@ -235,7 +244,6 @@ function criarCardDetalhe(estabelecimento) {
                 </li>
             </ul>
         </div>
-        <h1 class="nome-estabelecimento">${estabelecimento.nome}</h1>
         <div class="tab-content-custom" id="estabelecimentoTabContent">
             <div class="tab-pane active" id="descricao">
                 <p>${estabelecimento.descricao}</p>
