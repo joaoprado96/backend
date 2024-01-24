@@ -225,9 +225,10 @@ function criarCardDetalhe(estabelecimento) {
     const infoCartao                =criarInformacaoHtmlLista('cartões','./icons/icon-cartao.png',estabelecimento.cartao)
     
     acaoDoUsuario(estabelecimento._id,'acessoDetalhes',estabelecimento.nome);
+    atualizarNomeEstabelecimento(estabelecimento.nome);
     const cardHtml = `
     <div class="container-custom">
-        <h1 class="nome-estabelecimento">${estabelecimento.nome}</h1>
+         <h1 id="nomeEstabelecimento" class="nome-estabelecimento"></h1>
         <div class="tab-nav-container">
             <ul class="nav2" id="estabelecimentoTab">
                 <li class="nav2-item">
@@ -395,3 +396,10 @@ function initMap(latitude, longitude) {
     
 }
 
+function atualizarNomeEstabelecimento(estabelecimento) {
+    // Seleciona o elemento pelo ID
+    const elementoH1 = document.getElementById('nomeEstabelecimento');
+
+    // Atualiza o conteúdo do elemento
+    elementoH1.textContent = estabelecimento;
+}
