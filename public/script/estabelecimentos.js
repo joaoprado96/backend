@@ -315,16 +315,18 @@ function buscarImagemParaTipoEvento(tipo) {
         "happy hour": "icons/happyhour.png",
         "assistir jogos": "icons/assistirjogos.png",
         "clube de comédia": "icons/comedia.png",
-        "balada": "icons/balada.png",
+        "casas noturnas": "icons/balada.png",
         "experiência gastronômica": "icons/beberedancar.png",
         "cabaré/boates": "icons/beberedancar.png",
         "música ao vivo": "icons/musica.png",
         "diferentão": "icons/beberedancar.png",
         "karaokê": "icons/karaoke.png",
-        "LGBTQIA+": "icons/beberedancar.png",
+        "LGBTQIA+": "icons/lgbtqia.png",
         "comer e jogar": "icons/beberedancar.png",
         "temáticos": "icons/beberedancar.png",
-        "sair sozinho": "icons/sairsozinha.png",
+        "sair sozinho/a": "icons/sairsozinha.png",
+        "rolê geek": "icons/geek.png",
+        "karaokês": "icons/karaoke.png",
         // Adicionar mais correspondências de tipos de evento e imagenssssssssssssssss
     };
 

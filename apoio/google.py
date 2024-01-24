@@ -22,21 +22,23 @@ def buscar_restaurantes(api_key, location, radius=5000, type='restaurant'):
         print(f"Telefone: {place_details.get('formatted_phone_number', 'Não disponível')}")
         print(f"Horário de Funcionamento: {place_details.get('opening_hours', {}).get('weekday_text', 'Não disponível')}")
         print("Avaliações de Usuários:")
-        for review in place_details.get('reviews', []):
-            print(f"- {review.get('author_name')}: {review.get('rating')}/5, \"{review.get('text')}\"")
+        # for review in place_details.get('reviews', []):
+        #     print(f"- {review.get('author_name')}: {review.get('rating')}/5, \"{review.get('text')}\"")
 
         # Baixar e salvar fotos
         for i, photo in enumerate(place_details.get('photos', [])):
-            # Obter a URL da foto
-            photo_url = gmaps.places_photo(photo_reference=photo['photo_reference'], max_width=400)
-            
-            # Fazer o download da foto
-            response = requests.get(photo_url)
-            if response.status_code == 200:
-                # Abrir a imagem e salvar como JPG
-                image = Image.open(BytesIO(response.content))
-                image.save(f"{place.get('name')}_foto_{i}.jpg")
-                print(f"Foto salva: {place.get('name')}_foto_{i}.jpg")
+            if i >= 6:
+                break
+            # Obter o conteúdo da foto
+            photo_content = gmaps.places_photo(photo_reference=photo['photo_reference'], max_width=400)
+
+            # Save the photo content to a file
+            file_name = f"{place.get('name')}_foto_{i}.jpg"
+            with open(file_name, "wb") as file:
+                for chunk in photo_content:
+                    if chunk:
+                        file.write(chunk)
+            print(f"Foto salva: {file_name}")
 
         print("\n")
 
