@@ -526,13 +526,13 @@ function obterTagHTML(valor) {
             tagTexto = 'Até R$30,00';
             break;
         case 2:
-            tagTexto = 'De R$30 a R$60';
+            tagTexto = 'De R$30 à R$60';
             break;
         case 3:
-            tagTexto = 'De R$60 a R$150';
+            tagTexto = 'De R$60 à R$150';
             break;
         case 4:
-            tagTexto = 'De R$150 a R$300';
+            tagTexto = 'De R$150 à R$300';
             break;
         case 5:
             tagTexto = 'Acima de R$300';
@@ -541,6 +541,10 @@ function obterTagHTML(valor) {
             tagTexto = 'Valor inválido'; // Valor não corresponde a nenhuma opção
     }
 
+    // Adicione o atributo title para o tooltip
+    const tooltip = 'Média por pessoa'; // Comentário que aparecerá no tooltip
+    const tagHTML = `<div class="tag-texto" title="${tooltip}">${tagTexto}</div>`;
+
     // Retorne a tag de texto no formato HTML
-    return `<div class="tag-texto">${tagTexto}</div>`;
+    return tagHTML;
 }
