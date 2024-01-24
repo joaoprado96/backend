@@ -271,15 +271,25 @@ function criarCardDetalhe(estabelecimento) {
                 </div>
             </div>
             <div class="tab-pane" id="localizacao">
-                <p><strong>endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep}</p>
-                <button id="copy-address">Copiar Endereço</button>
-                <div id="mapa"></div>
-                <p><strong>bairro:</strong> ${estabelecimento.bairro}</p>
-                <p><strong>região:</strong> ${estabelecimento.regiao}</p>
-                <p><strong>cidade:</strong> ${estabelecimento.cidade}</p>
-                <p><strong>linha metro:</strong> ${estabelecimento.linha_metro}</p>
-                <p><strong>estacao mais próxima:</strong> ${estabelecimento.estacao}</p>
-            </div>
+    <p>
+        <i class="fas fa-map-marker-alt"></i> 
+        <strong>Endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep}
+    </p>
+    <button id="copy-address">Copiar Endereço</button>
+    <div id="mapa"></div>
+    
+    <!-- Região -->
+    <p>
+        <i class="fas fa-location-arrow"></i>
+        <strong>Região:</strong> ${estabelecimento.regiao}
+    </p>
+    
+    <!-- Linha de Metrô e Estação mais Próxima -->
+    <p>
+        <i class="fas fa-subway"></i>
+        <strong>Metrô:</strong> Linha ${estabelecimento.linha_metro} - Estação ${estabelecimento.estacao}
+    </p>
+</div>
             <div class="tab-pane" id="informacoes">
                 <div class="info-row">
                     ${infoMusica}
