@@ -2042,3 +2042,21 @@ h5 {
     display: block; /* Remove qualquer margem extra abaixo da imagem */
     margin: auto; /* Centraliza a imagem horizontalmente e verticalmente */
 }
+
+.horarios-aviso {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.horarios-container .dia {
+    margin-bottom: 5px;
+}
+
+.horarios-container .dia i {
+    margin-right: 5px;
+}
+
+.horarios-container .dia .horario {
+    font-weight: bold;
+}
