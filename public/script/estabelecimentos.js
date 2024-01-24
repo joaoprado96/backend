@@ -428,12 +428,13 @@ async function criarCard(estabelecimento) {
     }
 
     const nivelClasse = `nivel-${estabelecimento.nivel}`;
-
+    const tagPeco     =obterTagHTML(estabelecimento.preco)
     return `
     <div class="card-content ${nivelClasse}">
         <div class="card">
             <a href="detalhes.html?id=${estabelecimento._id}" class="">
                 <img src="${imageUrl}" loading="lazy" alt="Imagem do Estabelecimento">
+                ${tagPeco}
             </a>
             <div class="overlay">
                 <div class="estabelecimento-header">
@@ -514,4 +515,32 @@ function esconderLoader() {
 
   const loaderContainer = document.getElementById('loader-container');
   loaderContainer.innerHTML = ''; // Limpa o conteúdo do loader
+}
+
+function obterTagHTML(valor) {
+    let tagTexto = ''; // Inicialize a tag de texto vazia
+
+    // Determine a tag de texto com base no valor
+    switch (valor) {
+        case 1:
+            tagTexto = 'Até R$30,00';
+            break;
+        case 2:
+            tagTexto = 'De R$30 a R$60';
+            break;
+        case 3:
+            tagTexto = 'De R$60 a R$150';
+            break;
+        case 4:
+            tagTexto = 'De R$150 a R$300';
+            break;
+        case 5:
+            tagTexto = 'Acima de R$300';
+            break;
+        default:
+            tagTexto = 'Valor inválido'; // Valor não corresponde a nenhuma opção
+    }
+
+    // Retorne a tag de texto no formato HTML
+    return `<div class="tag-texto">${tagTexto}</div>`;
 }

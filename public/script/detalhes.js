@@ -451,3 +451,4 @@ function atualizarNomeEstabelecimento(estabelecimento) {
     // Atualiza o conteúdo do elemento
     elementoH1.textContent = estabelecimento;
 }
+
