@@ -181,15 +181,30 @@ function adicionarEventListenersParaFiltros() {
 function limparFiltros() {
     filtrosGlobais.forEach(filtro => {
         if (filtro.tipo === 'dropdown') {
-            document.getElementById(filtro.id).value = '';
+            const dropdownElement = document.getElementById(filtro.id);
+            dropdownElement.value = '';
+
+            // Se for o valor padrão, define como inativo
+            if (dropdownElement.value === '') {
+                dropdownElement.classList.remove("ativo");
+                dropdownElement.classList.add("inativo");
+            }
         } else if (filtro.tipo === 'checkbox') {
-            document.getElementById(filtro.id).checked = false;
+            const checkboxElement = document.getElementById(filtro.id);
+            checkboxElement.checked = false;
+
+            // Se não estiver marcado, define como inativo
+            if (!checkboxElement.checked) {
+                checkboxElement.classList.remove("ativo");
+                checkboxElement.classList.add("inativo");
+            }
         }
     });
 
     // Aplicar os filtros após o reset
     aplicarFiltros();
 }
+
 
 // Função para aplicar filtros
 function aplicarFiltros() {
