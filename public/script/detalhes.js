@@ -196,7 +196,7 @@ function exibirHorariosFuncionamento(horarios) {
         let iconeHorario = horario.abertura === 'Fechado' ? '<i class="fas fa-times-circle"></i>' : '<i class="fas fa-clock"></i>';
         htmlHorarios += `
             <div class="dia">
-                ${iconeHorario} <strong>${capitalizeFirstLetter(dia)}:</strong> 
+                ${iconeHorario} ${capitalizeFirstLetter(dia)}
                 <span class="horario">${horario.abertura} - ${horario.fechamento}</span>
             </div>`;
     }
@@ -236,16 +236,16 @@ function criarCardDetalhe(estabelecimento) {
         <div class="tab-nav-container">
             <ul class="nav2" id="estabelecimentoTab">
                 <li class="nav2-item">
-                    <a class="nav2-link active" href="#descricao">descrição</a>
+                    <a class="nav2-link active" href="#descricao">Descrição</a>
                 </li>
                 <li class="nav2-item">
-                    <a class="nav2-link" href="#localizacao">localização</a>
+                    <a class="nav2-link" href="#localizacao">Localização</a>
                 </li>
                 <li class="nav2-item">
-                    <a class="nav2-link" href="#informacoes">informações</a>
+                    <a class="nav2-link" href="#informacoes">Informações</a>
                 </li>
                 <li class="nav2-item">
-                    <a class="nav2-link" href="#horario">horário</a>
+                    <a class="nav2-link" href="#horario">Horário</a>
                 </li>
             </ul>
         </div>
@@ -276,8 +276,8 @@ function criarCardDetalhe(estabelecimento) {
             </div>
             <div class="tab-pane" id="localizacao">
                 <p id="endereco-info" class="endereco-info">
-                    <i class="fas fa-map-marker-alt"></i> 
-                    <strong>Endereço:</strong> ${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep}
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>Endereço:</strong> <span class="endereco-conteudo">${estabelecimento.rua}, ${estabelecimento.bairro}, ${estabelecimento.cidade}, ${estabelecimento.cep}</span>
                 </p>
                 <p class="endereco-info">
                     <i class="fas fa-location-arrow"></i>

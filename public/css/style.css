@@ -440,6 +440,7 @@ ul {
 .nav2-link.letra-nav2:active,
 .nav2-link.letra-nav2:focus {
     background-color: var(--secundaria);
+    text-decoration: none;
     color: var(--branco);
     border-radius: 5px;
 }
@@ -619,6 +620,7 @@ button:hover {
 
 .tab-pane.active {
     display: block;
+    width: 100%;
 }
 
 /* Estilo padrão para .info-row */
@@ -1043,17 +1045,18 @@ select:focus {
     width: 100%;
     max-width: 1200px;
     margin-top: var(--navbar-height);
-    padding: 20px;
+    padding: 2px 20px;
     background-color: var(--branco);
     border-radius: 2px;
 }
 
 .container2 {
     width: 100%;
+    margin-top: var(--navbar-height);
     max-width: 1200px;
     margin: 0px 0px;
-    padding: 20px;
-    border-radius: 2px;
+    padding: 2px 20px;
+    border-radius: 4px;
 }
 
 /* Estilo base */
@@ -2045,23 +2048,54 @@ h5 {
 
 .horarios-aviso {
     color: #666;
+    font-size: 12px;
     font-style: italic;
     margin-bottom: 10px;
 }
 
 .horarios-container .dia {
     margin-bottom: 5px;
+    font-size: 12px;
 }
 
 .horarios-container .dia i {
     margin-right: 5px;
+    font-size: 12px;
 }
 
 .horarios-container .dia .horario {
     font-weight: bold;
+    font-size: 12px;
 }
 
 .endereco-info {
     font-size: 10px; /* Ajuste o tamanho da letra conforme necessário */
     /* Outros estilos que você deseja aplicar */
+}
+
+.endereco-conteudo {
+    text-decoration: underline; /* Aplica o sublinhado apenas ao conteúdo do endereço */
+}
+
+
+.endereco-info .fa-map-marker-alt, /* Ícone de localização */
+.endereco-info .fa-clipboard, /* Ícone de clipboard */
+.endereco-info .fa-location-arrow, /* Ícone de seta de localização */
+.endereco-info .fa-subway { /* Ícone de metrô */
+    font-size: 14px; /* Ajuste o tamanho conforme necessário */
+    margin-left: 5px; /* Espaço entre o texto do endereço e o ícone */
+    vertical-align: middle; /* Alinhamento vertical com o texto */
+    color: var(--primaria); /* Cor do ícone */
+    text-shadow: 0px 0px 0px #000000; /* Sombra do texto do ícone */
+}
+
+
+.horarios-container .fa-times-circle,
+.horarios-aviso .fa-info-circle,
+.horarios-container .fa-clock {
+    font-size: 14px; /* Ajuste o tamanho conforme necessário */
+    margin-left: 5px; /* Espaço entre o texto do endereço e o ícone */
+    vertical-align: middle; /* Alinhamento vertical com o texto */
+    color: var(--primaria); /* Cor do ícone */
+    text-shadow: 0px 0px 0px #000000; /* Sombra do texto do ícone */
 }
