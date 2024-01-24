@@ -2018,8 +2018,8 @@ h5 {
 
 .miniatura-item {
     border-radius: 10px;
-    width: 100px; /* Largura fixa para miniaturas */
-    height: 100px; /* Altura fixa para miniaturas */
+    width: 80px; /* Largura fixa para miniaturas */
+    height: 80px; /* Altura fixa para miniaturas */
     margin: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
