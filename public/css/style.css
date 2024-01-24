@@ -1207,7 +1207,7 @@ select:focus {
 
 @media (max-width: 768px) {
     .h2-titulo {
-        font-size: 26px;
+        font-size: 24px;
     }
 }
 
@@ -1402,6 +1402,7 @@ select:focus {
 
 /* Classe para estilizar a div que contém o ícone e o título */
 .div-icon-title {
+    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -1409,10 +1410,11 @@ select:focus {
     margin-bottom: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Sombra suave */
     transition: box-shadow 0.3s ease, transform 0.3s ease;
-    /* Transição suave para sombra e transformação */
+
+    white-space: nowrap; /* Impede a quebra de linha */
 }
+
 
 /* Estilo para a imagem dentro da div */
 .div-icon-title img {
@@ -1430,17 +1432,21 @@ select:focus {
     font-size: 12px;
     /* Tamanho do título */
     color: #333;
+    overflow: hidden;    /* Esconde o conteúdo que excede o espaço do contêiner */
+    text-overflow: ellipsis; /* Adiciona "..." se o conteúdo exceder o espaço disponível */
     /* Cor do texto */
 }
 
 .div-icon-title p {
     margin: 0;
-    margin-left: 15px;
-    font-size: 10px;
-    /* Tamanho do título */
-    color: #333;
-    /* Cor do texto */
+    margin-left: 2px;
+    font-size: 10px; /* Tamanho do texto */
+    color: #333; /* Cor do texto */
+    white-space: nowrap; /* Impede a quebra de linha */
+    overflow: hidden; /* Esconde conteúdo que excede o espaço */
+    text-overflow: ellipsis; /* Adiciona "..." se o conteúdo for muito longo */
 }
+
 
 /* Efeito ao passar o mouse */
 .div-icon-title:hover {
