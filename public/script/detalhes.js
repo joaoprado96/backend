@@ -189,14 +189,18 @@ function criarInformacaoHtmlLista(titulo, icone, valor) {
 }
 
 function exibirHorariosFuncionamento(horarios) {
-    let htmlHorarios = '';
+    let htmlHorarios = '<p class="horarios-aviso"><i class="fas fa-info-circle"></i> Os horários podem estar sujeitos a alterações.</p>';
+    htmlHorarios += '<div class="horarios-container">';
+
     for (const [dia, horario] of Object.entries(horarios)) {
+        let iconeHorario = horario.abertura === 'Fechado' ? '<i class="fas fa-times-circle"></i>' : '<i class="fas fa-clock"></i>';
         htmlHorarios += `
             <div class="dia">
-                ${capitalizeFirstLetter(dia)}: 
+                ${iconeHorario} <strong>${capitalizeFirstLetter(dia)}:</strong> 
                 <span class="horario">${horario.abertura} - ${horario.fechamento}</span>
             </div>`;
     }
+    htmlHorarios += '</div>';
     return htmlHorarios;
 }
 
