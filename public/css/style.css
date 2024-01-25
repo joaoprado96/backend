@@ -2139,7 +2139,7 @@ h5 {
         background-image: url('../image/cellphone_3.png');
         /* Coloque aqui os estilos específicos para celulares */
         width: 100vw; /* Define a largura como 100% da viewport */
-        height: 91vh; /* Exemplo: Reduz a altura do carrossel pela metade */
+        height: 88vh; /* Exemplo: Reduz a altura do carrossel pela metade */
         /* Outros ajustes de estilo podem ser adicionados aqui */
     }
 }
