@@ -7,7 +7,7 @@ const rateLimit = require('../middleware/rateLimit'); // Importando o rate limit
 
 
 // Rota para adicionar um novo lugar
-router.post('/lugares', rateLimit, verificarToken.verificarToken, lugaresController.adicionarLugar);
+router.post('/lugares', rateLimit, lugaresController.adicionarLugar);
 
 // Nova rota para buscar lugares
 router.get('/lugares', lugaresController.buscarLugares);

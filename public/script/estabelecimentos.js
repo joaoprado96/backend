@@ -128,7 +128,7 @@ function sortSetAlphabetically(set) {
     });
 
     // Preenchimento dos conjuntos com valores baseados nos estabelecimentos
-    estabelecimentosFiltrados.forEach(estabelecimento => {
+    estabelecimentos.forEach(estabelecimento => {
         ['cozinha', 'regiao', 'bairro', 'cartao', 'local', 'entrada', 'metro', 'estacao', 'acessibilidade', 'musical', 'servico', 'hobby', 'ambiente'].forEach(campo => {
             const valores = Array.isArray(estabelecimento[campo]) ? estabelecimento[campo] : [estabelecimento[campo]];
             valores.forEach(valor => {
