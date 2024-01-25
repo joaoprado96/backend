@@ -519,6 +519,12 @@ async function atualizarEstabelecimentos(pagina) {
     await renderizaEstabelecimentos(dadosPagina);
     esconderLoader();
     criaPaginacao(estabelecimentosFiltrados.length, estabelecimentosPorPagina, pagina);
+    if (pagina!=1){
+        document.getElementById('filtros-container').scrollIntoView({ behavior: 'smooth' });
+    }
+    else {
+        document.getElementById('carrosselTipoEvento').scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
 function exibirLoader() {
