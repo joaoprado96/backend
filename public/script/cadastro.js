@@ -24,6 +24,27 @@ function carregarCidades() {
         .catch(error => console.error('Erro ao carregar cidades:', error));
 }
 
+function carregarRegioes(cidadeSelecionada) {
+    fetch(`https://nominatim.openstreetmap.org/search?city=${cidadeSelecionada}&format=json&country=Brazil&addressdetails=1`)
+        .then(response => response.json())
+        .then(data => {
+            let select = document.getElementById('bairro');
+            select.innerHTML = '<option>Selecione um bairro</option>';
+
+            let regioesEncontradas = new Set();
+            data.forEach(item => {
+                if (item.address.suburb && !regioesEncontradas.has(item.address.suburb)) {
+                    regioesEncontradas.add(item.address.suburb);
+                    let option = document.createElement('option');
+                    option.value = item.address.suburb;
+                    option.textContent = item.address.suburb;
+                    select.appendChild(option);
+                }
+            });
+        })
+        .catch(error => console.error('Erro ao carregar regiões:', error));
+}
+
 document.getElementById('aplicar-horarios').addEventListener('click', function() {
     var horarioAbertura = document.getElementById('horario-abertura-global').value;
     var horarioFechamento = document.getElementById('horario-fechamento-global').value;
