@@ -318,7 +318,7 @@ function construirCarrosselTipoEvento() {
             {
                 breakpoint: 480, // Largura máxima de 480px
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                     slidesToScroll: 3
                 }
             }

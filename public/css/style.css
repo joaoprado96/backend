@@ -2122,7 +2122,7 @@ h5 {
 }
 
 #carrosselTipoEvento {
-    background-image: url('../image/oquefazer.png');
+    background-image: url('../image/oquefazer_2.png');
     background-size: cover; /* Garante que a imagem cubra todo o container */
     background-repeat: no-repeat;
     background-position: center; /* Centraliza a imagem de fundo */
@@ -2136,7 +2136,7 @@ h5 {
 
 @media (max-width: 768px) { /* Ajuste o valor '768px' conforme necessário */
     #carrosselTipoEvento {
-        background-image: url('../image/cellphone.png');
+        background-image: url('../image/cellphone_3.png');
         /* Coloque aqui os estilos específicos para celulares */
         width: 100vw; /* Define a largura como 100% da viewport */
         height: 91vh; /* Exemplo: Reduz a altura do carrossel pela metade */
