@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchResultLimit: 10,
         renderChoiceLimit: 10,
         placeholder: true,
-        placeholderValue: 'Selecione as linhas de metrô'
+        placeholderValue: 'Selecione os tipos de evento'
     });
 
     var multiselectMetro = new Choices('#multiselectMetro', {
