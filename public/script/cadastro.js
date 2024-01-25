@@ -1,6 +1,20 @@
 var token = localStorage.getItem('token');
 
 
+function carregarCidades() {
+    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/municipios')
+        .then(response => response.json())
+        .then(municipios => {
+            let select = document.getElementById('cidade');
+            municipios.forEach(municipio => {
+                let option = document.createElement('option');
+                option.value = municipio.id;
+                option.textContent = municipio.nome;
+                select.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Erro ao carregar cidades:', error));
+}
 document.getElementById('aplicar-horarios').addEventListener('click', function() {
     var horarioAbertura = document.getElementById('horario-abertura-global').value;
     var horarioFechamento = document.getElementById('horario-fechamento-global').value;
@@ -28,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar();
     montarOpcoesHorario();
     montarHorariosGlobal();
+    carregarCidades();
     var multiselectTipoEvento = new Choices('#multiselectTiposEvento', {
         removeItemButton: true,
         allowHTML: false,
