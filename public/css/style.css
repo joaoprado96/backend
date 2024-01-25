@@ -950,7 +950,7 @@ select:focus {
     border-radius: 7px;
     padding: 10px;
     width: 100%;
-    max-width: 750px;
+    max-width: 850px;
     /* Largura máxima para dispositivos maiores */
     margin: auto;
 }
@@ -958,6 +958,11 @@ select:focus {
 .formulario-cadastro h1 {
     font-weight: 500;
     font-size: 2em;
+    text-align: center;
+}
+
+.formulario-cadastro h4 {
+    text-align: center;
 }
 
 .formulario-cadastro p,
@@ -2199,4 +2204,24 @@ h5 {
 
 .welcome-text p {
     font-size: 1.1em;
+}
+
+.choices__list--multiple .choices__item {
+    background-color: var(--primaria); /* Cor roxa */
+    color: white;
+    border: none;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+    background-color: var(--primaria); /* Um tom de roxo mais claro para o item destacado */
+    color: white;
+    border: none;
+}
+
+.choices__input::placeholder {
+    padding: 2px;
+    margin-left: 0px;
+    background-color:var(--branco); /* Cor de fundo roxa clara */
+    color: var(--primaria); /* Cor do texto roxo */
+    opacity: 1; /* Necessário para garantir a visibilidade em alguns navegadores */
 }

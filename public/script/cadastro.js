@@ -1,5 +1,6 @@
 var token = localStorage.getItem('token');
 
+
 document.getElementById('aplicar-horarios').addEventListener('click', function() {
     var horarioAbertura = document.getElementById('horario-abertura-global').value;
     var horarioFechamento = document.getElementById('horario-fechamento-global').value;
@@ -15,18 +16,137 @@ document.getElementById('aplicar-horarios').addEventListener('click', function()
 document.addEventListener('DOMContentLoaded', function() {
     criarNavbar();
     // Se não houver token, mostra a notificação popup e redireciona
-    if (!token) {
-        var popup = document.getElementById('notificationPopupLogin');
-        popup.style.display = 'block';
+    // if (!token) {
+    //     var popup = document.getElementById('notificationPopupLogin');
+    //     popup.style.display = 'block';
 
-        // Espera 3 segundos antes de redirecionar
-        setTimeout(function() {
-            window.location.href = '/login.html';
-        }, 4500);
-    }
+    //     // Espera 3 segundos antes de redirecionar
+    //     setTimeout(function() {
+    //         window.location.href = '/login.html';
+    //     }, 4500);
+    // }
     // Inicializar();
     montarOpcoesHorario();
     montarHorariosGlobal();
+    var multiselectTipoEvento = new Choices('#multiselectTiposEvento', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione as linhas de metrô'
+    });
+
+    var multiselectMetro = new Choices('#multiselectMetro', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione as linhas de metrô'
+    });
+    
+    var multiselectEstacoes = new Choices('#multiselectEstacoes', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione as estações de metrô'
+    });
+    
+    var multiselectAcessibilidade = new Choices('#multiselectAcessibilidade', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione as opções de acessibilidade'
+    });
+    
+    var multiselectPremios = new Choices('#multiselectPremios', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione as premiações recebidas'
+    });
+    
+    var multiselectEstilosMusicais = new Choices('#multiselectEstilosMusicais', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione os estilos musicais'
+    });
+    
+    var multiselectCozinha = new Choices('#multiselectCozinha', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione os tipos de cozinha'
+    });
+    
+    var multiselectLocais = new Choices('#multiselectLocais', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione os locais disponíveis'
+    });
+    
+    var multiselectHobbies = new Choices('#multiselectHobbies', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione os hobbies oferecidos'
+    });
+    
+    var multiselectAmbientes = new Choices('#multiselectAmbientes', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione os tipos de ambientes'
+    });
+    
+    var multiselectTiposCartao = new Choices('#multiselectTiposCartao', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione os tipos de cartão aceitos'
+    });
+    
+    var multiselectEstilosServico = new Choices('#multiselectEstilosServico', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione os estilos de serviço'
+    });
 });
 
 function Inicializar(){
