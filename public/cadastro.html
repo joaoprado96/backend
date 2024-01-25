@@ -31,22 +31,67 @@
     <div class="page">
         <br>
         <form id="formCadastro" class="formulario-cadastro">
-            <h1>cadastro guia urbano</h1>
-            <p>insira as informações do seu estabelecimento para concluirmos o cadastro:</p>
-            <h5>nome</h5>
+            <h1>🌟 Bem-vindos ao Achei Aí! 🌟</h1>
+            <p>Hey, que tal fazer seu estabelecimento brilhar no mundo digital? Aqui no <strong>Ache Aí</strong>, nós somos mais do que uma plataforma: somos um ponto de encontro entre os melhores estabelecimentos e clientes que buscam por experiências incríveis. E o melhor? Tudo isso de graça! Sim, você leu certo - é 100% gratuito!</p>
+            
+            <h4>🚀 Processo Fácil de Cadastro</h4>
+            <p>Sabemos que seu tempo é precioso. Por isso, nosso processo de cadastro é ágil e intuitivo. Em poucos passos, seu espaço estará pronto para ser descoberto por novos olhares e paladares.</p>
+
+            <h4>✨ Qualidade em Primeiro Lugar</h4>
+            <p>Acreditamos que a qualidade é a alma do negócio. Uma vez que seu estabelecimento estiver cadastrado, vamos fazer uma checagem rápida para garantir que tudo esteja nos trinques. Informações precisas e detalhadas são a chave para atrair a clientela certa!</p>
+
+            <h4>🔍 Compromisso com a Excelência</h4>
+            <p>Caso algo precise de um ajuste ou uma informação adicional, não se preocupe! Nossa equipe entrará em contato para que juntos possamos aprimorar seu perfil. Queremos que seu estabelecimento brilhe tanto quanto você!</p>
+            
+            <p>Então, está esperando o quê? Vamos juntos nessa jornada para destacar o melhor que seu estabelecimento tem a oferecer. Achei Aí é o seu parceiro para sucesso e visibilidade no mundo digital!</p>
+            
+            <h4>Nome do Estabelecimento</h4>
+            <p>Dê-nos o prazer de conhecer o nome do seu espaço. Uma boa nomenclatura é o convite inicial para atrair clientes. Capriche!</p>
             <input type="text" id="nome" placeholder="Nome"><br>
-            <h5>descrição</h5>
-            <input id="descricao" placeholder="Descrição"></input><br>
-            <br>
-            <h5>cnpj</h5>
+
+            <h4>CNPJ</h4>
+            <p>Por gentileza, informe o CNPJ do seu estabelecimento. Isso assegura a exclusividade e autenticidade do seu perfil na plataforma.</p>
             <input type="text" id="cnpj" placeholder="cnpj">
 
-            <h5>endereço</h5>
+            <h4>Descrição</h4>
+            <p>Chegou a hora de brilhar! Descreva seu estabelecimento de forma envolvente e única. Inspire-se e compartilhe o que torna seu lugar especial.</p>
+            <input id="descricao" placeholder="Descrição"></input><br>
+            
+            <h4>Tipos de Eventos</h4>
+            <p>Informe os tipos de eventos que seu estabelecimento costuma sediar, como apresentações musicais ao vivo, eventos temáticos ou encontros corporativos.</p>
+            <select id="multiselectTiposEvento" multiple>
+                <option value="Sem informação">Tipo de Evento: Sem essa informação</option>
+                <option value="beber e dançar">Beber e dançar</option>
+                <option value="rolê geek">Rolê geek</option>
+                <option value="conversar">Conversar</option>
+                <option value="lugar romântico">Lugar romântico</option>
+                <option value="rolê de amigos">Rolê de amigos</option>
+                <option value="encontro familiar">Encontro familiar</option>
+                <option value="aniversário">Aniversário</option>
+                <option value="happy hour">Happy Hour</option>
+                <option value="Home office">Home Office</option>
+                <option value="assistir jogos">Assistir Jogos</option>
+                <option value="sair sozinho/a">Sair Sozinho/a</option>                   
+                <option value="brunches">Brunches</option>
+                <option value="cabaré/boates">Cabaré/Boates</option>
+                <option value="música ao vivo">Música ao vivo</option>
+                <option value="para crianças">Para crianças</option>
+                <option value="temáticos">Temáticos</option>
+                <option value="karaokês">Karaokês</option>
+                <option value="casas noturnas">Casas noturnas</option>
+                <option value="LGBTQIA+">LGBTQIA+</option>
+                <option value="primeiro encontro">Primeiro encontro</option>
+                <option value="experiência gastronômica">Experiência gastronômica</option>
+             </select>
+
+             <h4>Endereço</h4>
+             <p>Informe o endereço do seu estabelecimento. A localização exata ajuda seus futuros clientes a encontrá-lo com facilidade. Não esqueça de detalhar bairro, CEP e outros pontos de referência.</p>     
             <div class="formulario-grupo">
                 <input type="text" id="rua" placeholder="Rua">
-                <input type="text" id="cep" placeholder="CEP">
             </div>
+            
             <div class="formulario-grupo">
+                <input type="text" id="cep" placeholder="CEP">
                 <select id="bairro">
                     <option value="Casa Verde">Casa Verde</option>
                     <option value="Cachoeirinha">Cachoeirinha</option>
@@ -164,20 +209,16 @@
                     <option value="São Paulo">São Paulo</option>
                 </select>
             </div>
-            <h5>coordenadas geográficas</h5>
+
+            <h4>Coordenadas Geográficas</h4>
+            <p>As coordenadas geográficas são essenciais para localizar seu estabelecimento no mapa. Não tem certeza quais são? Sem problemas! Insira '0' e nós cuidaremos do resto para você.</p>
             <div class="formulario-grupo">
                 <input type="number" id="latitude" placeholder="Latitude" step="0.0000001" min="-100" max="100">
                 <input type="number" id="longitude" placeholder="Longitude" step="0.0000001" min="-100" max="100">
             </div>
 
-            <h5>taxa de entrada</h5>
-            <select id="entrada" placeholder="Selecione o tipo de entrada">
-                <option value="Sem informação">Taxa de entrada: Sem essa informação</option>
-                <option value="Gratuita">Gratuita</option>
-                <option value="Paga">Paga</option>
-            </select>
-
-            <h5>linhas de metrô</h5>
+            <h4>Linhas de Metrô</h4>
+            <p>Está próximo a alguma linha de metrô? Compartilhe conosco! Essa informação é super útil para clientes que preferem o transporte público.</p>
             <select id="multiselectMetro" multiple>
                 <option value="Sem informação">Linha: Sem essa informação</option>
                 <option value="Linha 1 (Azul)">Linha 1 (Azul)</option>
@@ -195,7 +236,8 @@
                 <option value="Linha 15 (Prata)">Linha 15 (Prata)</option>
             </select>
 
-            <h5>estações de metro</h5>
+            <h4>Estações de Metrô</h4>
+            <p>E as estações mais próximas? Isso ajuda bastante quem vem de metrô a encontrar seu local mais facilmente.</p>
             <select id="multiselectEstacoes" multiple>
                 <option value="Sem informação">Estação: Sem essa informação</option>
                 <!-- Linha 1-Azul -->
@@ -442,8 +484,15 @@
 
             </select>
 
-            <h5>avaliações e métricas</h5>
+            <h4>Taxa de Entrada, Avaliações e Faixa de Preço</h4>
+            <p>Informações práticas fazem toda a diferença. Cobra entrada? Qual a avaliação média do seu estabelecimento em outras plataformas? E sobre os preços, em qual faixa você se encaixa? Nós analisaremos e ajustaremos conforme necessário.</p>
+    
             <div class="formulario-grupo">
+                <select id="entrada" placeholder="Selecione o tipo de entrada">
+                    <option value="Sem informação">Taxa de entrada: Sem essa informação</option>
+                    <option value="Gratuita">Gratuita</option>
+                    <option value="Paga">Paga</option>
+                </select>
                 <select id="estrelas" placeholder="Estrelas do Google">
                     <option value="Sem informação">Estrelas do Google: Sem essa informação</option>
                     <option value="1">1</option>
@@ -460,14 +509,7 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <select id="avaliacao_pagina" placeholder="Avaliação da Página">
-                    <option value="Sem informação">Avaliação da Página: Sem essa informação</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+
                 <select id="preco" placeholder="Selecione o preço">
                     <option value="1">1 - Até R$30,00</option>
                     <option value="2">2 - De R$30 a R$60</option>
@@ -483,20 +525,20 @@
                 </select>
             </div>
 
-            <h5>mídias sociais</h5>
-            <h5>descrição da página</h5>
-            <input id="descricao_pagina" placeholder="Descrição na Página"></input>
-            <h5>link da página</h5>
+            <h4>Link da Página no Instagram</h4>
+            <p>Está conectado no Insta? Compartilhe o link da página do seu estabelecimento. É uma ótima maneira de mostrar seu espaço e atrair mais clientes.</p>
             <input type="text" id="link_pagina" placeholder="Link da Página">
-            <h5>mídia da página</h5>
-            <input type="text" id="midia_pagina" placeholder="Mídia da Página">
-            <h5>website</h5>
+
+            <h4>Website</h4>
+            <p>Seu espaço tem um cantinho na web? Compartilhe o link do seu site conosco. É a sua vitrine digital para o mundo!</p>
             <input type="text" id="website" placeholder="Website">
 
-            <h5>cardápio</h5>
+            <h4>Cardápio Digital</h4>
+            <p>Cardápio digital? Que moderno! Se tiver, compartilhe o link conosco. É uma forma prática e higiênica de apresentar suas opções aos clientes.</p>
             <input type="text" id="link_cardapio" placeholder="Link do Cardápio">
 
-            <h5>opções de acessibilidade</h5>
+            <h4>Opções de Acessibilidade</h4>
+            <p>A acessibilidade é essencial para acolher todos os clientes. Conte-nos: seu estabelecimento possui rampas, banheiros adaptados ou outras facilidades? A inclusão faz toda a diferença!</p>
             <select id="multiselectAcessibilidade" multiple>
                 <option value="Sem informação">Acessibilidade: Sem essa informação</option>
                 <option value="Banheiro acessível">Banheiro acessível</option>
@@ -522,14 +564,17 @@
                 <option value="Áreas de descanso">Áreas de descanso</option>
             </select>
 
-            <h5>premiações</h5>
+            <h4>Premiações</h4>
+            <p>Seu estabelecimento já foi reconhecido com alguma premiação? Compartilhe seus sucessos e conquistas conosco!</p>
             <select id="multiselectPremios" multiple>
                 <option value="Sem informação">Prêmios: Sem essa informação</option>
                 <option value="Os Melhores da Gastronomia 2023">Os Melhores da Gastronomia 2023</option>
                 <option value="Os Melhores da Gastronomia 2024">Os Melhores da Gastronomia 2024</option>
             </select>
 
-            <h5>informações úteis ao cliente</h5>
+
+            <h4>Informações Úteis ao Cliente</h4>
+            <p>Detalhes fazem toda a diferença. Informe se você oferece música ao vivo, estacionamento, espaço kids, se é pet friendly e se tem opções sem glúten ou lactose. Essas informações ajudam os clientes a escolherem o lugar perfeito!</p>    
             <div class="formulario-grupo">
                 <select id="musica">
                     <option value="Sem informação">Música ao vivo: Sem essa informação</option>
@@ -569,7 +614,8 @@
                 </select>
             </div>
 
-            <h5>estilos musicais</h5>
+            <h4>Estilos Musicais</h4>
+            <p>Música ao vivo cria uma atmosfera única. Se seu estabelecimento oferece, conte-nos sobre os estilos musicais que embalam as noites por aí.</p>    
             <select id="multiselectEstilosMusicais" multiple>
                 <option value="Sem informação">Estilos musicais: Sem essa informação</option>
                 <option value="Axé">Axé</option>
@@ -618,7 +664,8 @@
                 <option value="Trap">Trap</option>
             </select>
 
-            <h5>culinária</h5>
+            <h4>Culinária</h4>
+            <p>Variedade é o tempero da vida! Compartilhe os diferentes tipos de culinária que seu estabelecimento oferece e encante seus clientes com suas especialidades.</p>    
             <select id="multiselectCozinha" multiple>
                 <option value="Sem informação">Cozinha: Sem essa informação</option>
                 <option value="Africana">Africana</option>
@@ -663,7 +710,8 @@
                 <!-- Adicione mais tipos de cozinha conforme necessário -->
             </select>
 
-            <h5>tipos de locais</h5>
+            <h4>Classificação de Tipo de Local</h4>
+            <p> Sabemos que hoje em dia os estabelecimentos apresentaram varias caracteristicas, selecione todas as que você acedita se encaixar.</p>
             <select id="multiselectLocais" multiple>
                 <option value="Sem informação">Tipo de local: Sem essa informação</option>
                 <option value="Padaria">Padaria</option>
@@ -684,33 +732,8 @@
                 <option value="Bistrô">Bistrô</option>
             </select>
 
-            <h5>tipos de eventos</h5>
-            <select id="multiselectTiposEvento" multiple>
-                <option value="Sem informação">Tipo de Evento: Sem essa informação</option>
-                <option value="beber e dançar">Beber e dançar</option>
-                <option value="rolê geek">Rolê geek</option>
-                <option value="conversar">Conversar</option>
-                <option value="lugar romântico">Lugar romântico</option>
-                <option value="rolê de amigos">Rolê de amigos</option>
-                <option value="encontro familiar">Encontro familiar</option>
-                <option value="aniversário">Aniversário</option>
-                <option value="happy hour">Happy Hour</option>
-                <option value="Home office">Home Office</option>
-                <option value="assistir jogos">Assistir Jogos</option>
-                <option value="sair sozinho/a">Sair Sozinho/a</option>                   
-                <option value="brunches">Brunches</option>
-                <option value="cabaré/boates">Cabaré/Boates</option>
-                <option value="música ao vivo">Música ao vivo</option>
-                <option value="para crianças">Para crianças</option>
-                <option value="temáticos">Temáticos</option>
-                <option value="karaokês">Karaokês</option>
-                <option value="casas noturnas">Casas noturnas</option>
-                <option value="LGBTQIA+">LGBTQIA+</option>
-                <option value="primeiro encontro">Primeiro encontro</option>
-                <option value="experiência gastronômica">Experiência gastronômica</option>
-             </select>
-
-            <h5>hobbies</h5>
+            <h4>Atividades e Entretenimento</h4>
+            <p>Seu estabelecimento oferece atividades especiais como karaokê, dança, pintura ou fotografia? Compartilhe essas informações para atrair clientes interessados nessas experiências.</p>   
             <select id="multiselectHobbies" multiple>
                 <option value="Sem informação">Hobbies: Sem essa informação</option>
                 <option value="jogos de tabuleiro">Jogos de Tabuleiro</option>
@@ -723,7 +746,8 @@
                 <option value="fotografia">Fotografia</option>
             </select>
 
-            <h5>ambientes</h5>
+            <h4>Ambientes Disponíveis</h4>
+            <p>Descreva os diferentes ambientes que seu estabelecimento oferece. Isso pode incluir áreas ao ar livre, salões privativos, entre outros.</p>
             <select id="multiselectAmbientes" multiple>
                 <option value="Sem informação">Ambientes: Sem essa informação</option>
                 <option value="rooftop">Rooftop</option>
@@ -741,7 +765,8 @@
                 <option value="retro">Retro</option>
             </select>
 
-            <h5>formas de pagamento</h5>
+            <h4>Formas de Pagamento</h4>
+            <p>Por favor, informe as formas de pagamento aceitas em seu estabelecimento. Isso ajuda os clientes a planejarem suas visitas com mais comodidade.</p>    
             <select id="multiselectTiposCartao" multiple>
                 <option value="Sem informação">Formas de pagamento: Sem essa informação</option>
                 <option value="dinheiro">Dinheiro</option>
@@ -781,7 +806,8 @@
                 <option value="pix">Pix</option>
             </select>
 
-            <h5>estilos de serviços</h5>
+            <h4>Estilos de Serviços</h4>
+            <p>Compatilhe conosco as modalidades de atendimento do seu estabelecimento.</p>
             <select id="multiselectEstilosServico" multiple>
                 <option value="Sem informação">Estilos de Serviço: Sem essa informação</option>
                 <option value="buffet">Buffet</option>
@@ -791,68 +817,16 @@
                 <option value="self-service">Self-Service</option>
                 <option value="drive-thru">Drive-Thru</option>
             </select>
-            <br>
-            <br>
-            <h4>horário de funcionamento</h4>
+
+            <h4>Horário de Funcionamento</h4>
+            <p>Escolha horários gerais para abertura e fechamento e clique em "Aplicar Horários" para refletir nos dias selecionados.</p>
             <div class="configuracao-global">
                 <div class="formulario-grupo">
-                    <select id="horario-abertura-global">
-                        <!-- Opções de horário iguais às do formulário principal -->
-                        <option value="01:00">01:00</option>
-                        <option value="02:00">02:00</option>
-                        <option value="03:00">03:00</option>
-                        <option value="04:00">04:00</option>
-                        <option value="05:00">05:00</option>
-                        <option value="06:00">06:00</option>
-                        <option value="07:00">07:00</option>
-                        <option value="08:00">08:00</option>
-                        <option value="09:00">09:00</option>
-                        <option value="10:00">10:00</option>
-                        <option value="11:00">11:00</option>
-                        <option value="12:00">12:00</option>
-                        <option value="13:00">13:00</option>
-                        <option value="14:00">14:00</option>
-                        <option value="15:00">15:00</option>
-                        <option value="16:00">16:00</option>
-                        <option value="17:00">17:00</option>
-                        <option value="18:00">18:00</option>
-                        <option value="19:00">19:00</option>
-                        <option value="20:00">20:00</option>
-                        <option value="21:00">21:00</option>
-                        <option value="22:00">22:00</option>
-                        <option value="23:00">23:00</option>
-                        <option value="00:00">00:00</option>
-                    </select>
-                
-                    <select id="horario-fechamento-global">
-                        <!-- Opções de horário iguais às do formulário principal -->
-                        <option value="01:00">01:00</option>
-                        <option value="02:00">02:00</option>
-                        <option value="03:00">03:00</option>
-                        <option value="04:00">04:00</option>
-                        <option value="05:00">05:00</option>
-                        <option value="06:00">06:00</option>
-                        <option value="07:00">07:00</option>
-                        <option value="08:00">08:00</option>
-                        <option value="09:00">09:00</option>
-                        <option value="10:00">10:00</option>
-                        <option value="11:00">11:00</option>
-                        <option value="12:00">12:00</option>
-                        <option value="13:00">13:00</option>
-                        <option value="14:00">14:00</option>
-                        <option value="15:00">15:00</option>
-                        <option value="16:00">16:00</option>
-                        <option value="17:00">17:00</option>
-                        <option value="18:00">18:00</option>
-                        <option value="19:00">19:00</option>
-                        <option value="20:00">20:00</option>
-                        <option value="21:00">21:00</option>
-                        <option value="22:00">22:00</option>
-                        <option value="23:00">23:00</option>
-                        <option value="00:00">00:00</option>
-                    </select>
+                    <select id="horario-abertura-global"></select>
+                    <select id="horario-fechamento-global"></select>
                 </div>
-                <h5>aplicar a:</h5>
+
+                <p>Você deseja aplicar esses horários ao dias:</p>
                 <div class="dias-semana">
                     <input type="checkbox" id="segunda" name="dias-semana" value="segunda">
                     <label for="segunda">Segunda</label>
@@ -875,444 +849,71 @@
                     <input type="checkbox" id="domingo" name="dias-semana" value="domingo">
                     <label for="domingo">Domingo</label>
                 </div>
-                <button id="aplicar-horarios" type="btn">Aplicar Horários</button>
+                <br>
+                <button id="aplicar-horarios" type="btn" class="btn">Aplicar Horários</button>
             </div>
             <br>
-            <h5>personalize o horário para cada dia:</h5>
+            <p>Algum dia você trabalha com horário diferente? Então personalize o horário para cada dia:</p>
             <div class="dia">
                 <label for="abertura-segunda">Segunda-feira:</label>
                 <div class="formulario-grupo">
-                    <select id="abertura-segunda" placeholder="Abertura">
-                        <option value="fechado">Não abre</option>
-                        <option value="01:00">01:00</option>
-                        <option value="02:00">02:00</option>
-                        <option value="03:00">03:00</option>
-                        <option value="04:00">04:00</option>
-                        <option value="05:00">05:00</option>
-                        <option value="06:00">06:00</option>
-                        <option value="07:00">07:00</option>
-                        <option value="08:00">08:00</option>
-                        <option value="09:00">09:00</option>
-                        <option value="10:00">10:00</option>
-                        <option value="11:00">11:00</option>
-                        <option value="12:00">12:00</option>
-                        <option value="13:00">13:00</option>
-                        <option value="14:00">14:00</option>
-                        <option value="15:00">15:00</option>
-                        <option value="16:00">16:00</option>
-                        <option value="17:00">17:00</option>
-                        <option value="18:00">18:00</option>
-                        <option value="19:00">19:00</option>
-                        <option value="20:00">20:00</option>
-                        <option value="21:00">21:00</option>
-                        <option value="22:00">22:00</option>
-                        <option value="23:00">23:00</option>
-                        <option value="00:00">00:00</option>
-                    </select>
-                    <select id="fechamento-segunda" placeholder="Fechamento">
-                        <option value="fechado">Fechado</option>
-                        <option value="01:00">01:00</option>
-                        <option value="02:00">02:00</option>
-                        <option value="03:00">03:00</option>
-                        <option value="04:00">04:00</option>
-                        <option value="05:00">05:00</option>
-                        <option value="06:00">06:00</option>
-                        <option value="07:00">07:00</option>
-                        <option value="08:00">08:00</option>
-                        <option value="09:00">09:00</option>
-                        <option value="10:00">10:00</option>
-                        <option value="11:00">11:00</option>
-                        <option value="12:00">12:00</option>
-                        <option value="13:00">13:00</option>
-                        <option value="14:00">14:00</option>
-                        <option value="15:00">15:00</option>
-                        <option value="16:00">16:00</option>
-                        <option value="17:00">17:00</option>
-                        <option value="18:00">18:00</option>
-                        <option value="19:00">19:00</option>
-                        <option value="20:00">20:00</option>
-                        <option value="21:00">21:00</option>
-                        <option value="22:00">22:00</option>
-                        <option value="23:00">23:00</option>
-                        <option value="00:00">00:00</option>
-                    </select>
+                    <select id="abertura-segunda" placeholder="Abertura"></select>
+                    <select id="fechamento-segunda" placeholder="Fechamento"></select>
                 </div>
             </div>
             <div class="dia">
                 <label for="abertura-terca">Terça-feira:</label>
                 <div class="formulario-grupo">
-                    <select id="abertura-terca" placeholder="Abertura">
-                        <option value="fechado">Não abre</option>
-                        <option value="01:00">01:00</option>
-                        <option value="02:00">02:00</option>
-                        <option value="03:00">03:00</option>
-                        <option value="04:00">04:00</option>
-                        <option value="05:00">05:00</option>
-                        <option value="06:00">06:00</option>
-                        <option value="07:00">07:00</option>
-                        <option value="08:00">08:00</option>
-                        <option value="09:00">09:00</option>
-                        <option value="10:00">10:00</option>
-                        <option value="11:00">11:00</option>
-                        <option value="12:00">12:00</option>
-                        <option value="13:00">13:00</option>
-                        <option value="14:00">14:00</option>
-                        <option value="15:00">15:00</option>
-                        <option value="16:00">16:00</option>
-                        <option value="17:00">17:00</option>
-                        <option value="18:00">18:00</option>
-                        <option value="19:00">19:00</option>
-                        <option value="20:00">20:00</option>
-                        <option value="21:00">21:00</option>
-                        <option value="22:00">22:00</option>
-                        <option value="23:00">23:00</option>
-                        <option value="00:00">00:00</option>
-                    </select>
-                    <select id="fechamento-terca" placeholder="Fechamento">
-                        <option value="fechado">Fechado</option>
-                        <option value="01:00">01:00</option>
-                        <option value="02:00">02:00</option>
-                        <option value="03:00">03:00</option>
-                        <option value="04:00">04:00</option>
-                        <option value="05:00">05:00</option>
-                        <option value="06:00">06:00</option>
-                        <option value="07:00">07:00</option>
-                        <option value="08:00">08:00</option>
-                        <option value="09:00">09:00</option>
-                        <option value="10:00">10:00</option>
-                        <option value="11:00">11:00</option>
-                        <option value="12:00">12:00</option>
-                        <option value="13:00">13:00</option>
-                        <option value="14:00">14:00</option>
-                        <option value="15:00">15:00</option>
-                        <option value="16:00">16:00</option>
-                        <option value="17:00">17:00</option>
-                        <option value="18:00">18:00</option>
-                        <option value="19:00">19:00</option>
-                        <option value="20:00">20:00</option>
-                        <option value="21:00">21:00</option>
-                        <option value="22:00">22:00</option>
-                        <option value="23:00">23:00</option>
-                        <option value="00:00">00:00</option>
-                    </select>
+                    <select id="abertura-terca" placeholder="Abertura"></select>
+                    <select id="fechamento-terca" placeholder="Fechamento"></select>
                 </div>
                 <div class="dia">
                     <label for="abertura-quarta">Quarta-feira:</label>
                     <div class="formulario-grupo">
-                        <select id="abertura-quarta" placeholder="Abertura">
-                            <option value="fechado">Não abre</option>
-                            <option value="01:00">01:00</option>
-                            <option value="02:00">02:00</option>
-                            <option value="03:00">03:00</option>
-                            <option value="04:00">04:00</option>
-                            <option value="05:00">05:00</option>
-                            <option value="06:00">06:00</option>
-                            <option value="07:00">07:00</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="00:00">00:00</option>
-                        </select>
-                        <select id="fechamento-quarta" placeholder="Fechamento">
-                            <option value="fechado">Fechado</option>
-                            <option value="01:00">01:00</option>
-                            <option value="02:00">02:00</option>
-                            <option value="03:00">03:00</option>
-                            <option value="04:00">04:00</option>
-                            <option value="05:00">05:00</option>
-                            <option value="06:00">06:00</option>
-                            <option value="07:00">07:00</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="00:00">00:00</option>
-                        </select>
+                        <select id="abertura-quarta" placeholder="Abertura"></select>
+                        <select id="fechamento-quarta" placeholder="Fechamento"></select>
                     </div>
                 </div>
                 <div class="dia">
                     <label for="abertura-quinta">Quinta-feira:</label>
                     <div class="formulario-grupo">
-                        <select id="abertura-quinta" placeholder="Abertura">
-                            <option value="fechado">Não abre</option>
-                            <option value="01:00">01:00</option>
-                            <option value="02:00">02:00</option>
-                            <option value="03:00">03:00</option>
-                            <option value="04:00">04:00</option>
-                            <option value="05:00">05:00</option>
-                            <option value="06:00">06:00</option>
-                            <option value="07:00">07:00</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="00:00">00:00</option>
-                        </select>
-                        <select id="fechamento-quinta" placeholder="Fechamento">
-                            <option value="fechado">Fechado</option>
-                            <option value="01:00">01:00</option>
-                            <option value="02:00">02:00</option>
-                            <option value="03:00">03:00</option>
-                            <option value="04:00">04:00</option>
-                            <option value="05:00">05:00</option>
-                            <option value="06:00">06:00</option>
-                            <option value="07:00">07:00</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="00:00">00:00</option>
-                        </select>
+                        <select id="abertura-quinta" placeholder="Abertura"></select>
+                        <select id="fechamento-quinta" placeholder="Fechamento"></select>
                     </div>
                 </div>
                 <div class="dia">
                     <label for="abertura-sexta">Sexta-feira:</label>
                     <div class="formulario-grupo">
-                        <select id="abertura-sexta" placeholder="Abertura">
-                            <option value="fechado">Não abre</option>
-                            <option value="01:00">01:00</option>
-                            <option value="02:00">02:00</option>
-                            <option value="03:00">03:00</option>
-                            <option value="04:00">04:00</option>
-                            <option value="05:00">05:00</option>
-                            <option value="06:00">06:00</option>
-                            <option value="07:00">07:00</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="00:00">00:00</option>
-                        </select>
-                        <select id="fechamento-sexta" placeholder="Fechamento">
-                            <option value="fechado">Fechado</option>
-                            <option value="01:00">01:00</option>
-                            <option value="02:00">02:00</option>
-                            <option value="03:00">03:00</option>
-                            <option value="04:00">04:00</option>
-                            <option value="05:00">05:00</option>
-                            <option value="06:00">06:00</option>
-                            <option value="07:00">07:00</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="00:00">00:00</option>
-                        </select>
+                        <select id="abertura-sexta" placeholder="Abertura"></select>
+                        <select id="fechamento-sexta" placeholder="Fechamento"></select>
                     </div>
                 </div>
                 <div class="dia">
                     <label for="abertura-sabado">Sábado:</label>
                     <div class="formulario-grupo">
-                        <select id="abertura-sabado" placeholder="Abertura">
-                            <option value="fechado">Não abre</option>
-                            <option value="01:00">01:00</option>
-                            <option value="02:00">02:00</option>
-                            <option value="03:00">03:00</option>
-                            <option value="04:00">04:00</option>
-                            <option value="05:00">05:00</option>
-                            <option value="06:00">06:00</option>
-                            <option value="07:00">07:00</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="00:00">00:00</option>
-                        </select>
-                        <select id="fechamento-sabado" placeholder="Fechamento">
-                            <option value="fechado">Fechado</option>
-                            <option value="01:00">01:00</option>
-                            <option value="02:00">02:00</option>
-                            <option value="03:00">03:00</option>
-                            <option value="04:00">04:00</option>
-                            <option value="05:00">05:00</option>
-                            <option value="06:00">06:00</option>
-                            <option value="07:00">07:00</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="00:00">00:00</option>
-                        </select>
+                        <select id="abertura-sabado" placeholder="Abertura"></select>
+                        <select id="fechamento-sabado" placeholder="Fechamento"></select>
                     </div>
                 </div>
                 <div class="dia">
                     <label for="abertura-domingo">Domingo:</label>
                     <div class="formulario-grupo">
-                        <select id="abertura-domingo" placeholder="Abertura">
-                            <option value="fechado">Não abre</option>
-                            <option value="01:00">01:00</option>
-                            <option value="02:00">02:00</option>
-                            <option value="03:00">03:00</option>
-                            <option value="04:00">04:00</option>
-                            <option value="05:00">05:00</option>
-                            <option value="06:00">06:00</option>
-                            <option value="07:00">07:00</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="00:00">00:00</option>
-                        </select>
-                        <select id="fechamento-domingo" placeholder="Fechamento">
-                            <option value="fechado">Fechado</option>
-                            <option value="01:00">01:00</option>
-                            <option value="02:00">02:00</option>
-                            <option value="03:00">03:00</option>
-                            <option value="04:00">04:00</option>
-                            <option value="05:00">05:00</option>
-                            <option value="06:00">06:00</option>
-                            <option value="07:00">07:00</option>
-                            <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                            <option value="19:00">19:00</option>
-                            <option value="20:00">20:00</option>
-                            <option value="21:00">21:00</option>
-                            <option value="22:00">22:00</option>
-                            <option value="23:00">23:00</option>
-                            <option value="00:00">00:00</option>
-                        </select>
+                        <select id="abertura-domingo" placeholder="Abertura"></select>
+                        <select id="fechamento-domingo" placeholder="Fechamento"></select>
                     </div>
                 </div>
                 <div class="dia">
                     <label for="abertura-feriados">Feriados:</label>
                     <div class="formulario-grupo">
-                        <select id="abertura-feriados">
-                            <option value="fechado">Não abre</option>
-                            <option value="consultar">Consultar</option>
-                            <option value="comercial">Horário comercial</option>
-                            <option value="não">Não funciona</option>
-                        </select>
-                        <select id="fechamento-feriados">
-                            <option value="fechado">Fechado</option>
-                            <option value="consultar">Consultar</option>
-                            <option value="comercial">Horário comercial</option>
-                            <option value="não">Não funciona</option>
-                        </select>
+                        <select id="abertura-feriados"></select>
+                        <select id="fechamento-feriados"></select>
                     </div>
                 </div>
                 <br>
-                <h4>fotos</h4>
-                <label for="fotos">selecione fotos do seu estabelecimento</label>
+                <h4>Fotos</h4>
+                <label for="fotos">Quer impresionar? Então bora caprichar bastante nas fotos que ela são a alma do negócio. Selecione no máximo 5 fotos, elas devem possui um tamanho máximo de 8 MB.</label>
                 <div class="form-group">
-                    <input type="file" class="form-control-file" id="fotos" multiple required>
+                    <input type="file" class="form-control-file" id="fotos" multiple required onchange="verificarQuantidadeDeFotos(this)">
                 </div>
                 <br>
                 <button id="cadastrar" class="btn">Cadastrar</button>

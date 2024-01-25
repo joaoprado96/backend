@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 4500);
     }
     // Inicializar();
+    montarOpcoesHorario();
+    montarHorariosGlobal();
 });
 
 function Inicializar(){
@@ -38,20 +40,15 @@ function Inicializar(){
     document.getElementById('longitude').value = -46.6544;
     document.getElementById('estrelas').value = 4;
     document.getElementById('avaliacao_clientes').value = 4;
-    document.getElementById('avaliacao_pagina').value = 5;
     document.getElementById('preco').value = 5;
     document.getElementById('nivel').value = 2;
-    document.getElementById('descricao_pagina').value = 'Descrição na página de mídia social';
     document.getElementById('link_pagina').value = 'https://www.paginadoestabelecimento.com';
-    document.getElementById('midia_pagina').value = 'https://www.midiasocial.com/estabelecimento';
     document.getElementById('website').value = 'https://www.estabelecimento.com';
     document.getElementById('link_cardapio').value = 'https://www.estabelecimento.com/cardapio';
     
-
     // Pré-preenchendo seleções de opções únicas
     document.getElementById('musica').value = 'Sim';
     document.getElementById('estacionamento').value = 'Não';
-    // document.getElementById('cover').value = 'Sim';
     document.getElementById('kids').value = 'Não';
     document.getElementById('pet').value = 'Sim';
     document.getElementById('glutenfree').value = 'Sim';
@@ -113,14 +110,10 @@ document.getElementById("cadastrar").addEventListener("click", function(event){
             estacao: Array.from(document.getElementById('multiselectEstacoes').selectedOptions).map(opt => opt.value),
             estrelas: parseFloat(document.getElementById('estrelas').value),
             avaliacao_clientes: parseFloat(document.getElementById('avaliacao_clientes').value),
-            avaliacao_pagina: parseFloat(document.getElementById('avaliacao_pagina').value),
-            descricao_pagina: document.getElementById('descricao_pagina').value,
             link_pagina: document.getElementById('link_pagina').value,
-            midia_pagina: document.getElementById('midia_pagina').value,
             acessibilidade: Array.from(document.getElementById('multiselectAcessibilidade').selectedOptions).map(opt => opt.value),
             musica: document.getElementById('musica').value,
             estacionamento: document.getElementById('estacionamento').value,
-            cover: "Sem informação",
             kids: document.getElementById('kids').value,
             website: document.getElementById('website').value,
             premio: Array.from(document.getElementById('multiselectPremios').selectedOptions).map(opt => opt.value),
@@ -293,4 +286,88 @@ function validarCampos() {
     });
 
     return valido;
+}
+
+function montarOpcoesHorario() {
+    var dias = ["segunda", "terca", "quarta", "quinta", "sexta", "sabado", "domingo", "feriados"];
+    var horarios = gerarHorarios();
+
+    dias.forEach(function(dia) {
+        var selectAbertura = document.getElementById(`abertura-${dia}`);
+        var selectFechamento = document.getElementById(`fechamento-${dia}`);
+
+        horarios.forEach(function(horario) {
+            var optionAbertura = document.createElement('option');
+            var optionFechamento = document.createElement('option');
+
+            optionAbertura.value = optionFechamento.value = horario;
+            optionAbertura.textContent = optionFechamento.textContent = horario === 'fechado' ? 'Não abre' : horario;
+
+            selectAbertura.appendChild(optionAbertura);
+            selectFechamento.appendChild(optionFechamento);
+        });
+
+        // Adicionando opções específicas para feriados
+        if (dia === 'feriados') {
+            var opcoesEspeciais = ['consultar', 'comercial', 'não'];
+            opcoesEspeciais.forEach(function(opcao) {
+                var optionAbertura = document.createElement('option');
+                var optionFechamento = document.createElement('option');
+
+                optionAbertura.value = optionFechamento.value = opcao;
+                optionAbertura.textContent = optionFechamento.textContent = opcao.charAt(0).toUpperCase() + opcao.slice(1);
+
+                selectAbertura.appendChild(optionAbertura);
+                selectFechamento.appendChild(optionFechamento);
+            });
+        }
+    });
+}
+
+function montarHorariosGlobal() {
+    var horarios = gerarHorarios();
+
+    var selectAberturaGlobal = document.getElementById('horario-abertura-global');
+    var selectFechamentoGlobal = document.getElementById('horario-fechamento-global');
+
+    horarios.forEach(function(horario) {
+        var optionAbertura = document.createElement('option');
+        var optionFechamento = document.createElement('option');
+
+        optionAbertura.value = optionFechamento.value = horario;
+        optionAbertura.textContent = optionFechamento.textContent = horario;
+
+        selectAberturaGlobal.appendChild(optionAbertura);
+        selectFechamentoGlobal.appendChild(optionFechamento);
+    });
+}
+
+function gerarHorarios() {
+    var horarios = ['fechado'];
+    for (var hora = 0; hora < 24; hora++) {
+        for (var minuto = 0; minuto < 60; minuto += 15) {
+            var horarioFormatado = `${hora.toString().padStart(2, '0')}:${minuto.toString().padStart(2, '0')}`;
+            horarios.push(horarioFormatado);
+        }
+    }
+    return horarios;
+}
+
+
+function verificarQuantidadeDeFotos(input) {
+    const TAMANHO_MAXIMO = 8 * 1024 * 1024; // 8 MB em bytes
+
+    if (input.files && input.files.length > 5) {
+        alert('Você só pode selecionar no máximo 5 fotos.');
+        input.value = ''; // Limpa a seleção
+        return; // Encerra a função
+    }
+
+    for (let i = 0; i < input.files.length; i++) {
+        if (input.files[i].size > TAMANHO_MAXIMO) {
+            alert('Cada foto deve ter no máximo 8 MB.');
+            input.value = ''; // Limpa a seleção
+            break; // Sai do loop
+        }
+    }
 }

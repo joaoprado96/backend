@@ -700,6 +700,10 @@ button:hover {
     font-size: 24px;
 }
 
+h4 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
 .h4-small {
     font-size: 14px;
 }
@@ -1042,11 +1046,13 @@ select:focus {
 }
 
 .container-evento {
+    position: relative; /* Necessário para posicionar o botão em relação a este contêiner */
     width: 100%;
-    margin-top: var(--navbar-height)*0.8;
+    margin-top: calc(var(--navbar-height) * 0.8);
     background-color: var(--branco);
     border-radius: 2px;
 }
+
 
 .container {
     width: 100%;
@@ -2142,4 +2148,55 @@ h5 {
         height: 88vh; /* Exemplo: Reduz a altura do carrossel pela metade */
         /* Outros ajustes de estilo podem ser adicionados aqui */
     }
+}
+
+.botaoSobreCarrossel {
+    position: absolute;
+    padding: 10px 10px;
+    font-size: 15px;
+    top: 65%; /* Ajuste este valor conforme necessário para a posição vertical */
+    left: 50%; /* Posiciona o início do botão no meio */
+    transform: translateX(-50%); /* Desloca o botão para trás pela metade de sua largura, centralizando-o */
+    z-index: 10;
+    background-color: var(--secundaria);
+    color: var(--branco);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botaoSobreCarrossel:hover {
+    background-color: var(--primaria);
+    color: var(--branco);
+    border-radius: 30px;
+    transition: all linear 160ms;
+    text-decoration: none;
+}
+
+.container-welcome {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.welcome-text {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text h4, .welcome-text h5 {
+    color: #007bff;
+}
+
+.icon {
+    color: #007bff;
+    margin-right: 8px;
+}
+
+.welcome-text p {
+    font-size: 1.1em;
 }

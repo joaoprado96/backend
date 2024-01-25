@@ -253,7 +253,6 @@ function criarCardDetalhe(estabelecimento) {
             <div class="tab-pane active" id="descricao">
                 <p>${estabelecimento.descricao}</p>
                 <div class="info-row">
-
                         <div class="rating">${criarAvaliacao(estabelecimento.estrelas)}
                         <h4 class="h4-small">estrelas</h4></div>
 

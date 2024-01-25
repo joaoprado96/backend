@@ -19,7 +19,6 @@ const filtrosGlobais = [
     { id: 'filtro-ambiente', tipo: 'dropdown' },
     { id: 'filtro-musica', tipo: 'checkbox' },
     { id: 'filtro-estacionamento', tipo: 'checkbox' },
-    { id: 'filtro-cover', tipo: 'checkbox' },
     { id: 'filtro-kids', tipo: 'checkbox' },
     { id: 'filtro-pet', tipo: 'checkbox' },
     { id: 'filtro-glutenfree', tipo: 'checkbox' },
@@ -156,7 +155,7 @@ function addOptionsToFiltro(filtroId, conjunto) {
 }
 
 function adicionarEventListenersParaFiltros() {
-    ['cozinha', 'regiao', 'bairro', 'cartao', 'local', 'entrada', 'metro', 'estacao', 'acessibilidade', 'musical', 'servico', 'hobby', 'ambiente', 'musica', 'estacionamento', 'cover', 'kids', 'pet', 'glutenfree', 'lactosefree'].forEach(filtro => {
+    ['cozinha', 'regiao', 'bairro', 'cartao', 'local', 'entrada', 'metro', 'estacao', 'acessibilidade', 'musical', 'servico', 'hobby', 'ambiente', 'musica', 'estacionamento', 'kids', 'pet', 'glutenfree', 'lactosefree'].forEach(filtro => {
         document.getElementById(`filtro-${filtro}`).addEventListener('change', function() {
             // Verifica o valor selecionado
             if (this.value === "" || this.value === `${filtro}`) {
@@ -225,7 +224,6 @@ function aplicarFiltros() {
     // Filtros de checkbox
     const filtroMusica = document.getElementById('filtro-musica').checked;
     const filtroEstacionamento = document.getElementById('filtro-estacionamento').checked;
-    const filtroCover = document.getElementById('filtro-cover').checked;
     const filtroKids = document.getElementById('filtro-kids').checked;
     const filtroPet = document.getElementById('filtro-pet').checked;
     const filtroGlutenfree = document.getElementById('filtro-glutenfree').checked;
@@ -250,7 +248,6 @@ function aplicarFiltros() {
         // Verificações para os filtros de checkbox
         const matchMusica = !filtroMusica || estabelecimento.musica === (filtroMusica ? 'Sim' : 'Não');
         const matchEstacionamento = !filtroEstacionamento || estabelecimento.estacionamento === (filtroEstacionamento ? 'Sim' : 'Não');
-        const matchCover = !filtroCover || estabelecimento.cover === (filtroCover ? 'Sim' : 'Não');
         const matchKids = !filtroKids || estabelecimento.kids === (filtroKids ? 'Sim' : 'Não');
         const matchPet = !filtroPet || estabelecimento.pet === (filtroPet ? 'Sim' : 'Não');
         const matchGlutenfree = !filtroGlutenfree || estabelecimento.glutenfree === (filtroGlutenfree ? 'Sim' : 'Não');
@@ -259,7 +256,7 @@ function aplicarFiltros() {
         return matchCozinha && matchRegiao && matchBairro && matchCartao && matchLocal &&
                matchEntrada && matchMetro && matchEstacao && matchAcessibilidade &&
                matchEstiloMusical && matchEstiloServico && matchHobby && matchAmbiente &&
-               matchMusica && matchEstacionamento && matchCover && matchKids &&
+               matchMusica && matchEstacionamento && matchKids &&
                matchPet && matchGlutenfree && matchLactosefree;
     });
 
@@ -464,7 +461,7 @@ async function criarCard(estabelecimento) {
                 <div class="estabelecimento-header">
                     <span class="estabelecimento-nome">${estabelecimento.nome}</span>
                     <span class="icon-container">
-                        <i class="fas fa-star"></i> ${estabelecimento.avaliacao_clientes}
+                        <i class="fas fa-star"></i> ${estabelecimento.estrelas}
                     </span>
                 </div>
                 <div class="estabelecimento-info">

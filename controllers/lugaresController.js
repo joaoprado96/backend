@@ -3,9 +3,9 @@ const Lugar = require('../models/lugarModel');
 exports.adicionarLugar = async (req, res) => {
     const {
         nome, descricao, rua, cep, cnpj, cidade, bairro, regiao, entrada, latitude, longitude, linha_metro, estacao, estrelas,
-        avaliacao_clientes, avaliacao_pagina, descricao_pagina, link_pagina, midia_pagina,
-        acessibilidade, musica, estacionamento, cover, kids, website, premio, estilo_musical,
-        cozinha, local, preco, tipo_evento, hobby, ambiente, cartao, dias, nivel, link_cardapio, horarios_funcionamento, pet, estilo_servico,
+        avaliacao_clientes,   link_pagina, 
+        acessibilidade, musica, estacionamento,  kids, website, premio, estilo_musical,
+        cozinha, local, preco, tipo_evento, hobby, ambiente, cartao,  nivel, link_cardapio, horarios_funcionamento, pet, estilo_servico,
         glutenfree, lactosefree
     } = req.body;
 
@@ -19,9 +19,9 @@ exports.adicionarLugar = async (req, res) => {
         // Cria um novo lugar se o id não existir
         const novoLugar = new Lugar({
             nome, descricao, rua, cep, cnpj, cidade, bairro, regiao, entrada, latitude, longitude, linha_metro, estacao, estrelas,
-            avaliacao_clientes, avaliacao_pagina, descricao_pagina, link_pagina, midia_pagina,
-            acessibilidade, musica, estacionamento, cover, kids, website, premio, estilo_musical,
-            cozinha, local, preco, tipo_evento, hobby, ambiente, cartao, dias, nivel, link_cardapio, horarios_funcionamento, pet, estilo_servico,
+            avaliacao_clientes,   link_pagina, 
+            acessibilidade, musica, estacionamento,  kids, website, premio, estilo_musical,
+            cozinha, local, preco, tipo_evento, hobby, ambiente, cartao,  nivel, link_cardapio, horarios_funcionamento, pet, estilo_servico,
             glutenfree, lactosefree
         });
 
@@ -104,14 +104,10 @@ exports.ataulizarLugarPorId = async (req, res) => {
         lugar.estacao = req.body.estacao || lugar.estacao;
         lugar.estrelas = req.body.estrelas || lugar.estrelas;
         lugar.avaliacao_clientes = req.body.avaliacao_clientes || lugar.avaliacao_clientes;
-        lugar.avaliacao_pagina = req.body.avaliacao_pagina || lugar.avaliacao_pagina;
-        lugar.descricao_pagina = req.body.descricao_pagina || lugar.descricao_pagina;
         lugar.link_pagina = req.body.link_pagina || lugar.link_pagina;
-        lugar.midia_pagina = req.body.midia_pagina || lugar.midia_pagina;
         lugar.acessibilidade = req.body.acessibilidade || lugar.acessibilidade;
         lugar.musica = req.body.musica || lugar.musica;
         lugar.estacionamento = req.body.estacionamento || lugar.estacionamento;
-        lugar.cover = req.body.cover || lugar.cover;
         lugar.kids = req.body.kids || lugar.kids;
         lugar.website = req.body.website || lugar.website;
         lugar.premio = req.body.premio || lugar.premio;
@@ -123,7 +119,6 @@ exports.ataulizarLugarPorId = async (req, res) => {
         lugar.hobby = req.body.hobby || lugar.hobby;
         lugar.ambiente = req.body.ambiente || lugar.ambiente;
         lugar.cartao = req.body.cartao || lugar.cartao;
-        lugar.dias = req.body.dias || lugar.dias;
         lugar.nivel = req.body.nivel || lugar.nivel;
         lugar.link_cardapio = req.body.link_cardapio || lugar.link_cardapio;
         lugar.horarios_funcionamento = req.body.horarios_funcionamento || lugar.horarios_funcionamento;
