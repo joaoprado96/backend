@@ -73,12 +73,12 @@ document.addEventListener('DOMContentLoaded', function() {
     montarOpcoesHorario();
     montarHorariosGlobal();
     carregarCidades();
-    const selectCidade = document.getElementById('cidade');
+//    const selectCidade = document.getElementById('cidade');
     
-    selectCidade.addEventListener('change', function() {
-        const cidadeSelecionada = this.value;
-        carregarRegioes(cidadeSelecionada);
-    });
+//    selectCidade.addEventListener('change', function() {
+//        const cidadeSelecionada = this.value;
+//        carregarRegioes(cidadeSelecionada);
+//    });
 
     var multiselectTipoEvento = new Choices('#multiselectTiposEvento', {
         removeItemButton: true,
