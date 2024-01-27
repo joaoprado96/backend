@@ -1,19 +1,39 @@
 var token = localStorage.getItem('token');
 
-function carregarCidades(choices) {
+let todasCidades = []; // Armazenar todas as cidades aqui
+
+function carregarCidades() {
+    if (todasCidades.length > 0) {
+        // As cidades já foram carregadas
+        return;
+    }
+
     fetch('https://servicodados.ibge.gov.br/api/v1/localidades/municipios')
         .then(response => response.json())
         .then(municipios => {
-            municipios.forEach(municipio => {
-                choices.setChoices([{
-                    value: municipio.id,
-                    label: municipio.nome,
-                    selected: false,
-                    disabled: false,
-                }], 'value', 'label', false);
-            });
+            todasCidades = municipios; // Armazena todas as cidades em memória
+            // Inicializa o componente de choices aqui se necessário
         })
         .catch(error => console.error('Erro ao carregar cidades:', error));
+}
+
+function adicionarCidadesNoChoices(choices, busca = '') {
+    const cidadesFiltradas = todasCidades
+        .filter(municipio => municipio.nome.toLowerCase().includes(busca.toLowerCase()))
+        .slice(0, 50); // Limita o número de cidades a adicionar de cada vez
+
+    choices.setChoices(cidadesFiltradas.map(municipio => ({
+        value: municipio.id,
+        label: municipio.nome,
+        selected: false,
+        disabled: false,
+    })), 'value', 'label', false);
+}
+
+// Evento de busca, chame essa função sempre que o usuário digitar no campo de busca
+function onSearch(event, choices) {
+    const busca = event.target.value;
+    adicionarCidadesNoChoices(choices, busca);
 }
 
 function carregarRegioes(cidadeSelecionada) {
@@ -64,13 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar();
     montarOpcoesHorario();
     montarHorariosGlobal();
-    //carregarCidades();
-//    const selectCidade = document.getElementById('cidade');
-    
-//    selectCidade.addEventListener('change', function() {
-//        const cidadeSelecionada = this.value;
-//        carregarRegioes(cidadeSelecionada);
-//    });
+
 
      var cidadeChoices = new Choices('#cidade', {
         removeItemButton: true,
@@ -81,7 +95,10 @@ document.addEventListener('DOMContentLoaded', function() {
         placeholder: true,
         placeholderValue: 'Selecione sua cidade'
     });
-    carregarCidades(cidadeChoices);
+    carregarCidades();
+    
+    // Adicione um ouvinte de eventos para o campo de busca
+    document.getElementById('cidade').addEventListener('input', (event) => onSearch(event, choices));
     
     var regiaoChoices = new Choices('#regiao', {
         removeItemButton: true,
