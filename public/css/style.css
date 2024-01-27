@@ -2132,16 +2132,28 @@ h5 {
     font-size: 12px; /* Tamanho da fonte da tag */
 }
 
-#carrosselTipoEvento {
+/*#carrosselTipoEvento {
     background-image: url('../image/oquefazer_2.png');
+    background-size: cover; /* Garante que a imagem cubra todo o container */
+/*    background-repeat: no-repeat;
+    background-position: center; /* Centraliza a imagem de fundo */
+ /*   display: flex;
+    justify-content: end;
+    align-items: end;
+    width: 100vw; /* Define a largura como 100% da viewport */
+/*    height: 100vh; /* Define a altura como 100% da viewport */
+ /*   margin: 0;
+}*/
+
+#video-background {
     background-size: cover; /* Garante que a imagem cubra todo o container */
     background-repeat: no-repeat;
     background-position: center; /* Centraliza a imagem de fundo */
     display: flex;
     justify-content: end;
     align-items: end;
-    width: 100vw; /* Define a largura como 100% da viewport */
-    height: 100vh; /* Define a altura como 100% da viewport */
+    width: 100%; /* Define a largura como 100% da viewport */
+    height: 100%; /* Define a altura como 100% da viewport */
     margin: 0;
 }
 
@@ -2153,6 +2165,15 @@ h5 {
         height: 88vh; /* Exemplo: Reduz a altura do carrossel pela metade */
         /* Outros ajustes de estilo podem ser adicionados aqui */
     }
+}
+
+.logo-home {
+    width: 400px;
+    height: auto;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .botaoSobreCarrossel {
