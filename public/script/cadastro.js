@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar();
     montarOpcoesHorario();
     montarHorariosGlobal();
-    carregarCidades();
+    //carregarCidades();
 //    const selectCidade = document.getElementById('cidade');
     
 //    selectCidade.addEventListener('change', function() {
