@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         placeholder: true,
         placeholderValue: 'Selecione sua cidade'
     });
+    carregarCidades(cidadeChoices);
     
     var regiaoChoices = new Choices('#regiao', {
         removeItemButton: true,
