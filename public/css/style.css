@@ -2231,6 +2231,7 @@ h5 {
     background-color: var(--primaria); /* Cor roxa */
     color: white;
     border: none;
+    width: 100%;
 }
 
 .choices__list--dropdown .choices__item--selectable.is-highlighted {
