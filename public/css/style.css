@@ -2198,7 +2198,7 @@ h5 {
     position: absolute;
     padding: 10px 10px;
     font-size: 15px;
-    top: 45%; /* Ajuste este valor conforme necessário para a posição vertical */
+    top: 55%; /* Ajuste este valor conforme necessário para a posição vertical */
     left: 50%; /* Posiciona o início do botão no meio */
     transform: translateX(-50%); /* Desloca o botão para trás pela metade de sua largura, centralizando-o */
     z-index: 10;
@@ -2216,6 +2216,17 @@ h5 {
     border-radius: 30px;
     transition: all linear 160ms;
     text-decoration: none;
+}
+
+.texto-sobre-video {
+    position: absolute;
+    top: 40%; /* Ajuste conforme necessário */
+    font-size: 40px;
+    left: 50%; /* Ajuste conforme necessário */
+    transform: translate(-50%, -50%); /* Centraliza o texto */
+    color: white; /* Cor do texto */
+    font-size: 20px; /* Tamanho da fonte */
+    /* Adicione mais estilos conforme necessário */
 }
 
 .container-welcome {
