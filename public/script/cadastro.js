@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //        carregarRegioes(cidadeSelecionada);
 //    });
 
-     var cidadeChoices = new Choices('cidade', {
+     var cidadeChoices = new Choices('#cidade', {
         removeItemButton: true,
         allowHTML: false,
         maxItemCount: 15,
