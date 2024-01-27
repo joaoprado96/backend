@@ -1,17 +1,9 @@
 var token = localStorage.getItem('token');
 
-function carregarCidades() {
+function carregarCidades(choices) {
     fetch('https://servicodados.ibge.gov.br/api/v1/localidades/municipios')
         .then(response => response.json())
         .then(municipios => {
-            const selectElement = document.getElementById('cidade');
-            const choices = new Choices(selectElement, {
-                searchEnabled: true,
-                removeItemButton: true,
-                noResultsText: 'Nenhum resultado encontrado',
-                noChoicesText: 'Não há opções para escolher',
-            });
-
             municipios.forEach(municipio => {
                 choices.setChoices([{
                     value: municipio.id,
