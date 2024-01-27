@@ -8,7 +8,7 @@ const rateLimit = require('../middleware/rateLimit'); // Importando o rate limit
 
 
 // Rota para adicionar várias novas fotos
-router.post('/fotos-lugares', rateLimit, upload.array('fotos', 10), verificarToken.verificarToken, fotosLugaresController.adicionarFotoLugar);
+router.post('/fotos-lugares', rateLimit, upload.array('fotos', 10), fotosLugaresController.adicionarFotoLugar);
 
 // Rota para verificar se um lugar já possui fotos
 router.get('/fotos-lugares/verificar/:lugarId', fotosLugaresController.verificarFotos);

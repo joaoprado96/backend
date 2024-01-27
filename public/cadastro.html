@@ -6,9 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AcheAi</title>
-    <link rel="icon" type="image/svg" href="/icons/logo.svg">
+    <link rel="icon" type="image/png" href="/icons/logo.png">
     <script src="script/localizacao.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
@@ -91,11 +94,22 @@
              <p>Informe o endereço do seu estabelecimento. A localização exata ajuda seus futuros clientes a encontrá-lo com facilidade. Não esqueça de detalhar bairro, CEP e outros pontos de referência.</p>     
             <div class="formulario-grupo">
                 <input type="text" id="rua" placeholder="Rua">
+                <input type="text" id="cep" placeholder="CEP">
             </div>
             
             <div class="formulario-grupo">
-                <input type="text" id="cep" placeholder="CEP">
-                <select id="bairro">
+                <select id="cidade">
+                    <option value="São Paulo">São Paulo</option>
+                </select>
+                <select id="regiao">
+                    <option value="Norte">Norte</option>
+                    <option value="Sul">Sul</option>
+                    <option value="Leste">Leste</option>
+                    <option value="Oeste">Oeste</option>
+                    <option value="Centro">Centro</option>
+                </select>
+
+                <select id="bairro" name="bairro">
                     <option value="Casa Verde">Casa Verde</option>
                     <option value="Cachoeirinha">Cachoeirinha</option>
                     <option value="Limão">Limão</option>
@@ -201,18 +215,8 @@
                     <option value="Vila Prudente">Vila Prudente</option>
                     <option value="São Lucas">São Lucas</option>
                 </select>
-            </div>
-            <div class="formulario-grupo">
-                <select id="regiao">
-                    <option value="Norte">Norte</option>
-                    <option value="Sul">Sul</option>
-                    <option value="Leste">Leste</option>
-                    <option value="Oeste">Oeste</option>
-                    <option value="Centro">Centro</option>
-                </select>
-                <select id="cidade">
-                    <option value="São Paulo">São Paulo</option>
-                </select>
+                <label for="bairroInput" style="display:none;">Digite o Bairro:</label>
+                <input type="text" id="bairroInput" name="bairro" style="display:none;">
             </div>
 
             <h4>Coordenadas Geográficas</h4>
@@ -500,19 +504,49 @@
                 </select>
                 <select id="estrelas" placeholder="Estrelas do Google">
                     <option value="Sem informação">Estrelas do Google: Sem essa informação</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="0.25">0.25</option>
+                    <option value="0.50">0.50</option>
+                    <option value="0.75">0.75</option>
+                    <option value="1.00">1.00</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.50">1.50</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2.00">2.00</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.50">2.50</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3.00">3.00</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.50">3.50</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4.00">4.00</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.50">4.50</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5.00">5.00</option> 
                 </select>
                 <select id="avaliacao_clientes" placeholder="Avaliação dos Clientes">
                     <option value="Sem informação">Avaliação dos Clientes: Sem essa informação</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="0.25">0.25</option>
+                    <option value="0.50">0.50</option>
+                    <option value="0.75">0.75</option>
+                    <option value="1.00">1.00</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.50">1.50</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2.00">2.00</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.50">2.50</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3.00">3.00</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.50">3.50</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4.00">4.00</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.50">4.50</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5.00">5.00</option>                    
                 </select>
 
                 <select id="preco" placeholder="Selecione o preço">
@@ -761,7 +795,7 @@
                 <option value="terraço">Terraço</option>
                 <option value="melhores vistas">Melhores Vistas</option>
                 <option value="intimista">Intimista</option>
-                <option value="Instagramável">Instagramável</option>
+                <option value="instagramável">Instagramável</option>
                 <option value="temático">Temático</option>
                 <option value="casual">Casual</option>
                 <option value="praiano">Praiano</option>

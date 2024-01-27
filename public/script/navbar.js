@@ -4,7 +4,7 @@ function criarNavbar() {
     <nav class="nav">
         <i class="uil uil-bars navOpenBtn"></i>
         <a href="/home" class="logo">
-            <img src="icons/logo.svg" alt="Logo" style="height: 40px;"> AcheAi
+            <img src="icons/logo.png" alt="Logo" style="height: 40px;">
         </a>
 
         <ul class="nav-links">
@@ -22,8 +22,7 @@ function criarNavbar() {
         </div>
 
         <div class="user-icon-container">
-            <i class="uil uil-search search-icon" id="searchIcon"></i>
-            <img src="icons/icon-usuariorx.png" alt="Usuário" class="user-icon">
+            <img src="icons/icon-usuario.png" alt="Usuário" class="user-icon">
             <div class="user-submenu">
                 <a href="/login">login</a>
                 <a href="/perfil">minha conta</a>
@@ -34,7 +33,7 @@ function criarNavbar() {
         </div>
     </nav>
     `;
-
+    // <i class="uil uil-search search-icon" id="searchIcon"></i>
     // Adiciona o navbar ao documento
     document.body.insertAdjacentHTML('afterbegin', navbarHTML);
 

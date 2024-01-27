@@ -1,61 +1,28 @@
 var token = localStorage.getItem('token');
 
-let todasCidades = []; // Armazenar todas as cidades aqui
+let todasCidades = [];
+var choicesInstances = {};
 
-function carregarCidades() {
-    if (todasCidades.length > 0) {
-        // As cidades já foram carregadas
-        return;
-    }
+$(document).ready(function () {
+    $('#cidade').select2();
+    $('#regiao').select2();
+    $('#bairro').select2();
+    $('#bairroInput').hide();
 
-    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/municipios')
-        .then(response => response.json())
-        .then(municipios => {
-            todasCidades = municipios; // Armazena todas as cidades em memória
-            // Inicializa o componente de choices aqui se necessário
-        })
-        .catch(error => console.error('Erro ao carregar cidades:', error));
-}
+    var $bairroSelect2Container = $('#bairro').next('.select2-container');
 
-function adicionarCidadesNoChoices(choices, busca = '') {
-    const cidadesFiltradas = todasCidades
-        .filter(municipio => municipio.nome.toLowerCase().includes(busca.toLowerCase()))
-        .slice(0, 50); // Limita o número de cidades a adicionar de cada vez
+    $('#cidade').on('change', function () {
+        var cidadeSelecionada = $(this).val();
 
-    choices.setChoices(cidadesFiltradas.map(municipio => ({
-        value: municipio.id,
-        label: municipio.nome,
-        selected: false,
-        disabled: false,
-    })), 'value', 'label', false);
-}
-
-// Evento de busca, chame essa função sempre que o usuário digitar no campo de busca
-function onSearch(event, choices) {
-    const busca = event.target.value;
-    adicionarCidadesNoChoices(choices, busca);
-}
-
-function carregarRegioes(cidadeSelecionada) {
-    fetch(`https://nominatim.openstreetmap.org/search?city=${cidadeSelecionada}&format=json&country=Brazil&addressdetails=1`)
-        .then(response => response.json())
-        .then(data => {
-            let select = document.getElementById('bairro');
-            select.innerHTML = '<option>Selecione um bairro</option>';
-
-            let regioesEncontradas = new Set();
-            data.forEach(item => {
-                if (item.address.suburb && !regioesEncontradas.has(item.address.suburb)) {
-                    regioesEncontradas.add(item.address.suburb);
-                    let option = document.createElement('option');
-                    option.value = item.address.suburb;
-                    option.textContent = item.address.suburb;
-                    select.appendChild(option);
-                }
-            });
-        })
-        .catch(error => console.error('Erro ao carregar regiões:', error));
-}
+        if (cidadeSelecionada !== 'São Paulo') {
+            $bairroSelect2Container.hide(); // Esconde o contêiner do Select2
+            $('#bairroInput').show(); // Mostra o input
+        } else {
+            $bairroSelect2Container.show(); // Mostra o contêiner do Select2
+            $('#bairroInput').hide().val(''); // Esconde o input e limpa o texto
+        }
+    });
+});
 
 document.getElementById('aplicar-horarios').addEventListener('click', function() {
     var horarioAbertura = document.getElementById('horario-abertura-global').value;
@@ -71,165 +38,182 @@ document.getElementById('aplicar-horarios').addEventListener('click', function()
 
 document.addEventListener('DOMContentLoaded', function() {
     criarNavbar();
-    // Se não houver token, mostra a notificação popup e redireciona
-    // if (!token) {
-    //     var popup = document.getElementById('notificationPopupLogin');
-    //     popup.style.display = 'block';
-
-    //     // Espera 3 segundos antes de redirecionar
-    //     setTimeout(function() {
-    //         window.location.href = '/login.html';
-    //     }, 4500);
-    // }
-    // Inicializar();
     montarOpcoesHorario();
     montarHorariosGlobal();
-
-
-     var cidadeChoices = new Choices('#cidade', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 15,
-        searchResultLimit: 10,
-        renderChoiceLimit: 10,
-        placeholder: true,
-        placeholderValue: 'Selecione sua cidade'
-    });
     carregarCidades();
-    
-    // Adicione um ouvinte de eventos para o campo de busca
-    document.getElementById('cidade').addEventListener('input', (event) => onSearch(event, choices));
-    
-    var regiaoChoices = new Choices('#regiao', {
+
+    // Criação das instâncias de Choices.js para cada multiselect
+    choicesInstances.multiselectTipoEvento = new Choices('#multiselectTiposEvento', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
-        placeholder: true,
-        placeholderValue: 'Selecione sua região'
-    });
-    
-    var multiselectTipoEvento = new Choices('#multiselectTiposEvento', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 15,
-        searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione os tipos de evento'
     });
 
-    var multiselectMetro = new Choices('#multiselectMetro', {
+    choicesInstances.multiselectMetro = new Choices('#multiselectMetro', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione as linhas de metrô'
     });
-    
-    var multiselectEstacoes = new Choices('#multiselectEstacoes', {
+
+    choicesInstances.multiselectEstacoes = new Choices('#multiselectEstacoes', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione as estações de metrô'
     });
-    
-    var multiselectAcessibilidade = new Choices('#multiselectAcessibilidade', {
+
+    choicesInstances.multiselectAcessibilidade = new Choices('#multiselectAcessibilidade', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione as opções de acessibilidade'
     });
-    
-    var multiselectPremios = new Choices('#multiselectPremios', {
+
+    choicesInstances.multiselectPremios = new Choices('#multiselectPremios', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione as premiações recebidas'
     });
-    
-    var multiselectEstilosMusicais = new Choices('#multiselectEstilosMusicais', {
+
+    choicesInstances.multiselectEstilosMusicais = new Choices('#multiselectEstilosMusicais', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione os estilos musicais'
     });
-    
-    var multiselectCozinha = new Choices('#multiselectCozinha', {
+
+    choicesInstances.multiselectCozinha = new Choices('#multiselectCozinha', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione os tipos de cozinha'
     });
-    
-    var multiselectLocais = new Choices('#multiselectLocais', {
+
+    choicesInstances.multiselectLocais = new Choices('#multiselectLocais', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione os locais disponíveis'
     });
-    
-    var multiselectHobbies = new Choices('#multiselectHobbies', {
+
+    choicesInstances.multiselectHobbies = new Choices('#multiselectHobbies', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione os hobbies oferecidos'
     });
-    
-    var multiselectAmbientes = new Choices('#multiselectAmbientes', {
+
+    choicesInstances.multiselectAmbientes = new Choices('#multiselectAmbientes', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione os tipos de ambientes'
     });
-    
-    var multiselectTiposCartao = new Choices('#multiselectTiposCartao', {
+
+    choicesInstances.multiselectTiposCartao = new Choices('#multiselectTiposCartao', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione os tipos de cartão aceitos'
     });
-    
-    var multiselectEstilosServico = new Choices('#multiselectEstilosServico', {
+
+    choicesInstances.multiselectEstilosServico = new Choices('#multiselectEstilosServico', {
         removeItemButton: true,
         allowHTML: false,
-        maxItemCount: 15,
+        maxItemCount: 35,
         searchResultLimit: 10,
-        renderChoiceLimit: 10,
+        renderChoiceLimit: 35,
         placeholder: true,
         placeholderValue: 'Selecione os estilos de serviço'
     });
 });
+
+// Função de validação
+function validarCamposChoices() {
+    let valido = true;
+
+    // Seleciona todos os elementos select que usam Choices.js
+    const selectsChoices = document.querySelectorAll("#formCadastro select[multiple]");
+
+    selectsChoices.forEach(select => {
+        // Encontra o container do Choices.js para o select atual
+        const choicesContainer = select.closest('.choices');
+
+        // Verifica se há itens selecionados
+        if (select.selectedOptions.length === 0) {
+            choicesContainer.style.border = "2px solid red";
+            valido = false;
+        } else {
+            choicesContainer.style.border = "";
+        }
+    });
+
+    return valido;
+}
+
+function validarOutrosCampos() {
+    let valido = true;
+
+    // Seleciona todos os inputs e textareas, exceto os que fazem parte do Choices.js
+    const outrosCampos = document.querySelectorAll("#formCadastro input:not(.choices__input), #formCadastro textarea");
+
+    outrosCampos.forEach(campo => {
+        if (!campo.value) {
+            campo.style.border = "2px solid red";
+            valido = false;
+        } else {
+            campo.style.border = "";
+        }
+    });
+
+    return valido;
+}
+
+function validarFormulario() {
+    // Valida os campos Choices e os outros campos
+    const validoChoices = validarCamposChoices();
+    const validoOutros = validarOutrosCampos();
+
+    // Retorna verdadeiro se ambos os conjuntos de campos forem válidos
+    return validoChoices && validoOutros;
+}
+
 
 function Inicializar(){
     // Pré-preenchendo campos de texto e área de texto
@@ -294,17 +278,27 @@ function Inicializar(){
 document.getElementById("cadastrar").addEventListener("click", function(event){
     event.preventDefault(); // Evita o envio padrão do formulário
     const horariosFuncionamento = obterHorariosFuncionamento();
-    let camposValidos = validarCampos();
+    let camposValidos = validarFormulario();
     if (camposValidos) {
+        const cidadeSelecionada = $('#cidade').select2('data')[0] ? $('#cidade').select2('data')[0].id : '';
+        const regiaoSelecionada = $('#regiao').select2('data')[0] ? $('#regiao').select2('data')[0].id : '';
+        let bairro;
+
+        if (cidadeSelecionada !== 'São Paulo') {
+            bairro = document.getElementById('bairroInput').value; // Pega do input
+        } else {
+            bairro = $('#bairro').select2('data')[0] ? $('#bairro').select2('data')[0].text : ''; // Pega do select
+        }
+
         const lugar = {
             nome: document.getElementById('nome').value,
             descricao: document.getElementById('descricao').value,
             rua: document.getElementById('rua').value,
             cep: document.getElementById('cep').value,
             cnpj: document.getElementById('cnpj').value,
-            cidade: document.getElementById('cidade').value,
-            bairro: document.getElementById('bairro').value,
-            regiao: document.getElementById('regiao').value,
+            cidade: cidadeSelecionada,
+            regiao: regiaoSelecionada,
+            bairro: bairro,
             entrada: document.getElementById('entrada').value,
             latitude: parseFloat(document.getElementById('latitude').value),
             longitude: parseFloat(document.getElementById('longitude').value),
@@ -338,6 +332,7 @@ document.getElementById("cadastrar").addEventListener("click", function(event){
         };
 
         enviarDados(lugar);
+        console.log(lugar);
     }
     else{
         var popup = document.getElementById('notificationPopupPreenchimento');
@@ -474,22 +469,6 @@ function obterHorariosFuncionamento() {
     return horarios;
 }
 
-function validarCampos() {
-    let valido = true;
-    const campos = document.querySelectorAll("#formCadastro input, #formCadastro select, #formCadastro textarea");
-
-    campos.forEach(campo => {
-        if (!campo.value) {
-            campo.style.border = "2px solid red"; // Altera a borda para vermelho se o campo estiver vazio
-            valido = false;
-        } else {
-            campo.style.border = ""; // Remove o estilo de borda se o campo estiver preenchido
-        }
-    });
-
-    return valido;
-}
-
 function montarOpcoesHorario() {
     var dias = ["segunda", "terca", "quarta", "quinta", "sexta", "sabado", "domingo", "feriados"];
     var horarios = gerarHorarios();
@@ -571,5 +550,32 @@ function verificarQuantidadeDeFotos(input) {
             input.value = ''; // Limpa a seleção
             break; // Sai do loop
         }
+    }
+}
+
+function carregarCidades() {
+    if (todasCidades.length > 0) {
+        // As cidades já foram carregadas, você pode populá-las diretamente no select
+        var select = document.getElementById('cidade');
+        todasCidades.forEach(function(cidade) {
+            var option = document.createElement('option');
+            option.value = cidade.id; // Use o valor adequado para a cidade
+            option.text = cidade.nome; // Use o nome adequado para a cidade
+            select.appendChild(option);
+        });
+    } else {
+        fetch('https://servicodados.ibge.gov.br/api/v1/localidades/municipios')
+            .then(response => response.json())
+            .then(municipios => {
+                todasCidades = municipios; // Armazena todas as cidades em memória
+                var select = document.getElementById('cidade');
+                municipios.forEach(function(cidade) {
+                    var option = document.createElement('option');
+                    option.value = cidade.nome; // Use o valor adequado para a cidade
+                    option.text = cidade.nome; // Use o nome adequado para a cidade
+                    select.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Erro ao carregar cidades:', error));
     }
 }

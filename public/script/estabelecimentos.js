@@ -523,7 +523,7 @@ async function atualizarEstabelecimentos(pagina) {
         document.getElementById('filtros-container').scrollIntoView({ behavior: 'smooth' });
     }
     else {
-        document.getElementById('carrosselTipoEvento').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('video-principal').scrollIntoView({ behavior: 'smooth' });
     }
 }
 
