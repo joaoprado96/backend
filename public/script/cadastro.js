@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         placeholderValue: 'Selecione sua cidade'
     });
     
-    var regiaoChoices = new Choices('#regioes', {
+    var regiaoChoices = new Choices('#regiao', {
         removeItemButton: true,
         allowHTML: false,
         maxItemCount: 15,
