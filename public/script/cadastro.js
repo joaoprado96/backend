@@ -80,6 +80,15 @@ document.addEventListener('DOMContentLoaded', function() {
 //        carregarRegioes(cidadeSelecionada);
 //    });
 
+     var cidadeChoices = new Choices('cidade', {
+        removeItemButton: true,
+        allowHTML: false,
+        maxItemCount: 15,
+        searchResultLimit: 10,
+        renderChoiceLimit: 10,
+        placeholder: true,
+        placeholderValue: 'Selecione os tipos de evento'
+    });
     var multiselectTipoEvento = new Choices('#multiselectTiposEvento', {
         removeItemButton: true,
         allowHTML: false,
