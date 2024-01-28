@@ -12,7 +12,6 @@ function validarCamposChoices() {
         if (select.selectedOptions.length === 0) {
             choicesContainer.style.border = "2px solid red";
             valido = false;
-            console.log(select.selectedOptions)
         } else {
             choicesContainer.style.border = "";
         }
@@ -31,7 +30,6 @@ function validarOutrosCampos() {
         if (!campo.value ) {
             campo.style.border = "2px solid red";
             valido = false;
-            console.log(campo)
         } else {
             campo.style.border = "";
         }
@@ -152,7 +150,6 @@ function atualizarDados(lugarId,dados) {
     })
     .then(data => {
         // Handle the successful update
-        console.log('Dados atualizados com sucesso:', data);
         var popup = document.getElementById('notificationPopupSucesso');
         popup.style.display = 'block';
     })

@@ -52,7 +52,8 @@ estabelecimentoDiv.style.textAlign = 'center';
 document.addEventListener('DOMContentLoaded', function () {
     criarNavbar();
     fetchLugares();
-    montarMultiSelect(); 
+    montarMultiSelect();
+    montarOpcoesHorario();
     document.getElementById('updateCadastro').style.display = 'none';
 })
 
@@ -64,7 +65,6 @@ function toggleDiv() {
 
 function handleMultiSelect(selectId, aux) {
     // Supondo que as instâncias do Choices.js estão armazenadas em choicesInstances
-    console.log(choicesInstances)
     const choicesInstance = choicesInstances[selectId];
     
     if (choicesInstance) {
@@ -138,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 handleMultiSelect('#multiselectAmbientes', data.ambiente);
                 handleMultiSelect('#multiselectTiposCartao', data.cartao);
                 handleMultiSelect('#multiselectEstilosServico', data.estilo_servico);
+                console.log(data.horarios_funcionamento);
                 Object.keys(data.horarios_funcionamento).forEach(dia => {
                     document.getElementById(`abertura-${dia}`).value = data.horarios_funcionamento[dia].abertura;
                     document.getElementById(`fechamento-${dia}`).value = data.horarios_funcionamento[dia].fechamento;
