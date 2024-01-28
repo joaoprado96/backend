@@ -42,21 +42,65 @@
         <form id="updateForm" class="formulario-cadastro">
             <h1>Atualização de Cadastro AcheAi!</h1>
             <p>Ajuste as informações do seu estabelecimento para concluirmos o cadastro:</p>
-            <h5>nome</h5>
+            <h4>Nome do Estabelecimento</h4>
+            <p>Dê-nos o prazer de conhecer o nome do seu espaço. Uma boa nomenclatura é o convite inicial para atrair clientes. Capriche!</p>
             <input type="text" id="nome" placeholder="Nome"><br>
-            <h5>descrição</h5>
-            <input id="descricao" placeholder="Descrição"></input><br>
-            <br>
-            <h5>cnpj</h5>
+
+            <h4>CNPJ</h4>
+            <p>Por gentileza, informe o CNPJ do seu estabelecimento. Isso assegura a exclusividade e autenticidade do seu perfil na plataforma.</p>
             <input type="text" id="cnpj" placeholder="cnpj">
 
-            <h5>endereço</h5>
+            <h4>Descrição</h4>
+            <p>Chegou a hora de brilhar! Descreva seu estabelecimento de forma envolvente e única. Inspire-se e compartilhe o que torna seu lugar especial.</p>
+            <input id="descricao" placeholder="Descrição"></input><br>
+            
+            <h4>Tipos de Eventos</h4>
+            <p>Informe os tipos de eventos que seu estabelecimento costuma sediar, como apresentações musicais ao vivo, eventos temáticos ou encontros corporativos.</p>
+            <select id="multiselectTiposEvento" multiple>
+                <option value="Sem informação">Tipo de Evento: Sem essa informação</option>
+                <option value="beber e dançar">Beber e dançar</option>
+                <option value="rolê geek">Rolê geek</option>
+                <option value="conversar">Conversar</option>
+                <option value="lugar romântico">Lugar romântico</option>
+                <option value="rolê de amigos">Rolê de amigos</option>
+                <option value="encontro familiar">Encontro familiar</option>
+                <option value="aniversário">Aniversário</option>
+                <option value="happy hour">Happy Hour</option>
+                <option value="Home office">Home Office</option>
+                <option value="assistir jogos">Assistir Jogos</option>
+                <option value="sair sozinho/a">Sair Sozinho/a</option>                   
+                <option value="brunches">Brunches</option>
+                <option value="cabaré/boates">Cabaré/Boates</option>
+                <option value="música ao vivo">Música ao vivo</option>
+                <option value="para crianças">Para crianças</option>
+                <option value="temáticos">Temáticos</option>
+                <option value="karaokês">Karaokês</option>
+                <option value="casas noturnas">Casas noturnas</option>
+                <option value="LGBTQIA+">LGBTQIA+</option>
+                <option value="primeiro encontro">Primeiro encontro</option>
+                <option value="experiência gastronômica">Experiência gastronômica</option>
+             </select>
+
+             <h4>Endereço</h4>
+             <p>Informe o endereço do seu estabelecimento. A localização exata ajuda seus futuros clientes a encontrá-lo com facilidade. Não esqueça de detalhar bairro, CEP e outros pontos de referência.</p>     
             <div class="formulario-grupo">
                 <input type="text" id="rua" placeholder="Rua">
                 <input type="text" id="cep" placeholder="CEP">
             </div>
+            
             <div class="formulario-grupo">
-                <select id="bairro">
+                <select id="cidade">
+                    <option value="São Paulo">São Paulo</option>
+                </select>
+                <select id="regiao">
+                    <option value="Norte">Norte</option>
+                    <option value="Sul">Sul</option>
+                    <option value="Leste">Leste</option>
+                    <option value="Oeste">Oeste</option>
+                    <option value="Centro">Centro</option>
+                </select>
+
+                <select id="bairro" name="bairro">
                     <option value="Casa Verde">Casa Verde</option>
                     <option value="Cachoeirinha">Cachoeirinha</option>
                     <option value="Limão">Limão</option>
@@ -162,31 +206,19 @@
                     <option value="Vila Prudente">Vila Prudente</option>
                     <option value="São Lucas">São Lucas</option>
                 </select>
-                <select id="regiao">
-                    <option value="Norte">Norte</option>
-                    <option value="Sul">Sul</option>
-                    <option value="Leste">Leste</option>
-                    <option value="Oeste">Oeste</option>
-                    <option value="Centro">Centro</option>
-                </select>
-                <select id="cidade">
-                    <option value="São Paulo">São Paulo</option>
-                </select>
+                <label for="bairroInput" style="display:none;">Digite o Bairro:</label>
+                <input type="text" id="bairroInput" name="bairro" style="display:none;">
             </div>
-            <h5>coordenadas geográficas</h5>
+
+            <h4>Coordenadas Geográficas</h4>
+            <p>As coordenadas geográficas são essenciais para localizar seu estabelecimento no mapa. Não tem certeza quais são? Sem problemas! Insira '0' e nós cuidaremos do resto para você.</p>
             <div class="formulario-grupo">
                 <input type="number" id="latitude" placeholder="Latitude" step="0.0000001" min="-100" max="100">
                 <input type="number" id="longitude" placeholder="Longitude" step="0.0000001" min="-100" max="100">
             </div>
 
-            <h5>taxa de entrada</h5>
-            <select id="entrada" placeholder="Selecione o tipo de entrada">
-                <option value="Sem informação">Taxa de entrada: Sem essa informação</option>
-                <option value="Gratuita">Gratuita</option>
-                <option value="Paga">Paga</option>
-            </select>
-
-            <h5>linhas de metrô</h5>
+            <h4>Linhas de Metrô</h4>
+            <p>Está próximo a alguma linha de metrô? Compartilhe conosco! Essa informação é super útil para clientes que preferem o transporte público.</p>
             <select id="multiselectMetro" multiple>
                 <option value="Sem informação">Linha: Sem essa informação</option>
                 <option value="Linha 1 (Azul)">Linha 1 (Azul)</option>
@@ -204,7 +236,8 @@
                 <option value="Linha 15 (Prata)">Linha 15 (Prata)</option>
             </select>
 
-            <h5>estações de metro</h5>
+            <h4>Estações de Metrô</h4>
+            <p>E as estações mais próximas? Isso ajuda bastante quem vem de metrô a encontrar seu local mais facilmente.</p>
             <select id="multiselectEstacoes" multiple>
                 <option value="Sem informação">Estação: Sem essa informação</option>
                 <!-- Linha 1-Azul -->
@@ -451,32 +484,62 @@
 
             </select>
 
-            <h5>avaliações e métricas</h5>
+            <h4>Taxa de Entrada, Avaliações e Faixa de Preço</h4>
+            <p>Informações práticas fazem toda a diferença. Cobra entrada? Qual a avaliação média do seu estabelecimento em outras plataformas? E sobre os preços, em qual faixa você se encaixa? Nós analisaremos e ajustaremos conforme necessário.</p>
+    
             <div class="formulario-grupo">
+                <select id="entrada" placeholder="Selecione o tipo de entrada">
+                    <option value="Sem informação">Taxa de entrada: Sem essa informação</option>
+                    <option value="Gratuita">Gratuita</option>
+                    <option value="Paga">Paga</option>
+                </select>
                 <select id="estrelas" placeholder="Estrelas do Google">
                     <option value="Sem informação">Estrelas do Google: Sem essa informação</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="0.25">0.25</option>
+                    <option value="0.50">0.50</option>
+                    <option value="0.75">0.75</option>
+                    <option value="1.00">1.00</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.50">1.50</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2.00">2.00</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.50">2.50</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3.00">3.00</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.50">3.50</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4.00">4.00</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.50">4.50</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5.00">5.00</option> 
                 </select>
                 <select id="avaliacao_clientes" placeholder="Avaliação dos Clientes">
                     <option value="Sem informação">Avaliação dos Clientes: Sem essa informação</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="0.25">0.25</option>
+                    <option value="0.50">0.50</option>
+                    <option value="0.75">0.75</option>
+                    <option value="1.00">1.00</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.50">1.50</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2.00">2.00</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.50">2.50</option>
+                    <option value="2.75">2.75</option>
+                    <option value="3.00">3.00</option>
+                    <option value="3.25">3.25</option>
+                    <option value="3.50">3.50</option>
+                    <option value="3.75">3.75</option>
+                    <option value="4.00">4.00</option>
+                    <option value="4.25">4.25</option>
+                    <option value="4.50">4.50</option>
+                    <option value="4.75">4.75</option>
+                    <option value="5.00">5.00</option>                    
                 </select>
-                <select id="avaliacao_pagina" placeholder="Avaliação da Página">
-                    <option value="Sem informação">Avaliação da Página: Sem essa informação</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+
                 <select id="preco" placeholder="Selecione o preço">
                     <option value="1">1 - Até R$30,00</option>
                     <option value="2">2 - De R$30 a R$60</option>
@@ -492,24 +555,24 @@
                 </select>
             </div>
 
-            <h5>mídias sociais</h5>
-            <h5>descrição da página</h5>
-            <input id="descricao_pagina" placeholder="Descrição na Página"></input>
-            <h5>link da página</h5>
+            <h4>Link da Página no Instagram</h4>
+            <p>Está conectado no Insta? Compartilhe o link da página do seu estabelecimento. É uma ótima maneira de mostrar seu espaço e atrair mais clientes.</p>
             <input type="text" id="link_pagina" placeholder="Link da Página">
-            <h5>mídia da página</h5>
-            <input type="text" id="midia_pagina" placeholder="Mídia da Página">
-            <h5>website</h5>
+
+            <h4>Website</h4>
+            <p>Seu espaço tem um cantinho na web? Compartilhe o link do seu site conosco. É a sua vitrine digital para o mundo!</p>
             <input type="text" id="website" placeholder="Website">
 
-            <h5>cardápio</h5>
+            <h4>Cardápio Digital</h4>
+            <p>Cardápio digital? Que moderno! Se tiver, compartilhe o link conosco. É uma forma prática e higiênica de apresentar suas opções aos clientes.</p>
             <input type="text" id="link_cardapio" placeholder="Link do Cardápio">
 
-            <h5>opções de acessibilidade</h5>
+            <h4>Opções de Acessibilidade</h4>
+            <p>A acessibilidade é essencial para acolher todos os clientes. Conte-nos: seu estabelecimento possui rampas, banheiros adaptados ou outras facilidades? A inclusão faz toda a diferença!</p>
             <select id="multiselectAcessibilidade" multiple>
                 <option value="Sem informação">Acessibilidade: Sem essa informação</option>
                 <option value="Banheiro acessível">Banheiro acessível</option>
-                <option value="cardápio em braile">Cardápio em braile</option>
+                <option value="Cardápio em braile">Cardápio em braile</option>
                 <option value="Entrada de cão-guia">Entrada de cão-guia</option>
                 <option value="Vagas especiais">Vagas especiais</option>
                 <option value="Rampas de acesso">Rampas de acesso</option>
@@ -531,14 +594,17 @@
                 <option value="Áreas de descanso">Áreas de descanso</option>
             </select>
 
-            <h5>premiações</h5>
+            <h4>Premiações</h4>
+            <p>Seu estabelecimento já foi reconhecido com alguma premiação? Compartilhe seus sucessos e conquistas conosco!</p>
             <select id="multiselectPremios" multiple>
                 <option value="Sem informação">Prêmios: Sem essa informação</option>
                 <option value="Os Melhores da Gastronomia 2023">Os Melhores da Gastronomia 2023</option>
                 <option value="Os Melhores da Gastronomia 2024">Os Melhores da Gastronomia 2024</option>
             </select>
 
-            <h5>informações úteis ao cliente</h5>
+
+            <h4>Informações Úteis ao Cliente</h4>
+            <p>Detalhes fazem toda a diferença. Informe se você oferece música ao vivo, estacionamento, espaço kids, se é pet friendly e se tem opções sem glúten ou lactose. Essas informações ajudam os clientes a escolherem o lugar perfeito!</p>    
             <div class="formulario-grupo">
                 <select id="musica">
                     <option value="Sem informação">Música ao vivo: Sem essa informação</option>
@@ -578,7 +644,8 @@
                 </select>
             </div>
 
-            <h5>estilos musicais</h5>
+            <h4>Estilos Musicais</h4>
+            <p>Música ao vivo cria uma atmosfera única. Se seu estabelecimento oferece, conte-nos sobre os estilos musicais que embalam as noites por aí.</p>    
             <select id="multiselectEstilosMusicais" multiple>
                 <option value="Sem informação">Estilos musicais: Sem essa informação</option>
                 <option value="Axé">Axé</option>
@@ -627,7 +694,8 @@
                 <option value="Trap">Trap</option>
             </select>
 
-            <h5>culinária</h5>
+            <h4>Culinária</h4>
+            <p>Variedade é o tempero da vida! Compartilhe os diferentes tipos de culinária que seu estabelecimento oferece e encante seus clientes com suas especialidades.</p>    
             <select id="multiselectCozinha" multiple>
                 <option value="Sem informação">Cozinha: Sem essa informação</option>
                 <option value="Africana">Africana</option>
@@ -672,7 +740,8 @@
                 <!-- Adicione mais tipos de cozinha conforme necessário -->
             </select>
 
-            <h5>tipos de locais</h5>
+            <h4>Classificação de Tipo de Local</h4>
+            <p> Sabemos que hoje em dia os estabelecimentos apresentaram varias caracteristicas, selecione todas as que você acedita se encaixar.</p>
             <select id="multiselectLocais" multiple>
                 <option value="Sem informação">Tipo de local: Sem essa informação</option>
                 <option value="Padaria">Padaria</option>
@@ -693,32 +762,8 @@
                 <option value="Bistrô">Bistrô</option>
             </select>
 
-            <h5>tipos de eventos</h5>
-            <select id="multiselectTiposEvento" multiple>
-                <option value="Sem informação">Tipo de Evento: Sem essa informação</option>
-                <option value="beber e dançar">Beber e dançar</option>
-                <option value="rolê geek">Rolê geek</option>
-                <option value="conversar">Conversar</option>
-                <option value="lugar romântico">Lugar romântico</option>
-                <option value="rolê de amigos">Rolê de amigos</option>
-                <option value="encontro familiar">Encontro familiar</option>
-                <option value="aniversário">Aniversário</option>
-                <option value="happy hour">Happy Hour</option>
-                <option value="assistir jogos">Assistir Jogos</option>
-                <option value="sair sozinho/a">Sair Sozinho/a</option>                   
-                <option value="brunches">Brunches</option>
-                <option value="cabaré/boates">Cabaré/Boates</option>
-                <option value="música ao vivo">Música ao vivo</option>
-                <option value="para crianças">Para crianças</option>
-                <option value="temáticos">Temáticos</option>
-                <option value="karaokês">Karaokês</option>
-                <option value="casas noturnas">Casas noturnas</option>
-                <option value="LGBTQIA+">LGBTQIA+</option>
-                <option value="primeiro encontro">Primeiro encontro</option>
-                <option value="experiência gastronômica">Experiência gastronômica</option>
-             </select>
-
-            <h5>hobbies</h5>
+            <h4>Atividades e Entretenimento</h4>
+            <p>Seu estabelecimento oferece atividades especiais como karaokê, dança, pintura ou fotografia? Compartilhe essas informações para atrair clientes interessados nessas experiências.</p>   
             <select id="multiselectHobbies" multiple>
                 <option value="Sem informação">Hobbies: Sem essa informação</option>
                 <option value="jogos de tabuleiro">Jogos de Tabuleiro</option>
@@ -726,19 +771,22 @@
                 <option value="leitura">Leitura</option>
                 <option value="praticar esportes">Praticar Esportes</option>
                 <option value="cantar">Cantar</option>
+                <option value="dançar">Dançar</option>
                 <option value="pintura">Pintura</option>
                 <option value="fotografia">Fotografia</option>
             </select>
 
-            <h5>ambientes</h5>
+            <h4>Ambientes Disponíveis</h4>
+            <p>Descreva os diferentes ambientes que seu estabelecimento oferece. Isso pode incluir áreas ao ar livre, salões privativos, entre outros.</p>
             <select id="multiselectAmbientes" multiple>
                 <option value="Sem informação">Ambientes: Sem essa informação</option>
                 <option value="rooftop">Rooftop</option>
+                <option value="ar livre">Ar livre</option>
                 <option value="fumódromo">Fumódromo</option>
                 <option value="terraço">Terraço</option>
                 <option value="melhores vistas">Melhores Vistas</option>
                 <option value="intimista">Intimista</option>
-                <option value="Instagramável">Instagramável</option>
+                <option value="instagramável">Instagramável</option>
                 <option value="temático">Temático</option>
                 <option value="casual">Casual</option>
                 <option value="praiano">Praiano</option>
@@ -747,7 +795,8 @@
                 <option value="retro">Retro</option>
             </select>
 
-            <h5>formas de pagamento</h5>
+            <h4>Formas de Pagamento</h4>
+            <p>Por favor, informe as formas de pagamento aceitas em seu estabelecimento. Isso ajuda os clientes a planejarem suas visitas com mais comodidade.</p>    
             <select id="multiselectTiposCartao" multiple>
                 <option value="Sem informação">Formas de pagamento: Sem essa informação</option>
                 <option value="dinheiro">Dinheiro</option>
@@ -787,7 +836,8 @@
                 <option value="pix">Pix</option>
             </select>
 
-            <h5>estilos de serviços</h5>
+            <h4>Estilos de Serviços</h4>
+            <p>Compatilhe conosco as modalidades de atendimento do seu estabelecimento.</p>
             <select id="multiselectEstilosServico" multiple>
                 <option value="Sem informação">Estilos de Serviço: Sem essa informação</option>
                 <option value="buffet">Buffet</option>
@@ -799,9 +849,8 @@
             </select>
             <br>
             <br>
-            <h4>horário de funcionamento</h4>
-            <br>
-            <h5>personalize o horário para cada dia:</h5>
+            <h4>Horário de Funcionamento</h4>
+            <p>Escolha horários gerais para abertura e fechamento e clique em "Aplicar Horários" para refletir nos dias selecionados.</p>
             <div class="dia">
                 <label for="abertura-segunda">Segunda-feira:</label>
                 <div class="formulario-grupo">

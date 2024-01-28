@@ -143,6 +143,7 @@ function validarCamposChoices() {
         if (select.selectedOptions.length === 0) {
             choicesContainer.style.border = "2px solid red";
             valido = false;
+            console.log(select.selectedOptions)
         } else {
             choicesContainer.style.border = "";
         }
@@ -155,12 +156,13 @@ function validarOutrosCampos() {
     let valido = true;
 
     // Seleciona todos os inputs e textareas, exceto os que fazem parte do Choices.js
-    const outrosCampos = document.querySelectorAll("#formCadastro input:not(.choices__input), #formCadastro textarea");
+    const outrosCampos = document.querySelectorAll("#formCadastro input:not(.choices__input):not(#bairroInput), #formCadastro textarea");
 
     outrosCampos.forEach(campo => {
-        if (!campo.value) {
+        if (!campo.value ) {
             campo.style.border = "2px solid red";
             valido = false;
+            console.log(campo)
         } else {
             campo.style.border = "";
         }
