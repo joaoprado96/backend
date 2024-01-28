@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcheAi</title>
+    <link rel="icon" type="image/png" href="/icons/logo.png">
+    <script src="script/indicadores.js"></script>
+    <script src="script/localizacao.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="page">
+        <br>
+        <br>
+        <br>
+        <form id="uploadForm" class="formulario-cadastro">
+            <h1> 🌟 Atualização de Fotos AcheAi! 🌟</h1>
+            <h4>Estabelecimento</h4>
+                <p>Selecione o estabelecimento que deseja atualizar e contribua para manter as informações sempre precisas e relevantes. Sua participação é fundamental para garantir a exatidão dos nossos dados!</p>
+                <select id="lugarSelect" required></select>
+
+            <h4>Fotos</h4>
+            <p>Por favor, selecione até 5 fotos para o seu estabelecimento. Cada foto deve ter um tamanho máximo de 8 MB. Escolha imagens que representem bem o seu negócio e ofereçam aos visitantes uma visão clara e atrativa do que esperar. Lembre-se, fotos de alta qualidade podem melhorar significativamente a percepção do seu estabelecimento!</p>
+            
+            <input type="file"  id="fotos" multiple required>
+            <input type="submit" value="Enviar" class="btn"/>
+            <input type="submit" value="Apagar" class="btn" id="deleteButton"/>
+        </form>
+    </div>
+
+    <div id="notificationPopup" class="notification-popup" style="display: none;">
+        <p>Você não está autenticado. Redirecionando para a página de login...</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="script/fotos.js"></script>
+    <script src="script/navbar.js"></script>
+</body>
+</html>

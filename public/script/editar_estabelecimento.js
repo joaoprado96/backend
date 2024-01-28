@@ -57,22 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('updateCadastro').style.display = 'none';
 })
 
-// função para deixar o formulario de cadastro visivel
-function toggleDiv() {
-    var div2 = document.getElementById('updateCadastro');
-    div2.style.display = (div2.style.display === 'none' || div2.style.display === '') ? 'block' : 'none';
-}
-
-function handleMultiSelect(selectId, aux) {
-    // Supondo que as instâncias do Choices.js estão armazenadas em choicesInstances
-    const choicesInstance = choicesInstances[selectId];
-    
-    if (choicesInstance) {
-        // Define os valores selecionados
-        choicesInstance.setChoiceByValue(aux);
-    }
-}
-
 function handleSelect(selectId, valores) {
     const selectElement = document.getElementById(selectId);
 
@@ -113,8 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('bairro').value = data.bairro;
                 document.getElementById('regiao').value = data.regiao;
                 document.getElementById('entrada').value = data.entrada;
-                handleMultiSelect('#multiselectMetro', data.linha_metro);
-                handleMultiSelect('#multiselectEstacoes', data.estacao);
                 document.getElementById('estrelas').value = data.estrelas;
                 document.getElementById('avaliacao_clientes').value = data.avaliacao_clientes;
                 document.getElementById('preco').value = data.preco;
@@ -122,14 +104,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('link_pagina').value = data.link_pagina;
                 document.getElementById('website').value = data.website;
                 document.getElementById('link_cardapio').value = data.link_cardapio;
-                handleMultiSelect('#multiselectAcessibilidade', data.acessibilidade);
-                handleMultiSelect('#multiselectPremios', data.premio);
+
+                // Obtendo as informações do selec's
                 handleSelect('musica', data.musica);
                 handleSelect('estacionamento', data.estacionamento);
                 handleSelect('kids', data.kids);
                 handleSelect('pet', data.pet);
                 handleSelect('glutenfree', data.glutenfree);
                 handleSelect('lactosefree', data.lactosefree);
+
+                // Obtendo as informações dos multi-selec's
+                handleMultiSelect('#multiselectAcessibilidade', data.acessibilidade);
+                handleMultiSelect('#multiselectPremios', data.premio);
+                handleMultiSelect('#multiselectMetro', data.linha_metro);
+                handleMultiSelect('#multiselectEstacoes', data.estacao);
                 handleMultiSelect('multiselectEstilosMusicais', data.estilo_musical);
                 handleMultiSelect('#multiselectCozinha', data.cozinha);
                 handleMultiSelect('#multiselectLocais', data.local);
@@ -264,4 +252,20 @@ function atualizarDados(lugarId,dados) {
         }, 4500);
         console.error('Erro:', error);
     });
+}
+
+// função para deixar o formulario de cadastro visivel
+function toggleDiv() {
+    var div2 = document.getElementById('updateCadastro');
+    div2.style.display = (div2.style.display === 'none' || div2.style.display === '') ? 'block' : 'none';
+}
+
+function handleMultiSelect(selectId, aux) {
+    // Supondo que as instâncias do Choices.js estão armazenadas em choicesInstances
+    const choicesInstance = choicesInstances[selectId];
+    
+    if (choicesInstance) {
+        // Define os valores selecionados
+        choicesInstance.setChoiceByValue(aux);
+    }
 }
