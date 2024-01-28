@@ -43,6 +43,14 @@ let mailOptions = {
 // Conectar ao banco de dados
 connectDB();
 
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email enviado: ' + info.response);
+  }
+});
+
 // Middleware para parsear o corpo das requisições JSON
 app.use(express.json());
 
