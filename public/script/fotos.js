@@ -55,7 +55,7 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
         if (existemFotos) {
             alert('Já existem fotos para este LugarId. Não é possível enviar mais fotos.');
         } else {
-            AdicionarDestaque(lugarId);
+            AlterarFotos(lugarId);
         }
     });
 });
@@ -76,7 +76,7 @@ function verificarFotosExistem(lugarId, callback) {
         });
 }
 
-function AdicionarDestaque(lugarId) {
+function AlterarFotos(lugarId) {
     const fotos = document.getElementById('fotos').files;
     const formData = new FormData();
 
