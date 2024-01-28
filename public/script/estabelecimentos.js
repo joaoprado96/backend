@@ -362,8 +362,7 @@ function buscarImagemParaTipoEvento(tipo) {
         "LGBTQIA+": "icons/lgbtqia_1.png",
         "temáticos": "icons/tematico_1.png",
         "sair sozinho/a": "icons/sairsozinha_1.png",
-        "rolê geek": "icons/geek_1.png",
-        // Adicionar mais correspondências de tipos de evento e imagenssssssssssssssss
+        "rolê geek": "icons/geek_1.png"
     };
 
     return imagensTipoEvento[tipo] || "icons/icon-gluten.png";
