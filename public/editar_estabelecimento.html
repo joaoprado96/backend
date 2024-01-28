@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AcheAi</title>
     <link rel="icon" type="image/png" href="/icons/logo.png">
-    <script src="script/indicadores.js"></script>
     <script src="script/localizacao.js"></script>
+    <script src="script/func_cadastro.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -26,21 +31,19 @@
     </div>
 
     <div id="estabelecimentoDiv" class="estabelecimento">
-        <br>
-        <br>
-        <br>
-        <form id="uploadForm" class="formLogin">
-            <h4>estabelecimento</h4>
-                <select id="lugarSelect" required></select>
-
-                <button id="editar" class="btn">Editar</button>
+        <form id="uploadForm" class="formulario-cadastro">
+            <br>
+            <br>
+            <h1> 🌟 Atualização de Cadastro AcheAi! 🌟</h1>
+            <select id="lugarSelect" required></select>
         </form>
+        <button id="editar" class="btn">Buscar</button>
     </div>
 
     <div id="updateCadastro"class="page">
         <br>
         <form id="updateForm" class="formulario-cadastro">
-            <h1>Atualização de Cadastro AcheAi!</h1>
+            
             <p>Ajuste as informações do seu estabelecimento para concluirmos o cadastro:</p>
             <h4>Nome do Estabelecimento</h4>
             <p>Dê-nos o prazer de conhecer o nome do seu espaço. Uma boa nomenclatura é o convite inicial para atrair clientes. Capriche!</p>
@@ -847,8 +850,7 @@
                 <option value="self-service">Self-Service</option>
                 <option value="drive-thru">Drive-Thru</option>
             </select>
-            <br>
-            <br>
+ 
             <h4>Horário de Funcionamento</h4>
             <p>Escolha horários gerais para abertura e fechamento e clique em "Aplicar Horários" para refletir nos dias selecionados.</p>
             <div class="dia">
