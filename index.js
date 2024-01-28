@@ -29,9 +29,16 @@ let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'joao@pradoautomacao.com',
-    pass: 'suasenha'
+    pass: 'Eletrica16!'
   }
 });
+
+let mailOptions = {
+  from: 'joao@pradoautomacao.com',
+  to: 'joaoprado@outlook.com.br',
+  subject: 'Assunto do E-mail',
+  text: 'Corpo do e-mail aqui.'
+};
 
 // Conectar ao banco de dados
 connectDB();
