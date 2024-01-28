@@ -232,3 +232,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })
 })
+
+function atualizarDados(lugarId,dados) {
+    fetch(`/api/lugares/${lugarId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': token // Certifique-se de que o token está definido corretamente
+        },
+        body: JSON.stringify(dados),
+    })
+    .then(response => {
+        if (!response.ok) {
+            // Se a resposta não for OK (ex., status 400 ou 500), lança um erro
+            throw new Error(`Erro na requisição: Status ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Handle the successful update
+        var popup = document.getElementById('notificationPopupSucesso');
+        popup.style.display = 'block';
+    })
+    .catch((error) => {
+        var popup = document.getElementById('notificationPopupFalha');
+        popup.style.display = 'block';
+
+        // Espera 3 segundos antes de redirecionar
+        setTimeout(function() {
+            popup.style.display = 'none';
+        }, 4500);
+        console.error('Erro:', error);
+    });
+}

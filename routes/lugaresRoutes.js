@@ -16,7 +16,7 @@ router.get('/lugares', lugaresController.buscarLugares);
 router.get('/lugares/:lugarId', lugaresController.buscarLugarPorId);
 
 // Nova rota para atualizar o lugar
-router.put('/lugares/:lugarId', verificarToken.verificarToken, lugaresController.ataulizarLugarPorId);
+router.put('/lugares/:lugarId', lugaresController.ataulizarLugarPorId);
 
 
 module.exports = router;
