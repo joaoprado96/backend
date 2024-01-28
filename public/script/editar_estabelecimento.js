@@ -73,6 +73,26 @@ function handleMultiSelect(selectId, aux) {
     }
 }
 
+function handleSelect(selectId, valores) {
+    const selectElement = document.getElementById(selectId);
+
+    if (!selectElement) return; // Se o elemento não existir, saia da função
+
+    if (selectElement.multiple) {
+        // Para selects múltiplos, desmarque todas as opções primeiro
+        Array.from(selectElement.options).forEach(option => option.selected = false);
+
+        // Marque as opções que correspondem aos valores
+        valores.forEach(valor => {
+            const option = Array.from(selectElement.options).find(opt => opt.value === valor);
+            if (option) option.selected = true;
+        });
+    } else {
+        // Para selects simples, basta definir o valor
+        selectElement.value = valores;
+    }
+}
+
 // Codigo que verifica se o botão editar foi assionado e preenche os campos com os dados do estabelecimento
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('editar').addEventListener('click', function(e) {
@@ -104,12 +124,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('link_cardapio').value = data.link_cardapio;
                 handleMultiSelect('#multiselectAcessibilidade', data.acessibilidade);
                 handleMultiSelect('#multiselectPremios', data.premio);
-                handleMultiSelect('musica', data.musica);
-                handleMultiSelect('estacionamento', data.estacionamento);
-                handleMultiSelect('kids', data.kids);
-                handleMultiSelect('pet', data.pet);
-                handleMultiSelect('glutenfree', data.glutenfree);
-                handleMultiSelect('lactosefree', data.lactosefree);
+                handleSelect('musica', data.musica);
+                handleSelect('estacionamento', data.estacionamento);
+                handleSelect('kids', data.kids);
+                handleSelect('pet', data.pet);
+                handleSelect('glutenfree', data.glutenfree);
+                handleSelect('lactosefree', data.lactosefree);
                 handleMultiSelect('multiselectEstilosMusicais', data.estilo_musical);
                 handleMultiSelect('#multiselectCozinha', data.cozinha);
                 handleMultiSelect('#multiselectLocais', data.local);
