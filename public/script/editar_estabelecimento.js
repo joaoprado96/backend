@@ -138,11 +138,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 handleMultiSelect('#multiselectAmbientes', data.ambiente);
                 handleMultiSelect('#multiselectTiposCartao', data.cartao);
                 handleMultiSelect('#multiselectEstilosServico', data.estilo_servico);
-                console.log(data.horarios_funcionamento);
-                Object.keys(data.horarios_funcionamento).forEach(dia => {
-                    document.getElementById(`abertura-${dia}`).value = data.horarios_funcionamento[dia].abertura;
-                    document.getElementById(`fechamento-${dia}`).value = data.horarios_funcionamento[dia].fechamento;
+                var dias = ["segunda", "terca", "quarta", "quinta", "sexta", "sabado", "domingo", "feriados"];
+                dias.forEach((dia, index) => {
+                    // Aqui, 'dia' é o nome do dia da semana e 'index' é o índice no vetor
+                    if (data.horarios_funcionamento[dia]) {
+                        const aberturaElement = document.getElementById(`abertura-${dia}`);
+                        const fechamentoElement = document.getElementById(`fechamento-${dia}`);
+                        if (aberturaElement) {
+                            aberturaElement.value = data.horarios_funcionamento[dia].abertura;
+                        }
+                        if (fechamentoElement) {
+                            fechamentoElement.value = data.horarios_funcionamento[dia].fechamento;
+                        }
+                    }
                 });
+                
                 })
             .catch(error => {
                 console.error('Erro ao obter dados do estabelecimento:', error);
