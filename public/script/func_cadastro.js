@@ -211,12 +211,16 @@ function obterHorariosFuncionamento() {
 
 function montarOpcoesHorario() {
     var dias = ["segunda", "terca", "quarta", "quinta", "sexta", "sabado", "domingo", "feriados"];
-    var horarios = gerarHorarios();
+    var horarios = gerarHorarios(); // Supondo que esta função retorna os horários
 
     dias.forEach(function(dia) {
         var selectAbertura = document.getElementById(`abertura-${dia}`);
         var selectFechamento = document.getElementById(`fechamento-${dia}`);
+        var selectPausa = document.getElementById(`pausa-${dia}`);
+        var selectInicioPausa = document.getElementById(`inicio-${dia}`);
+        var selectFimPausa = document.getElementById(`fim-${dia}`);
 
+        // Preenche os selects de abertura e fechamento
         horarios.forEach(function(horario) {
             var optionAbertura = document.createElement('option');
             var optionFechamento = document.createElement('option');
@@ -228,7 +232,25 @@ function montarOpcoesHorario() {
             selectFechamento.appendChild(optionFechamento);
         });
 
-        // Adicionando opções específicas para feriados
+        // Preenche os selects de pausa, inicio e fim da pausa
+        ['Pausa','Sim', 'Não'].forEach(function(opcao) {
+            var optionPausa = document.createElement('option');
+            optionPausa.value = optionPausa.textContent = opcao;
+            selectPausa.appendChild(optionPausa);
+        });
+
+        horarios.forEach(function(horario) {
+            var optionInicio = document.createElement('option');
+            var optionFim = document.createElement('option');
+
+            optionInicio.value = optionFim.value = horario;
+            optionInicio.textContent = optionFim.textContent = horario;
+
+            selectInicioPausa.appendChild(optionInicio);
+            selectFimPausa.appendChild(optionFim);
+        });
+
+        // Adicionar opções específicas para feriados, se necessário
         if (dia === 'feriados') {
             var opcoesEspeciais = ['consultar', 'comercial', 'não'];
             opcoesEspeciais.forEach(function(opcao) {
@@ -244,6 +266,7 @@ function montarOpcoesHorario() {
         }
     });
 }
+
 
 function montarHorariosGlobal() {
     var horarios = gerarHorarios();
