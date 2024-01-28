@@ -30,7 +30,6 @@ function getCityFromCoordinates(latitude, longitude) {
     return fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             if (data && data.address) {
                 const city = data.address.city || data.address.town || data.address.village || "Indisponível";
                 const road = data.address.road || "Indisponível";

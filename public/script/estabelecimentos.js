@@ -3,6 +3,8 @@ let estabelecimentos = [];
 let estabelecimentosFiltrados = [];
 let diaDaSemanaGlobal;
 let filtroTipoEventoAtual = null; // Variável global para armazenar o tipo de evento selecionado
+const filtroListeners = {};
+
 const filtrosGlobais = [
     { id: 'filtro-cozinha', tipo: 'dropdown' },
     { id: 'filtro-regiao', tipo: 'dropdown' },
@@ -93,7 +95,7 @@ function sortSetAlphabetically(set) {
     return Array.from(set).sort();
   }
 
-  function construirFiltros() {
+function construirFiltros() {
     // Definição dos conjuntos de filtros
     const conjuntosFiltros = {
         'filtro-cozinha': new Set(),
@@ -144,6 +146,7 @@ function sortSetAlphabetically(set) {
     });
 
     // Adicionar event listeners para os filtros
+    removerEventListenersParaFiltros();
     adicionarEventListenersParaFiltros();
 }
 
@@ -156,25 +159,35 @@ function addOptionsToFiltro(filtroId, conjunto) {
 
 function adicionarEventListenersParaFiltros() {
     ['cozinha', 'regiao', 'bairro', 'cartao', 'local', 'entrada', 'metro', 'estacao', 'acessibilidade', 'musical', 'servico', 'hobby', 'ambiente', 'musica', 'estacionamento', 'kids', 'pet', 'glutenfree', 'lactosefree'].forEach(filtro => {
-        document.getElementById(`filtro-${filtro}`).addEventListener('change', function() {
-            // Verifica o valor selecionado
-            if (this.value === "" || this.value === `${filtro}`) {
-                // Se for o valor padrão, seta como inativo
-                this.classList.remove("ativo");
-                this.classList.add("inativo");
-            } else {
-                // Caso contrário, seta como ativo
-                this.classList.remove("inativo");
-                this.classList.add("ativo");
-            }
+        const filtroId = `filtro-${filtro}`;
+        const element = document.getElementById(filtroId);
 
-            // Chama a função aplicarFiltros (se necessário)
-            aplicarFiltros();
-        });
+        if (!filtroListeners[filtroId]) {
+            filtroListeners[filtroId] = function() {
+                // Conteúdo da função listener
+                if (this.value === "" || this.value === `${filtro}`) {
+                    this.classList.remove("ativo");
+                    this.classList.add("inativo");
+                } else {
+                    this.classList.remove("inativo");
+                    this.classList.add("ativo");
+                }
+                aplicarFiltros();
+            };
+        }
+
+        element.addEventListener('change', filtroListeners[filtroId]);
     });
 }
 
-
+function removerEventListenersParaFiltros() {
+    Object.entries(filtroListeners).forEach(([filtroId, listener]) => {
+        const element = document.getElementById(filtroId);
+        if (element) {
+            element.removeEventListener('change', listener);
+        }
+    });
+}
 
 // Função para limpar filtros
 function limparFiltros() {

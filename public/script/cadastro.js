@@ -3,6 +3,22 @@ var token = localStorage.getItem('token');
 let todasCidades = [];
 var choicesInstances = {};
 
+const multiselectConfigurations = [
+    { selector: '#multiselectTiposEvento', placeholder: 'Selecione os tipos de evento' },
+    { selector: '#multiselectMetro', placeholder: 'Selecione as linhas de metrô' },
+    { selector: '#multiselectEstacoes', placeholder: 'Selecione as estações de metrô' },
+    { selector: '#multiselectAcessibilidade', placeholder: 'Selecione as opções de acessibilidade' },
+    { selector: '#multiselectPremios', placeholder: 'Selecione as premiações recebidas' },
+    { selector: '#multiselectEstilosMusicais', placeholder: 'Selecione os estilos musicais' },
+    { selector: '#multiselectCozinha', placeholder: 'Selecione os tipos de cozinha' },
+    { selector: '#multiselectLocais', placeholder: 'Selecione os locais disponíveis' },
+    { selector: '#multiselectHobbies', placeholder: 'Selecione os hobbies oferecidos' },
+    { selector: '#multiselectAmbientes', placeholder: 'Selecione os tipos de ambientes' },
+    { selector: '#multiselectTiposCartao', placeholder: 'Selecione os tipos de cartão aceitos' },
+    { selector: '#multiselectEstilosServico', placeholder: 'Selecione os estilos de serviço' }
+];
+
+
 $(document).ready(function () {
     $('#cidade').select2();
     $('#regiao').select2();
@@ -24,6 +40,14 @@ $(document).ready(function () {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    criarNavbar();
+    montarOpcoesHorario();
+    montarHorariosGlobal();
+    carregarCidades();
+    montarMultiSelect();
+});
+
 document.getElementById('aplicar-horarios').addEventListener('click', function() {
     var horarioAbertura = document.getElementById('horario-abertura-global').value;
     var horarioFechamento = document.getElementById('horario-fechamento-global').value;
@@ -36,135 +60,75 @@ document.getElementById('aplicar-horarios').addEventListener('click', function()
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    criarNavbar();
-    montarOpcoesHorario();
-    montarHorariosGlobal();
-    carregarCidades();
+document.getElementById("cadastrar").addEventListener("click", function(event){
+    event.preventDefault(); // Evita o envio padrão do formulário
+    const horariosFuncionamento = obterHorariosFuncionamento();
+    let camposValidos = validarFormulario();
+    if (camposValidos) {
+        const cidadeSelecionada = $('#cidade').select2('data')[0] ? $('#cidade').select2('data')[0].id : '';
+        const regiaoSelecionada = $('#regiao').select2('data')[0] ? $('#regiao').select2('data')[0].id : '';
+        let bairro;
 
-    // Criação das instâncias de Choices.js para cada multiselect
-    choicesInstances.multiselectTipoEvento = new Choices('#multiselectTiposEvento', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione os tipos de evento'
-    });
+        if (cidadeSelecionada !== 'São Paulo') {
+            bairro = document.getElementById('bairroInput').value; // Pega do input
+        } else {
+            bairro = $('#bairro').select2('data')[0] ? $('#bairro').select2('data')[0].text : ''; // Pega do select
+        }
 
-    choicesInstances.multiselectMetro = new Choices('#multiselectMetro', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione as linhas de metrô'
-    });
+        const lugar = {
+            nome: document.getElementById('nome').value,
+            descricao: document.getElementById('descricao').value,
+            rua: document.getElementById('rua').value,
+            cep: document.getElementById('cep').value,
+            cnpj: document.getElementById('cnpj').value,
+            cidade: cidadeSelecionada,
+            regiao: regiaoSelecionada,
+            bairro: bairro,
+            entrada: document.getElementById('entrada').value,
+            latitude: parseFloat(document.getElementById('latitude').value),
+            longitude: parseFloat(document.getElementById('longitude').value),
+            linha_metro: Array.from(document.getElementById('multiselectMetro').selectedOptions).map(opt => opt.value),
+            estacao: Array.from(document.getElementById('multiselectEstacoes').selectedOptions).map(opt => opt.value),
+            estrelas: parseFloat(document.getElementById('estrelas').value),
+            avaliacao_clientes: parseFloat(document.getElementById('avaliacao_clientes').value),
+            link_pagina: document.getElementById('link_pagina').value,
+            acessibilidade: Array.from(document.getElementById('multiselectAcessibilidade').selectedOptions).map(opt => opt.value),
+            musica: document.getElementById('musica').value,
+            estacionamento: document.getElementById('estacionamento').value,
+            kids: document.getElementById('kids').value,
+            website: document.getElementById('website').value,
+            premio: Array.from(document.getElementById('multiselectPremios').selectedOptions).map(opt => opt.value),
+            estilo_musical: Array.from(document.getElementById('multiselectEstilosMusicais').selectedOptions).map(opt => opt.value),
+            cozinha: Array.from(document.getElementById('multiselectCozinha').selectedOptions).map(opt => opt.value),
+            local: Array.from(document.getElementById('multiselectLocais').selectedOptions).map(opt => opt.value),
+            preco: parseFloat(document.getElementById('preco').value),
+            tipo_evento: Array.from(document.getElementById('multiselectTiposEvento').selectedOptions).map(opt => opt.value),
+            hobby: Array.from(document.getElementById('multiselectHobbies').selectedOptions).map(opt => opt.value),
+            ambiente: Array.from(document.getElementById('multiselectAmbientes').selectedOptions).map(opt => opt.value),
+            cartao: Array.from(document.getElementById('multiselectTiposCartao').selectedOptions).map(opt => opt.value),
+            nivel: parseFloat(document.getElementById('nivel').value),
+            link_cardapio: document.getElementById('link_cardapio').value,
+            horarios_funcionamento: horariosFuncionamento,
+            pet: document.getElementById('pet').value,
+            estilo_servico: Array.from(document.getElementById('multiselectEstilosServico').selectedOptions).map(opt => opt.value),
+            glutenfree: document.getElementById('glutenfree').value,
+            lactosefree: document.getElementById('lactosefree').value
+        };
 
-    choicesInstances.multiselectEstacoes = new Choices('#multiselectEstacoes', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione as estações de metrô'
-    });
+        enviarDados(lugar);
+    }
+    else{
+        var popup = document.getElementById('notificationPopupPreenchimento');
+        popup.style.display = 'block';
 
-    choicesInstances.multiselectAcessibilidade = new Choices('#multiselectAcessibilidade', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione as opções de acessibilidade'
-    });
-
-    choicesInstances.multiselectPremios = new Choices('#multiselectPremios', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione as premiações recebidas'
-    });
-
-    choicesInstances.multiselectEstilosMusicais = new Choices('#multiselectEstilosMusicais', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione os estilos musicais'
-    });
-
-    choicesInstances.multiselectCozinha = new Choices('#multiselectCozinha', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione os tipos de cozinha'
-    });
-
-    choicesInstances.multiselectLocais = new Choices('#multiselectLocais', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione os locais disponíveis'
-    });
-
-    choicesInstances.multiselectHobbies = new Choices('#multiselectHobbies', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione os hobbies oferecidos'
-    });
-
-    choicesInstances.multiselectAmbientes = new Choices('#multiselectAmbientes', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione os tipos de ambientes'
-    });
-
-    choicesInstances.multiselectTiposCartao = new Choices('#multiselectTiposCartao', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione os tipos de cartão aceitos'
-    });
-
-    choicesInstances.multiselectEstilosServico = new Choices('#multiselectEstilosServico', {
-        removeItemButton: true,
-        allowHTML: false,
-        maxItemCount: 35,
-        searchResultLimit: 10,
-        renderChoiceLimit: 35,
-        placeholder: true,
-        placeholderValue: 'Selecione os estilos de serviço'
-    });
+        // Espera 3 segundos antes de redirecionar
+        setTimeout(function() {
+            popup.style.display = 'none';
+        }, 4500);
+    }
 });
 
-// Função de validação
+
 function validarCamposChoices() {
     let valido = true;
 
@@ -213,137 +177,6 @@ function validarFormulario() {
     // Retorna verdadeiro se ambos os conjuntos de campos forem válidos
     return validoChoices && validoOutros;
 }
-
-
-function Inicializar(){
-    // Pré-preenchendo campos de texto e área de texto
-    document.getElementById('nome').value = 'Nome do Estabelecimento';
-    document.getElementById('descricao').value = 'Descrição do Estabelecimento';
-    document.getElementById('rua').value = 'Rua do Estabelecimento';
-    document.getElementById('cep').value = '01000-000';
-    document.getElementById('cnpj').value = '01000-000';
-    document.getElementById('latitude').value = -23.5629;
-    document.getElementById('longitude').value = -46.6544;
-    document.getElementById('estrelas').value = 4;
-    document.getElementById('avaliacao_clientes').value = 4;
-    document.getElementById('preco').value = 5;
-    document.getElementById('nivel').value = 2;
-    document.getElementById('link_pagina').value = 'https://www.paginadoestabelecimento.com';
-    document.getElementById('website').value = 'https://www.estabelecimento.com';
-    document.getElementById('link_cardapio').value = 'https://www.estabelecimento.com/cardapio';
-    
-    // Pré-preenchendo seleções de opções únicas
-    document.getElementById('musica').value = 'Sim';
-    document.getElementById('estacionamento').value = 'Não';
-    document.getElementById('kids').value = 'Não';
-    document.getElementById('pet').value = 'Sim';
-    document.getElementById('glutenfree').value = 'Sim';
-    document.getElementById('lactosefree').value = 'Não';
-
-    // Inicializando horários de funcionamento
-    document.getElementById('abertura-segunda').value = '08:00';
-    document.getElementById('fechamento-segunda').value = '18:00';
-    document.getElementById('abertura-terca').value = '08:00';
-    document.getElementById('fechamento-terca').value = '18:00';
-    document.getElementById('abertura-quarta').value = '08:00';
-    document.getElementById('fechamento-quarta').value = '18:00';
-    document.getElementById('abertura-quinta').value = '08:00';
-    document.getElementById('fechamento-quinta').value = '18:00';
-    document.getElementById('abertura-sexta').value = '08:00';
-    document.getElementById('fechamento-sexta').value = '18:00';
-    document.getElementById('abertura-sabado').value = '09:00';
-    document.getElementById('fechamento-sabado').value = '14:00';
-    document.getElementById('abertura-domingo').value = '09:00';
-    document.getElementById('fechamento-domingo').value = '14:00';
-
-    // Configurações para feriados
-    document.getElementById('abertura-feriados').value = 'consultar'; // Ou outro valor padrão para feriados
-    document.getElementById('fechamento-feriados').value = 'consultar'; // Ou outro valor padrão para feriados
-    
-
-    // Pré-preenchendo seleções múltiplas
-    $('#multiselectMetro').val(['Linha 1 (Azul)', 'Linha 2 (Verde)']).trigger('change');
-    $('#multiselectEstacoes').val(['Jabaquara', 'Conceição']).trigger('change');
-    $('#multiselectAcessibilidade').val(['banheiro acessível', 'rampas de acesso']).trigger('change');
-    $('#multiselectPremios').val(['Os Melhores da Gastronomia 2023']).trigger('change');
-    $('#multiselectEstilosMusicais').val(['Jazz', 'Blues']).trigger('change');
-    $('#multiselectCozinha').val(['Italiana', 'Japonesa']).trigger('change');
-    $('#multiselectLocais').val(['restaurante', 'bar']).trigger('change');
-    $('#multiselectTiposEvento').val(['happy hour', 'música ao vivo']).trigger('change');
-    $('#multiselectHobbies').val(['leitura', 'ciclismo']).trigger('change');
-    $('#multiselectAmbientes').val(['jardim', 'terraço']).trigger('change');
-    $('#multiselectTiposCartao').val(['visa', 'mastercard']).trigger('change');
-    $('#multiselectEstilosServico').val(['buffet', 'à la carte']).trigger('change');
-}
-document.getElementById("cadastrar").addEventListener("click", function(event){
-    event.preventDefault(); // Evita o envio padrão do formulário
-    const horariosFuncionamento = obterHorariosFuncionamento();
-    let camposValidos = validarFormulario();
-    if (camposValidos) {
-        const cidadeSelecionada = $('#cidade').select2('data')[0] ? $('#cidade').select2('data')[0].id : '';
-        const regiaoSelecionada = $('#regiao').select2('data')[0] ? $('#regiao').select2('data')[0].id : '';
-        let bairro;
-
-        if (cidadeSelecionada !== 'São Paulo') {
-            bairro = document.getElementById('bairroInput').value; // Pega do input
-        } else {
-            bairro = $('#bairro').select2('data')[0] ? $('#bairro').select2('data')[0].text : ''; // Pega do select
-        }
-
-        const lugar = {
-            nome: document.getElementById('nome').value,
-            descricao: document.getElementById('descricao').value,
-            rua: document.getElementById('rua').value,
-            cep: document.getElementById('cep').value,
-            cnpj: document.getElementById('cnpj').value,
-            cidade: cidadeSelecionada,
-            regiao: regiaoSelecionada,
-            bairro: bairro,
-            entrada: document.getElementById('entrada').value,
-            latitude: parseFloat(document.getElementById('latitude').value),
-            longitude: parseFloat(document.getElementById('longitude').value),
-            linha_metro: Array.from(document.getElementById('multiselectMetro').selectedOptions).map(opt => opt.value),
-            estacao: Array.from(document.getElementById('multiselectEstacoes').selectedOptions).map(opt => opt.value),
-            estrelas: parseFloat(document.getElementById('estrelas').value),
-            avaliacao_clientes: parseFloat(document.getElementById('avaliacao_clientes').value),
-            link_pagina: document.getElementById('link_pagina').value,
-            acessibilidade: Array.from(document.getElementById('multiselectAcessibilidade').selectedOptions).map(opt => opt.value),
-            musica: document.getElementById('musica').value,
-            estacionamento: document.getElementById('estacionamento').value,
-            kids: document.getElementById('kids').value,
-            website: document.getElementById('website').value,
-            premio: Array.from(document.getElementById('multiselectPremios').selectedOptions).map(opt => opt.value),
-            estilo_musical: Array.from(document.getElementById('multiselectEstilosMusicais').selectedOptions).map(opt => opt.value),
-            cozinha: Array.from(document.getElementById('multiselectCozinha').selectedOptions).map(opt => opt.value),
-            local: Array.from(document.getElementById('multiselectLocais').selectedOptions).map(opt => opt.value),
-            preco: parseFloat(document.getElementById('preco').value),
-            tipo_evento: Array.from(document.getElementById('multiselectTiposEvento').selectedOptions).map(opt => opt.value),
-            hobby: Array.from(document.getElementById('multiselectHobbies').selectedOptions).map(opt => opt.value),
-            ambiente: Array.from(document.getElementById('multiselectAmbientes').selectedOptions).map(opt => opt.value),
-            cartao: Array.from(document.getElementById('multiselectTiposCartao').selectedOptions).map(opt => opt.value),
-            dias: [], // Isto depende de como você deseja coletar os dias
-            nivel: parseFloat(document.getElementById('nivel').value),
-            link_cardapio: document.getElementById('link_cardapio').value,
-            horarios_funcionamento: horariosFuncionamento,
-            pet: document.getElementById('pet').value,
-            estilo_servico: Array.from(document.getElementById('multiselectEstilosServico').selectedOptions).map(opt => opt.value),
-            glutenfree: document.getElementById('glutenfree').value,
-            lactosefree: document.getElementById('lactosefree').value
-        };
-
-        enviarDados(lugar);
-        console.log(lugar);
-    }
-    else{
-        var popup = document.getElementById('notificationPopupPreenchimento');
-        popup.style.display = 'block';
-
-        // Espera 3 segundos antes de redirecionar
-        setTimeout(function() {
-            popup.style.display = 'none';
-        }, 4500);
-    }
-});
 
 function enviarDados(dados) {
     fetch('/api/lugares', {
@@ -578,4 +411,19 @@ function carregarCidades() {
             })
             .catch(error => console.error('Erro ao carregar cidades:', error));
     }
+}
+
+function montarMultiSelect(){
+    // Criação das instâncias de Choices.js para cada multiselect
+    multiselectConfigurations.forEach(config => {
+        choicesInstances[config.selector] = new Choices(config.selector, {
+            removeItemButton: true,
+            allowHTML: false,
+            maxItemCount: 35,
+            searchResultLimit: 10,
+            renderChoiceLimit: 35,
+            placeholder: true,
+            placeholderValue: config.placeholder
+        });
+    });
 }
