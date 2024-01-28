@@ -23,6 +23,16 @@ const sessionRoutes = require('./routes/sessionRoutes');
 
 const app = express();
 
+const nodemailer = require('nodemailer');
+
+let transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'seuemail@gmail.com',
+    pass: 'suasenha'
+  }
+});
+
 // Conectar ao banco de dados
 connectDB();
 
