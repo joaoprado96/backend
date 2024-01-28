@@ -2186,13 +2186,21 @@ h5 {
 }
 
 .logo-home {
-    width: 30%;
+    width: 25%;
     height: auto;
     position: absolute;
-    top: 28%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+/* Consulta de mídia para dispositivos com largura de tela até 600 pixels */
+@media screen and (max-width: 600px) {
+    .logo-home {
+        display: none;
+    }
+}
+
 
 .botaoSobreCarrossel {
     position: absolute;
@@ -2210,8 +2218,17 @@ h5 {
     transition: background-color 0.3s;
 }
 
+@media screen and (max-width: 600px) {
+    .botaoSobreCarrossel {
+        top: 45%; /* Ajuste este valor conforme necessário para a posição vertical */
+        font-size: 10px;
+        padding: 5px 5px;
+    }
+}
+
+
 .botaoSobreCarrossel:hover {
-    background-color: var(--primaria);
+    background-color: var(--terciaria);
     color: var(--branco);
     border-radius: 30px;
     transition: all linear 160ms;
@@ -2221,12 +2238,49 @@ h5 {
 .texto-sobre-video {
     position: absolute;
     top: 40%; /* Ajuste conforme necessário */
-    font-size: 40px;
     left: 50%; /* Ajuste conforme necessário */
     transform: translate(-50%, -50%); /* Centraliza o texto */
-    color: white; /* Cor do texto */
-    font-size: 20px; /* Tamanho da fonte */
-    /* Adicione mais estilos conforme necessário */
+}
+
+.p-texto {
+    font-size: 40px;
+    color:var(--branco);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Roboto', sans-serif; /* Fonte moderna */
+
+    background-color: rgba(61, 0, 66, 0.4); /* Ajuste a transparência conforme necessário */
+    padding: 10px; /* Espaçamento interno para separar o texto das bordas */
+    border-radius: 10px; /* Bordas arredondadas para um visual moderno */
+
+    /* Sombra no texto para melhorar a legibilidade */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+    /* Animação */
+    animation: realcarTexto 3s infinite alternate;
+}
+
+/* Keyframes para animação */
+@keyframes realcarTexto {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .texto-sobre-video {
+        top: 33%; /* Ajuste conforme necessário */
+        left: 50%; /* Ajuste conforme necessário */
+        transform: translate(-50%, -50%); /* Centraliza o texto */
+        color: white; /* Cor do texto */
+    }
+    .p-texto {
+        font-size: 18px;
+    }
+    
+
 }
 
 .container-welcome {
