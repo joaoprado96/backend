@@ -60,7 +60,7 @@ closeModal.addEventListener('click', () => {
 
 resetPasswordButton.addEventListener('click', () => {
     resetPassword(resetUsername.value, resetEmail.value);
-    resetPasswordModal.style.display = 'none';
+    setTimeout(() => { resetPasswordModal.style.display = 'none'; }, 4000);
 });
 
 async function resetPassword(username, email) {

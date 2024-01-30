@@ -60,6 +60,18 @@ body {
     .pagedetalhes {
         flex-direction: column;
     }
+    .page {
+        width: 768px;
+    }
+}
+
+@media (max-width: 480px) { /* Ajuste o valor de 'max-width' conforme necessário */
+    .pagedetalhes {
+        flex-direction: column;
+    }
+    .page {
+        width: 480px;
+    }
 }
 
 .page3 {
@@ -1016,7 +1028,7 @@ select:focus {
     .formulario-cadastro input,
     .formulario-cadastro textarea,
     .formulario-cadastro select {
-        width: 90%;
+        width: 100%;
         margin-left: 10px;
         padding: 15px;
         border: 1px solid #ccc;
@@ -1038,7 +1050,7 @@ select:focus {
     .formulario-cadastro input,
     .formulario-cadastro textarea,
     .formulario-cadastro select {
-        width: 85%;
+        width: 100%;
         margin-left: 10px;
         padding: 15px;
         border: 1px solid #ccc;
@@ -2370,10 +2382,10 @@ h5 {
   /* Conteúdo do modal */
   .modal-content {
     background-color: #fff; /* Cor de fundo do conteúdo */
-    margin: 10% auto; /* Centraliza verticalmente e centraliza horizontalmente */
+    margin: 20% auto; /* Centraliza verticalmente e centraliza horizontalmente */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Largura do conteúdo do modal */
+    width: 90%; /* Largura do conteúdo do modal */
     max-width: 400px; /* Largura máxima */
     position: relative;
   }

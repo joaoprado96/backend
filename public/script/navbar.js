@@ -1,4 +1,5 @@
 function criarNavbar() {
+  
     getSessionId();
     var navbarHTML = `
     <nav class="nav">

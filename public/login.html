@@ -42,14 +42,20 @@
     <div id="resetPasswordModal" class="modal">
         <div class="modal-content">
           <span class="close" id="closeModal">&times;</span>
-          <h3>Redefinir Senha</h3>
-          <p>Por favor, insira seu usuário e o seu e-mail.</p>
+          
           <div class="formulario-cadastro">
-            <input type="text" id="resetUsername" placeholder="Nome de Usuário">
-            <input type="text" id="resetEmail" placeholder="Digite seu e-mail">
-            <button id="resetPasswordButton">Enviar</button>
-        </div>
-        </div>
+            <h4> Ops, Senha Esquecida? </h4>
+                <p style="font-size: 12px;">🌟 Relaxa, acontece nas melhores famílias! Só precisamos do seu usuário e e-mail. 🌟</p>
+                <p style="font-size: 12px;"> Aqui no Ache Ai, levamos sua segurança a sério! Por isso, vamos criar uma nova senha aleatória e te enviar por e-mail. Essa será a sua nova senha de acesso - única e super segura!</p>
+                <label for="resetUsername">Usuário</label>
+                <input type="text" id="resetUsername" placeholder="👥 Seu nome de usuário">
+                <label for="resetEmail">E-mail</label>
+                <input type="text" id="resetEmail" placeholder="✉️ Seu  e-mail">
+                <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+                    <button id="resetPasswordButton" class="btn">Gerar Senha Segura! 🌈</button>
+                </div>
+                
+          </div>
       </div>      
     <script src="script/login.js"></script>
     <script src="script/navbar.js"></script>

@@ -34,6 +34,7 @@
     <div id="notificationPopupFalha" class="notification-popup" style="display: none;">
         <p>Não foi possível cadastrar esse estabelecimento, ele já consta em nossos registros...</p>
     </div>
+    
     <div class="page">
         <br>
         <form id="formCadastro" class="formulario-cadastro">
@@ -874,30 +875,47 @@
                 </div>
 
                 <p>Você deseja aplicar esses horários ao dias:</p>
-                <div class="dias-semana">
-                    <input type="checkbox" id="segunda" name="dias-semana" value="segunda">
-                    <label for="segunda">Segunda</label>
+                <div class="dias-semana" style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; gap: 10px; padding: 10px;">
+                    <div style="margin: 5px;">
+                        <input type="checkbox" id="segunda" name="dias-semana" value="segunda" style="margin-right: 5px;">
+                        <label for="segunda">Segunda</label>
+                    </div>
                     
-                    <input type="checkbox" id="terca" name="dias-semana" value="terca">
-                    <label for="terca">Terça</label>
+                    <div style="margin: 5px;">
+                        <input type="checkbox" id="terca" name="dias-semana" value="terca" style="margin-right: 5px;">
+                        <label for="terca">Terça</label>
+                    </div>
                 
-                    <input type="checkbox" id="quarta" name="dias-semana" value="quarta">
-                    <label for="quarta">Quarta</label>
+                    <div style="margin: 5px;">
+                        <input type="checkbox" id="quarta" name="dias-semana" value="quarta" style="margin-right: 5px;">
+                        <label for="quarta">Quarta</label>
+                    </div>
                 
-                    <input type="checkbox" id="quinta" name="dias-semana" value="quinta">
-                    <label for="quinta">Quinta</label>
+                    <div style="margin: 5px;">
+                        <input type="checkbox" id="quinta" name="dias-semana" value="quinta" style="margin-right: 5px;">
+                        <label for="quinta">Quinta</label>
+                    </div>
                 
-                    <input type="checkbox" id="sexta" name="dias-semana" value="sexta">
-                    <label for="sexta">Sexta</label>
+                    <div style="margin: 5px;">
+                        <input type="checkbox" id="sexta" name="dias-semana" value="sexta" style="margin-right: 5px;">
+                        <label for="sexta">Sexta</label>
+                    </div>
                 
-                    <input type="checkbox" id="sabado" name="dias-semana" value="sabado">
-                    <label for="sabado">Sábado</label>
+                    <div style="margin: 5px;">
+                        <input type="checkbox" id="sabado" name="dias-semana" value="sabado" style="margin-right: 5px;">
+                        <label for="sabado">Sábado</label>
+                    </div>
                 
-                    <input type="checkbox" id="domingo" name="dias-semana" value="domingo">
-                    <label for="domingo">Domingo</label>
+                    <div style="margin: 5px;">
+                        <input type="checkbox" id="domingo" name="dias-semana" value="domingo" style="margin-right: 5px;">
+                        <label for="domingo">Domingo</label>
+                    </div>
                 </div>
+                
                 <br>
-                <button id="aplicar-horarios" type="btn" class="btn">Aplicar Horários</button>
+                <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                    <button id="aplicar-horarios" type="btn" class="btn">Aplicar Horários</button>
+                </div>
             </div>
             <br>
             <p>Algum dia você trabalha com horário diferente? Então personalize o horário para cada dia:</p>
@@ -1003,7 +1021,10 @@
                     <input type="file" class="form-control-file" id="fotos" multiple required onchange="verificarQuantidadeDeFotos(this)">
                 </div>
                 <br>
-                <button id="cadastrar" class="btn">Cadastrar</button>
+                <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+                    <button id="cadastrar" class="btn">Cadastrar</button>
+                </div>
+                
         </form>
     </div>
     </div>
