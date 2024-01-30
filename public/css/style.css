@@ -2178,7 +2178,7 @@ h5 {
     width: 25%;
     height: auto;
     position: absolute;
-    top: 20%;
+    top: 27%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -2197,7 +2197,7 @@ h5 {
     padding: 10px 10px;
     width: 15%;
     font-size: 15px;
-    top: 55%; /* Ajuste este valor conforme necessário para a posição vertical */
+    top: 52%; /* Ajuste este valor conforme necessário para a posição vertical */
     left: 50%; /* Posiciona o início do botão no meio */
     transform: translateX(-50%); /* Desloca o botão para trás pela metade de sua largura, centralizando-o */
     z-index: 10;
@@ -2212,16 +2212,16 @@ h5 {
 .txtSobreCarrossel {
     position: absolute;
     text-align: center;
- /*   padding: 10px 10px;*/
-    width: 15%;
+    padding-top: 15px;
+    width: 20%;
     font-size: 15px;
-    top: 60%; /* Ajuste este valor conforme necessário para a posição vertical */
+    top: 55%; /* Ajuste este valor conforme necessário para a posição vertical */
     left: 50%; /* Posiciona o início do botão no meio */
     transform: translateX(-50%); /* Desloca o botão para trás pela metade de sua largura, centralizando-o */
     z-index: 10;
     color: var(--standard2);
     border: none;
-    border-radius: 20px;
+ /*   border-radius: 20px;*/
     cursor: pointer;
 }
 
@@ -2249,6 +2249,7 @@ h5 {
         width: 30%;
         background-color: var(--secundaria);
         color: #ffffff;
+        border-radius: 15px;
     }
 }
 
@@ -2269,37 +2270,35 @@ h5 {
 }
 
 .p-texto {
-    font-size: 40px;
-    color:var(--secundaria);
+    font-size: 32px;
+    color:var(--primaria);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: 'League Spartan', sans-serif; /* Fonte moderna */
-
     padding: 10px; /* Espaçamento interno para separar o texto das bordas */
     border-radius: 10px; /* Bordas arredondadas para um visual moderno */
-
     /* Sombra no texto para melhorar a legibilidade */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 
     /* Animação */
-    animation: realcarTexto 3s infinite alternate;
+ /*   animation: realcarTexto 3s infinite alternate;*/
 }
 
 /* Keyframes para animação */
-@keyframes realcarTexto {
+/*@keyframes realcarTexto {
     0% { transform: scale(1); }
     100% { transform: scale(1.05); }
-}
+}*/
 
 
 
 @media screen and (max-width: 600px) {
     .texto-sobre-video {
-        top: 33%; /* Ajuste conforme necessário */
+        top: 34%; /* Ajuste conforme necessário */
         left: 50%; /* Ajuste conforme necessário */
         transform: translate(-50%, -50%); /* Centraliza o texto */
-        color: white; /* Cor do texto */
+        color: rgb(21, 21, 21); /* Cor do texto */
     }
     .p-texto {
         font-size: 25px;
