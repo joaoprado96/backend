@@ -8,6 +8,9 @@ const rateLimit = require('../middleware/rateLimit'); // Importando o rate limit
 // Rota para adicionar um novo usuario
 router.post('/register', rateLimit, userController.register);
 
+// Rota para adicionar um novo usuario
+router.post('/reset-password', rateLimit, userController.reset);
+
 // Nova rota para fazer loggin
 router.post('/login', rateLimit, userController.login);
 
