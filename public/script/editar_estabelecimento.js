@@ -92,6 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('descricao').value = data.descricao;
                 document.getElementById('rua').value = data.rua;
                 document.getElementById('cep').value = data.cep;
+                document.getElementById('telefone').value = data.telefone;
+                document.getElementById('email').value = data.email;
                 document.getElementById('cnpj').value = data.cnpj;
                 document.getElementById('cidade').value = data.cidade;
                 document.getElementById('bairro').value = data.bairro;
@@ -173,6 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 rua: document.getElementById('rua').value,
                 cep: document.getElementById('cep').value,
                 cnpj: document.getElementById('cnpj').value,
+                telefone: document.getElementById('telefone').value,
+                email: document.getElementById('email').value,
                 cidade: cidadeSelecionada,
                 regiao: regiaoSelecionada,
                 bairro: bairro,

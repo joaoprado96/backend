@@ -81,6 +81,8 @@ document.getElementById("cadastrar").addEventListener("click", function(event){
             rua: document.getElementById('rua').value,
             cep: document.getElementById('cep').value,
             cnpj: document.getElementById('cnpj').value,
+            telefone: document.getElementById('telefone').value,
+            email: document.getElementById('email').value,
             cidade: cidadeSelecionada,
             regiao: regiaoSelecionada,
             bairro: bairro,

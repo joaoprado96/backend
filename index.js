@@ -11,6 +11,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const connectDB = require('./config/db');
+const nodemailer = require('nodemailer');
 const lugaresRoutes = require('./routes/lugaresRoutes');
 const opcoesSairRoutes = require('./routes/opcoesSairRoutes');
 const fotosLugaresRoutes = require('./routes/fotosLugaresRoutes');
@@ -23,8 +24,6 @@ const sessionRoutes = require('./routes/sessionRoutes');
 
 const app = express();
 
-const nodemailer = require('nodemailer');
-
 let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -36,7 +35,6 @@ let transporter = nodemailer.createTransport({
 let mailOptions = {
   from: 'joaoprado225@gmail.com',
   to: 'joaoprado@outlook.com.br, contato@esquentasp.com.br, luanefern@gmail.com',
-  subject: 'Achei Ai - Atualização do Repositório',
   subject: '🚀 Achei Ai - Atualização do Repositório 🚀',
   html: `
     <html>
@@ -54,9 +52,7 @@ let mailOptions = {
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     console.log(error);
-  } else {
-    console.log('Email enviado: ' + info.response);
-  }
+  } 
 })
 
 // Conectar ao banco de dados

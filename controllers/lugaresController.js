@@ -3,7 +3,7 @@ const Lugar = require('../models/lugarModel');
 exports.adicionarLugar = async (req, res) => {
     const {
         nome, descricao, rua, cep, cnpj, cidade, bairro, regiao, entrada, latitude, longitude, linha_metro, estacao, estrelas,
-        avaliacao_clientes,   link_pagina, 
+        avaliacao_clientes,   link_pagina, telefone, email, 
         acessibilidade, musica, estacionamento,  kids, website, premio, estilo_musical,
         cozinha, local, preco, tipo_evento, hobby, ambiente, cartao,  nivel, link_cardapio, horarios_funcionamento, pet, estilo_servico,
         glutenfree, lactosefree
@@ -19,7 +19,7 @@ exports.adicionarLugar = async (req, res) => {
         // Cria um novo lugar se o id não existir
         const novoLugar = new Lugar({
             nome, descricao, rua, cep, cnpj, cidade, bairro, regiao, entrada, latitude, longitude, linha_metro, estacao, estrelas,
-            avaliacao_clientes,   link_pagina, 
+            avaliacao_clientes,   link_pagina, telefone, email, 
             acessibilidade, musica, estacionamento,  kids, website, premio, estilo_musical,
             cozinha, local, preco, tipo_evento, hobby, ambiente, cartao,  nivel, link_cardapio, horarios_funcionamento, pet, estilo_servico,
             glutenfree, lactosefree
@@ -94,6 +94,8 @@ exports.ataulizarLugarPorId = async (req, res) => {
         lugar.rua = req.body.rua || lugar.rua;
         lugar.cep = req.body.cep || lugar.cep;
         lugar.cnpj = req.body.cnpj || lugar.cnpj;
+        lugar.telefone = req.body.telefone || lugar.telefone;
+        lugar.email = req.body.email || lugar.email;
         lugar.cidade = req.body.cidade || lugar.cidade;
         lugar.bairro = req.body.bairro || lugar.bairro;
         lugar.regiao = req.body.regiao || lugar.regiao;

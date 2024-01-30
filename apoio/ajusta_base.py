@@ -37,23 +37,47 @@ colecao = db['lugars']  # Usando a coleção 'Lugar' conforme o seu esquema Mong
 # print("Modificações concluídas de remoção e Float.")
 
 # Dados de pausa padrão para inserir
-dados_pausa = {
-    "pausa1": "Sim",
-    "inicio1": "12:00",
-    "fim1": "13:00",
-    "pausa2": "Sim",
-    "inicio2": "17:00",
-    "fim2": "18:00"
-}
+# dados_pausa = {
+#     "pausa1": "Sim",
+#     "inicio1": "12:00",
+#     "fim1": "13:00",
+#     "pausa2": "Sim",
+#     "inicio2": "17:00",
+#     "fim2": "18:00"
+# }
 
-# Atualizando cada documento
+# # Atualizando cada documento
+# for documento in colecao.find():
+#     if "horarios_funcionamento" in documento:
+#         # Atualiza cada dia da semana com os dados de pausa
+#         for dia in documento["horarios_funcionamento"]:
+#             documento["horarios_funcionamento"][dia].update(dados_pausa)
+
+#         # Salva as alterações no banco de dados
+#         colecao.update_one({'_id': documento['_id']}, {'$set': {'horarios_funcionamento': documento["horarios_funcionamento"]}})
+
+
+# Dados para adicionar
+novo_telefone = '(19) 99999-9999'
+novo_email = 'precisadecadastri@email.com'
+
+# Atualizando cada documento, se necessário
 for documento in colecao.find():
-    if "horarios_funcionamento" in documento:
-        # Atualiza cada dia da semana com os dados de pausa
-        for dia in documento["horarios_funcionamento"]:
-            documento["horarios_funcionamento"][dia].update(dados_pausa)
+    atualizacoes = {}
 
-        # Salva as alterações no banco de dados
-        colecao.update_one({'_id': documento['_id']}, {'$set': {'horarios_funcionamento': documento["horarios_funcionamento"]}})
+    print(documento)
+
+    # Verifica se o campo telefone existe, senão, adiciona
+    if 'telefone' not in documento:
+        atualizacoes['telefone'] = novo_telefone
+
+    # Verifica se o campo email existe, senão, adiciona
+    if 'email' not in documento:
+        atualizacoes['email'] = novo_email
+
+    # Se existirem atualizações a serem feitas, faz a atualização
+    if atualizacoes:
+        colecao.update_one({'_id': documento['_id']}, {'$set': atualizacoes})
+
 
 print("Atualização dos horários de funcionamento concluída.")
