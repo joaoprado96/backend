@@ -345,24 +345,26 @@ function construirCarrosselTipoEvento() {
 
 function buscarImagemParaTipoEvento(tipo) {
     const imagensTipoEvento = {
-        "beber e dançar": "icons/beberedancar_1.png",
-        "primeiro encontro": "icons/primeiroencontro_1.png",
-        "conversar": "icons/conversar_1.png",
-        "lugar romântico": "icons/romantico_1.png",
-        "rolê de amigos": "icons/reuniao_1.png",
-        "encontro familiar": "icons/familiar_1.png",
-        "aniversário": "icons/aniversario_1.png",
-        "happy hour": "icons/happyhour_1.png",
-        "assistir jogos": "icons/jogos_1.png",
-        "casas noturnas": "icons/balada_1.png",
-        "experiência gastronômica": "icons/degustação_1.png",
-        "cabaré/boates": "icons/cabare_1.png",
-        "música ao vivo": "icons/musica_1.png",
-        "karaokês": "icons/karaoke_1.png",
-        "LGBTQIA+": "icons/lgbtqia_1.png",
-        "temáticos": "icons/tematico_1.png",
-        "sair sozinho/a": "icons/sairsozinha_1.png",
-        "rolê geek": "icons/geek_1.png"
+        "beber e dançar": "icons/beberedancar.png",
+        "primeiro encontro": "icons/primeiroencontro.png",
+        "conversar": "icons/conversar.png",
+        "lugar romântico": "icons/romantico.png",
+        "rolê de amigos": "icons/reuniao.png",
+        "encontro familiar": "icons/familiar.png",
+        "aniversário": "icons/aniversario.png",
+        "happy hour": "icons/happyhour.png",
+        "assistir jogos": "icons/jogos.png",
+        "casas noturnas": "icons/balada.png",
+        "experiência gastronômica": "icons/experiencia.png",
+        "cabaré/boates": "icons/cabare.png",
+        "música ao vivo": "icons/musica.png",
+        "karaokês": "icons/karaoke.png",
+        "LGBTQIA+": "icons/lgbtqia.png",
+        "temáticos": "icons/tematicos.png",
+        "sair sozinho/a": "icons/sairsozinha.png",
+        "rolê geek": "icons/geek.png",
+        "brunches": "icons/brunches-1.png",
+        "para crianças": "icons/kids.png"
     };
 
     return imagensTipoEvento[tipo] || "icons/icon-gluten.png";
