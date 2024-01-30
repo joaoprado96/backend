@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@800&display=swap');
+
 
 
 :root {
@@ -2191,7 +2193,9 @@ h5 {
 
 .botaoSobreCarrossel {
     position: absolute;
+    text-align: center;
     padding: 10px 10px;
+    width: 15%;
     font-size: 15px;
     top: 55%; /* Ajuste este valor conforme necessário para a posição vertical */
     left: 50%; /* Posiciona o início do botão no meio */
@@ -2205,11 +2209,46 @@ h5 {
     transition: background-color 0.3s;
 }
 
+.txtSobreCarrossel {
+    position: absolute;
+    text-align: center;
+ /*   padding: 10px 10px;*/
+    width: 15%;
+    font-size: 15px;
+    top: 60%; /* Ajuste este valor conforme necessário para a posição vertical */
+    left: 50%; /* Posiciona o início do botão no meio */
+    transform: translateX(-50%); /* Desloca o botão para trás pela metade de sua largura, centralizando-o */
+    z-index: 10;
+    color: var(--standard2);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.txtSobreCarrossel:hover {
+    color: var(--secundaria);
+    border-radius: 30px;
+    transition: all linear 160ms;
+    text-decoration: none;
+}
+
 @media screen and (max-width: 600px) {
     .botaoSobreCarrossel {
         top: 45%; /* Ajuste este valor conforme necessário para a posição vertical */
+        font-size: 1px;
+        padding: 5px 5px;
+        background-color: #ffffff00;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .txtSobreCarrossel {
+        top: 45%; /* Ajuste este valor conforme necessário para a posição vertical */
         font-size: 10px;
         padding: 5px 5px;
+        width: 30%;
+        background-color: var(--secundaria);
+        color: #ffffff;
     }
 }
 
@@ -2231,13 +2270,12 @@ h5 {
 
 .p-texto {
     font-size: 40px;
-    color:var(--branco);
+    color:var(--secundaria);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-family: 'Roboto', sans-serif; /* Fonte moderna */
+    font-family: 'League Spartan', sans-serif; /* Fonte moderna */
 
-    background-color: rgba(61, 0, 66, 0.4); /* Ajuste a transparência conforme necessário */
     padding: 10px; /* Espaçamento interno para separar o texto das bordas */
     border-radius: 10px; /* Bordas arredondadas para um visual moderno */
 
@@ -2264,7 +2302,7 @@ h5 {
         color: white; /* Cor do texto */
     }
     .p-texto {
-        font-size: 18px;
+        font-size: 25px;
     }
     
 
