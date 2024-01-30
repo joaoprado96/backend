@@ -1,6 +1,8 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/usuarioModel'); // Substitua pelo caminho correto do modelo User
+const emailController = require('../controllers/emailController'); // Importe o controlador de e-mail
+const crypto = require('crypto');
 
 const login = async (req, res) => {
     const { username, password } = req.body;
@@ -44,7 +46,10 @@ const login = async (req, res) => {
   };
 
   const register = async (req, res) => {
-    const { username, email, password, nome, tipoUsuario, cpf, cnpj } = req.body;
+    const { username, email, nome, tipoUsuario, cpf, cnpj } = req.body;
+
+    // Gere uma senha aleatória
+     const password = crypto.randomBytes(12).toString('hex');
   
     // Lista expandida de campos opcionais
     const camposOpcionais = [
@@ -84,6 +89,18 @@ const login = async (req, res) => {
       // Criação do novo usuário
       const newUser = new User(dadosUsuario);
       await newUser.save();
+      
+    // Dados a serem passados no corpo da solicitação para a função sendEmail
+    const emailData = {
+      email: email, // Email do usuário recém-registrado
+      nome: nome, // Nome do usuário recém-registrado
+      senha:password,
+      usuario: username
+    };
+
+    // Envie um e-mail de boas-vindas após o registro
+    await emailController.sendEmail(emailData);
+
   
       // Responder com sucesso
       res.status(201).send('Usuário registrado com sucesso');
