@@ -123,7 +123,7 @@ body {
     width: 100%;
     padding: 15px 60px;
     background: var(--branco);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
@@ -946,7 +946,7 @@ select:focus {
     padding: 10px;
     width: 100%;
     max-width: 850px;
-    /* Largura máxima para dispositivos maiores */
+    text-align: justify;
     margin: auto;
 }
 
@@ -1073,6 +1073,7 @@ select:focus {
     margin-top: var(--navbar-height);
     background-color: var(--branco);
     border-radius: 2px;
+    text-align: justify;
 }
 
 .container2 {
@@ -1081,6 +1082,7 @@ select:focus {
     margin: 0px 0px;
     padding: 2px 20px;
     border-radius: 4px;
+    text-align: justify;
 }
 
 .container-quem-somos {
@@ -1094,7 +1096,7 @@ select:focus {
 
 /* Estilo base */
 .container-side {
-    width: 90%;
+    width: 80%;
     border-radius: 20px;
     display: flex;
     margin-top: var(--navbar-height);

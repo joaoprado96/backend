@@ -30,6 +30,7 @@ const filtrosGlobais = [
 
 document.addEventListener('DOMContentLoaded', function() {
     criarNavbar();
+    criarNavbarInferior();
     ObterDiaSemana();
     loadEstabelecimentos(1); // Carregar a primeira página
     inicalizarMenuLateral();

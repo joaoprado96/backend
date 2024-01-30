@@ -135,4 +135,3 @@ async function getSessionId() {
   
     return sessionId || null;
   }
-  
