@@ -24,6 +24,8 @@ function criarNavbar() {
         <div class="user-icon-container">
             <img src="icons/icon-usuario.png" alt="Usuário" class="user-icon">
             <div class="user-submenu">
+                <a href="/login">Login</a>
+                <a href="/usuario">Usuário</a>
                 <a href="/cadastro">Cadastrar</a>
                 <a href="/editar_estabelecimento">Atualizar</a>
                 <a href="/fotos">Fotos</a>

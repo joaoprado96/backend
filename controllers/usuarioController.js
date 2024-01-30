@@ -141,10 +141,42 @@ const login = async (req, res) => {
     }
 };
 
+
+// Função para redefinir a senha
+const reset = async (req, res) => {
+  const { email, username } = req.body;
+
+  try {
+    // Verifique se o usuário existe
+    const user = await User.findOne({ email, username });
+
+    if (!user) {
+      return res.status(404).send('Usuário não encontrado.');
+    }
+
+    // Gere uma nova senha aleatória
+    const newPassword = crypto.randomBytes(12).toString('hex');
+
+    // Atualize a senha do usuário no banco de dados
+    user.password = await bcrypt.hash(newPassword, 8);
+    await user.save();
+
+    // Envie a nova senha por email
+    await emailController.resetPassword(email, user.nome, newPassword);
+
+    // Responder com sucesso
+    res.status(200).send('Senha redefinida com sucesso. Verifique seu e-mail para a nova senha.');
+  } catch (error) {
+    // Responder com o erro
+    res.status(500).send(error);
+  }
+};
+
   
   module.exports = {
     login, 
     register,
     getUserProfile,
-    updateUserProfile
+    updateUserProfile,
+    reset
   };

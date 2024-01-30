@@ -18,6 +18,9 @@
     <div id="notificationPopupSucesso" class="notification-popup-sucesso" style="display: none;">
         <p>Bem vindo ao AcheAi!, seu login foi um sucesso você será redirecionado...</p>
     </div>
+    <div id="notificationPopupSucessoRedefine" class="notification-popup-sucesso" style="display: none;">
+        <p>Bem vindo ao AcheAi!, sua redefinição foi um sucesso, por favor faça login ...</p>
+    </div>
     <div id="notificationPopupFalha" class="notification-popup" style="display: none;">
         <p>Parece que tem algo errado, tente novamente...</p>
     </div>
@@ -31,10 +34,23 @@
             <input id= "username" type="text" placeholder="Digite seu usuário" autofocus="true" />
             <label for="password">Senha</label>
             <input id="password" type="password" placeholder="Digite sua senha" />
+            <a href="#" id="resetPasswordLink">Esqueci minha senha</a>
             <a href="/usuario">Quero me cadastrar</a>
             <input type="submit" value="Acessar" class="btn"/>
         </form>
     </div>
+    <div id="resetPasswordModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <h3>Redefinir Senha</h3>
+          <p>Por favor, insira seu usuário e o seu e-mail.</p>
+          <div class="formulario-cadastro">
+            <input type="text" id="resetUsername" placeholder="Nome de Usuário">
+            <input type="text" id="resetEmail" placeholder="Digite seu e-mail">
+            <button id="resetPasswordButton">Enviar</button>
+        </div>
+        </div>
+      </div>      
     <script src="script/login.js"></script>
     <script src="script/navbar.js"></script>
     <script src="script/func_img.js"></script>

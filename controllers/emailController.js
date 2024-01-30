@@ -42,4 +42,42 @@ emailController.sendEmail = async (emailData) => {
   }
 };
 
+// Função para enviar a nova senha por email
+emailController.resetPassword = async (email, nome, newPassword) => {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'joaoprado225@gmail.com',
+        pass: 'xlqc mosj vpkn tbww' // Substitua pela sua senha real
+      }
+    });
+  
+    const mailOptions = {
+      from: 'joaoprado225@gmail.com',
+      to: email,
+      subject: '🔑 Redefinição de Senha - Achei Ai 🔑',
+      html: `
+        <html>
+          <body>
+            <h1>Olá ${nome}!</h1>
+            <p>Sua senha foi redefinida com sucesso. Sua nova senha é:</p>
+            <h2>${newPassword}</h2>
+            <p>Lembre-se de que esta senha pode ser trocada a qualquer momento através do nosso site.</p>
+            <p>Aproveite a plataforma e continue explorando!</p>
+            <p>Atenciosamente,</p>
+            <p>Equipe do Achei Ai</p>
+          </body>
+        </html>
+      `
+    };
+  
+    try {
+      const info = await transporter.sendMail(mailOptions);
+      return info;
+    } catch (error) {
+      throw error;
+    }
+  };
+  
+
 module.exports = emailController;
