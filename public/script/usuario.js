@@ -13,7 +13,6 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
 
   var userData = {
     username: document.getElementById('username').value,
-    password: document.getElementById('password').value,
     nome: document.getElementById('nome').value,
     email: document.getElementById('email').value,
     tipoUsuario: document.getElementById('tipoUsuario').value, // Campo obrigatório

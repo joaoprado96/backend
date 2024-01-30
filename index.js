@@ -28,28 +28,39 @@ const nodemailer = require('nodemailer');
 let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'joao@pradoautomacao.com',
-    pass: 'Eletrica16!'
+    user: 'joaoprado225@gmail.com',
+    pass: 'xlqc mosj vpkn tbww'
   }
 });
 
 let mailOptions = {
-  from: 'joao@pradoautomacao.com',
-  to: 'joaoprado@outlook.com.br',
-  subject: 'Assunto do E-mail',
-  text: 'Corpo do e-mail aqui.'
+  from: 'joaoprado225@gmail.com',
+  to: 'joaoprado@outlook.com.br, contato@esquentasp.com.br, luanefern@gmail.com',
+  subject: 'Achei Ai - Atualização do Repositório',
+  subject: '🚀 Achei Ai - Atualização do Repositório 🚀',
+  html: `
+    <html>
+      <body>
+        <h1>Olá pessoal!</h1>
+        <p>Temos ótimas notícias para vocês! O nosso repositório foi atualizado e está cheio de novidades incríveis.</p>
+        <p>🔥 Acesse a plataforma agora mesmo e confira as últimas atualizações! 🔥</p>
+        <p>Esperamos que você aproveite as melhorias que fizemos.</p>
+        <p>Atenciosamente,</p>
+        <p>Equipe do Achei Ai</p>
+      </body>
+    </html>
+  `
 };
-
-// Conectar ao banco de dados
-connectDB();
-
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     console.log(error);
   } else {
     console.log('Email enviado: ' + info.response);
   }
-});
+})
+
+// Conectar ao banco de dados
+connectDB();
 
 // Middleware para parsear o corpo das requisições JSON
 app.use(express.json());
