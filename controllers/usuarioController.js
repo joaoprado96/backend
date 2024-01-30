@@ -49,7 +49,7 @@ const login = async (req, res) => {
     const { username, email, nome, tipoUsuario, cpf, cnpj } = req.body;
 
     // Gere uma senha aleatória
-     const password = crypto.randomBytes(12).toString('hex');
+     const password = crypto.randomBytes(6).toString('hex');
   
     // Lista expandida de campos opcionais
     const camposOpcionais = [
@@ -155,7 +155,7 @@ const reset = async (req, res) => {
     }
 
     // Gere uma nova senha aleatória
-    const newPassword = crypto.randomBytes(12).toString('hex');
+    const newPassword = crypto.randomBytes(6).toString('hex');
 
     // Atualize a senha do usuário no banco de dados
     user.password = await bcrypt.hash(newPassword, 8);
