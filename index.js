@@ -24,36 +24,36 @@ const sessionRoutes = require('./routes/sessionRoutes');
 
 const app = express();
 
-let transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'joaoprado225@gmail.com',
-    pass: 'xlqc mosj vpkn tbww'
-  }
-});
+// let transporter = nodemailer.createTransport({
+//  service: 'gmail',
+//  auth: {
+//    user: 'joaoprado225@gmail.com',
+//    pass: 'xlqc mosj vpkn tbww'
+//  }
+//});
 
-let mailOptions = {
-  from: 'joaoprado225@gmail.com',
-  to: 'joaoprado@outlook.com.br, contato@esquentasp.com.br, luanefern@gmail.com',
-  subject: '🚀 Achei Ai - Atualização do Repositório 🚀',
-  html: `
-    <html>
-      <body>
-        <h1>Olá pessoal!</h1>
-        <p>Temos ótimas notícias para vocês! O nosso repositório foi atualizado e está cheio de novidades incríveis.</p>
-        <p>🔥 Acesse a plataforma agora mesmo e confira as últimas atualizações! 🔥</p>
-        <p>Esperamos que você aproveite as melhorias que fizemos.</p>
-        <p>Atenciosamente,</p>
-        <p>Equipe do Achei Ai</p>
-      </body>
-    </html>
-  `
-};
-transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log(error);
-  } 
-})
+// let mailOptions = {
+//   from: 'joaoprado225@gmail.com',
+//  to: 'joaoprado@outlook.com.br, contato@esquentasp.com.br, luanefern@gmail.com',
+//  subject: '🚀 Achei Ai - Atualização do Repositório 🚀',
+//  html: `
+//    <html>
+//      <body>
+//        <h1>Olá pessoal!</h1>
+//        <p>Temos ótimas notícias para vocês! O nosso repositório foi atualizado e está cheio de novidades incríveis.</p>
+//        <p>🔥 Acesse a plataforma agora mesmo e confira as últimas atualizações! 🔥</p>
+//        <p>Esperamos que você aproveite as melhorias que fizemos.</p>
+//        <p>Atenciosamente,</p>
+//        <p>Equipe do Achei Ai</p>
+//      </body>
+//    </html>
+//  `
+//};
+// transporter.sendMail(mailOptions, function(error, info){
+//  if (error) {
+//    console.log(error);
+//  } 
+// })
 
 // Conectar ao banco de dados
 connectDB();
