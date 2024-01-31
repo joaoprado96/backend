@@ -10,6 +10,7 @@ process.env.JWT_SECRET_KEY = crypto.randomBytes(256).toString('hex');
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const cors = require('cors');
 const connectDB = require('./config/db');
 const nodemailer = require('nodemailer');
 const lugaresRoutes = require('./routes/lugaresRoutes');
@@ -23,6 +24,8 @@ const acessoRoutes = require('./routes/acessoRoutes');
 const sessionRoutes = require('./routes/sessionRoutes');
 
 const app = express();
+
+app.use(cors());
 
 // let transporter = nodemailer.createTransport({
 //  service: 'gmail',

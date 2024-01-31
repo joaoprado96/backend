@@ -1,6 +1,4 @@
 function criarNavbar() {
-  
-    getSessionId();
     var navbarHTML = `
     <nav class="nav">
         <i class="uil uil-bars navOpenBtn"></i>
@@ -34,8 +32,7 @@ function criarNavbar() {
         </div>
     </nav>
     `;
-    // <i class="uil uil-search search-icon" id="searchIcon"></i>
-    // Adiciona o navbar ao documento
+
     document.body.insertAdjacentHTML('afterbegin', navbarHTML);
 
     // Agora, inicialize os event listeners do navbar
@@ -44,14 +41,6 @@ function criarNavbar() {
         navOpenBtn = document.querySelector(".navOpenBtn"),
         navCloseBtn = document.querySelector(".navCloseBtn");
 
-    // searchIcon.addEventListener("click", () => {
-    //     nav.classList.toggle("openSearch");
-    //     nav.classList.remove("openNav");
-    //     if (nav.classList.contains("openSearch")) {
-    //         return searchIcon.classList.replace("uil-search", "uil-times");
-    //     }
-    //     searchIcon.classList.replace("uil-times", "uil-search");
-    // });
 
     navOpenBtn.addEventListener("click", () => {
         nav.classList.add("openNav");
